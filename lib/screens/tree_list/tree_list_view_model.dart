@@ -13,11 +13,6 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @observable
   ObservableList<Tree> trees = ObservableList();
 
-  void fetch() async {
-    List<Tree> newTrees = await useCase.fetch(startRow: 0, nbRows: 50);
-    trees.addAll(newTrees);
-  }
-
   @override
   void init() {
     fetch();
@@ -25,4 +20,9 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @override
   void dispose() {}
+
+  void fetch() async {
+    List<Tree> newTrees = await useCase.fetch(startRow: 0, nbRows: 50);
+    trees.addAll(newTrees);
+  }
 }
