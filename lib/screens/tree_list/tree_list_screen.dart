@@ -25,8 +25,14 @@ class _TreeListScreenState extends State<TreeListScreen> {
 
   @override
   void initState() {
-    viewModel.process();
     super.initState();
+    viewModel.init();
+  }
+
+  @override
+  void dispose() {
+    viewModel.dispose();
+    super.dispose();
   }
 
   @override
