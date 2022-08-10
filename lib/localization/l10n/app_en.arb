@@ -1,0 +1,34 @@
+{
+    "appTitle": "Clean Tree App",
+    "@appTitle": {
+      "description": "Title of the application"
+    },
+    "homeTabBarTitle": "Home",
+    "@homeTabBarTitle": {
+      "description": "Title of the Tab Bar Item reprensenting the Home screen (i.e. the list of trees)"
+    },
+    "bmiTabBarTitle": "BMI",
+    "@bmiTabBarTitle": {
+      "description": "Title of the Tab Bar Item reprensenting the BMI screen"
+    },
+    "bmiDrawerTitle": "BMI Calculator",
+    "@bmiDrawerTitle": {
+      "description": "Title of the Drawer Item reprensenting the BMI screen"
+    },
+    "titleTreeListPage": "Trees",
+    "@titleTreeListPage": {
+      "description": "Title of the tree list page"
+    },
+    "treeWithoutName": "Tree without name",
+    "@treeWithoutName": {
+      "description": "Text representing a tree without a name from the api"
+    },
+    "species": "Species",
+    "@species": {
+      "description": "Text representing the species of a tree"
+    },
+    "speciesNotSpecified": "Not specified",
+    "@speciesNotSpecified": {
+      "description": "Text when the species of a tree isn't specified"
+    }
+}

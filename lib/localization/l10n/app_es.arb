@@ -1,0 +1,10 @@
+{
+    "appTitle": "Clean Tree App",
+    "titleTreeListPage": "Árboles",
+    "homeTabBarTitle": "Inicio",
+    "bmiTabBarTitle": "IMC",
+    "bmiDrawerTitle": "Calculadora de IMC",
+    "treeWithoutName": "Árbol sin nombre",
+    "species": "Especie",
+    "speciesNotSpecified": "No especificadas"
+}
