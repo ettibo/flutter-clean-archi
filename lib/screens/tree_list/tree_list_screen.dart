@@ -8,6 +8,8 @@ import 'package:globo_fitness/shared/menu_drawer.dart';
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 
+import 'package:globo_fitness/localization/app_localization_context.dart';
+
 class TreeListScreen extends StatefulWidget {
   const TreeListScreen({Key? key}) : super(key: key);
 
@@ -34,7 +36,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Globo Fitness')),
+      appBar: AppBar(title: Text(context.localized.appTitle)),
       drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: Observer(builder: observerBuilder),
@@ -54,16 +56,15 @@ class _TreeListScreenState extends State<TreeListScreen> {
     return ListTile(
       textColor: Colors.black,
       key: Key(tree.id.toString()),
-      title: Text(tree.name ?? ""),
+      title: Text(tree.name ?? context.localized.treeWithoutName),
       subtitle: getSubtitle(tree.species, index),
       trailing: const Icon(Icons.arrow_right_outlined),
       // onTap: () => goToDetailTree(context, tree),
     );
   }
 
-  Text getSubtitle(String? subtitle, int index) => Text(subtitle != null
-      ? 'Species : $subtitle'.toTitleCase()
-      : 'Species Not Speficied');
+  Text getSubtitle(String? subtitle, int index) => Text(
+      '${context.localized.species} : ${subtitle != null ? subtitle.toTitleCase() : context.localized.speciesNotSpecified}');
 
   Padding separatorBuilder(BuildContext context, int index) => const Padding(
         padding: EdgeInsets.all(10.0),
