@@ -5,7 +5,6 @@ import 'package:api/models/app/tree/tree.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
-import 'package:globo_fitness/extensions/string_casing.dart';
 
 import 'package:globo_fitness/localization/app_localization_context.dart';
 
@@ -59,15 +58,12 @@ class _TreeListScreenState extends State<TreeListScreen> {
     return ListTile(
       textColor: Colors.black,
       key: Key(tree.id.toString()),
-      title: Text(tree.name ?? context.localized.treeWithoutName),
-      subtitle: getSubtitle(tree.species, index),
+      title: viewModel.getTitle(context, tree.name),
+      subtitle: viewModel.getSubtitle(context, tree.species, index),
       trailing: const Icon(Icons.arrow_right_outlined),
       onTap: () => goToDetailTree(context, tree),
     );
   }
-
-  Text getSubtitle(String? subtitle, int index) => Text(
-      '${context.localized.species} : ${subtitle != null ? subtitle.toTitleCase() : context.localized.speciesNotSpecified}');
 
   Padding separatorBuilder(BuildContext context, int index) => const Padding(
         padding: EdgeInsets.all(10.0),
