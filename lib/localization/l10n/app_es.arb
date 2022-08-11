@@ -12,5 +12,7 @@
     "circumference": "Circunferencia",
     "address": "Dirección",
     "titleLabel": "{title}: {value}",
-    "valueWithUnit": "{value} {unit}"
+    "valueWithUnit": "{value} {unit}",
+    "metreUnit": "m",
+    "centimetreUnit": "cm"
 }

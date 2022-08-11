@@ -62,5 +62,14 @@
         "value": {},
         "unit": {}
       }
+    },
+    "meterUnit": "m",
+    "@meterUnit": {
+      "description": "Text representing a meter"
+    },
+    "centimeterUnit": "cm",
+    "@centimeterUnit": {
+      "description": "Text representing a centimeter"
     }
+    
 }
