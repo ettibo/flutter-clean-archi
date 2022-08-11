@@ -21,6 +21,9 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @observable
   bool isLoadingTrees = false;
 
+  @observable
+  bool isRefreshing = false;
+
   @override
   void init() {
     fetch();
@@ -29,10 +32,17 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @override
   void dispose() {}
 
+  @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
     List<Tree> newTrees =
         await useCase.fetch(startRow: startRow, nbRows: nbRows);
     trees.addAll(newTrees);
+  }
+
+  @action
+  Future<void> onListRefresh() async {
+    trees.clear();
+    fetch();
   }
 
   //UI Methods
