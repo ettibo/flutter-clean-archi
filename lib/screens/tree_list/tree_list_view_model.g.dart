@@ -25,10 +25,27 @@ mixin _$TreeListViewModel on TreeListViewModelBase, Store {
     });
   }
 
+  late final _$isLoadingTreesAtom =
+      Atom(name: 'TreeListViewModelBase.isLoadingTrees', context: context);
+
+  @override
+  bool get isLoadingTrees {
+    _$isLoadingTreesAtom.reportRead();
+    return super.isLoadingTrees;
+  }
+
+  @override
+  set isLoadingTrees(bool value) {
+    _$isLoadingTreesAtom.reportWrite(value, super.isLoadingTrees, () {
+      super.isLoadingTrees = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-trees: ${trees}
+trees: ${trees},
+isLoadingTrees: ${isLoadingTrees}
     ''';
   }
 }
