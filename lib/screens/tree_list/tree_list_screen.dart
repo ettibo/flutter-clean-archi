@@ -47,11 +47,29 @@ class _TreeListScreenState extends State<TreeListScreen> {
 
   Widget observerBuilder(BuildContext context) => viewModel.trees.isEmpty
       ? getActivityIndicator()
-      : ListView.separated(
-          itemCount: viewModel.trees.length,
-          itemBuilder: itemBuilder,
-          separatorBuilder: separatorBuilder,
-          shrinkWrap: true);
+      : Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: NotificationListener<ScrollNotification>(
+                  onNotification: viewModel.handleScroll,
+                  child: separatedListView()),
+            ),
+            viewModel.isLoadingTrees
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: getActivityIndicator(),
+                  )
+                : Container()
+          ],
+        );
+
+  ListView separatedListView() => ListView.separated(
+        itemCount: viewModel.trees.length,
+        itemBuilder: itemBuilder,
+        separatorBuilder: separatorBuilder,
+        shrinkWrap: true,
+      );
 
   Widget itemBuilder(BuildContext context, int index) {
     final Tree tree = viewModel.trees[index];
