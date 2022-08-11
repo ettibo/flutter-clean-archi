@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:globo_fitness/screens/home/home_screen.dart';
 import 'injection/app_injection.dart';
 import 'package:globo_fitness/models/navigation_object.dart';
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
@@ -15,35 +16,22 @@ void main() {
 class GlobeApp extends StatelessWidget {
   const GlobeApp({Key? key}) : super(key: key);
 
-  static final List<NavigationObject> navigationList = [
-    NavigationObject(
-        title: 'Home',
-        route: '/',
-        icon: Icons.home,
-        screen: const TreeListScreen()),
-    NavigationObject(
-        title: 'BMI',
-        route: '/bmi',
-        icon: Icons.monitor_weight,
-        screen: const BmiScreen())
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        onGenerateTitle: (context) => context.localized.appTitle,
-        theme: ThemeData(primarySwatch: Colors.blueGrey),
-        supportedLocales: AppLocalizations.supportedLocales,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        routes: _generateNavigation(context),
-        initialRoute: '/');
+      onGenerateTitle: (context) => context.localized.appTitle,
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      home: const HomeScreen(),
+    );
   }
 
-  Map<String, WidgetBuilder> _generateNavigation(BuildContext context) {
-    Map<String, WidgetBuilder> map = <String, WidgetBuilder>{};
-    for (var item in navigationList) {
-      map[item.route] = ((context) => item.screen);
-    }
-    return map;
-  }
+  // Map<String, WidgetBuilder> _generateNavigation(BuildContext context) {
+  //   Map<String, WidgetBuilder> map = <String, WidgetBuilder>{};
+  //   for (var item in navigationList) {
+  //     map[item.route] = ((context) => item.screen);
+  //   }
+  //   return map;
+  // }
 }
