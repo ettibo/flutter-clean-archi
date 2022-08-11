@@ -13,6 +13,6 @@
     "address": "Dirección",
     "titleLabel": "{title}: {value}",
     "valueWithUnit": "{value} {unit}",
-    "metreUnit": "m",
-    "centimetreUnit": "cm"
+    "meterUnit": "m",
+    "centimeterUnit": "cm"
 }

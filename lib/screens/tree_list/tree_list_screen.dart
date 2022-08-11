@@ -50,6 +50,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
       : Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(viewModel.trees.length.toString()),
             Expanded(
               child: NotificationListener<ScrollNotification>(
                   onNotification: viewModel.handleScroll,
