@@ -1,10 +1,16 @@
 {
     "appTitle": "Clean Tree App",
     "titleTreeListPage": "Arbres",
+    "titledetailTreePage": "Detail Arbre",
     "homeTabBarTitle": "Accueil",
     "bmiTabBarTitle": "IMC",
     "bmiDrawerTitle": "BMI Calculateur d'IMC",
     "treeWithoutName": "Arbre sans nom",
     "species": "Espèce",
-    "speciesNotSpecified": "Non spécifiée"
+    "speciesNotSpecified": "Non spécifiée",
+    "height": "Hauteur",
+    "circumference": "Circonférence",
+    "address": "Adresse",
+    "titleLabel": "{title} : {value}",
+    "valueWithUnit": "{value} {unit}"
 }

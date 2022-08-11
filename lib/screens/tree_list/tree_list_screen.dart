@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
+import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 import 'package:globo_fitness/shared/menu_bottom.dart';
 import 'package:globo_fitness/shared/menu_drawer.dart';
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
@@ -33,6 +34,12 @@ class _TreeListScreenState extends State<TreeListScreen> {
     super.dispose();
   }
 
+  void goToDetailTree(BuildContext context, Tree tree) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => TreeDetailScreen(tree: tree),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +66,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
       title: Text(tree.name ?? context.localized.treeWithoutName),
       subtitle: getSubtitle(tree.species, index),
       trailing: const Icon(Icons.arrow_right_outlined),
-      // onTap: () => goToDetailTree(context, tree),
+      onTap: () => goToDetailTree(context, tree),
     );
   }
 
