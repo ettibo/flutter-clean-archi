@@ -41,11 +41,45 @@ mixin _$TreeListViewModel on TreeListViewModelBase, Store {
     });
   }
 
+  late final _$isRefreshingAtom =
+      Atom(name: 'TreeListViewModelBase.isRefreshing', context: context);
+
+  @override
+  bool get isRefreshing {
+    _$isRefreshingAtom.reportRead();
+    return super.isRefreshing;
+  }
+
+  @override
+  set isRefreshing(bool value) {
+    _$isRefreshingAtom.reportWrite(value, super.isRefreshing, () {
+      super.isRefreshing = value;
+    });
+  }
+
+  late final _$fetchAsyncAction =
+      AsyncAction('TreeListViewModelBase.fetch', context: context);
+
+  @override
+  Future<void> fetch({int startRow = 0, dynamic nbRows = 20}) {
+    return _$fetchAsyncAction
+        .run(() => super.fetch(startRow: startRow, nbRows: nbRows));
+  }
+
+  late final _$onListRefreshAsyncAction =
+      AsyncAction('TreeListViewModelBase.onListRefresh', context: context);
+
+  @override
+  Future<void> onListRefresh() {
+    return _$onListRefreshAsyncAction.run(() => super.onListRefresh());
+  }
+
   @override
   String toString() {
     return '''
 trees: ${trees},
-isLoadingTrees: ${isLoadingTrees}
+isLoadingTrees: ${isLoadingTrees},
+isRefreshing: ${isRefreshing}
     ''';
   }
 }
