@@ -19,6 +19,10 @@
     "@titleTreeListPage": {
       "description": "Title of the tree list page"
     },
+    "titledetailTreePage": "Tree Detail",
+    "@titledetailTreePage": {
+      "description": "Default Title of the detail page of a tree"
+    },
     "treeWithoutName": "Tree without name",
     "@treeWithoutName": {
       "description": "Text representing a tree without a name from the api"
@@ -30,5 +34,33 @@
     "speciesNotSpecified": "Not specified",
     "@speciesNotSpecified": {
       "description": "Text when the species of a tree isn't specified"
+    },
+    "height": "Height",
+    "@height": {
+      "description": "Text representing the height of a tree"
+    },
+    "circumference": "Circumference",
+    "@circumference": {
+      "description": "Text representing the circumference of a tree"
+    },
+    "address": "Address",
+    "@address": {
+      "description": "Text representing the address of a tree"
+    },
+    "titleLabel": "{title}: {value}",
+    "@titleLabel": {
+      "description": "Text representing a title with its value",
+      "placeholders": {
+        "title": {},
+        "value": {}
+      }
+    },
+    "valueWithUnit": "{value} {unit}",
+    "@valueWithUnit": {
+      "description": "Text representing a value with its unit",
+      "placeholders": {
+        "value": {},
+        "unit": {}
+      }
     }
 }
