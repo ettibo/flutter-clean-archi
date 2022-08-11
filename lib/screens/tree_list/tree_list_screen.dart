@@ -4,8 +4,6 @@ import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
-import 'package:globo_fitness/shared/menu_bottom.dart';
-import 'package:globo_fitness/shared/menu_drawer.dart';
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 
@@ -44,8 +42,6 @@ class _TreeListScreenState extends State<TreeListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(context.localized.appTitle)),
-      drawer: const MenuDrawer(),
-      bottomNavigationBar: const MenuBottom(),
       body: Observer(builder: observerBuilder),
     );
   }
