@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:api/models/app/tree/tree.dart';
 
-import 'package:globo_fitness/shared/app_bar.dart';
+import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
 
 import 'package:globo_fitness/screens/tree_detail/tree_info.dart';
@@ -15,13 +15,13 @@ class TreeDetailScreen extends StatefulWidget {
 }
 
 class _TreeDetailScreenState extends State<TreeDetailScreen> {
-  AppBar materialAppBar(BuildContext context) => appBar(
-      title: Text(widget.tree.name ?? context.localized.treeWithoutName));
+  AppBar appBar(BuildContext context) => materialAppBar(
+      title: widget.tree.name ?? context.localized.titledetailTreePage);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: materialAppBar(context),
+      appBar: appBar(context),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
