@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
+
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
+
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
+import 'package:globo_fitness/shared/material_app_bar.dart';
+import 'package:globo_fitness/shared/separator.dart';
 
 import 'package:globo_fitness/localization/app_localization_context.dart';
 
@@ -38,10 +42,15 @@ class _TreeListScreenState extends State<TreeListScreen> {
     ));
   }
 
+  IconButton settingsIcon() => IconButton(
+      onPressed: () => viewModel.goToSettings(context),
+      icon: const Icon(Icons.settings));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.localized.appTitle)),
+      appBar: materialAppBar(
+          title: context.localized.appTitle, trailingWidgets: [settingsIcon()]),
       body: Observer(builder: observerBuilder),
     );
   }
@@ -72,7 +81,8 @@ class _TreeListScreenState extends State<TreeListScreen> {
   ListView separatedListView() => ListView.separated(
         itemCount: viewModel.trees.length,
         itemBuilder: itemBuilder,
-        separatorBuilder: separatorBuilder,
+        separatorBuilder: (context, index) =>
+            separatorBuilder(context: context, index: index),
         shrinkWrap: true,
       );
 
@@ -84,15 +94,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
       trailing: const Icon(Icons.arrow_right_outlined),
-      onTap: () => goToDetailTree(context, tree),
+      onTap: () => viewModel.goToDetailTree(context, tree),
     );
   }
-
-  Padding separatorBuilder(BuildContext context, int index) => const Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Divider(
-          color: Colors.grey,
-          indent: 10,
-        ),
-      );
 }

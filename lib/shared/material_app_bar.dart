@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-AppBar appBar(
+AppBar materialAppBar(
         {Widget? leading,
-        Widget? title,
+        String? title,
+        List<Widget>? trailingWidgets,
         bool centerTitle = true,
         Color? backgroundColor}) =>
     AppBar(
       centerTitle: centerTitle,
       backgroundColor: backgroundColor,
       leading: leading,
-      title: title,
+      title: Text(title ?? "Title"),
+      actions: trailingWidgets,
     );
