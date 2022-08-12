@@ -28,9 +28,12 @@ class LocalTreeDataSourceImpl implements LocalTreeDataSource {
     return localStorage.addOrUpdateItems(localList);
   }
 
+  @override
+  int clear() => localStorage.clear<LocalTree>();
+
   LocalTree _fromTreeToLocalTree(Tree tree) {
     LocalTree localTree = LocalTree();
-    localTree.readlId = tree.id;
+    localTree.id = tree.id;
     localTree.name = tree.name;
     localTree.address = tree.address;
     localTree.address2 = tree.address2;

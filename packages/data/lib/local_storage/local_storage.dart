@@ -5,4 +5,5 @@ abstract class LocalStorage {
   void removeItems<T>(List<T> items);
   T? getItem<T>(int id);
   List<T> getItems<T>();
+  int clear<T>();
 }

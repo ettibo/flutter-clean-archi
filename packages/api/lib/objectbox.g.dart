@@ -28,7 +28,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(1, 596397980775022984),
             name: 'id',
             type: 6,
-            flags: 1),
+            flags: 129),
         ModelProperty(
             id: const IdUid(2, 3646741077717461391),
             name: 'name',
@@ -57,11 +57,6 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(7, 9093165262021395799),
             name: 'circumference',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 7271446348558300706),
-            name: 'readlId',
             type: 6,
             flags: 0)
       ],
@@ -95,7 +90,7 @@ ModelDefinition getObjectBoxModel() {
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [7271446348558300706],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -128,7 +123,6 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(4, speciesOffset);
           fbb.addInt64(5, object.height);
           fbb.addInt64(6, object.circumference);
-          fbb.addInt64(7, object.readlId);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -149,10 +143,8 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 12)
             ..height =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14)
-            ..circumference =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16)
-            ..readlId = const fb.Int64Reader()
-                .vTableGetNullable(buffer, rootOffset, 18);
+            ..circumference = const fb.Int64Reader()
+                .vTableGetNullable(buffer, rootOffset, 16);
 
           return object;
         })
@@ -189,8 +181,4 @@ class LocalTree_ {
   /// see [LocalTree.circumference]
   static final circumference =
       QueryIntegerProperty<LocalTree>(_entities[0].properties[6]);
-
-  /// see [LocalTree.readlId]
-  static final readlId =
-      QueryIntegerProperty<LocalTree>(_entities[0].properties[7]);
 }
