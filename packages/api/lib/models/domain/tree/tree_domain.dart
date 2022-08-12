@@ -1,4 +1,5 @@
 import 'package:api/models/app/tree/tree.dart';
+import 'package:api/models/local/tree/local_tree.dart';
 import 'package:api/models/remote/tree/tree_list_response.dart';
 
 extension RecordDataToDomain on Fields {
@@ -23,4 +24,15 @@ extension TreeListResponseDataToDomain on TreeListResponse {
     });
     return trees;
   }
+}
+
+extension LocalTreeToDomain on LocalTree {
+  Tree toDomain() => Tree(
+      id: readlId,
+      name: name,
+      address: address,
+      address2: address2,
+      species: species,
+      height: height,
+      circumference: circumference);
 }

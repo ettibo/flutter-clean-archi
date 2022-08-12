@@ -1,3 +1,4 @@
+import 'package:api/strategy/fetch_strategy.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 
@@ -67,5 +68,13 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     isLoadingTrees = true;
     fetch(startRow: trees.length + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
+  }
+
+  void printTrees() async {
+    List<Tree> newTrees = await useCase.fetch(
+        startRow: 0, nbRows: 20, fetchStrategy: FetchStrategy.local);
+    for (var item in newTrees) {
+      print('Tree: ${item.name} ID: ${item.id}');
+    }
   }
 }
