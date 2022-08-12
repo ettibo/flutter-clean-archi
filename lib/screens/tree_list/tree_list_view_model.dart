@@ -21,9 +21,6 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @observable
   bool isLoadingTrees = false;
 
-  @observable
-  bool isRefreshing = false;
-
   @override
   void init() {
     fetch();

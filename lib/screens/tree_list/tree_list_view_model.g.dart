@@ -41,22 +41,6 @@ mixin _$TreeListViewModel on TreeListViewModelBase, Store {
     });
   }
 
-  late final _$isRefreshingAtom =
-      Atom(name: 'TreeListViewModelBase.isRefreshing', context: context);
-
-  @override
-  bool get isRefreshing {
-    _$isRefreshingAtom.reportRead();
-    return super.isRefreshing;
-  }
-
-  @override
-  set isRefreshing(bool value) {
-    _$isRefreshingAtom.reportWrite(value, super.isRefreshing, () {
-      super.isRefreshing = value;
-    });
-  }
-
   late final _$fetchAsyncAction =
       AsyncAction('TreeListViewModelBase.fetch', context: context);
 
@@ -78,8 +62,7 @@ mixin _$TreeListViewModel on TreeListViewModelBase, Store {
   String toString() {
     return '''
 trees: ${trees},
-isLoadingTrees: ${isLoadingTrees},
-isRefreshing: ${isRefreshing}
+isLoadingTrees: ${isLoadingTrees}
     ''';
   }
 }
