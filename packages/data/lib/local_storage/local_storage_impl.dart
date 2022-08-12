@@ -58,4 +58,10 @@ class LocalStorageImpl implements LocalStorage {
     final box = store.box<T>();
     return box.getAll();
   }
+
+  @override
+  int clear<T>() {
+    final box = store.box<T>();
+    return box.removeAll();
+  }
 }

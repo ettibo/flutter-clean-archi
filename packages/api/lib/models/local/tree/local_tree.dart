@@ -3,7 +3,7 @@ import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class LocalTree implements BaseLocalObject {
-  int? readlId;
+  @Id(assignable: true)
   int? id;
   String? name;
   String? address;
