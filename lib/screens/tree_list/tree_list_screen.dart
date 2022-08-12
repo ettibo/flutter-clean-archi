@@ -32,6 +32,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
   }
 
   void goToDetailTree(BuildContext context, Tree tree) {
+    viewModel.printTrees();
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => TreeDetailScreen(tree: tree),
     ));

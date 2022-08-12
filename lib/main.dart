@@ -5,8 +5,8 @@ import 'injection/app_injection.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
 
-void main() {
-  setupInjectionDependencies();
+void main() async {
+  await setupInjectionDependencies();
   runApp(const GlobeApp());
 }
 
