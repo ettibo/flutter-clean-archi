@@ -10,6 +10,6 @@ AppBar materialAppBar(
       centerTitle: centerTitle,
       backgroundColor: backgroundColor,
       leading: leading,
-      title: Text(title ?? "Title"),
+      title: Text(title ?? ''),
       actions: trailingWidgets,
     );
