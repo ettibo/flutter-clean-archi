@@ -4,43 +4,43 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:7075317631028539711",
-      "lastPropertyId": "8:7271446348558300706",
+      "id": "1:3267340173778158162",
+      "lastPropertyId": "7:1020801654486249197",
       "name": "LocalTree",
       "properties": [
         {
-          "id": "1:596397980775022984",
+          "id": "1:2346273990638597472",
           "name": "id",
           "type": 6,
           "flags": 129
         },
         {
-          "id": "2:3646741077717461391",
+          "id": "2:1998244485973232919",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:1842123839618611812",
+          "id": "3:6682779612869283168",
           "name": "address",
           "type": 9
         },
         {
-          "id": "4:6237972075130416868",
+          "id": "4:4026610968874623760",
           "name": "address2",
           "type": 9
         },
         {
-          "id": "5:5701425493392377207",
+          "id": "5:3045730613812029836",
           "name": "species",
           "type": 9
         },
         {
-          "id": "6:318114451228785340",
+          "id": "6:7967215148420684510",
           "name": "height",
           "type": 6
         },
         {
-          "id": "7:9093165262021395799",
+          "id": "7:1020801654486249197",
           "name": "circumference",
           "type": 6
         }
@@ -48,7 +48,7 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:7075317631028539711",
+  "lastEntityId": "1:3267340173778158162",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
@@ -56,9 +56,7 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [
-    7271446348558300706
-  ],
+  "retiredPropertyUids": [],
   "retiredRelationUids": [],
   "version": 1
 }
