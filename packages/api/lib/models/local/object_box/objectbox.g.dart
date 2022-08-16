@@ -13,49 +13,49 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'models/local/tree/local_tree.dart';
+import '../../../models/local/tree/local_tree.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(1, 7075317631028539711),
+      id: const IdUid(1, 3267340173778158162),
       name: 'LocalTree',
-      lastPropertyId: const IdUid(8, 7271446348558300706),
+      lastPropertyId: const IdUid(7, 1020801654486249197),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 596397980775022984),
+            id: const IdUid(1, 2346273990638597472),
             name: 'id',
             type: 6,
             flags: 129),
         ModelProperty(
-            id: const IdUid(2, 3646741077717461391),
+            id: const IdUid(2, 1998244485973232919),
             name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 1842123839618611812),
+            id: const IdUid(3, 6682779612869283168),
             name: 'address',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 6237972075130416868),
+            id: const IdUid(4, 4026610968874623760),
             name: 'address2',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 5701425493392377207),
+            id: const IdUid(5, 3045730613812029836),
             name: 'species',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(6, 318114451228785340),
+            id: const IdUid(6, 7967215148420684510),
             name: 'height',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(7, 9093165262021395799),
+            id: const IdUid(7, 1020801654486249197),
             name: 'circumference',
             type: 6,
             flags: 0)
@@ -84,13 +84,13 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(1, 7075317631028539711),
+      lastEntityId: const IdUid(1, 3267340173778158162),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [7271446348558300706],
+      retiredPropertyUids: const [],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -115,7 +115,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.address2!);
           final speciesOffset =
               object.species == null ? null : fbb.writeString(object.species!);
-          fbb.startTable(9);
+          fbb.startTable(8);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, addressOffset);

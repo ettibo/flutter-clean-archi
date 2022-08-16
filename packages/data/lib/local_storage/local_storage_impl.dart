@@ -1,5 +1,5 @@
-import 'package:api/objectbox.g.dart';
-import 'package:api/models/local/base_local_object.dart';
+import 'package:api/models/local/object_box/objectbox.g.dart';
+import 'package:api/models/local/base_local/base_local_object.dart';
 import 'package:flutter/material.dart';
 
 import 'local_storage.dart';
