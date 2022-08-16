@@ -16,14 +16,14 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  @override
-  void initState() {
-    viewModel.init();
-    super.initState();
-  }
-
   final SettingsViewModelBase viewModel =
       DependecyInjection.instance.get<SettingsViewModelBase>();
+
+  @override
+  void initState() {
+    super.initState();
+    viewModel.init();
+  }
 
   @override
   void dispose() {
