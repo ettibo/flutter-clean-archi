@@ -12,13 +12,13 @@ dependencies:
     sdk: flutter
   get_it: ^7.2.0
   objectbox: ^1.6.0
-  objectbox_flutter_libs: any
+  objectbox_flutter_libs: ^1.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  objectbox_generator: any
+  objectbox_generator: ^1.6.0
   build_runner: ^2.2.0
 
 objectbox:
