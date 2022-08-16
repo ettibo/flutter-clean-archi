@@ -6,9 +6,6 @@ import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 
-import 'package:globo_fitness/screens/settings/settings_screen.dart';
-import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
-
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 import 'package:api/use_case/tree/tree_list.dart';
@@ -44,19 +41,6 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   Future<void> onListRefresh() async {
     trees.clear();
     fetch();
-  }
-
-  // Navigation Methods
-  void goToDetailTree(BuildContext context, Tree tree) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => TreeDetailScreen(tree: tree),
-    ));
-  }
-
-  void goToSettings(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const SettingsScreen(),
-    ));
   }
 
   // UI Methods
