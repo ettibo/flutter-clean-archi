@@ -1,7 +1,12 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:flutter/material.dart';
+
+import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/screens/settings/settings_view_model.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -11,18 +16,51 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  AppBar appBar(BuildContext context) =>
-      materialAppBar(title: context.localized.settingsTitlePage);
+  final SettingsViewModelBase viewModel =
+      DependecyInjection.instance.get<SettingsViewModelBase>();
+
+  @override
+  void initState() {
+    viewModel.init();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    viewModel.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
-      body: const SafeArea(
-        child: Center(
-          child: Text("Settings"),
-        ),
+      appBar: materialAppBar(title: context.localized.settingsTitlePage),
+      body: SafeArea(
+        child: Observer(builder: observerBuilder),
       ),
     );
   }
+
+  Widget observerBuilder(BuildContext context) => Center(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(context.localized.theme,
+                      style: const TextStyle(fontSize: 18)),
+                ),
+                DropdownButton<DeviceTheme>(
+                  value: viewModel.currentTheme,
+                  items: viewModel.getDropdownItems(context),
+                  onChanged: (value) =>
+                      viewModel.handleThemeChange(value, context),
+                ),
+              ],
+            )
+          ],
+        ),
+      );
 }
