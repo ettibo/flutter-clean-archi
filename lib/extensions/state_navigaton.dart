@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 extension StateNavigation on State {
-  void navigateTo(Widget widget) {
+  void navigateTo(Widget screen) {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => widget,
+      builder: (context) => screen,
     ));
   }
 }
