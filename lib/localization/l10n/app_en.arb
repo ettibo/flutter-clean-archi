@@ -23,6 +23,10 @@
     "@titledetailTreePage": {
       "description": "Default Title of the detail page of a tree"
     },
+    "settingsTitlePage": "Settings",
+    "@settingsTitlePage": {
+      "description": "Title of the settings page"
+    },
     "treeWithoutName": "Tree without name",
     "@treeWithoutName": {
       "description": "Text representing a tree without a name from the api"
@@ -70,6 +74,22 @@
     "centimeterUnit": "cm",
     "@centimeterUnit": {
       "description": "Text representing a centimeter"
+    },
+
+    "theme": "Theme:",
+    "@theme": {
+      "description": "Text representing the label when selecting the theme of the application "
+    },
+    "lightTheme": "Light",
+    "@lightTheme": {
+      "description": "Text representing the light theme option"
+    },
+    "darkTheme": "Dark",
+    "@darkTheme": {
+      "description": "Text representing the dark theme option"
+    },
+    "mirrorSystem": "System",
+    "@mirrorSystem": {
+      "description": "Text representing the theme that mirror the system's theme"
     }
-    
 }

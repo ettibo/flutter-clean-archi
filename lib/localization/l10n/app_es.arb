@@ -2,6 +2,7 @@
     "appTitle": "Clean Tree App",
     "titleTreeListPage": "Árboles",
     "titledetailTreePage": "Detalle del árbol",
+    "settingsTitlePage": "Ajustes",
     "homeTabBarTitle": "Inicio",
     "bmiTabBarTitle": "IMC",
     "bmiDrawerTitle": "Calculadora de IMC",
@@ -14,5 +15,9 @@
     "titleLabel": "{title}: {value}",
     "valueWithUnit": "{value} {unit}",
     "meterUnit": "m",
-    "centimeterUnit": "cm"
+    "centimeterUnit": "cm",
+    "theme": "Tema:",
+    "lightTheme": "Claro",
+    "darkTheme": "Oscuro",
+    "mirrorSystem": "Dispositivo"
 }
