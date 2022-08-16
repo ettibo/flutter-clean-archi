@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
+import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
@@ -9,6 +10,8 @@ import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
 import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/shared/separator.dart';
+
+import 'package:globo_fitness/extensions/state_navigaton.dart';
 
 import 'package:globo_fitness/localization/app_localization_context.dart';
 
@@ -35,15 +38,8 @@ class _TreeListScreenState extends State<TreeListScreen> {
     super.dispose();
   }
 
-  void goToDetailTree(BuildContext context, Tree tree) {
-    viewModel.printTrees();
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => TreeDetailScreen(tree: tree),
-    ));
-  }
-
   IconButton settingsIcon() => IconButton(
-      onPressed: () => viewModel.goToSettings(context),
+      onPressed: () => navigateTo(const SettingsScreen()),
       icon: const Icon(Icons.settings));
 
   @override
@@ -94,7 +90,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
       trailing: const Icon(Icons.arrow_right_outlined),
-      onTap: () => viewModel.goToDetailTree(context, tree),
+      onTap: () => navigateTo(TreeDetailScreen(tree: tree)),
     );
   }
 }
