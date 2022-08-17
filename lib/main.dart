@@ -24,24 +24,21 @@ class GlobeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return adaptiveTheme(context);
+    return adaptiveTheme();
   }
 
-  AdaptiveTheme adaptiveTheme(BuildContext context) => AdaptiveTheme(
+  AdaptiveTheme adaptiveTheme() => AdaptiveTheme(
       light: lightTheme,
       dark: darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
-      builder: (ThemeData lightTheme, ThemeData darkTheme) =>
-          materialApp(context, lightTheme, darkTheme));
-
-  MaterialApp materialApp(
-          BuildContext context, ThemeData theme, ThemeData darktheme) =>
-      MaterialApp(
-        onGenerateTitle: (context) => context.localized.appTitle,
-        theme: theme,
-        darkTheme: darkTheme,
-        supportedLocales: AppLocalizations.supportedLocales,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        home: const HomeScreen(),
-      );
+      builder: (ThemeData lightTheme, ThemeData darkTheme) {
+        return MaterialApp(
+          onGenerateTitle: (context) => context.localized.appTitle,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          home: const HomeScreen(),
+        );
+      });
 }
