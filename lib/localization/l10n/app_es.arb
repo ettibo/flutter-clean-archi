@@ -19,5 +19,16 @@
     "theme": "Tema:",
     "lightTheme": "Claro",
     "darkTheme": "Oscuro",
-    "mirrorSystem": "Dispositivo"
+    "mirrorSystem": "Dispositivo",
+    "weight": "peso",
+    "meters": "metros",
+    "inch": "pulgadas",
+    "kilos": "kilos",
+    "pounds": "libras",
+    "hintBmiTextField": "Por favor, introduzca su {unit} en {sytem}",
+    "bmiResult": "Su IMC es {value}",
+    "bmiErrorNull": "Por favor, introduzca toda la información",
+    "formatError": "Error de formato",
+    "metricUnitName": "Métrica",
+    "imperialUnitName": "Imperial"
 }

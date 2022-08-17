@@ -19,5 +19,16 @@
     "centimeterUnit": "cm",
     "lightTheme": "Clair",
     "darkTheme": "Sombre",
-    "mirrorSystem": "Système"
+    "mirrorSystem": "Système",
+    "weight": "Poids",
+    "meters": "mètres",
+    "inch": "pouces",
+    "kilos": "kilos",
+    "pounds": "livres",
+    "hintBmiTextField": "Veuillez insérer votre {unit} en {sytem}",
+    "bmiResult": "Votre IMC est {value}",
+    "bmiErrorNull": "Veuillez saisir toutes les informations",
+    "formatError": "Erreur de format",
+    "metricUnitName": "Métrique",
+    "imperialUnitName": "Impérial"
 }

@@ -15,6 +15,7 @@
     "@bmiDrawerTitle": {
       "description": "Title of the Drawer Item reprensenting the BMI screen"
     },
+
     "titleTreeListPage": "Trees",
     "@titleTreeListPage": {
       "description": "Title of the tree list page"
@@ -27,6 +28,7 @@
     "@settingsTitlePage": {
       "description": "Title of the settings page"
     },
+
     "treeWithoutName": "Tree without name",
     "@treeWithoutName": {
       "description": "Text representing a tree without a name from the api"
@@ -41,7 +43,7 @@
     },
     "height": "Height",
     "@height": {
-      "description": "Text representing the height of a tree"
+      "description": "Text representing the height"
     },
     "circumference": "Circumference",
     "@circumference": {
@@ -91,5 +93,57 @@
     "mirrorSystem": "System",
     "@mirrorSystem": {
       "description": "Text representing the theme that mirror the system's theme"
+    },
+
+    "weight": "Weight",
+    "@weight": {
+      "description": "Text representing the weight"
+    },
+    "meters": "meters",
+    "@meters": {
+      "description": "Text representing the meters unit in text"
+    },
+    "inch": "inch",
+    "@inch": {
+      "description": "Text representing the inch unit in text"
+    },
+    "kilos": "kilos",
+    "@kilos": {
+      "description": "Text representing the kilos unit in text"
+    },
+    "pounds": "pounds",
+    "@pounds": {
+      "description": "Text representing the pounds unit in text"
+    },
+    "hintBmiTextField": "Please insert your {unit} in {sytem}",
+    "@hintBmiTextField": {
+      "description": "Text representing the hint text of a textfield used for calculating the BMI",
+      "placeholders": {
+        "unit": {},
+        "sytem": {}
+      }
+    },
+    "bmiResult": "Your BMI is {value}",
+    "@bmiResult": {
+      "description": "Text representing the result of the BMI",
+      "placeholders": {
+        "value": {}
+      }
+    },
+    "bmiErrorNull": "Please enter all informations",
+    "@bmiErrorNull": {
+      "description": "Text representing the text shown when the user didn't filled all fields"
+    },
+    "formatError": "Format Error",
+    "@formatError": {
+      "description": "Text representing the text when the format is wrong"
+    },
+    "metricUnitName": "Metric",
+    "@metricUnitName": {
+      "description": "Text representing the name of the metric unit system"
+    },
+    "imperialUnitName": "Imperial",
+    "@imperialUnitName": {
+      "description": "Text representing the name of the imperial unit system"
     }
 }
