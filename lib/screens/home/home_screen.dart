@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:globo_fitness/models/navigation_object.dart';
+
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
+import 'package:globo_fitness/screens/settings/settings_screen.dart';
+
+import 'package:globo_fitness/models/navigation_object.dart';
+
+import 'package:globo_fitness/shared/material_app_bar.dart';
+
 import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/extensions/state_navigaton.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,6 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
     _generateItems();
   }
 
+  IconButton settingsIcon() => IconButton(
+      onPressed: () => navigateTo(const SettingsScreen()),
+      icon: const Icon(Icons.settings));
+
   @override
   Widget build(BuildContext context) {
     void onTap(int index) {
@@ -32,6 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return Scaffold(
+      appBar: materialAppBar(
+          title: navigationList[_currentIndex].title,
+          trailingWidgets: [settingsIcon()]),
       body: navigationList[_currentIndex].screen,
       bottomNavigationBar: BottomNavigationBar(
         items: items,

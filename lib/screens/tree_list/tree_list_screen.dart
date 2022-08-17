@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
-import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 
 import 'package:globo_fitness/shared/circular_progress_indicator.dart';
-import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/shared/separator.dart';
 
 import 'package:globo_fitness/extensions/state_navigaton.dart';
-
-import 'package:globo_fitness/localization/app_localization_context.dart';
 
 class TreeListScreen extends StatefulWidget {
   const TreeListScreen({Key? key}) : super(key: key);
@@ -38,15 +35,9 @@ class _TreeListScreenState extends State<TreeListScreen> {
     super.dispose();
   }
 
-  IconButton settingsIcon() => IconButton(
-      onPressed: () => navigateTo(const SettingsScreen()),
-      icon: const Icon(Icons.settings));
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: materialAppBar(
-          title: context.localized.appTitle, trailingWidgets: [settingsIcon()]),
       body: Observer(builder: observerBuilder),
     );
   }
