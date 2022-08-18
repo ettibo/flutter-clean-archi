@@ -43,7 +43,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @action
   Future<void> onListRefresh() async {
-    treeStore.clearList();
+    treeStore.clearTreeList();
     fetch();
   }
 
@@ -74,7 +74,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   void fetchMoreTrees() {
     isLoadingTrees = true;
-    fetch(startRow: treeStore.countTrees() + 1, nbRows: 20)
+    fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
   }
 }

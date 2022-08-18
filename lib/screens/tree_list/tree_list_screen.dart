@@ -43,7 +43,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
   }
 
   Widget observerBuilder(BuildContext context) =>
-      viewModel.treeStore.isListEmpty()
+      viewModel.treeStore.isTreeListEmpty()
           ? getActivityIndicator(context: context)
           : Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,7 +67,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
             );
 
   ListView separatedListView() => ListView.separated(
-        itemCount: viewModel.treeStore.countTrees(),
+        itemCount: viewModel.treeStore.countTreeList(),
         itemBuilder: itemBuilder,
         separatorBuilder: (context, index) =>
             separatorBuilder(context: context, index: index),
