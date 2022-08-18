@@ -10,9 +10,7 @@ abstract class TreeStoreBase with Store {
   @observable
   ObservableList<Tree> trees = ObservableList();
 
-  void addTrees(List<Tree> newTrees) {
-    trees.addAll(newTrees);
-  }
+  void addTrees(List<Tree> newTrees) => trees.addAll(newTrees);
 
   void clearList() => trees.clear();
 
