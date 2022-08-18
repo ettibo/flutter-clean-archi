@@ -26,7 +26,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @override
   void init() {
-    if (treeStore.trees.isEmpty) {
+    if (treeStore.isTreeListEmpty()) {
       fetch();
     }
   }

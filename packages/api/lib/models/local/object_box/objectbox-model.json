@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3267340173778158162",
-      "lastPropertyId": "7:1020801654486249197",
+      "lastPropertyId": "9:3890551086037269909",
       "name": "LocalTree",
       "properties": [
         {
@@ -43,6 +43,16 @@
           "id": "7:1020801654486249197",
           "name": "circumference",
           "type": 6
+        },
+        {
+          "id": "8:8427135528271070453",
+          "name": "lat",
+          "type": 8
+        },
+        {
+          "id": "9:3890551086037269909",
+          "name": "lng",
+          "type": 8
         }
       ],
       "relations": []

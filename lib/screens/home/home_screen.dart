@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
+import 'package:globo_fitness/screens/map/map_screen.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
 import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
@@ -67,9 +68,13 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: Icons.home,
           screen: const TreeListScreen()),
       NavigationObject(
+          title: context.localized.mapTitlePage,
+          icon: Icons.map,
+          screen: const MapScreen()),
+      NavigationObject(
           title: context.localized.bmiTabBarTitle,
           icon: Icons.monitor_weight,
-          screen: const BmiScreen())
+          screen: const BmiScreen()),
     ];
   }
 

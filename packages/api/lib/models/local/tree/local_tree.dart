@@ -11,6 +11,8 @@ class LocalTree implements BaseLocalObject {
   String? species;
   int? height;
   int? circumference;
+  double? lat;
+  double? lng;
 
   @override
   int getId() => id ?? 0;

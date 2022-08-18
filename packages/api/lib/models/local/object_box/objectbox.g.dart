@@ -8,7 +8,6 @@
 
 import 'dart:typed_data';
 
-// ignore: depend_on_referenced_packages
 import 'package:flat_buffers/flat_buffers.dart' as fb;
 import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart';
@@ -22,7 +21,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 3267340173778158162),
       name: 'LocalTree',
-      lastPropertyId: const IdUid(7, 1020801654486249197),
+      lastPropertyId: const IdUid(9, 3890551086037269909),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -59,6 +58,16 @@ final _entities = <ModelEntity>[
             id: const IdUid(7, 1020801654486249197),
             name: 'circumference',
             type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 8427135528271070453),
+            name: 'lat',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 3890551086037269909),
+            name: 'lng',
+            type: 8,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -116,7 +125,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.address2!);
           final speciesOffset =
               object.species == null ? null : fbb.writeString(object.species!);
-          fbb.startTable(8);
+          fbb.startTable(10);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, addressOffset);
@@ -124,6 +133,8 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(4, speciesOffset);
           fbb.addInt64(5, object.height);
           fbb.addInt64(6, object.circumference);
+          fbb.addFloat64(7, object.lat);
+          fbb.addFloat64(8, object.lng);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -144,8 +155,12 @@ ModelDefinition getObjectBoxModel() {
                 .vTableGetNullable(buffer, rootOffset, 12)
             ..height =
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14)
-            ..circumference = const fb.Int64Reader()
-                .vTableGetNullable(buffer, rootOffset, 16);
+            ..circumference =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16)
+            ..lat = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 18)
+            ..lng = const fb.Float64Reader()
+                .vTableGetNullable(buffer, rootOffset, 20);
 
           return object;
         })
@@ -182,4 +197,10 @@ class LocalTree_ {
   /// see [LocalTree.circumference]
   static final circumference =
       QueryIntegerProperty<LocalTree>(_entities[0].properties[6]);
+
+  /// see [LocalTree.lat]
+  static final lat = QueryDoubleProperty<LocalTree>(_entities[0].properties[7]);
+
+  /// see [LocalTree.lng]
+  static final lng = QueryDoubleProperty<LocalTree>(_entities[0].properties[8]);
 }
