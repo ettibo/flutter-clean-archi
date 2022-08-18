@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
+
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
 import 'package:globo_fitness/screens/settings/settings_screen.dart';
@@ -7,8 +9,8 @@ import 'package:globo_fitness/screens/settings/settings_screen.dart';
 import 'package:globo_fitness/models/navigation_object.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
-
 import 'package:globo_fitness/localization/app_localization_context.dart';
+
 import 'package:globo_fitness/extensions/state_navigaton.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,12 +44,15 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
+    ThemeData theme = AdaptiveTheme.of(context).theme;
+
     return Scaffold(
       appBar: materialAppBar(
           title: navigationList[_currentIndex].title,
           trailingWidgets: [settingsIcon()]),
       body: navigationList[_currentIndex].screen,
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: theme.bottomAppBarColor,
         items: items,
         onTap: onTap,
         currentIndex: _currentIndex,
