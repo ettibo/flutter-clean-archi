@@ -42,31 +42,32 @@ class _TreeListScreenState extends State<TreeListScreen> {
     );
   }
 
-  Widget observerBuilder(BuildContext context) => viewModel.trees.isEmpty
-      ? getActivityIndicator()
-      : Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: NotificationListener<ScrollNotification>(
-                onNotification: viewModel.handleScroll,
-                child: RefreshIndicator(
-                  onRefresh: viewModel.onListRefresh,
-                  child: separatedListView(),
+  Widget observerBuilder(BuildContext context) =>
+      viewModel.treeStore.isListEmpty()
+          ? getActivityIndicator(context: context)
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: NotificationListener<ScrollNotification>(
+                    onNotification: viewModel.handleScroll,
+                    child: RefreshIndicator(
+                      onRefresh: viewModel.onListRefresh,
+                      child: separatedListView(),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            viewModel.isLoadingTrees
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: getActivityIndicator(),
-                  )
-                : Container()
-          ],
-        );
+                viewModel.isLoadingTrees
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: getActivityIndicator(context: context),
+                      )
+                    : Container()
+              ],
+            );
 
   ListView separatedListView() => ListView.separated(
-        itemCount: viewModel.trees.length,
+        itemCount: viewModel.treeStore.countTrees(),
         itemBuilder: itemBuilder,
         separatorBuilder: (context, index) =>
             separatorBuilder(context: context, index: index),
@@ -74,9 +75,9 @@ class _TreeListScreenState extends State<TreeListScreen> {
       );
 
   Widget itemBuilder(BuildContext context, int index) {
-    final Tree tree = viewModel.trees[index];
+    final Tree tree = viewModel.treeStore.trees[index];
     return ListTile(
-      textColor: Colors.black,
+      textColor: Theme.of(context).primaryColor,
       key: Key(tree.id.toString()),
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),

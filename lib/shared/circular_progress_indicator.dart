@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget getActivityIndicator({Color color = Colors.black}) =>
-    Center(child: CircularProgressIndicator(color: color));
+Widget getActivityIndicator({BuildContext? context}) => Center(
+      child: CircularProgressIndicator(
+          color: context != null
+              ? Theme.of(context).indicatorColor
+              : Colors.black),
+    );

@@ -1,6 +1,8 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 
+import 'package:globo_fitness/store/tree_store.dart';
+
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
@@ -14,16 +16,19 @@ part 'tree_list_view_model.g.dart';
 class TreeListViewModel = TreeListViewModelBase with _$TreeListViewModel;
 
 abstract class TreeListViewModelBase with Store, ViewModel {
+  final TreeStoreBase treeStore =
+      DependecyInjection.instance.get<TreeStoreBase>();
+
   final GetTreeList useCase = DependecyInjection.instance.get<GetTreeList>();
-  @observable
-  ObservableList<Tree> trees = ObservableList();
 
   @observable
   bool isLoadingTrees = false;
 
   @override
   void init() {
-    fetch();
+    if (treeStore.trees.isEmpty) {
+      fetch();
+    }
   }
 
   @override
@@ -33,12 +38,12 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
     List<Tree> newTrees =
         await useCase.fetch(startRow: startRow, nbRows: nbRows);
-    trees.addAll(newTrees);
+    treeStore.addTrees(newTrees);
   }
 
   @action
   Future<void> onListRefresh() async {
-    trees.clear();
+    treeStore.clearList();
     fetch();
   }
 
@@ -69,7 +74,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   void fetchMoreTrees() {
     isLoadingTrees = true;
-    fetch(startRow: trees.length + 1, nbRows: 20)
+    fetch(startRow: treeStore.countTrees() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
   }
 }
