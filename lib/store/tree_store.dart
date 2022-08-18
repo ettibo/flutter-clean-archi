@@ -12,14 +12,14 @@ abstract class TreeStoreBase with Store {
 
   void addTrees(List<Tree> newTrees) => trees.addAll(newTrees);
 
-  void clearList() => trees.clear();
+  void clearTreeList() => trees.clear();
 
   void setTreeList(List<Tree> newTrees) {
-    clearList();
+    clearTreeList();
     addTrees(newTrees);
   }
 
-  bool isListEmpty() => trees.isEmpty;
+  bool isTreeListEmpty() => trees.isEmpty;
 
-  int countTrees() => trees.length;
+  int countTreeList() => trees.length;
 }
