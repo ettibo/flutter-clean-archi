@@ -28,6 +28,10 @@
     "@settingsTitlePage": {
       "description": "Title of the settings page"
     },
+    "mapTitlePage": "Map",
+    "@mapTitlePage": {
+      "description": "Title of the map page"
+    },
 
     "treeWithoutName": "Tree without name",
     "@treeWithoutName": {

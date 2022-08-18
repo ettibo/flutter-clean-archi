@@ -10,7 +10,9 @@ extension RecordDataToDomain on Fields {
       address2: complementadresse,
       species: espece,
       height: hauteurenm,
-      circumference: circonferenceencm);
+      circumference: circonferenceencm,
+      lat: geoPoint2d?.first,
+      lng: geoPoint2d?.last);
 }
 
 extension TreeListResponseDataToDomain on TreeListResponse {
@@ -34,5 +36,7 @@ extension LocalTreeToDomain on LocalTree {
       address2: address2,
       species: species,
       height: height,
-      circumference: circumference);
+      circumference: circumference,
+      lat: lat,
+      lng: lng);
 }
