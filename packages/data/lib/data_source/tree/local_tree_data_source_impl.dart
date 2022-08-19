@@ -1,9 +1,9 @@
 import 'package:api/dependency_injection.dart';
 import 'package:api/data_source/tree/local_tree_data_source.dart';
 import 'package:api/models/app/tree/tree.dart';
-import 'package:api/models/domain/tree/tree_domain.dart';
-import 'package:api/models/local/tree/local_tree.dart';
 import 'package:data/local_storage/local_storage.dart';
+import 'package:data/models/local/tree/local_tree.dart';
+import 'package:data/models/domain/tree/tree_domain.dart';
 
 class LocalTreeDataSourceImpl implements LocalTreeDataSource {
   final LocalStorage localStorage =

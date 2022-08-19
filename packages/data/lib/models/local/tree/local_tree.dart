@@ -1,4 +1,4 @@
-import 'package:api/models/local/base_local/base_local_object.dart';
+import 'package:data/models/local/base_local/base_local_object.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()

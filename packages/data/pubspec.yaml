@@ -13,6 +13,9 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^4.0.6
+  objectbox: ^1.6.0
+  objectbox_flutter_libs: ^1.6.0
+
   api:
     path: ../api
 
@@ -20,6 +23,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  objectbox_generator: ^1.6.0
+  build_runner: ^2.2.0
+
+objectbox:
+  output_dir: models/local/object_box
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
