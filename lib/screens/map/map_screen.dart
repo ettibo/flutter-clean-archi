@@ -45,21 +45,20 @@ class _MapScreenState extends State<MapScreen> {
               plugins: [
                 MarkerClusterPlugin(),
               ],
-              // onTap: (_, __) => viewModel.popupController
-              //     .hideAllPopups(), // Hide popup when the map is tapped.
             ),
             layers: [
-              MarkerLayerOptions(
+              MarkerClusterLayerOptions(
+                maxClusterRadius: viewModel.maxClusterRadius,
+                size: viewModel.clusterSize,
+                fitBoundsOptions: fitBoundsOptions,
                 markers: viewModel.treesMarkers,
+                polygonOptions: polygonOptions,
+                builder: clusterBuilder,
               ),
             ],
             children: <Widget>[
               TileLayerWidget(
-                options: TileLayerOptions(
-                  urlTemplate:
-                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  subdomains: ['a', 'b', 'c'],
-                ),
+                options: openStreetMapTileLayerOptions,
               ),
             ],
           ),
@@ -68,136 +67,22 @@ class _MapScreenState extends State<MapScreen> {
     ));
   }
 
-  // void process() {
-  //   pointIndex = 0;
-  //   markers = [
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: points[pointIndex],
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(53.3498, -6.2603),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(53.3488, -6.2613),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(53.3488, -6.2613),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(48.8566, 2.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //     Marker(
-  //       anchorPos: AnchorPos.align(AnchorAlign.center),
-  //       height: 30,
-  //       width: 30,
-  //       point: LatLng(49.8566, 3.3522),
-  //       builder: (ctx) => const Icon(Icons.pin_drop),
-  //     ),
-  //   ];
-  // }
+  FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
+    padding: EdgeInsets.all(50),
+  );
 
+  PolygonOptions polygonOptions =
+      const PolygonOptions(borderColor: Colors.black, borderStrokeWidth: 3);
+
+  Widget clusterBuilder(BuildContext context, List<Marker> markers) =>
+      FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColorDark,
+        onPressed: null,
+        child: Text(markers.length.toString()),
+      );
+
+  TileLayerOptions openStreetMapTileLayerOptions = TileLayerOptions(
+    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    subdomains: ['a', 'b', 'c'],
+  );
 }
