@@ -1,6 +1,6 @@
 import 'package:api/models/app/tree/tree.dart';
-import 'package:api/models/local/tree/local_tree.dart';
-import 'package:api/models/remote/tree/tree_list_response.dart';
+import 'package:data/models/local/tree/local_tree.dart';
+import 'package:data/models/remote/tree/tree_list_response.dart';
 
 extension RecordDataToDomain on Fields {
   Tree toDomain() => Tree(

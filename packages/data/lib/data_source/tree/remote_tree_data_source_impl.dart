@@ -1,7 +1,7 @@
 import 'package:api/data_source/tree/remote_tree_data_source.dart';
 import 'package:api/models/app/tree/tree.dart';
-import 'package:api/models/domain/tree/tree_domain.dart';
-import 'package:api/models/remote/tree/tree_list_response.dart';
+import 'package:data/models/domain/tree/tree_domain.dart';
+import 'package:data/models/remote/tree/tree_list_response.dart';
 import 'package:dio/dio.dart';
 
 class RemoteTreeDataSourceImpl implements RemoteTreeDataSource {
