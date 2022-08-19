@@ -48,6 +48,12 @@ dependencies:
 
   firebase_core: ^1.21.1
 
+  # This package is used to generate App_Icons
+  # It can be deleted with associated files:
+  # - flutter_launcher_icons-green.yaml
+  # - flutter_launcher_icons-brow.yaml
+  flutter_launcher_icons: ^0.10.0
+
   api:
     path: packages/api
   data:

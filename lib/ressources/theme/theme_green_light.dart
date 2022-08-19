@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-ThemeData lightTheme = ThemeData(
+ThemeData greenLightTheme = ThemeData(
   brightness: Brightness.light,
   primarySwatch: Colors.blue,
-  primaryColor: Colors.black,
+  primaryColor: Colors.green,
   backgroundColor: Colors.white,
-  primaryColorDark: Colors.orange,
+  primaryColorDark: Colors.green,
   primaryColorLight: Colors.black,
-  bottomAppBarColor: Colors.blue,
-  indicatorColor: Colors.blue,
+  bottomAppBarColor: Colors.green,
+  indicatorColor: Colors.green,
 );
