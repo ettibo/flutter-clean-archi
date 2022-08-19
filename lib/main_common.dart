@@ -7,15 +7,13 @@ import 'package:globo_fitness/firebase_options.dart';
 
 import 'package:globo_fitness/screens/home/home_screen.dart';
 
-import 'package:globo_fitness/ressources/theme/theme_dark.dart';
-import 'package:globo_fitness/ressources/theme/theme_light.dart';
-
 import 'package:globo_fitness/managers/remote_config_manager.dart';
 
 import 'package:globo_fitness/injection/app_injection.dart';
-import 'package:globo_fitness/localization/app_localization_context.dart';
 
-void main() async {
+import './app_config.dart';
+
+void mainCommon(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await _firebaseInitializer();
@@ -24,27 +22,33 @@ void main() async {
 
   final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
 
-  runApp(GlobeApp(savedThemeMode: savedThemeMode));
+  runApp(GlobeApp(
+    savedThemeMode: savedThemeMode,
+    appConfig: appConfig,
+  ));
 }
 
 class GlobeApp extends StatelessWidget {
   final AdaptiveThemeMode? savedThemeMode;
+  final AppConfig appConfig;
 
-  const GlobeApp({Key? key, this.savedThemeMode}) : super(key: key);
+  const GlobeApp({Key? key, this.savedThemeMode, required this.appConfig})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) => _adaptiveTheme();
 
   AdaptiveTheme _adaptiveTheme() => AdaptiveTheme(
-      light: lightTheme,
-      dark: darkTheme,
+      light: appConfig.lightTheme,
+      dark: appConfig.darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
-      builder: (ThemeData lightTheme, ThemeData darkTheme) {
+      builder: (ThemeData lightingTheme, ThemeData darkingTheme) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          onGenerateTitle: (context) => context.localized.appTitle,
-          theme: lightTheme,
-          darkTheme: darkTheme,
+          // onGenerateTitle: (context) => context.localized.appTitle,
+          title: appConfig.appTitle,
+          theme: lightingTheme,
+          darkTheme: darkingTheme,
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           home: const HomeScreen(),
