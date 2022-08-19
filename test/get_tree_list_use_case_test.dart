@@ -5,7 +5,6 @@ import 'package:api/models/app/tree/tree.dart';
 import 'package:data/data_source/tree/local_tree_data_source_impl.dart';
 import 'package:data/data_source/tree/remote_tree_data_source_impl.dart';
 import 'package:data/local_storage/local_storage.dart';
-import 'package:data/local_storage/local_storage_impl.dart';
 import 'package:domain/use_case/tree/get_tree_list_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -16,8 +15,9 @@ class MockLocalStorage extends Mock implements LocalStorage {}
 
 void main() {
   late MockGetTreeLiseUseCase mockGetTreeLiseUseCase;
+  List<Tree> listTree = [];
 
-  setUp(() async {
+  setUpAll(() async {
     DependecyInjection.instance.inject<LocalStorage>(MockLocalStorage());
     DependecyInjection.instance
         .inject<RemoteTreeDataSource>(RemoteTreeDataSourceImpl());
@@ -44,10 +44,18 @@ void main() {
           .thenAnswer((_) async => mockTreeList);
     }
 
+    test('Check if List is empty at starting', () {
+      expect(listTree.length, 0);
+    });
+
     test('Check treeListCount', () async {
       arrangeMockDataSourceReturn1Tree();
-      await mockGetTreeLiseUseCase.fetch();
+      listTree = await mockGetTreeLiseUseCase.fetch();
       verify(() => mockGetTreeLiseUseCase.fetch()).called(1);
+    });
+
+    test('Check if ListTree is successfully completed', () {
+      expect(listTree.length, 1);
     });
   });
 }
