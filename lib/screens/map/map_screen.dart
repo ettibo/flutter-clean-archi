@@ -19,16 +19,25 @@ class _MapScreenState extends State<MapScreen> {
   final MapViewModelBase viewModel =
       DependecyInjection.instance.get<MapViewModelBase>();
 
+  late TileLayerOptions tileLayerOptions;
+
   @override
   void initState() {
     super.initState();
     viewModel.init();
+    initTileLayerOptions();
   }
 
   @override
   void dispose() {
     viewModel.dispose();
     super.dispose();
+  }
+
+  void initTileLayerOptions() {
+    tileLayerOptions = TileLayerOptions(
+        urlTemplate: viewModel.openStreetMapUrl,
+        subdomains: viewModel.tileLayerOptionsSubdomains);
   }
 
   @override
@@ -58,7 +67,7 @@ class _MapScreenState extends State<MapScreen> {
             ],
             children: <Widget>[
               TileLayerWidget(
-                options: openStreetMapTileLayerOptions,
+                options: tileLayerOptions,
               ),
             ],
           ),
@@ -80,9 +89,4 @@ class _MapScreenState extends State<MapScreen> {
         onPressed: null,
         child: Text(markers.length.toString()),
       );
-
-  TileLayerOptions openStreetMapTileLayerOptions = TileLayerOptions(
-    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    subdomains: ['a', 'b', 'c'],
-  );
 }

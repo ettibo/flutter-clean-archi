@@ -29,17 +29,23 @@ abstract class MapViewModelBase with Store, ViewModel {
   final int maxClusterRadius = 120;
   final Size clusterSize = const Size(40, 40);
 
+  final String openStreetMapUrl =
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+  final List<String> tileLayerOptionsSubdomains = ['a', 'b', 'c'];
+
   @observable
   ObservableList<Marker> treesMarkers = ObservableList();
 
   @override
   void init() {
-    clearMarkerList();
     generateMarkers();
   }
 
   @override
-  void dispose() {}
+  void dispose() {
+    clearMarkerList();
+  }
 
   void generateMarkers() {
     List<Marker> newMarkers = [];
