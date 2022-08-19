@@ -8,7 +8,7 @@ class MockRemoteTreeDataSource extends Mock implements RemoteTreeDataSource {}
 
 void main() {
   late MockRemoteTreeDataSource remoteTreeDataSource;
-  setUp(() {
+  setUpAll(() {
     DependecyInjection.instance
         .inject<MockRemoteTreeDataSource>(MockRemoteTreeDataSource());
 
