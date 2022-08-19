@@ -25,19 +25,13 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
-    initTileLayerOptions();
+    _initTileLayerOptions();
   }
 
   @override
   void dispose() {
     viewModel.dispose();
     super.dispose();
-  }
-
-  void initTileLayerOptions() {
-    tileLayerOptions = TileLayerOptions(
-        urlTemplate: viewModel.openStreetMapUrl,
-        subdomains: viewModel.tileLayerOptionsSubdomains);
   }
 
   @override
@@ -89,4 +83,10 @@ class _MapScreenState extends State<MapScreen> {
         onPressed: null,
         child: Text(markers.length.toString()),
       );
+
+  void _initTileLayerOptions() {
+    tileLayerOptions = TileLayerOptions(
+        urlTemplate: viewModel.openStreetMapUrl,
+        subdomains: viewModel.tileLayerOptionsSubdomains);
+  }
 }
