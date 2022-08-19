@@ -3,19 +3,6 @@
     "@appTitle": {
       "description": "Title of the application"
     },
-    "homeTabBarTitle": "Home",
-    "@homeTabBarTitle": {
-      "description": "Title of the Tab Bar Item reprensenting the Home screen (i.e. the list of trees)"
-    },
-    "bmiTabBarTitle": "BMI",
-    "@bmiTabBarTitle": {
-      "description": "Title of the Tab Bar Item reprensenting the BMI screen"
-    },
-    "bmiDrawerTitle": "BMI Calculator",
-    "@bmiDrawerTitle": {
-      "description": "Title of the Drawer Item reprensenting the BMI screen"
-    },
-
     "titleTreeListPage": "Trees",
     "@titleTreeListPage": {
       "description": "Title of the tree list page"
@@ -24,15 +11,18 @@
     "@titledetailTreePage": {
       "description": "Default Title of the detail page of a tree"
     },
-    "settingsTitlePage": "Settings",
-    "@settingsTitlePage": {
-      "description": "Title of the settings page"
-    },
     "mapTitlePage": "Map",
     "@mapTitlePage": {
       "description": "Title of the map page"
     },
-
+    "bmiTitlePage": "BMI",
+    "@bmiTitlePage": {
+      "description": "Title of the Tab Bar Item reprensenting the BMI screen"
+    },
+    "settingsTitlePage": "Settings",
+    "@settingsTitlePage": {
+      "description": "Title of the settings page"
+    },
     "treeWithoutName": "Tree without name",
     "@treeWithoutName": {
       "description": "Text representing a tree without a name from the api"

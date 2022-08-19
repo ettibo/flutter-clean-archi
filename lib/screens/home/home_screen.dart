@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
@@ -64,15 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateNavigationList(BuildContext context) {
     navigationList = [
       NavigationObject(
-          title: context.localized.homeTabBarTitle,
-          icon: Icons.home,
+          title: context.localized.titleTreeListPage,
+          icon: CupertinoIcons.leaf_arrow_circlepath,
           screen: const TreeListScreen()),
       NavigationObject(
           title: context.localized.mapTitlePage,
           icon: Icons.map,
           screen: const MapScreen()),
       NavigationObject(
-          title: context.localized.bmiTabBarTitle,
+          title: context.localized.bmiTitlePage,
           icon: Icons.monitor_weight,
           screen: const BmiScreen()),
     ];
