@@ -75,6 +75,7 @@ android {
             versionNameSuffix "-green"
             applicationIdSuffix ".green"
         }
+        
         brown {
             dimension "flavor-type"
             applicationId "com.example.flutter_clean_archi.brown"
