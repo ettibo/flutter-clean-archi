@@ -17,16 +17,7 @@ void main() {
   });
 
   group('getTrees', () {
-    final mockTreeList = [
-      Tree(
-          id: 0,
-          name: 'TestName',
-          address: 'TestAdress',
-          address2: 'Test2',
-          species: 'species',
-          height: 8,
-          circumference: 10)
-    ];
+    final mockTreeList = [Tree.mock];
 
     void arrangeMockDataSourceReturn1Tree() {
       when(() => remoteTreeDataSource.getTreeListRemote())
