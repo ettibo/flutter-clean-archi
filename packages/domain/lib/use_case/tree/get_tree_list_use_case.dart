@@ -5,7 +5,7 @@ import 'package:api/models/app/tree/tree.dart';
 import 'package:api/strategy/fetch_strategy.dart';
 import 'package:api/use_case/tree/tree_list.dart';
 
-class GetTreeLiseUseCase implements GetTreeList {
+class GetTreeListUseCase implements GetTreeList {
   RemoteTreeDataSource remoteTreeDataSource =
       DependecyInjection.instance.get<RemoteTreeDataSource>();
   LocalTreeDataSource localTreeDataSource =
