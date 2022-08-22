@@ -19,7 +19,6 @@ This project is simple Flutter application made to demonstrate how to use the Cl
 - [ObjectBox: Flutter database for Dart-native objects](https://pub.dev/packages/objectbox)
 - [ObjectBox Generator: ObjectBox generator for Dart/Flutter](https://pub.dev/packages/objectbox_generator)
 - [Build Runner: The build_runner package provides a concrete way of generating files using Dart code](https://pub.dev/packages/build_runner)
-- [Mocktail: Mock library for Dart inspired by mockito](https://pub.dev/packages/mocktail)
 - [Get_it: A powerful for dependency injection](https://pub.dev/packages/get_it)
 - [Mobx: MobX is a state-management library that makes it simple to connect the reactive data of your application with the UI](https://pub.dev/packages/mobx)
 - [Flutter_mobx: Provides the Observer widget that listens to observables and automatically rebuilds on changes](https://pub.dev/packages/flutter_mobx)
