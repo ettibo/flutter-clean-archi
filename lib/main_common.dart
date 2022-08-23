@@ -42,13 +42,13 @@ class GlobeApp extends StatelessWidget {
       light: appConfig.lightTheme,
       dark: appConfig.darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
-      builder: (ThemeData lightingTheme, ThemeData darkingTheme) {
+      builder: (ThemeData lightTheme, ThemeData darkTheme) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           // onGenerateTitle: (context) => context.localized.appTitle,
           title: appConfig.appTitle,
-          theme: lightingTheme,
-          darkTheme: darkingTheme,
+          theme: lightTheme,
+          darkTheme: darkTheme,
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           home: const HomeScreen(),
