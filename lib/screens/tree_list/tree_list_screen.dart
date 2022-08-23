@@ -80,7 +80,6 @@ class _TreeListScreenState extends State<TreeListScreen> {
       key: Key(tree.id.toString()),
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
-      textColor: Theme.of(context).primaryColor,
       trailing: const Icon(Icons.arrow_right_outlined),
       onTap: () => navigateTo(TreeDetailScreen(tree: tree)),
     );

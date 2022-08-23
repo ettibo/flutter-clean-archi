@@ -50,12 +50,10 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   // UI Methods
   Text getTitle(BuildContext context, String? treeName) => Text(
         treeName ?? context.localized.treeWithoutName,
-        style: TextStyle(color: Theme.of(context).primaryColor),
       );
 
   Text getSubtitle(BuildContext context, String? subtitle, int index) => Text(
         '${context.localized.species} : ${subtitle != null ? subtitle.toTitleCase() : context.localized.speciesNotSpecified}',
-        style: TextStyle(color: Theme.of(context).primaryColor),
       );
 
   // Lazy Loading Methods
