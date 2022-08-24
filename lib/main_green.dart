@@ -1,13 +1,14 @@
+import 'package:globo_fitness/app_config.dart';
+import 'package:globo_fitness/main_common.dart';
+
 import 'ressources/theme/green/theme_green_light.dart';
 import 'ressources/theme/green/theme_green_dark.dart';
-import './app_config.dart';
-import './main_common.dart';
 
 void main() {
-  final config = AppConfig(
+  final appConfig = AppConfig(
       appTitle: 'Les Arbres Verts',
       lightTheme: greenLightTheme,
       darkTheme: greenDarkTheme);
 
-  mainCommon(config);
+  mainCommon(appConfig: appConfig);
 }
