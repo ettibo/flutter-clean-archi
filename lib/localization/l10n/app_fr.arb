@@ -5,6 +5,7 @@
     "mapTitlePage": "Carte",
     "bmiTitlePage": "IMC",
     "settingsTitlePage": "Paramètres",
+    
     "treeWithoutName": "Arbre sans nom",
     "species": "Espèce",
     "speciesNotSpecified": "Non spécifiée",
@@ -14,11 +15,13 @@
     "titleLabel": "{title} : {value}",
     "valueWithUnit": "{value} {unit}",
     "meterUnit": "m",
-    "theme": "Thème :",
     "centimeterUnit": "cm",
+    
+    "theme": "Thème :",
     "lightTheme": "Clair",
     "darkTheme": "Sombre",
     "mirrorSystem": "Système",
+
     "weight": "Poids",
     "meters": "mètres",
     "inch": "pouces",
@@ -29,5 +32,9 @@
     "bmiErrorNull": "Veuillez saisir toutes les informations",
     "formatError": "Erreur de format",
     "metricUnitName": "Métrique",
-    "imperialUnitName": "Impérial"
+    "imperialUnitName": "Impérial",
+
+    "locationServicesDisabled": "Les services de localisation sont désactivés.",
+    "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
+    "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente."
 }

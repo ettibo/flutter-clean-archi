@@ -139,5 +139,18 @@
     "imperialUnitName": "Imperial",
     "@imperialUnitName": {
       "description": "Text representing the name of the imperial unit system"
+    },
+
+    "locationServicesDisabled": "Location services are disabled.",
+    "@locationServicesDisabled": {
+      "description": "Text representing the text when the locaiton services are currently disabled."
+    },
+    "locationPermissionDenied": "Location permissions are denied",
+    "@locationPermissionDenied": {
+      "description": "Text representing the text when the permission to get the user's location is denied."
+    },
+    "locationPermissionDeniedPermanently": "Location permissions are permanently denied.",
+    "@locationPermissionDeniedPermanently": {
+      "description": "Text representing the text when the permission to get the user's location is denied permanently."
     }
 }

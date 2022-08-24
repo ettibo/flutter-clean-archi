@@ -17,6 +17,7 @@ import 'package:globo_fitness/store/tree_store.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
+import 'package:globo_fitness/localization/app_localization_context.dart';
 
 part 'map_view_model.g.dart';
 
@@ -66,33 +67,31 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initMap() {
     centerCurrentLocationStreamController = StreamController<double?>();
     mapController = MapController();
-    _determinePosition();
     _initTileLayerOptions();
   }
 
-  Future<Position> _determinePosition() async {
+  @action
+  Future<Position> determinePosition(BuildContext context) async {
     bool serviceEnabled;
     LocationPermission permission;
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
+      return Future.error(context.localized.locationServicesDisabled);
     }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
+        return Future.error(context.localized.locationPermissionDenied);
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
       return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+          context.localized.locationPermissionDeniedPermanently);
     }
-
-    centerOnLocationUpdate = CenterOnLocationUpdate.once;
     return await Geolocator.getCurrentPosition();
   }
 

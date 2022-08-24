@@ -5,6 +5,7 @@
     "mapTitlePage": "Mapas",
     "bmiTitlePage": "IMC",
     "settingsTitlePage": "Ajustes",
+    
     "treeWithoutName": "Árbol sin nombre",
     "species": "Especie",
     "speciesNotSpecified": "No especificadas",
@@ -15,10 +16,12 @@
     "valueWithUnit": "{value} {unit}",
     "meterUnit": "m",
     "centimeterUnit": "cm",
+
     "theme": "Tema:",
     "lightTheme": "Claro",
     "darkTheme": "Oscuro",
     "mirrorSystem": "Dispositivo",
+
     "weight": "peso",
     "meters": "metros",
     "inch": "pulgadas",
@@ -29,5 +32,9 @@
     "bmiErrorNull": "Por favor, introduzca toda la información",
     "formatError": "Error de formato",
     "metricUnitName": "Métrica",
-    "imperialUnitName": "Imperial"
+    "imperialUnitName": "Imperial",
+
+    "locationServicesDisabled": "Los servicios de localización están desactivados.",
+    "locationPermissionDenied": "Los permisos de localización están denegados.",
+    "locationPermissionDeniedPermanently": "Los permisos de localización están permanentemente denegados."
 }
