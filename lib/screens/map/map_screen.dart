@@ -50,7 +50,11 @@ class _MapScreenState extends State<MapScreen> {
                 MarkerClusterPlugin(),
               ],
             ),
-            nonRotatedChildren: [centerOnUserButton()],
+            nonRotatedChildren: [
+              viewModel.centerOnLocationUpdate == CenterOnLocationUpdate.never
+                  ? const SizedBox.shrink()
+                  : _centerOnUserButton()
+            ],
             layers: [
               MarkerClusterLayerOptions(
                 maxClusterRadius: viewModel.maxClusterRadius,
@@ -58,20 +62,14 @@ class _MapScreenState extends State<MapScreen> {
                 fitBoundsOptions: viewModel.fitBoundsOptions,
                 markers: viewModel.treesMarkers,
                 polygonOptions: viewModel.polygonOptions,
-                builder: clusterBuilder,
+                builder: _clusterBuilder,
               ),
             ],
             children: <Widget>[
               TileLayerWidget(
                 options: viewModel.tileLayerOptions,
               ),
-              LocationMarkerLayerWidget(
-                plugin: LocationMarkerPlugin(
-                  centerOnLocationUpdate: viewModel.centerOnLocationUpdate,
-                  centerCurrentLocationStream:
-                      viewModel.centerCurrentLocationStreamController.stream,
-                ),
-              )
+              viewModel.displayUserLocationIfGranted()
             ],
           ),
         ),
@@ -79,18 +77,18 @@ class _MapScreenState extends State<MapScreen> {
     ));
   }
 
-  Widget clusterBuilder(BuildContext context, List<Marker> markers) =>
+  Widget _clusterBuilder(BuildContext context, List<Marker> markers) =>
       FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColorDark,
         onPressed: null,
         child: Text(markers.length.toString()),
       );
 
-  Widget centerOnUserButton() => Positioned(
+  Widget _centerOnUserButton() => Positioned(
         right: 20,
         bottom: 20,
         child: FloatingActionButton(
-          onPressed: viewModel.onCenterOnUserPressed,
+          onPressed: viewModel.centerOnUser,
           backgroundColor: Theme.of(context).primaryColorDark,
           child: const Icon(
             Icons.my_location,
