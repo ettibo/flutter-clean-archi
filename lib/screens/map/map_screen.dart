@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
 
@@ -19,13 +20,10 @@ class _MapScreenState extends State<MapScreen> {
   final MapViewModelBase viewModel =
       DependecyInjection.instance.get<MapViewModelBase>();
 
-  late TileLayerOptions tileLayerOptions;
-
   @override
   void initState() {
     super.initState();
     viewModel.init();
-    _initTileLayerOptions();
   }
 
   @override
@@ -41,6 +39,7 @@ class _MapScreenState extends State<MapScreen> {
       child: Center(
         child: Observer(
           builder: (context) => FlutterMap(
+            mapController: viewModel.mapController,
             options: MapOptions(
               center: viewModel.parisCoord,
               zoom: viewModel.defaultZoom,
@@ -49,33 +48,34 @@ class _MapScreenState extends State<MapScreen> {
                 MarkerClusterPlugin(),
               ],
             ),
+            nonRotatedChildren: [centerOnUserButton()],
             layers: [
               MarkerClusterLayerOptions(
                 maxClusterRadius: viewModel.maxClusterRadius,
                 size: viewModel.clusterSize,
-                fitBoundsOptions: fitBoundsOptions,
+                fitBoundsOptions: viewModel.fitBoundsOptions,
                 markers: viewModel.treesMarkers,
-                polygonOptions: polygonOptions,
+                polygonOptions: viewModel.polygonOptions,
                 builder: clusterBuilder,
               ),
             ],
             children: <Widget>[
               TileLayerWidget(
-                options: tileLayerOptions,
+                options: viewModel.tileLayerOptions,
               ),
+              LocationMarkerLayerWidget(
+                plugin: LocationMarkerPlugin(
+                  centerOnLocationUpdate: viewModel.centerOnLocationUpdate,
+                  centerCurrentLocationStream:
+                      viewModel.centerCurrentLocationStreamController.stream,
+                ),
+              )
             ],
           ),
         ),
       ),
     ));
   }
-
-  FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
-    padding: EdgeInsets.all(50),
-  );
-
-  PolygonOptions polygonOptions =
-      const PolygonOptions(borderColor: Colors.black, borderStrokeWidth: 3);
 
   Widget clusterBuilder(BuildContext context, List<Marker> markers) =>
       FloatingActionButton(
@@ -84,9 +84,16 @@ class _MapScreenState extends State<MapScreen> {
         child: Text(markers.length.toString()),
       );
 
-  void _initTileLayerOptions() {
-    tileLayerOptions = TileLayerOptions(
-        urlTemplate: viewModel.openStreetMapUrl,
-        subdomains: viewModel.tileLayerOptionsSubdomains);
-  }
+  Widget centerOnUserButton() => Positioned(
+        right: 20,
+        bottom: 20,
+        child: FloatingActionButton(
+          onPressed: viewModel.onCenterOnUserPressed,
+          backgroundColor: Theme.of(context).primaryColorDark,
+          child: const Icon(
+            Icons.my_location,
+            color: Colors.black,
+          ),
+        ),
+      );
 }

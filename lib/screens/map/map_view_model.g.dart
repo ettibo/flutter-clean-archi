@@ -25,10 +25,42 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
+  late final _$centerOnLocationUpdateAtom =
+      Atom(name: 'MapViewModelBase.centerOnLocationUpdate', context: context);
+
+  @override
+  CenterOnLocationUpdate get centerOnLocationUpdate {
+    _$centerOnLocationUpdateAtom.reportRead();
+    return super.centerOnLocationUpdate;
+  }
+
+  @override
+  set centerOnLocationUpdate(CenterOnLocationUpdate value) {
+    _$centerOnLocationUpdateAtom
+        .reportWrite(value, super.centerOnLocationUpdate, () {
+      super.centerOnLocationUpdate = value;
+    });
+  }
+
+  late final _$MapViewModelBaseActionController =
+      ActionController(name: 'MapViewModelBase', context: context);
+
+  @override
+  void onCenterOnUserPressed() {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase.onCenterOnUserPressed');
+    try {
+      return super.onCenterOnUserPressed();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-treesMarkers: ${treesMarkers}
+treesMarkers: ${treesMarkers},
+centerOnLocationUpdate: ${centerOnLocationUpdate}
     ''';
   }
 }
