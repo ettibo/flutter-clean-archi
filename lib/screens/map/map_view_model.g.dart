@@ -42,15 +42,24 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
+  late final _$determinePositionAsyncAction =
+      AsyncAction('MapViewModelBase.determinePosition', context: context);
+
+  @override
+  Future<Position> determinePosition(BuildContext context) {
+    return _$determinePositionAsyncAction
+        .run(() => super.determinePosition(context));
+  }
+
   late final _$MapViewModelBaseActionController =
       ActionController(name: 'MapViewModelBase', context: context);
 
   @override
-  void onCenterOnUserPressed() {
+  void centerOnUser() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase.onCenterOnUserPressed');
+        name: 'MapViewModelBase.centerOnUser');
     try {
-      return super.onCenterOnUserPressed();
+      return super.centerOnUser();
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }

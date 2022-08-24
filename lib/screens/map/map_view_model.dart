@@ -116,6 +116,10 @@ abstract class MapViewModelBase with Store, ViewModel {
     treesMarkers.addAll(newMarkers);
   }
 
+  void centerOnUserAfterGettingLocation(Position position) {
+    centerOnUser();
+  }
+
   // Dispose Methods
   void _disposeCenterLocStream() {
     centerCurrentLocationStreamController.close();
@@ -132,10 +136,21 @@ abstract class MapViewModelBase with Store, ViewModel {
   Widget treeMarker() => const TreeMarker();
 
   @action
-  void onCenterOnUserPressed() {
+  void centerOnUser() {
     centerOnLocationUpdate = CenterOnLocationUpdate.once;
     centerCurrentLocationStreamController.add(mapController.zoom);
   }
+
+  Widget displayUserLocationIfGranted() =>
+      centerOnLocationUpdate == CenterOnLocationUpdate.never
+          ? const SizedBox.shrink()
+          : LocationMarkerLayerWidget(
+              plugin: LocationMarkerPlugin(
+                centerOnLocationUpdate: centerOnLocationUpdate,
+                centerCurrentLocationStream:
+                    centerCurrentLocationStreamController.stream,
+              ),
+            );
 
   // Map Options
   FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
