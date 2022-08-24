@@ -6,7 +6,6 @@ import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
-
 import 'package:globo_fitness/screens/map/map_view_model.dart';
 
 class MapScreen extends StatefulWidget {
@@ -24,6 +23,9 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
+    viewModel
+        .determinePosition(context)
+        .then(viewModel.centerOnUserAfterGettingLocation);
   }
 
   @override
