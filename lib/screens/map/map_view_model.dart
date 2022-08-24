@@ -1,8 +1,13 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+
 import 'package:mobx/mobx.dart';
 
-import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart' show LatLng;
 
 import 'package:api/dependency_injection.dart';
 
@@ -31,23 +36,72 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   final String openStreetMapUrl =
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
   final List<String> tileLayerOptionsSubdomains = ['a', 'b', 'c'];
+
+  late MapController mapController;
+  late TileLayerOptions tileLayerOptions;
 
   @observable
   ObservableList<Marker> treesMarkers = ObservableList();
 
+  @observable
+  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.never;
+
+  StreamController<double?> centerCurrentLocationStreamController =
+      StreamController<double?>();
+
   @override
   void init() {
-    generateMarkers();
+    _initMap();
+    _generateMarkers();
   }
 
   @override
   void dispose() {
-    clearMarkerList();
+    _clearMarkerList();
+    _disposeMap();
   }
 
-  void generateMarkers() {
+  // Init Methods
+  void _initMap() {
+    centerCurrentLocationStreamController = StreamController<double?>();
+    mapController = MapController();
+    _determinePosition();
+    _initTileLayerOptions();
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    centerOnLocationUpdate = CenterOnLocationUpdate.once;
+    return await Geolocator.getCurrentPosition();
+  }
+
+  void _initTileLayerOptions() {
+    tileLayerOptions = TileLayerOptions(
+        urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
+  }
+
+  void _generateMarkers() {
     List<Marker> newMarkers = [];
 
     for (var tree in treeStore.trees) {
@@ -63,7 +117,32 @@ abstract class MapViewModelBase with Store, ViewModel {
     treesMarkers.addAll(newMarkers);
   }
 
-  void clearMarkerList() => treesMarkers.clear();
+  // Dispose Methods
+  void _disposeCenterLocStream() {
+    centerCurrentLocationStreamController.close();
+  }
 
+  void _disposeMap() {
+    _disposeCenterLocStream();
+    mapController.dispose();
+  }
+
+  void _clearMarkerList() => treesMarkers.clear();
+
+  // Methods
   Widget treeMarker() => const TreeMarker();
+
+  @action
+  void onCenterOnUserPressed() {
+    centerOnLocationUpdate = CenterOnLocationUpdate.once;
+    centerCurrentLocationStreamController.add(mapController.zoom);
+  }
+
+  // Map Options
+  FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
+    padding: EdgeInsets.all(50),
+  );
+
+  PolygonOptions polygonOptions =
+      const PolygonOptions(borderColor: Colors.black, borderStrokeWidth: 3);
 }
