@@ -22,19 +22,17 @@
       "flutterMode": "release"
     },
     {
-      "name": "globo_fitness brown (dev)",
+      "name": "Brown globo_fitness ",
       "program": "lib/main_brown.dart",
       "args": ["--flavor", "brown"],
       "request": "launch",
-      "flutterMode": "debug",
       "type": "dart"
     },
     {
-      "name": "globo_fitness green (dev)",
+      "name": "Green globo_fitness",
       "program": "lib/main_green.dart",
       "args": ["--flavor", "green"],
       "request": "launch",
-      "flutterMode": "debug",
       "type": "dart"
     }
   ]

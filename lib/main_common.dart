@@ -11,9 +11,9 @@ import 'package:globo_fitness/managers/remote_config_manager.dart';
 
 import 'package:globo_fitness/injection/app_injection.dart';
 
-import './app_config.dart';
+import 'package:globo_fitness/app_config.dart';
 
-void mainCommon(AppConfig appConfig) async {
+void mainCommon({required AppConfig appConfig}) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await _firebaseInitializer();

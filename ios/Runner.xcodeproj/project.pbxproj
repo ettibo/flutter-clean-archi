@@ -364,12 +364,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_DISPLAY_NAME = Profile;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Icon-App";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_common.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -494,12 +495,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_DISPLAY_NAME = Debug;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Icon-App";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_common.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,6 +511,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -518,12 +523,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = "";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_DISPLAY_NAME = Release;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Icon-App";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_common.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -600,8 +606,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-green";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_green.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,8 +686,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_brown.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -755,8 +763,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-green";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_green.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -830,8 +839,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_brown.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,8 +913,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-green";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_green.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -976,8 +987,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 953QJQ5H7D;
+				DEVELOPMENT_TEAM = ZZMAMXS4V4;
 				ENABLE_BITCODE = NO;
+				FLUTTER_TARGET = lib/main_brown.dart;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
