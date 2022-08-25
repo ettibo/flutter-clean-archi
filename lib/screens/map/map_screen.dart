@@ -73,8 +73,6 @@ class _MapScreenState extends State<MapScreen> {
               ),
               viewModel.displayUserLocationIfGranted(),
               FlutterMapZoomButtons(
-                minZoom: viewModel.minZoom,
-                maxZoom: viewModel.maxZoom,
                 alignment: Alignment.bottomLeft,
                 onPressedZoomIn: viewModel.onPressedZoomIn,
                 onPressedZoomOut: viewModel.onPressedZoomOut,
