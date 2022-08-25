@@ -6,6 +6,8 @@ import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
+
+import 'package:globo_fitness/screens/map/widgets/zoom_buttons.dart';
 import 'package:globo_fitness/screens/map/map_view_model.dart';
 
 class MapScreen extends StatefulWidget {
@@ -69,7 +71,14 @@ class _MapScreenState extends State<MapScreen> {
               TileLayerWidget(
                 options: viewModel.tileLayerOptions,
               ),
-              viewModel.displayUserLocationIfGranted()
+              viewModel.displayUserLocationIfGranted(),
+              FlutterMapZoomButtons(
+                minZoom: 4,
+                maxZoom: 18,
+                padding: 10,
+                alignment: Alignment.bottomLeft,
+                mapController: viewModel.mapController,
+              ),
             ],
           ),
         ),

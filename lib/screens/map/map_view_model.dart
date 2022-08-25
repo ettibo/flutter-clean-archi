@@ -11,7 +11,7 @@ import 'package:latlong2/latlong.dart' show LatLng;
 
 import 'package:api/dependency_injection.dart';
 
-import 'package:globo_fitness/screens/map/tree_marker.dart';
+import 'package:globo_fitness/screens/map/widgets/tree_marker.dart';
 
 import 'package:globo_fitness/store/tree_store.dart';
 
