@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class FlutterMapZoomButtons extends StatelessWidget {
   final void Function() onPressedZoomIn;
   final void Function() onPressedZoomOut;
-  final double minZoom;
-  final double maxZoom;
   final double padding;
   final Alignment alignment;
   final bool isMini;
@@ -19,8 +17,6 @@ class FlutterMapZoomButtons extends StatelessWidget {
       {super.key,
       required this.onPressedZoomIn,
       required this.onPressedZoomOut,
-      required this.minZoom,
-      required this.maxZoom,
       this.padding = 10.0,
       this.alignment = Alignment.bottomLeft,
       this.isMini = true,
