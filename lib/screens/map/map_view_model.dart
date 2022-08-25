@@ -29,6 +29,7 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   final LatLng parisCoord = LatLng(48.866667, 2.333333);
   final double defaultZoom = 13.0;
+  final double minZoom = 4.0;
   final double maxZoom = 18.0;
   final int heightMarker = 50;
   final int widthMarker = 50;
@@ -151,6 +152,18 @@ abstract class MapViewModelBase with Store, ViewModel {
                     centerCurrentLocationStreamController.stream,
               ),
             );
+
+  void onPressedZoomOut() {
+    if (mapController.zoom != minZoom) {
+      mapController.move(mapController.center, mapController.zoom - 1);
+    }
+  }
+
+  void onPressedZoomIn() {
+    if (mapController.zoom != maxZoom) {
+      mapController.move(mapController.center, mapController.zoom + 1);
+    }
+  }
 
   // Map Options
   FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(

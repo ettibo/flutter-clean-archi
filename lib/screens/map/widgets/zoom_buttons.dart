@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/plugin_api.dart';
 
 class FlutterMapZoomButtons extends StatelessWidget {
+  final void Function() onPressedZoomIn;
+  final void Function() onPressedZoomOut;
   final double minZoom;
   final double maxZoom;
   final double padding;
@@ -14,14 +15,13 @@ class FlutterMapZoomButtons extends StatelessWidget {
   final Color? zoomOutColor;
   final Color? zoomOutColorIcon;
 
-  final MapController mapController;
-
   const FlutterMapZoomButtons(
       {super.key,
-      required this.mapController,
-      this.minZoom = 1,
+      required this.onPressedZoomIn,
+      required this.onPressedZoomOut,
+      this.minZoom = 4,
       this.maxZoom = 18,
-      this.padding = 2.0,
+      this.padding = 10.0,
       this.alignment = Alignment.topRight,
       this.isMini = true,
       this.zoomInIcon = Icons.zoom_in,
@@ -56,22 +56,10 @@ class FlutterMapZoomButtons extends StatelessWidget {
           mini: isMini,
           backgroundColor: (isZoomIn ? zoomInColor : zoomOutColor) ??
               Theme.of(context).primaryColorDark,
-          onPressed: isZoomIn ? _onPressedZoomIn : _onPressedZoomOut,
+          onPressed: isZoomIn ? onPressedZoomIn : onPressedZoomOut,
           child: Icon(isZoomIn ? zoomInIcon : zoomOutIcon,
               color: (isZoomIn ? zoomInColorIcon : zoomOutColorIcon) ??
                   Colors.black),
         ),
       );
-
-  void _onPressedZoomOut() {
-    if (mapController.zoom != minZoom) {
-      mapController.move(mapController.center, mapController.zoom - 1);
-    }
-  }
-
-  void _onPressedZoomIn() {
-    if (mapController.zoom != maxZoom) {
-      mapController.move(mapController.center, mapController.zoom + 1);
-    }
-  }
 }
