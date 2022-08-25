@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 
@@ -7,14 +9,16 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:latlong2/latlong.dart' show LatLng;
+import 'package:latlong2/latlong.dart';
+import 'package:positioned_tap_detector_2/positioned_tap_detector_2.dart'
+    show TapPosition;
 
 import 'package:api/dependency_injection.dart';
 
-import 'package:globo_fitness/screens/map/widgets/tree_marker.dart';
+import 'package:globo_fitness/screens/map/widgets/markers/tree_marker.dart';
+import 'package:globo_fitness/screens/map/widgets/markers/tree_marker_popup.dart';
 
 import 'package:globo_fitness/store/tree_store.dart';
-
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
@@ -39,6 +43,8 @@ abstract class MapViewModelBase with Store, ViewModel {
   final String openStreetMapUrl =
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   final List<String> tileLayerOptionsSubdomains = ['a', 'b', 'c'];
+
+  final PopupController popupLayerController = PopupController();
 
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
@@ -96,10 +102,8 @@ abstract class MapViewModelBase with Store, ViewModel {
     return await Geolocator.getCurrentPosition();
   }
 
-  void _initTileLayerOptions() {
-    tileLayerOptions = TileLayerOptions(
-        urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
-  }
+  void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
+      urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
   void _generateMarkers() {
     List<Marker> newMarkers = [];
@@ -107,24 +111,18 @@ abstract class MapViewModelBase with Store, ViewModel {
     for (var tree in treeStore.trees) {
       tree.lat.let((that) {
         tree.lng.let((that) {
-          newMarkers.add(Marker(
-              point: LatLng(tree.lat!, tree.lng!),
-              builder: (context) => treeMarker()));
+          newMarkers.add(TreeMarker(tree: tree));
         });
       });
     }
-
     treesMarkers.addAll(newMarkers);
   }
 
-  void centerOnUserAfterGettingLocation(Position position) {
-    centerOnUser();
-  }
+  void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
 
   // Dispose Methods
-  void _disposeCenterLocStream() {
-    centerCurrentLocationStreamController.close();
-  }
+  void _disposeCenterLocStream() =>
+      centerCurrentLocationStreamController.close();
 
   void _disposeMap() {
     _disposeCenterLocStream();
@@ -134,8 +132,6 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
-  Widget treeMarker() => const TreeMarker();
-
   @action
   void centerOnUser() {
     centerOnLocationUpdate = CenterOnLocationUpdate.once;
@@ -163,6 +159,16 @@ abstract class MapViewModelBase with Store, ViewModel {
     if (mapController.zoom != maxZoom) {
       mapController.move(mapController.center, mapController.zoom + 1);
     }
+  }
+
+  void onTapMap(TapPosition tapPosition, LatLng latLng) =>
+      popupLayerController.hideAllPopups();
+
+  Widget mapPopupBuilder(BuildContext _, Marker marker) {
+    if (marker is TreeMarker) {
+      return TreeMarkPopup(tree: marker.tree);
+    }
+    return const SizedBox.shrink();
   }
 
   // Map Options

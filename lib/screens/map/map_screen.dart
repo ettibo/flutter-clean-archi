@@ -48,6 +48,7 @@ class _MapScreenState extends State<MapScreen> {
               center: viewModel.parisCoord,
               zoom: viewModel.defaultZoom,
               maxZoom: viewModel.maxZoom,
+              onTap: viewModel.onTapMap,
               plugins: [
                 MarkerClusterPlugin(),
               ],
@@ -57,25 +58,35 @@ class _MapScreenState extends State<MapScreen> {
                   ? const SizedBox.shrink()
                   : _centerOnUserButton()
             ],
-            layers: [
-              MarkerClusterLayerOptions(
-                maxClusterRadius: viewModel.maxClusterRadius,
-                size: viewModel.clusterSize,
-                fitBoundsOptions: viewModel.fitBoundsOptions,
-                markers: viewModel.treesMarkers,
-                polygonOptions: viewModel.polygonOptions,
-                builder: _clusterBuilder,
-              ),
-            ],
             children: <Widget>[
               TileLayerWidget(
                 options: viewModel.tileLayerOptions,
               ),
+
+              // Center on User Button
               viewModel.displayUserLocationIfGranted(),
+
+              // Zoom Buttons
               FlutterMapZoomButtons(
                 alignment: Alignment.bottomLeft,
                 onPressedZoomIn: viewModel.onPressedZoomIn,
                 onPressedZoomOut: viewModel.onPressedZoomOut,
+              ),
+
+              //Cluster & Popup Options
+              MarkerClusterLayerWidget(
+                options: MarkerClusterLayerOptions(
+                  maxClusterRadius: viewModel.maxClusterRadius,
+                  size: viewModel.clusterSize,
+                  fitBoundsOptions: viewModel.fitBoundsOptions,
+                  markers: viewModel.treesMarkers,
+                  polygonOptions: viewModel.polygonOptions,
+                  builder: _clusterBuilder,
+                  popupOptions: PopupOptions(
+                    popupController: viewModel.popupLayerController,
+                    popupBuilder: viewModel.mapPopupBuilder,
+                  ),
+                ),
               ),
             ],
           ),
