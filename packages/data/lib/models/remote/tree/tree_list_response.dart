@@ -2,9 +2,8 @@ class TreeListResponse {
   int? nhits;
   Parameters? parameters;
   List<Records>? records;
-  List<FacetGroups>? facetGroups;
 
-  TreeListResponse({nhits, parameters, records, facetGroups});
+  TreeListResponse({nhits, parameters, records});
 
   TreeListResponse.fromJson(Map<String, dynamic> json) {
     nhits = json['nhits'];
@@ -17,12 +16,6 @@ class TreeListResponse {
         records!.add(Records.fromJson(v));
       });
     }
-    if (json['facet_groups'] != null) {
-      facetGroups = <FacetGroups>[];
-      json['facet_groups'].forEach((v) {
-        facetGroups!.add(FacetGroups.fromJson(v));
-      });
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -33,9 +26,6 @@ class TreeListResponse {
     }
     if (records != null) {
       data['records'] = records!.map((v) => v.toJson()).toList();
-    }
-    if (facetGroups != null) {
-      data['facet_groups'] = facetGroups!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -55,7 +45,6 @@ class Parameters {
     dataset = json['dataset'];
     rows = json['rows'];
     start = json['start'];
-    facet = json['facet'].cast<String>();
     format = json['format'];
     timezone = json['timezone'];
   }
@@ -197,57 +186,6 @@ class Geometry {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['type'] = type;
     data['coordinates'] = coordinates;
-    return data;
-  }
-}
-
-class FacetGroups {
-  String? name;
-  List<Facets>? facets;
-
-  FacetGroups({name, facets});
-
-  FacetGroups.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    if (json['facets'] != null) {
-      facets = <Facets>[];
-      json['facets'].forEach((v) {
-        facets!.add(Facets.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = name;
-    if (facets != null) {
-      data['facets'] = facets!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Facets {
-  String? name;
-  int? count;
-  String? state;
-  String? path;
-
-  Facets({name, count, state, path});
-
-  Facets.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    count = json['count'];
-    state = json['state'];
-    path = json['path'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = name;
-    data['count'] = count;
-    data['state'] = state;
-    data['path'] = path;
     return data;
   }
 }
