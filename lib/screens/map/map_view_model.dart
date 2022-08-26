@@ -164,12 +164,10 @@ abstract class MapViewModelBase with Store, ViewModel {
   void onTapMap(TapPosition tapPosition, LatLng latLng) =>
       popupLayerController.hideAllPopups();
 
-  Widget mapPopupBuilder(BuildContext _, Marker marker) {
-    if (marker is TreeMarker) {
-      return TreeMarkPopup(tree: marker.tree);
-    }
-    return const SizedBox.shrink();
-  }
+  Widget mapPopupBuilder(BuildContext _, Marker marker) =>
+      (marker is TreeMarker)
+          ? TreeMarkPopup(tree: marker.tree)
+          : const SizedBox.shrink();
 
   // Map Options
   FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
