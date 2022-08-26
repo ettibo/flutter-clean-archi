@@ -12,7 +12,7 @@ class RemoteTreeDataSourceImpl implements RemoteTreeDataSource {
       {int startRow = 0, int nbRows = 20}) async {
     List<Tree> glTrees = await dio
         .get(
-      'https://opendata.paris.fr/api/records/1.0/search/?dataset=les-arbres&q=&rows=$nbRows&start=$startRow&facet=&facet=arrondissement&facet=libellefrancais&facet=genre&facet=espece&facet=circonferenceencm&facet=hauteurenm',
+      'https://opendata.paris.fr/api/records/1.0/search/?dataset=les-arbres&q=&rows=$nbRows&start=$startRow',
     )
         .then((response) {
       Map<String, dynamic> data = response.data;

@@ -1,0 +1,35 @@
+{
+	"nhits": 205677,
+	"parameters": {
+		"dataset": "les-arbres",
+		"rows": 1,
+		"start": 0,
+		"format": "json",
+		"timezone": "UTC"
+	},
+	"records": [{
+		"datasetid": "les-arbres",
+		"recordid": "a59dfb06964adf667a3fbcd4d0e11f22af281317",
+		"fields": {
+			"hauteurenm": 15,
+			"libellefrancais": "Tilleul",
+			"idemplacement": "000101087",
+			"circonferenceencm": 110,
+			"geo_point_2d": [48.840064908669596, 2.432264280571541],
+			"espece": "cordata",
+			"typeemplacement": "Arbre",
+			"genre": "Tilia",
+			"adresse": "AVENUE DAUMESNIL",
+			"stadedeveloppement": "Jeune (arbre)Adulte",
+			"domanialite": "Alignement",
+			"remarquable": "NON",
+			"idbase": 2004705,
+			"arrondissement": "BOIS DE VINCENNES"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [2.432264280571541, 48.840064908669596]
+		},
+		"record_timestamp": "2022-08-26T08:26:22.166Z"
+	}]
+}
