@@ -34,15 +34,16 @@ class GlobeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return adaptiveTheme();
+    return _adaptiveTheme();
   }
 
-  AdaptiveTheme adaptiveTheme() => AdaptiveTheme(
+  AdaptiveTheme _adaptiveTheme() => AdaptiveTheme(
       light: lightTheme,
       dark: darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
       builder: (ThemeData lightTheme, ThemeData darkTheme) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           onGenerateTitle: (context) => context.localized.appTitle,
           theme: lightTheme,
           darkTheme: darkTheme,
