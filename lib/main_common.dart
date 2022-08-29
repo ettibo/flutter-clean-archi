@@ -28,6 +28,16 @@ void mainCommon({required AppConfig appConfig}) async {
   ));
 }
 
+Future<Widget> initializeApp(AppConfig appConfig) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupInjectionDependencies();
+  final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
+  return GlobeApp(
+    appConfig: appConfig,
+    savedThemeMode: savedThemeMode,
+  );
+}
+
 class GlobeApp extends StatelessWidget {
   final AdaptiveThemeMode? savedThemeMode;
   final AppConfig appConfig;
