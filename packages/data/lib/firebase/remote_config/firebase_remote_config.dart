@@ -1,28 +1,36 @@
 library api;
 
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
-import 'package:api/models/app/managers/remote_config_manager.dart';
-
-import 'package:data/firebase/remote_config/default_params.dart';
+import 'package:api/models/app/managers/remote_config.dart';
 
 class RemoteConfigFirebase implements RemoteConfigManager {
   final FirebaseRemoteConfig _instance = FirebaseRemoteConfig.instance;
 
   @override
-  Future<void> initializeRemoteConfig() async =>
-      await _instance.setConfigSettings(RemoteConfigSettings(
+  void initializeRemoteConfig() =>
+      _instance.setConfigSettings(RemoteConfigSettings(
         fetchTimeout: const Duration(minutes: 1),
         minimumFetchInterval: _getMinimumFetchInterval(),
       ));
 
   @override
-  Future<void> setDefaultParams() async => await setRemoteConfigDefault();
+  void setDefaultParams() async {
+    String jsonAsset = await rootBundle
+        .loadString("assets/default_values/remote_config_default_values.json");
+
+    Map<String, dynamic> decodedJson = jsonDecode(jsonAsset);
+    FirebaseRemoteConfig.instance.setDefaults(decodedJson);
+  }
 
   @override
-  Future<void> launchLoadingStrategy() async =>
-      await _instance.fetch().then((_) => _instance.activate());
+  void launchLoadingStrategy() =>
+      _instance.fetch().then((_) => _instance.activate());
   // Load new values for next startup
 
   @override
@@ -41,7 +49,6 @@ class RemoteConfigFirebase implements RemoteConfigManager {
     }
   }
 
-  Duration _getMinimumFetchInterval() => kDebugMode
-      ? const Duration(seconds: 0)
-      : const Duration(seconds: 3600 * 12);
+  Duration _getMinimumFetchInterval() =>
+      const Duration(seconds: kDebugMode ? 0 : 3600 * 12);
 }

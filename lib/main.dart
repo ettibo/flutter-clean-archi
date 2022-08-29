@@ -20,7 +20,7 @@ void main() async {
 
   await _firebaseInitializer();
   await setupInjectionDependencies();
-  await _activateManagers();
+  _activateManagers();
 
   final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
 
@@ -33,9 +33,7 @@ class GlobeApp extends StatelessWidget {
   const GlobeApp({Key? key, this.savedThemeMode}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return _adaptiveTheme();
-  }
+  Widget build(BuildContext context) => _adaptiveTheme();
 
   AdaptiveTheme _adaptiveTheme() => AdaptiveTheme(
       light: lightTheme,
@@ -54,12 +52,8 @@ class GlobeApp extends StatelessWidget {
       });
 }
 
-Future<void> _firebaseInitializer() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-}
+Future<void> _firebaseInitializer() async => await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
 
-Future<void> _activateManagers() async {
-  await activateRemoteConfig();
-}
+void _activateManagers() => activateRemoteConfig();

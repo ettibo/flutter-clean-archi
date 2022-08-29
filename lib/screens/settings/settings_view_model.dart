@@ -4,7 +4,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:api/dependency_injection.dart';
-import 'package:api/models/app/managers/remote_config_manager.dart';
+import 'package:api/models/app/managers/remote_config.dart';
 
 import 'package:flutter/material.dart';
 
