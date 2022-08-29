@@ -42,25 +42,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget observerBuilder(BuildContext context) => Center(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(context.localized.theme,
-                      style: const TextStyle(fontSize: 18)),
-                ),
-                DropdownButton<DeviceTheme>(
-                  value: viewModel.currentTheme,
-                  items: viewModel.getDropdownItems(context),
-                  onChanged: (value) =>
-                      viewModel.handleThemeChange(value, context),
-                ),
-              ],
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(context.localized.theme,
+                        style: const TextStyle(fontSize: 18)),
+                  ),
+                  DropdownButton<DeviceTheme>(
+                    value: viewModel.currentTheme,
+                    items: viewModel.getDropdownItems(context),
+                    onChanged: (value) =>
+                        viewModel.handleThemeChange(value, context),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(context.localized.titleLabel(
+                      viewModel.getLabelChangeLanguage(),
+                      viewModel.getCurrentLocale()))
+                ],
+              )
+            ],
+          ),
         ),
       );
 }

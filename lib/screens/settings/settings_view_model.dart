@@ -1,11 +1,17 @@
+import 'dart:io';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mobx/mobx.dart';
+
+import 'package:api/dependency_injection.dart';
+import 'package:api/models/app/managers/remote_config_manager.dart';
+
 import 'package:flutter/material.dart';
+
+import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
-
-import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 part 'settings_view_model.g.dart';
 
@@ -14,6 +20,9 @@ enum DeviceTheme { light, dark, system }
 class SettingsViewModel = SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class SettingsViewModelBase with Store, ViewModel {
+  final RemoteConfigManager remoteConfigManager =
+      DependecyInjection.instance.get<RemoteConfigManager>();
+
   @observable
   DeviceTheme currentTheme = DeviceTheme.system;
 
@@ -62,4 +71,11 @@ abstract class SettingsViewModelBase with Store, ViewModel {
             value: DeviceTheme.system,
             child: Text(context.localized.mirrorSystem))
       ];
+
+  String getLabelChangeLanguage() =>
+      remoteConfigManager.getValue<String>(
+          key: "key_label_force_language_setting") ??
+      "";
+
+  String getCurrentLocale() => Platform.localeName;
 }
