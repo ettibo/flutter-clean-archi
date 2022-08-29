@@ -1,27 +1,27 @@
 {
-    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
-    // Pointez pour afficher la description des attributs existants.
-    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "globo_fitness",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "globo_fitness (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "globo_fitness (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        },
-        /*{
+  // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+  // Pointez pour afficher la description des attributs existants.
+  // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "globo_fitness",
+      "request": "launch",
+      "type": "dart"
+    }
+    // {
+    //   "name": "globo_fitness (profile mode)",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "flutterMode": "profile"
+    // },
+    // {
+    //   "name": "globo_fitness (release mode)",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "flutterMode": "release"
+    // }
+    /*{
             "name": "api",
             "cwd": "packages/api",
             "request": "launch",
@@ -81,5 +81,5 @@
             "type": "dart",
             "flutterMode": "release"
         }*/
-    ]
+  ]
 }

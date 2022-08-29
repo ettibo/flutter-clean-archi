@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "87289715144",
+    "project_id": "flutter-clean-archi",
+    "storage_bucket": "flutter-clean-archi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87289715144:android:f1313fa023e5dd082348fd",
+        "android_client_info": {
+          "package_name": "com.example.globo_fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87289715144-2pu2vctn2luoe2kiv17nmbrhnlgm81og.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArp-kbcjNhNqUYdydF4SNV_5xW-qb715Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87289715144-2pu2vctn2luoe2kiv17nmbrhnlgm81og.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "87289715144-3k9rkgkrv2ej91ruc1ma3gl0uico6kee.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.globoFitness"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
