@@ -12,6 +12,7 @@ import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/enums/remote_config_keys.dart';
 
 part 'settings_view_model.g.dart';
 
@@ -74,7 +75,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
 
   String getLabelChangeLanguage() =>
       remoteConfigManager.getValue<String>(
-          key: "key_label_force_language_setting") ??
+          key: RemoteConfigKeys.key_label_force_language_setting.name) ??
       "";
 
   String getCurrentLocale() => Platform.localeName;
