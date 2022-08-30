@@ -90,3 +90,6 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+// This must appear at the bottom of the file
+apply plugin: 'com.google.firebase.crashlytics'
