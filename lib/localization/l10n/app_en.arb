@@ -152,5 +152,11 @@
     "locationPermissionDeniedPermanently": "Location permissions are permanently denied.",
     "@locationPermissionDeniedPermanently": {
       "description": "Text representing the text when the permission to get the user's location is denied permanently."
+    },
+
+    "crashReportingEnabledLabel": "Crash manager is activated:",
+    "@crashReportingEnabledLabel": {
+      "description": "Text representing the value of the switch showing if the crash manager is currently monitoring the application."
     }
+
 }

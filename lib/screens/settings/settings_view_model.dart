@@ -5,6 +5,7 @@ import 'package:mobx/mobx.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
+import 'package:api/models/app/managers/crash.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,12 +25,19 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   final RemoteConfigManager remoteConfigManager =
       DependecyInjection.instance.get<RemoteConfigManager>();
 
+  final CrashManager crashManager =
+      DependecyInjection.instance.get<CrashManager>();
+
   @observable
   DeviceTheme currentTheme = DeviceTheme.system;
+
+  @observable
+  bool isCrashManagerEnabled = false;
 
   @override
   void init() {
     setCurrentTheme();
+    _initIsCrashManagerEnabled();
   }
 
   @override
@@ -80,8 +88,12 @@ abstract class SettingsViewModelBase with Store, ViewModel {
 
   String getCurrentLocale() => Platform.localeName;
 
-  String getStringExample() =>
-      remoteConfigManager.getValue<String>(
-          key: RemoteConfigKeys.string_example.name) ??
-      "";
+  @action
+  void _initIsCrashManagerEnabled() =>
+      isCrashManagerEnabled = crashManager.isCrashReportingEnabled();
+
+  void toggleCrashManager(bool _) {
+    crashManager.toogleCrashReporting();
+    isCrashManagerEnabled = !isCrashManagerEnabled;
+  }
 }
