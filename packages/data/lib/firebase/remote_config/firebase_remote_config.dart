@@ -1,5 +1,3 @@
-library api;
-
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -25,7 +23,7 @@ class RemoteConfigFirebase implements RemoteConfigManager {
         .loadString("assets/default_values/remote_config_default_values.json");
 
     Map<String, dynamic> decodedJson = jsonDecode(jsonAsset);
-    FirebaseRemoteConfig.instance.setDefaults(decodedJson);
+    _instance.setDefaults(decodedJson);
   }
 
   @override
