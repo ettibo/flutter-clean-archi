@@ -22,10 +22,10 @@ enum DeviceTheme { light, dark, system }
 class SettingsViewModel = SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class SettingsViewModelBase with Store, ViewModel {
-  final RemoteConfigManager remoteConfigManager =
+  final RemoteConfigManager _remoteConfigManager =
       DependecyInjection.instance.get<RemoteConfigManager>();
 
-  final CrashManager crashManager =
+  final CrashManager _crashManager =
       DependecyInjection.instance.get<CrashManager>();
 
   @observable
@@ -82,7 +82,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
       ];
 
   String getLabelChangeLanguage() =>
-      remoteConfigManager.getValue<String>(
+      _remoteConfigManager.getValue<String>(
           key: RemoteConfigKeys.key_label_force_language_setting.name) ??
       "";
 
@@ -90,10 +90,10 @@ abstract class SettingsViewModelBase with Store, ViewModel {
 
   @action
   void _initIsCrashManagerEnabled() =>
-      isCrashManagerEnabled = crashManager.isCrashReportingEnabled();
+      isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
 
   void toggleCrashManager(bool _) {
-    crashManager.toogleCrashReporting();
+    _crashManager.toogleCrashReporting();
     isCrashManagerEnabled = !isCrashManagerEnabled;
   }
 }

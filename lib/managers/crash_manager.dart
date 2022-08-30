@@ -2,14 +2,14 @@ import 'package:api/models/app/managers/crash.dart';
 
 import 'package:api/dependency_injection.dart';
 
-final CrashManager crashManager =
+final CrashManager _crashManager =
     DependecyInjection.instance.get<CrashManager>();
 
 void activateCrashReportIfEnabled() {
-  if (crashManager.isCrashReportingEnabled()) {
-    crashManager.recordErrorOutsideOfContext();
-    crashManager.recordFatalError();
+  if (_crashManager.isCrashReportingEnabled()) {
+    _crashManager.recordErrorOutsideOfContext();
+    _crashManager.recordFatalError();
   }
 }
 
-void toggleCrashReporting() => crashManager.toogleCrashReporting();
+void toggleCrashReporting() => _crashManager.toogleCrashReporting();

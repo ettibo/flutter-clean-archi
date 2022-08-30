@@ -28,7 +28,7 @@ part 'map_view_model.g.dart';
 class MapViewModel = MapViewModelBase with _$MapViewModel;
 
 abstract class MapViewModelBase with Store, ViewModel {
-  final TreeStoreBase treeStore =
+  final TreeStoreBase _treeStore =
       DependecyInjection.instance.get<TreeStoreBase>();
 
   final LatLng parisCoord = LatLng(48.866667, 2.333333);
@@ -108,7 +108,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _generateMarkers() {
     List<Marker> newMarkers = [];
 
-    for (var tree in treeStore.trees) {
+    for (var tree in _treeStore.trees) {
       tree.lat.let((that) {
         tree.lng.let((that) {
           newMarkers.add(TreeMarker(tree: tree));
