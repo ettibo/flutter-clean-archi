@@ -73,8 +73,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(context.localized
-                      .titleLabel("App config", viewModel.getStringExample()))
+                  Text(context.localized.crashReportingEnabledLabel),
+                  Switch(
+                      value: viewModel.isCrashManagerEnabled,
+                      onChanged: viewModel.toggleCrashManager),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () => throw Exception(),
+                    child: const Text("Throw Test Exception"),
+                  ),
                 ],
               )
             ],
