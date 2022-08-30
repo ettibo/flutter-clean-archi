@@ -19,7 +19,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   final TreeStoreBase treeStore =
       DependecyInjection.instance.get<TreeStoreBase>();
 
-  final GetTreeList useCase = DependecyInjection.instance.get<GetTreeList>();
+  final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
 
   @observable
   bool isLoadingTrees = false;
@@ -37,7 +37,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
     List<Tree> newTrees =
-        await useCase.fetch(startRow: startRow, nbRows: nbRows);
+        await _useCase.fetch(startRow: startRow, nbRows: nbRows);
     treeStore.addTrees(newTrees);
   }
 
