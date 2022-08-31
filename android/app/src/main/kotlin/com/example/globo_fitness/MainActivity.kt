@@ -1,4 +1,4 @@
-package com.example.globo_fitness
+package com.example.globoFitness
 
 import io.flutter.embedding.android.FlutterActivity
 
