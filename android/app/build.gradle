@@ -71,14 +71,12 @@ android {
     productFlavors {
         green {
             dimension "flavor-type"
-            applicationId "com.example.globoFitness.green"
             versionNameSuffix "-green"
             applicationIdSuffix ".green"
         }
         
         brown {
             dimension "flavor-type"
-            applicationId "com.example.globoFitness.brown"
             versionNameSuffix "-brown"
             applicationIdSuffix ".brown"
         }
