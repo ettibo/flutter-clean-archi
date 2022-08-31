@@ -79,4 +79,9 @@ abstract class SettingsViewModelBase with Store, ViewModel {
       "";
 
   String getCurrentLocale() => Platform.localeName;
+
+  String getStringExample() =>
+      remoteConfigManager.getValue<String>(
+          key: RemoteConfigKeys.string_example.name) ??
+      "";
 }

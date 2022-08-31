@@ -3,7 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:globo_fitness/firebase_options.dart';
+import 'package:globo_fitness/firebase/green_firebase_options.dart'
+    as green_firebase_options;
+import 'package:globo_fitness/firebase/brown_firebase_options.dart'
+    as brown_firebase_options;
 
 import 'package:globo_fitness/screens/home/home_screen.dart';
 
@@ -13,24 +16,12 @@ import 'package:globo_fitness/injection/app_injection.dart';
 
 import 'package:globo_fitness/app_config.dart';
 
-void mainCommon({required AppConfig appConfig}) async {
+Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await _firebaseInitializer();
+  await _firebaseInitializer(appConfig.flavorName);
   await setupInjectionDependencies();
   _activateManagers();
 
-  final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
-
-  runApp(GlobeApp(
-    savedThemeMode: savedThemeMode,
-    appConfig: appConfig,
-  ));
-}
-
-Future<Widget> initializeApp(AppConfig appConfig) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await setupInjectionDependencies();
   final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
   return GlobeApp(
     appConfig: appConfig,
@@ -55,7 +46,6 @@ class GlobeApp extends StatelessWidget {
       builder: (ThemeData lightTheme, ThemeData darkTheme) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          // onGenerateTitle: (context) => context.localized.appTitle,
           title: appConfig.appTitle,
           theme: lightTheme,
           darkTheme: darkTheme,
@@ -66,8 +56,20 @@ class GlobeApp extends StatelessWidget {
       });
 }
 
-Future<void> _firebaseInitializer() async => await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+Future<void> _firebaseInitializer(FlavorName flavorName) async {
+  FirebaseOptions? firebaseOption;
+
+  switch (flavorName) {
+    case FlavorName.brown:
+      firebaseOption =
+          brown_firebase_options.DefaultFirebaseOptions.currentPlatform;
+      break;
+    case FlavorName.green:
+      firebaseOption =
+          green_firebase_options.DefaultFirebaseOptions.currentPlatform;
+      break;
+  }
+  await Firebase.initializeApp(options: firebaseOption);
+}
 
 void _activateManagers() => activateRemoteConfig();

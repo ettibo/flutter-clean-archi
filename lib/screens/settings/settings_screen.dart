@@ -69,6 +69,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       viewModel.getLabelChangeLanguage(),
                       viewModel.getCurrentLocale()))
                 ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(context.localized
+                      .titleLabel("App config", viewModel.getStringExample()))
+                ],
               )
             ],
           ),

@@ -9,7 +9,8 @@ void main() async {
   final appConfig = AppConfig(
       appTitle: 'Les Arbres Marrons',
       lightTheme: brownLightTheme,
-      darkTheme: brownDarkTheme);
+      darkTheme: brownDarkTheme,
+      flavorName: FlavorName.brown);
   Widget app = await initializeApp(appConfig);
   runApp(app);
 }

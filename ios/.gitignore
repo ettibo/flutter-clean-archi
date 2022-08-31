@@ -36,4 +36,5 @@ Runner/GeneratedPluginRegistrant.*
 
 # Firebase
 /firebase_app_id_file.json
-/Runner/GoogleService-Info.plist
+/config/brown/GoogleService-Info.plist
+/config/green/GoogleService-Info.plist
