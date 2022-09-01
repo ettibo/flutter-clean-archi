@@ -9,12 +9,12 @@ Widget rowTreeInfo(
         required String title,
         required String value,
         String? unit}) =>
-    const Padding(
-      padding: EdgeInsets.all(10),
-      child: Text("#### Need to be changed ####"),
-      // child: Text(context.localized.titleLabel(
-      //     title.toTitleCase(),
-      //     unit != null
-      //         ? context.localized.valueWithUnit(value, unit)
-      //         : value.toTitleCase())),
+    Padding(
+      padding: const EdgeInsets.all(10),
+      child: Text(LocaleKeys.titleLabel.tr(args: [
+        title.toTitleCase(),
+        unit != null
+            ? LocaleKeys.valueWithUnit.tr(args: [value, unit])
+            : value.toTitleCase()
+      ])),
     );

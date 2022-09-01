@@ -66,18 +66,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("#### Need to be changed ####")
-                  // Text(context.localized.titleLabel(
-                  //     viewModel.getLabelChangeLanguage(),
-                  //     viewModel.getCurrentLocale()))
+                  Text(
+                    LocaleKeys.titleLabel.tr(
+                      args: [
+                        viewModel.getLabelChangeLanguage(),
+                        viewModel.getCurrentLocale()
+                      ],
+                    ),
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("#### Need to be changed ####")
-                  // Text(context.localized
-                  //     .titleLabel("App config", viewModel.getStringExample()))
+                  Text(
+                    LocaleKeys.titleLabel
+                        .tr(args: ["App config", viewModel.getStringExample()]),
+                  ),
                 ],
               )
             ],

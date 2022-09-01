@@ -88,24 +88,28 @@ class _BmiScreenState extends State<BmiScreen> {
 
             // Height TextField
             getTextField(
-                controller: viewModel.txtHeightController,
-                onChanged: viewModel.setHeight,
-                onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
-                hintText: '#### Need to be changed ####'
-                // hintText: context.localized.hintBmiTextField(
-                //     context.localized.height.toLowerCase(),
-                //     viewModel.getHeightUnitHint(context)),
-                ),
+              controller: viewModel.txtHeightController,
+              onChanged: viewModel.setHeight,
+              onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
+              hintText: LocaleKeys.hintBmiTextField.tr(
+                args: [
+                  LocaleKeys.height.tr().toLowerCase(),
+                  viewModel.getHeightUnitHint(context)
+                ],
+              ),
+            ),
             // Weight TextField
             getTextField(
-                controller: viewModel.txtWeightController,
-                onChanged: viewModel.setWeight,
-                focusNode: viewModel.weightFocusNode,
-                hintText: '#### Need to be changed ####'
-                // hintText: context.localized.hintBmiTextField(
-                //     context.localized.weight.toLowerCase(),
-                //     viewModel.getWeightUnitHint(context)),
-                ),
+              controller: viewModel.txtWeightController,
+              onChanged: viewModel.setWeight,
+              focusNode: viewModel.weightFocusNode,
+              hintText: LocaleKeys.hintBmiTextField.tr(
+                args: [
+                  LocaleKeys.weight.tr().toLowerCase(),
+                  viewModel.getWeightUnitHint(context),
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(10),
               child: Text(

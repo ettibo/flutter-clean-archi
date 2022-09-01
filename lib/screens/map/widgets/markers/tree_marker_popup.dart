@@ -23,9 +23,14 @@ class TreeMarkPopup extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(tree.name.toString().toCapitalized()),
-                Text("#### Need to be changed ####")
-                // Text(context.localized.titleLabel(context.localized.species,
-                //     tree.species.toString().toTitleCase())),
+                Text(
+                  LocaleKeys.titleLabel.tr(
+                    args: [
+                      LocaleKeys.species.tr(),
+                      tree.species.toString().toTitleCase()
+                    ],
+                  ),
+                )
               ],
             ),
           ),
