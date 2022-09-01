@@ -2,6 +2,7 @@ library api;
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
@@ -12,12 +13,11 @@ class RemoteConfigFirebase implements RemoteConfigManager {
   final FirebaseRemoteConfig _instance = FirebaseRemoteConfig.instance;
 
   @override
-  void initializeRemoteConfig() {}
-  // =>
-  //     _instance.setConfigSettings(RemoteConfigSettings(
-  //       fetchTimeout: const Duration(minutes: 1),
-  //       minimumFetchInterval: _getMinimumFetchInterval(),
-  //     ));
+  void initializeRemoteConfig() =>
+      _instance.setConfigSettings(RemoteConfigSettings(
+        fetchTimeout: const Duration(minutes: 1),
+        minimumFetchInterval: _getMinimumFetchInterval(),
+      ));
 
   @override
   void setDefaultParams() async {
@@ -30,8 +30,8 @@ class RemoteConfigFirebase implements RemoteConfigManager {
 
   @override
   void launchLoadingStrategy() =>
-      _instance.fetch().then((_) => _instance.activate());
-  // Load new values for next startup
+      _instance.activate().then((_) => _instance.fetchAndActivate());
+  // Activate current values & Load new values for next startup
 
   @override
   T? getValue<T>({required String key}) {
@@ -49,6 +49,6 @@ class RemoteConfigFirebase implements RemoteConfigManager {
     }
   }
 
-  // Duration _getMinimumFetchInterval() =>
-  //     const Duration(seconds: kDebugMode ? 0 : 3600 * 12);
+  Duration _getMinimumFetchInterval() =>
+      const Duration(seconds: kDebugMode ? 0 : 3600 * 12);
 }
