@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/screens/settings/settings_view_model.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -34,7 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: materialAppBar(title: context.localized.settingsTitlePage),
+      appBar: materialAppBar(title: LocaleKeys.settingsTitlePage.tr()),
       body: SafeArea(
         child: Observer(builder: observerBuilder),
       ),
@@ -51,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text(context.localized.theme,
+                    child: Text(LocaleKeys.theme.tr(),
                         style: const TextStyle(fontSize: 18)),
                   ),
                   DropdownButton<DeviceTheme>(
@@ -65,16 +66,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(context.localized.titleLabel(
-                      viewModel.getLabelChangeLanguage(),
-                      viewModel.getCurrentLocale()))
+                  Text("#### Need to be changed ####")
+                  // Text(context.localized.titleLabel(
+                  //     viewModel.getLabelChangeLanguage(),
+                  //     viewModel.getCurrentLocale()))
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(context.localized
-                      .titleLabel("App config", viewModel.getStringExample()))
+                  Text("#### Need to be changed ####")
+                  // Text(context.localized
+                  //     .titleLabel("App config", viewModel.getStringExample()))
                 ],
               )
             ],

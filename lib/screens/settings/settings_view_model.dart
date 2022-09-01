@@ -11,7 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/enums/remote_config_keys.dart';
 
 part 'settings_view_model.g.dart';
@@ -64,13 +65,12 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   List<DropdownMenuItem<DeviceTheme>> getDropdownItems(BuildContext context) =>
       [
         DropdownMenuItem(
-            value: DeviceTheme.light,
-            child: Text(context.localized.lightTheme)),
+            value: DeviceTheme.light, child: Text(LocaleKeys.lightTheme.tr())),
         DropdownMenuItem(
-            value: DeviceTheme.dark, child: Text(context.localized.darkTheme)),
+            value: DeviceTheme.dark, child: Text(LocaleKeys.darkTheme.tr())),
         DropdownMenuItem(
             value: DeviceTheme.system,
-            child: Text(context.localized.mirrorSystem))
+            child: Text(LocaleKeys.mirrorSystem.tr()))
       ];
 
   String getLabelChangeLanguage() =>

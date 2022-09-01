@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:globo_fitness/firebase/green_firebase_options.dart'
     as green_firebase_options;
 import 'package:globo_fitness/firebase/brown_firebase_options.dart'
@@ -15,17 +16,28 @@ import 'package:globo_fitness/managers/remote_config_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
 
 import 'package:globo_fitness/app_config.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import 'translations/codegen_loader.g.dart';
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
   await _firebaseInitializer(appConfig.flavorName);
   await setupInjectionDependencies();
+  await EasyLocalization.ensureInitialized();
   _activateManagers();
 
   final AdaptiveThemeMode? savedThemeMode = await AdaptiveTheme.getThemeMode();
-  return GlobeApp(
-    appConfig: appConfig,
-    savedThemeMode: savedThemeMode,
+  return EasyLocalization(
+    supportedLocales: const [Locale('en'), Locale('es'), Locale('fr')],
+    path: 'assets/translations',
+    fallbackLocale: const Locale('fr'),
+    assetLoader: const CodegenLoader(),
+    child: GlobeApp(
+      appConfig: appConfig,
+      savedThemeMode: savedThemeMode,
+    ),
   );
 }
 
@@ -37,9 +49,9 @@ class GlobeApp extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) => _adaptiveTheme();
+  Widget build(BuildContext context) => _adaptiveTheme(context);
 
-  AdaptiveTheme _adaptiveTheme() => AdaptiveTheme(
+  AdaptiveTheme _adaptiveTheme(BuildContext context) => AdaptiveTheme(
       light: appConfig.lightTheme,
       dark: appConfig.darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
@@ -49,8 +61,9 @@ class GlobeApp extends StatelessWidget {
           title: appConfig.appTitle,
           theme: lightTheme,
           darkTheme: darkTheme,
-          supportedLocales: AppLocalizations.supportedLocales,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           home: const HomeScreen(),
         );
       });

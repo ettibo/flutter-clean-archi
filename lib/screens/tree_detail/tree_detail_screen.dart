@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:api/models/app/tree/tree.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:globo_fitness/screens/tree_detail/tree_info.dart';
 
@@ -16,7 +17,7 @@ class TreeDetailScreen extends StatefulWidget {
 
 class _TreeDetailScreenState extends State<TreeDetailScreen> {
   AppBar appBar(BuildContext context) => materialAppBar(
-      title: widget.tree.name ?? context.localized.titledetailTreePage);
+      title: widget.tree.name ?? LocaleKeys.titledetailTreePage.tr());
 
   @override
   Widget build(BuildContext context) {
@@ -30,23 +31,23 @@ class _TreeDetailScreenState extends State<TreeDetailScreen> {
             children: [
               rowTreeInfo(
                   context: context,
-                  title: context.localized.species,
+                  title: LocaleKeys.species.tr(),
                   value: widget.tree.species ??
-                      context.localized.speciesNotSpecified),
+                      LocaleKeys.speciesNotSpecified.tr()),
               rowTreeInfo(
                   context: context,
-                  title: context.localized.address,
+                  title: LocaleKeys.address.tr(),
                   value: '${widget.tree.address2} ${widget.tree.address}'),
               rowTreeInfo(
                   context: context,
-                  title: context.localized.height,
+                  title: LocaleKeys.height.tr(),
                   value: widget.tree.height.toString(),
-                  unit: context.localized.meterUnit),
+                  unit: LocaleKeys.meterUnit.tr()),
               rowTreeInfo(
                   context: context,
-                  title: context.localized.circumference,
+                  title: LocaleKeys.circumference.tr(),
                   value: widget.tree.circumference.toString(),
-                  unit: context.localized.centimeterUnit),
+                  unit: LocaleKeys.centimeterUnit.tr()),
             ],
           ),
         ),

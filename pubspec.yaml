@@ -37,7 +37,6 @@ dependencies:
   mobx: ^2.0.7+5
   flutter_mobx: ^2.0.6+1
 
-  intl: ^0.17.0
   adaptive_theme: ^3.1.1
 
   flutter_map: ^2.2.0
@@ -54,6 +53,8 @@ dependencies:
   # - flutter_launcher_icons-brow.yaml
   flutter_launcher_icons: ^0.10.0
 
+  easy_localization: ^3.0.1
+  
   api:
     path: packages/api
   data:
@@ -86,6 +87,7 @@ flutter:
   assets:
     - assets/
     - assets/default_values/remote_config_default_values.json
+    - assets/translations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

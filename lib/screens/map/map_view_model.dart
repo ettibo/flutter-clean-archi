@@ -21,7 +21,8 @@ import 'package:globo_fitness/screens/map/widgets/markers/tree_marker_popup.dart
 import 'package:globo_fitness/store/tree_store.dart';
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 part 'map_view_model.g.dart';
 
@@ -84,20 +85,19 @@ abstract class MapViewModelBase with Store, ViewModel {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error(context.localized.locationServicesDisabled);
+      return Future.error(LocaleKeys.locationServicesDisabled.tr());
     }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error(context.localized.locationPermissionDenied);
+        return Future.error(LocaleKeys.locationPermissionDenied.tr());
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          context.localized.locationPermissionDeniedPermanently);
+      return Future.error(LocaleKeys.locationPermissionDeniedPermanently.tr());
     }
     return await Geolocator.getCurrentPosition();
   }

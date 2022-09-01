@@ -5,7 +5,8 @@ import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
 
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class BmiScreen extends StatefulWidget {
   const BmiScreen({Key? key}) : super(key: key);
@@ -36,10 +37,10 @@ class _BmiScreenState extends State<BmiScreen> {
   List<Widget> getToggleButtons() => [
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(context.localized.metricUnitName, style: textStyle)),
+            child: Text(LocaleKeys.metricUnitName.tr(), style: textStyle)),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(context.localized.imperialUnitName, style: textStyle))
+            child: Text(LocaleKeys.imperialUnitName.tr(), style: textStyle))
       ];
 
   Widget getTextField(
@@ -87,22 +88,24 @@ class _BmiScreenState extends State<BmiScreen> {
 
             // Height TextField
             getTextField(
-              controller: viewModel.txtHeightController,
-              onChanged: viewModel.setHeight,
-              onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
-              hintText: context.localized.hintBmiTextField(
-                  context.localized.height.toLowerCase(),
-                  viewModel.getHeightUnitHint(context)),
-            ),
+                controller: viewModel.txtHeightController,
+                onChanged: viewModel.setHeight,
+                onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
+                hintText: '#### Need to be changed ####'
+                // hintText: context.localized.hintBmiTextField(
+                //     context.localized.height.toLowerCase(),
+                //     viewModel.getHeightUnitHint(context)),
+                ),
             // Weight TextField
             getTextField(
-              controller: viewModel.txtWeightController,
-              onChanged: viewModel.setWeight,
-              focusNode: viewModel.weightFocusNode,
-              hintText: context.localized.hintBmiTextField(
-                  context.localized.weight.toLowerCase(),
-                  viewModel.getWeightUnitHint(context)),
-            ),
+                controller: viewModel.txtWeightController,
+                onChanged: viewModel.setWeight,
+                focusNode: viewModel.weightFocusNode,
+                hintText: '#### Need to be changed ####'
+                // hintText: context.localized.hintBmiTextField(
+                //     context.localized.weight.toLowerCase(),
+                //     viewModel.getWeightUnitHint(context)),
+                ),
             Padding(
               padding: const EdgeInsets.all(10),
               child: Text(

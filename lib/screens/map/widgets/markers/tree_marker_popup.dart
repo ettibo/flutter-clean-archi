@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:api/models/app/tree/tree.dart';
 
-import 'package:globo_fitness/localization/app_localization_context.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 
 class TreeMarkPopup extends StatelessWidget {
@@ -22,8 +23,9 @@ class TreeMarkPopup extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(tree.name.toString().toCapitalized()),
-                Text(context.localized.titleLabel(context.localized.species,
-                    tree.species.toString().toTitleCase())),
+                Text("#### Need to be changed ####")
+                // Text(context.localized.titleLabel(context.localized.species,
+                //     tree.species.toString().toTitleCase())),
               ],
             ),
           ),
