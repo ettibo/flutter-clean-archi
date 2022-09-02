@@ -67,7 +67,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    LocaleKeys.titleLabel.tr(args: ["App config", 'Test']),
+                    LocaleKeys.titleLabel.tr(
+                        namedArgs: {'title': 'App config', 'value': 'Test'}),
                   ),
                 ],
               ),

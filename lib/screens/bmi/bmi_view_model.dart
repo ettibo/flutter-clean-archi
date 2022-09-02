@@ -115,7 +115,8 @@ abstract class BmiViewModelBase with Store, ViewModel {
       case ErrorBMI.nullFields:
         return LocaleKeys.bmiErrorNull.tr();
       case ErrorBMI.noError:
-        return LocaleKeys.bmiResult.tr(args: [_bmi.toStringAsFixed(2)]);
+        return LocaleKeys.bmiResult
+            .tr(namedArgs: {'value': _bmi.toStringAsFixed(2)});
     }
   }
 

@@ -24,12 +24,10 @@ class TreeMarkPopup extends StatelessWidget {
               children: <Widget>[
                 Text(tree.name.toString().toCapitalized()),
                 Text(
-                  LocaleKeys.titleLabel.tr(
-                    args: [
-                      LocaleKeys.species.tr(),
-                      tree.species.toString().toTitleCase()
-                    ],
-                  ),
+                  LocaleKeys.titleLabel.tr(namedArgs: {
+                    'title': LocaleKeys.species.tr(),
+                    'value': tree.species.toString().toTitleCase()
+                  }),
                 )
               ],
             ),

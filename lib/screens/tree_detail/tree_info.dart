@@ -11,10 +11,15 @@ Widget rowTreeInfo(
         String? unit}) =>
     Padding(
       padding: const EdgeInsets.all(10),
-      child: Text(LocaleKeys.titleLabel.tr(args: [
-        title.toTitleCase(),
-        unit != null
-            ? LocaleKeys.valueWithUnit.tr(args: [value, unit])
-            : value.toTitleCase()
-      ])),
+      child: Text(
+        LocaleKeys.titleLabel.tr(
+          namedArgs: {
+            'title': title.toTitleCase(),
+            'unit': unit != null
+                ? LocaleKeys.valueWithUnit
+                    .tr(namedArgs: {'value': value, 'unit': unit})
+                : value.toTitleCase()
+          },
+        ),
+      ),
     );

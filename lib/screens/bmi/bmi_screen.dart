@@ -92,10 +92,10 @@ class _BmiScreenState extends State<BmiScreen> {
               onChanged: viewModel.setHeight,
               onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
               hintText: LocaleKeys.hintBmiTextField.tr(
-                args: [
-                  LocaleKeys.height.tr().toLowerCase(),
-                  viewModel.getHeightUnitHint(context)
-                ],
+                namedArgs: {
+                  'unit': LocaleKeys.height.tr().toLowerCase(),
+                  'system': viewModel.getHeightUnitHint(context)
+                },
               ),
             ),
             // Weight TextField
@@ -104,10 +104,10 @@ class _BmiScreenState extends State<BmiScreen> {
               onChanged: viewModel.setWeight,
               focusNode: viewModel.weightFocusNode,
               hintText: LocaleKeys.hintBmiTextField.tr(
-                args: [
-                  LocaleKeys.weight.tr().toLowerCase(),
-                  viewModel.getWeightUnitHint(context),
-                ],
+                namedArgs: {
+                  'unit': LocaleKeys.weight.tr().toLowerCase(),
+                  'system': viewModel.getWeightUnitHint(context),
+                },
               ),
             ),
             Padding(

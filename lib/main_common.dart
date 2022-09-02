@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +15,6 @@ import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
 
 import 'package:globo_fitness/app_config.dart';
-// import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'translations/codegen_loader.g.dart';
