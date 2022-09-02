@@ -67,43 +67,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    LocaleKeys.titleLabel
-                        .tr(args: ["App config", viewModel.getStringExample()]),
+                    LocaleKeys.titleLabel.tr(args: ["App config", 'Test']),
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () async {
-                      await context.setLocale(const Locale('en'));
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        setState(() {});
-                      });
-                    },
-                    child: const Text("English"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await context.setLocale(const Locale('fr'));
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        setState(() {});
-                      });
-                    },
-                    child: const Text("Français"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await context.setLocale(const Locale('es'));
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        setState(() {});
-                      });
-                    },
-                    child: const Text("Español"),
-                  ),
-                ],
-              )
             ],
           ),
         ),
