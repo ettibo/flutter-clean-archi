@@ -68,6 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Text(LocaleKeys.crashManager_activatedLabel.tr()),
                   Switch(
+                      activeColor: Theme.of(context).primaryColorDark,
                       value: viewModel.isCrashManagerEnabled,
                       onChanged: viewModel.toggleCrashManager),
                 ],
@@ -75,8 +76,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: () => throw Exception(),
+                  OutlinedButton(
+                    onPressed: viewModel.triggerException,
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0))),
+                    ),
                     child: const Text("Throw Test Exception"),
                   ),
                 ],
