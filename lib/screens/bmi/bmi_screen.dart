@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class BmiScreen extends StatefulWidget {
   const BmiScreen({Key? key}) : super(key: key);

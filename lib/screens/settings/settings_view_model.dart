@@ -91,8 +91,6 @@ abstract class SettingsViewModelBase with Store, ViewModel {
           key: RemoteConfigKeys.key_label_force_language_setting.name) ??
       "";
 
-  // String getCurrentLocale() => Platform.localeName;
-
   @action
   void _initIsCrashManagerEnabled() =>
       isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();

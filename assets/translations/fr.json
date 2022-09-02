@@ -38,5 +38,9 @@
     "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
     "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente.",
 
-    "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :"
+    "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :",
+
+    "englishLangage": "Anglais",
+    "spanishLangage": "Espagnol",
+    "frenchLangage": "Français"
 }

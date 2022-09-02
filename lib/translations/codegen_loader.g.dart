@@ -48,7 +48,10 @@ class CodegenLoader extends AssetLoader{
   "imperialUnitName": "Imperial",
   "locationServicesDisabled": "Location services are disabled.",
   "locationPermissionDenied": "Location permissions are denied",
-  "locationPermissionDeniedPermanently": "Location permissions are permanently denied."
+  "locationPermissionDeniedPermanently": "Location permissions are permanently denied.",
+  "englishLangage": "English",
+  "spanishLangage": "Spanish",
+  "frenchLangage": "French"
 };
 static const Map<String,dynamic> fr = {
   "appTitle": "Clean Tree App",
@@ -85,7 +88,10 @@ static const Map<String,dynamic> fr = {
   "locationServicesDisabled": "Les services de localisation sont désactivés.",
   "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
   "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente.",
-  "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :"
+  "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :",
+  "englishLangage": "Anglais",
+  "spanishLangage": "Espagnol",
+  "frenchLangage": "Français"
 };
 static const Map<String,dynamic> es = {
   "appTitle": "Clean Tree App",
@@ -122,7 +128,10 @@ static const Map<String,dynamic> es = {
   "locationServicesDisabled": "Los servicios de localización están desactivados.",
   "locationPermissionDenied": "Los permisos de localización están denegados.",
   "locationPermissionDeniedPermanently": "Los permisos de localización están permanentemente denegados.",
-  "crashReportingEnabledLabel": "El gestor de accidentes está activado:"
+  "crashReportingEnabledLabel": "El gestor de accidentes está activado:",
+  "englishLangage": "Inglés",
+  "spanishLangage": "Español",
+  "frenchLangage": "Francés"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "fr": fr, "es": es};
 }

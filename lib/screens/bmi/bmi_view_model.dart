@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/extensions/string_is_numeric.dart';
 
 part 'bmi_view_model.g.dart';

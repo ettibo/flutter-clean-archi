@@ -17,7 +17,7 @@ import 'package:globo_fitness/injection/app_injection.dart';
 import 'package:globo_fitness/app_config.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import 'translations/codegen_loader.g.dart';
+import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();

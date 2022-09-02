@@ -35,5 +35,8 @@ abstract class  LocaleKeys {
   static const locationServicesDisabled = 'locationServicesDisabled';
   static const locationPermissionDenied = 'locationPermissionDenied';
   static const locationPermissionDeniedPermanently = 'locationPermissionDeniedPermanently';
+  static const englishLangage = 'englishLangage';
+  static const spanishLangage = 'spanishLangage';
+  static const frenchLangage = 'frenchLangage';
 
 }

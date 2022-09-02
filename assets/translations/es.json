@@ -38,5 +38,9 @@
     "locationPermissionDenied": "Los permisos de localización están denegados.",
     "locationPermissionDeniedPermanently": "Los permisos de localización están permanentemente denegados.",
 
-    "crashReportingEnabledLabel": "El gestor de accidentes está activado:"
+    "crashReportingEnabledLabel": "El gestor de accidentes está activado:",
+
+    "englishLangage": "Inglés",
+    "spanishLangage": "Español",
+    "frenchLangage": "Francés"
 }

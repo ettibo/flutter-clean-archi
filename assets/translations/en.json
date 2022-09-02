@@ -32,5 +32,8 @@
     "imperialUnitName": "Imperial",
     "locationServicesDisabled": "Location services are disabled.",
     "locationPermissionDenied": "Location permissions are denied",
-    "locationPermissionDeniedPermanently": "Location permissions are permanently denied."
+    "locationPermissionDeniedPermanently": "Location permissions are permanently denied.",
+    "englishLangage": "English",
+    "spanishLangage": "Spanish",
+    "frenchLangage": "French"
 }

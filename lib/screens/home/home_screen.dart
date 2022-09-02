@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    // ThemeData theme = AdaptiveTheme.of(context).theme;
+    ThemeData theme = AdaptiveTheme.of(context).theme;
 
     return Scaffold(
       appBar: materialAppBar(
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           trailingWidgets: [settingsIcon()]),
       body: navigationList[_currentIndex].screen,
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.green,
+        selectedItemColor: theme.bottomAppBarColor,
         items: items,
         onTap: onTap,
         currentIndex: _currentIndex,
