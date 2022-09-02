@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:globo_fitness/firebase/green_firebase_options.dart'
     as green_firebase_options;
 import 'package:globo_fitness/firebase/brown_firebase_options.dart'
@@ -32,7 +31,7 @@ Future<Widget> initializeApp(AppConfig appConfig) async {
   return EasyLocalization(
     supportedLocales: const [Locale('en'), Locale('es'), Locale('fr')],
     path: 'assets/translations',
-    fallbackLocale: const Locale('fr'),
+    fallbackLocale: const Locale('en'),
     assetLoader: const CodegenLoader(),
     child: GlobeApp(
       appConfig: appConfig,

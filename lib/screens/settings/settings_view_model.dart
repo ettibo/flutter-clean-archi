@@ -73,12 +73,19 @@ abstract class SettingsViewModelBase with Store, ViewModel {
             child: Text(LocaleKeys.mirrorSystem.tr()))
       ];
 
+  List<DropdownMenuItem<String>> getLocaleDropdownItems(BuildContext context) =>
+      [
+        const DropdownMenuItem(value: 'en', child: Text('Anglais')),
+        const DropdownMenuItem(value: 'es', child: Text('Español')),
+        const DropdownMenuItem(value: 'fr', child: Text('Français'))
+      ];
+
   String getLabelChangeLanguage() =>
       remoteConfigManager.getValue<String>(
           key: RemoteConfigKeys.key_label_force_language_setting.name) ??
       "";
 
-  String getCurrentLocale() => Platform.localeName;
+  // String getCurrentLocale() => Platform.localeName;
 
   String getStringExample() =>
       remoteConfigManager.getValue<String>(

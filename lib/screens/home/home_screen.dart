@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    ThemeData theme = AdaptiveTheme.of(context).theme;
+    // ThemeData theme = AdaptiveTheme.of(context).theme;
 
     return Scaffold(
       appBar: materialAppBar(
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           trailingWidgets: [settingsIcon()]),
       body: navigationList[_currentIndex].screen,
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: theme.bottomAppBarColor,
+        selectedItemColor: Colors.green,
         items: items,
         onTap: onTap,
         currentIndex: _currentIndex,
