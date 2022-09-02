@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Color backgroundDarkMode = const Color(0xff333333);
-Color darkBrown = const Color(0xff654321);
+Color darkBrown = const Color(0xffC4A484);
 
 Map<int, Color> mapPrimarySwatchColor = const {
   50: Color.fromRGBO(40, 26, 13, .1),

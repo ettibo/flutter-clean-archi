@@ -98,4 +98,6 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     _crashManager.toogleCrashReporting();
     isCrashManagerEnabled = !isCrashManagerEnabled;
   }
+
+  void triggerException() => throw Exception();
 }
