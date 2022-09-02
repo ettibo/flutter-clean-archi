@@ -5,6 +5,7 @@ import 'package:mobx/mobx.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
+import 'package:api/models/app/managers/crash.dart';
 
 import 'package:flutter/material.dart';
 
@@ -22,15 +23,22 @@ enum DeviceTheme { light, dark, system }
 class SettingsViewModel = SettingsViewModelBase with _$SettingsViewModel;
 
 abstract class SettingsViewModelBase with Store, ViewModel {
-  final RemoteConfigManager remoteConfigManager =
+  final RemoteConfigManager _remoteConfigManager =
       DependecyInjection.instance.get<RemoteConfigManager>();
+
+  final CrashManager _crashManager =
+      DependecyInjection.instance.get<CrashManager>();
 
   @observable
   DeviceTheme currentTheme = DeviceTheme.system;
 
+  @observable
+  bool isCrashManagerEnabled = false;
+
   @override
   void init() {
     setCurrentTheme();
+    _initIsCrashManagerEnabled();
   }
 
   @override
@@ -81,14 +89,18 @@ abstract class SettingsViewModelBase with Store, ViewModel {
       ];
 
   String getLabelChangeLanguage() =>
-      remoteConfigManager.getValue<String>(
+      _remoteConfigManager.getValue<String>(
           key: RemoteConfigKeys.key_label_force_language_setting.name) ??
       "";
 
   // String getCurrentLocale() => Platform.localeName;
 
-  String getStringExample() =>
-      remoteConfigManager.getValue<String>(
-          key: RemoteConfigKeys.string_example.name) ??
-      "";
+  @action
+  void _initIsCrashManagerEnabled() =>
+      isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
+
+  void toggleCrashManager(bool _) {
+    _crashManager.toogleCrashReporting();
+    isCrashManagerEnabled = !isCrashManagerEnabled;
+  }
 }

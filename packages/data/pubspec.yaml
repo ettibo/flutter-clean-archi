@@ -12,12 +12,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   dio: ^4.0.6
+
   objectbox: ^1.6.0
   objectbox_flutter_libs: ^1.6.0
 
   firebase_remote_config: ^2.0.16
   firebase_analytics: ^9.3.3
+  firebase_crashlytics: ^2.8.9
 
   api:
     path: ../api

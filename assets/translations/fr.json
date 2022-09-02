@@ -36,5 +36,7 @@
 
     "locationServicesDisabled": "Les services de localisation sont désactivés.",
     "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
-    "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente."
+    "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente.",
+
+    "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :"
 }

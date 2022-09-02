@@ -25,6 +25,23 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
     });
   }
 
+  late final _$isCrashManagerEnabledAtom = Atom(
+      name: 'SettingsViewModelBase.isCrashManagerEnabled', context: context);
+
+  @override
+  bool get isCrashManagerEnabled {
+    _$isCrashManagerEnabledAtom.reportRead();
+    return super.isCrashManagerEnabled;
+  }
+
+  @override
+  set isCrashManagerEnabled(bool value) {
+    _$isCrashManagerEnabledAtom.reportWrite(value, super.isCrashManagerEnabled,
+        () {
+      super.isCrashManagerEnabled = value;
+    });
+  }
+
   late final _$SettingsViewModelBaseActionController =
       ActionController(name: 'SettingsViewModelBase', context: context);
 
@@ -40,9 +57,21 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
   }
 
   @override
+  void _initIsCrashManagerEnabled() {
+    final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
+        name: 'SettingsViewModelBase._initIsCrashManagerEnabled');
+    try {
+      return super._initIsCrashManagerEnabled();
+    } finally {
+      _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-currentTheme: ${currentTheme}
+currentTheme: ${currentTheme},
+isCrashManagerEnabled: ${isCrashManagerEnabled}
     ''';
   }
 }
