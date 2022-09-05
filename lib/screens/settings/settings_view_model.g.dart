@@ -68,17 +68,6 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
   }
 
   @override
-  void updateLangage(String langageCode, BuildContext context) {
-    final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
-        name: 'SettingsViewModelBase.updateLangage');
-    try {
-      return super.updateLangage(langageCode, context);
-    } finally {
-      _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 currentTheme: ${currentTheme},

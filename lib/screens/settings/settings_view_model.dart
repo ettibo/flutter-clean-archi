@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:mobx/mobx.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
@@ -100,10 +100,23 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     isCrashManagerEnabled = !isCrashManagerEnabled;
   }
 
-  @action
-  void updateLangage(String langageCode, BuildContext context) async {
-    await context.setLocale(Locale(langageCode));
-    // ignore: use_build_context_synchronously
-    Phoenix.rebirth(context);
+  List<ElevatedButton> getLangageListButton(BuildContext context) {
+    return [
+      getLangageButton(LocaleKeys.langage_englishLangage.tr(), 'en', context),
+      getLangageButton(LocaleKeys.langage_frenchLangage.tr(), 'fr', context),
+      getLangageButton(LocaleKeys.langage_spanishLangage.tr(), 'es', context)
+    ];
+  }
+
+  ElevatedButton getLangageButton(
+      String langage, String langageCode, BuildContext context) {
+    return ElevatedButton(
+      onPressed: () async {
+        await context.setLocale(Locale(langageCode));
+        // ignore: use_build_context_synchronously
+        Phoenix.rebirth(context);
+      },
+      child: Text(langage),
+    );
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
@@ -83,28 +82,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () async {
-                      viewModel.updateLangage('en', context);
-                    },
-                    child: const Text("English"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      viewModel.updateLangage('fr', context);
-                    },
-                    child: const Text("Français"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      viewModel.updateLangage('es', context);
-                    },
-                    child: const Text("Español"),
-                  ),
-                ],
-              )
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: viewModel.getLangageListButton(context))
             ],
           ),
         ),
