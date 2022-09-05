@@ -101,28 +101,25 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     isCrashManagerEnabled = !isCrashManagerEnabled;
   }
 
-  List<ElevatedButton> getLangageListButton(BuildContext context) {
-    return [
-      getLangageButton(
-          LocaleKeys.langage_english_langage.localized(), 'en', context),
-      getLangageButton(
-          LocaleKeys.langage_french_langage.localized(), 'fr', context),
-      getLangageButton(
-          LocaleKeys.langage_spanish_langage.localized(), 'es', context)
-    ];
-  }
+  List<ElevatedButton> getLangageListButton(BuildContext context) => [
+        getLangageButton(
+            LocaleKeys.langage_english_langage.localized(), 'en', context),
+        getLangageButton(
+            LocaleKeys.langage_french_langage.localized(), 'fr', context),
+        getLangageButton(
+            LocaleKeys.langage_spanish_langage.localized(), 'es', context)
+      ];
 
   ElevatedButton getLangageButton(
-      String langage, String langageCode, BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        await context.setLocale(Locale(langageCode));
-        // ignore: use_build_context_synchronously
-        Phoenix.rebirth(context);
-      },
-      child: Text(langage),
-    );
-  }
+          String langage, String langageCode, BuildContext context) =>
+      ElevatedButton(
+        onPressed: () async {
+          await context.setLocale(Locale(langageCode));
+          // ignore: use_build_context_synchronously
+          Phoenix.rebirth(context);
+        },
+        child: Text(langage),
+      );
 
   void triggerException() => throw Exception();
 }
