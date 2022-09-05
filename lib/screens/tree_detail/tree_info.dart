@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 
 Widget rowTreeInfo(
         {required BuildContext context,
@@ -12,12 +12,12 @@ Widget rowTreeInfo(
     Padding(
       padding: const EdgeInsets.all(10),
       child: Text(
-        LocaleKeys.treeScreen_titleLabel.tr(
-          namedArgs: {
+        LocaleKeys.tree_detail_screen_title_label.localized(
+          args: {
             'title': title.toTitleCase(),
             'unit': unit != null
-                ? LocaleKeys.treeScreen_valueWithUnit
-                    .tr(namedArgs: {'value': value, 'unit': unit})
+                ? LocaleKeys.tree_detail_screen_value_with_unit
+                    .localized(args: {'value': value, 'unit': unit})
                 : value.toTitleCase()
           },
         ),

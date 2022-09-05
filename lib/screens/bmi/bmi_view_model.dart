@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:mobx/mobx.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_is_numeric.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 
 part 'bmi_view_model.g.dart';
 
@@ -93,30 +94,30 @@ abstract class BmiViewModelBase with Store, ViewModel {
   String getHeightUnitHint(BuildContext context) {
     switch (_measureSystem) {
       case MeasureSystem.metric:
-        return LocaleKeys.bmi_meters.tr();
+        return LocaleKeys.bmi_screen_meters.localized();
       case MeasureSystem.imperial:
-        return LocaleKeys.bmi_inch.tr();
+        return LocaleKeys.bmi_screen_inch.localized();
     }
   }
 
   String getWeightUnitHint(BuildContext context) {
     switch (_measureSystem) {
       case MeasureSystem.metric:
-        return LocaleKeys.bmi_kilos.tr();
+        return LocaleKeys.bmi_screen_kilos.localized();
       case MeasureSystem.imperial:
-        return LocaleKeys.bmi_pounds.tr();
+        return LocaleKeys.bmi_screen_pounds.localized();
     }
   }
 
   String getBmiString(BuildContext context) {
     switch (_errorBMI) {
       case ErrorBMI.format:
-        return LocaleKeys.bmi_formatError.tr();
+        return LocaleKeys.bmi_screen_format_error.localized();
       case ErrorBMI.nullFields:
-        return LocaleKeys.bmi_bmiErrorNull.tr();
+        return LocaleKeys.bmi_screen_bmi_error_null.localized();
       case ErrorBMI.noError:
-        return LocaleKeys.bmi_bmiResult
-            .tr(namedArgs: {'value': _bmi.toStringAsFixed(2)});
+        return LocaleKeys.bmi_screen_bmi_result
+            .localized(args: {'value': _bmi.toStringAsFixed(2)});
     }
   }
 

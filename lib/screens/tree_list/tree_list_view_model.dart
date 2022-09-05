@@ -1,16 +1,16 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 
-import 'package:globo_fitness/store/tree_store.dart';
-
-import 'package:globo_fitness/template/view_model/view_model.dart';
-import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:globo_fitness/extensions/string_casing.dart';
-
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 import 'package:api/use_case/tree/tree_list.dart';
+
+import 'package:globo_fitness/store/tree_store.dart';
+
+import 'package:globo_fitness/template/view_model/view_model.dart';
+import 'package:globo_fitness/extensions/string_casing.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 part 'tree_list_view_model.g.dart';
 
@@ -50,11 +50,11 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   // UI Methods
   Text getTitle(BuildContext context, String? treeName) => Text(
-        treeName ?? LocaleKeys.treeScreen_treeWithoutName.tr(),
+        treeName ?? LocaleKeys.tree_list_screen_tree_without_name.localized(),
       );
 
   Text getSubtitle(BuildContext context, String? subtitle, int index) => Text(
-        '${LocaleKeys.treeScreen_species.tr()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.treeScreen_speciesNotSpecified.tr()}',
+        '${LocaleKeys.tree_list_screen_species.localized()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.tree_list_screen_species_not_specified.localized()}',
       );
 
   // Lazy Loading Methods

@@ -16,165 +16,177 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> en = {
   "title": {
-    "appTitle": "Clean Tree App",
-    "titleTreeListPage": "Trees",
-    "titledetailTreePage": "Tree Detail",
-    "mapTitlePage": "Map",
-    "bmiTitlePage": "BMI",
-    "settingsTitlePage": "Settings"
+    "app_title": "Clean Tree App",
+    "title_tree_list_screen": "Trees",
+    "title_detail_tree_screen": "Tree Detail",
+    "map_title_screen": "Map",
+    "bmi_title_screen": "BMI",
+    "settings_title_screen": "Settings"
   },
-  "treeScreen": {
-    "treeWithoutName": "Tree without name",
+  "tree_list_screen": {
+    "tree_without_name": "Tree without name",
     "species": "Species",
-    "speciesNotSpecified": "Not specified",
+    "species_not_specified": "Not specified"
+  },
+  "tree_detail_screen": {
+    "species": "Species",
+    "species_not_specified": "Not specified",
     "height": "Height",
     "circumference": "Circumference",
     "address": "Address",
-    "titleLabel": "{title}: {value}",
-    "valueWithUnit": "{value} {unit}",
-    "meterUnit": "m",
-    "centimeterUnit": "cm"
+    "title_label": "{title}: {value}",
+    "value_with_unit": "{value} {unit}",
+    "meter_unit": "m",
+    "centimeter_unit": "cm"
   },
   "theme": {
-    "themeTitle": "Theme:",
-    "lightTheme": "Light",
-    "darkTheme": "Dark",
-    "mirrorSystem": "System"
+    "theme_title": "Theme:",
+    "light_theme": "Light",
+    "dark_theme": "Dark",
+    "mirror_system": "System"
   },
-  "bmi": {
+  "bmi_screen": {
     "weight": "Weight",
     "height": "Height",
     "meters": "meters",
     "inch": "inch",
     "kilos": "kilos",
     "pounds": "pounds",
-    "hintBmiTextField": "Please insert your {unit} in {system}",
-    "bmiResult": "Your BMI is {value}",
-    "bmiErrorNull": "Please enter all informations",
-    "formatError": "Format Error",
-    "metricUnitName": "Metric",
-    "imperialUnitName": "Imperial"
+    "hint_bmi_text_field": "Please insert your {unit} in {system}",
+    "bmi_result": "Your BMI is {value}",
+    "bmi_error_null": "Please enter all informations",
+    "format_error": "Format Error",
+    "metric_unit_name": "Metric",
+    "imperial_unit_name": "Imperial"
   },
-  "appSettings": {
-    "locationServicesDisabled": "Location services are disabled.",
-    "locationPermissionDenied": "Location permissions are denied",
-    "locationPermissionDeniedPermanently": "Location permissions are permanently denied."
+  "setting_screen": {
+    "location_services_disabled": "Location services are disabled.",
+    "location_permission_denied": "Location permissions are denied",
+    "location_permission_denied_permanently": "Location permissions are permanently denied."
   },
   "langage": {
-    "englishLangage": "English",
-    "spanishLangage": "Spanish",
-    "frenchLangage": "French"
+    "english_langage": "English",
+    "spanish_langage": "Spanish",
+    "french_langage": "French"
   },
-  "crashManager": {
-    "activatedLabel": "Crash manager is activated:"
+  "crash_manager": {
+    "activated_label": "Crash manager is activated:"
   }
 };
 static const Map<String,dynamic> fr = {
   "title": {
-    "appTitle": "Clean Tree App",
-    "titleTreeListPage": "Arbres",
-    "titledetailTreePage": "Detail Arbre",
-    "mapTitlePage": "Carte",
-    "bmiTitlePage": "IMC",
-    "settingsTitlePage": "Paramètres"
+    "app_title": "Clean Tree App",
+    "title_tree_list_screen": "Arbres",
+    "title_detail_tree_screen": "Detail Arbre",
+    "map_title_screen": "Carte",
+    "bmi_title_screen": "IMC",
+    "settings_title_screen": "Paramètres"
   },
-  "treeScreen": {
-    "treeWithoutName": "Arbre sans nom",
+  "tree_list_screen": {
+    "tree_without_name": "Arbre sans nom",
     "species": "Espèce",
-    "speciesNotSpecified": "Non spécifiée",
+    "species_not_specified": "Non spécifiée"
+  },
+  "tree_detail_screen": {
+    "species": "Espèce",
+    "species_not_specified": "Non spécifiée",
     "height": "Hauteur",
     "circumference": "Circonférence",
     "address": "Adresse",
-    "titleLabel": "{title} : {value}",
-    "valueWithUnit": "{value} {unit}",
-    "meterUnit": "m",
-    "centimeterUnit": "cm"
+    "title_label": "{title} : {value}",
+    "value_with_unit": "{value} {unit}",
+    "meter_unit": "m",
+    "centimeter_unit": "cm"
   },
   "theme": {
-    "themeTitle": "Thème :",
-    "lightTheme": "Clair",
-    "darkTheme": "Sombre",
-    "mirrorSystem": "Système"
+    "theme_title": "Thème :",
+    "light_theme": "Clair",
+    "dark_theme": "Sombre",
+    "mirror_system": "Système"
   },
-  "bmi": {
-    "weight": "Poids",
+  "bmi_screen": {
+    "weight": "poids",
     "meters": "mètres",
     "inch": "pouces",
     "kilos": "kilos",
     "pounds": "livres",
-    "hintBmiTextField": "Veuillez insérer votre {unit} en {system}",
-    "bmiResult": "Votre IMC est {value}",
-    "bmiErrorNull": "Veuillez saisir toutes les informations",
-    "formatError": "Erreur de format",
-    "metricUnitName": "Métrique",
-    "imperialUnitName": "Impérial"
+    "hint_bmi_text_field": "Veuillez insérer votre {unit} en {system}",
+    "bmi_result": "Votre IMC est {value}",
+    "bmi_error_null": "Veuillez saisir toutes les informations",
+    "format_error": "Erreur de format",
+    "metric_unit_name": "Métrique",
+    "imperial_unit_name": "Impérial"
   },
-  "appSettings": {
-    "locationServicesDisabled": "Les services de localisation sont désactivés.",
-    "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
-    "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente."
+  "setting_screen": {
+    "location_services_disabled": "Les services de localisation sont désactivés.",
+    "location_permission_denied": "Les autorisations de localisation sont refusées.",
+    "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente."
   },
   "langage": {
-    "englishLangage": "Anglais",
-    "spanishLangage": "Espagnol",
-    "frenchLangage": "Français"
+    "english_langage": "Anglais",
+    "spanish_langage": "Espagnol",
+    "french_langage": "Français"
   },
-  "crashManager": {
-    "activatedLabel": "Le Gestionnaire de crash est activé :"
+  "crash_manager": {
+    "activated_label": "Le Gestionnaire de crash est activé :"
   }
 };
 static const Map<String,dynamic> es = {
   "title": {
-    "appTitle": "Clean Tree App",
-    "titleTreeListPage": "Árboles",
-    "titledetailTreePage": "Detalle del árbol",
-    "mapTitlePage": "Mapas",
-    "bmiTitlePage": "IMC",
-    "settingsTitlePage": "Ajustes"
+    "app_title": "Clean Tree App",
+    "title_tree_list_screen": "Árboles",
+    "title_detail_tree_screen": "Detalle del árbol",
+    "map_title_screen": "Mapas",
+    "bmi_title_screen": "IMC",
+    "settings_title_screen": "Ajustes"
   },
-  "treeScreen": {
-    "treeWithoutName": "Árbol sin nombre",
+  "tree_list_screen": {
+    "tree_without_name": "Árbol sin nombre",
     "species": "Especie",
-    "speciesNotSpecified": "No especificadas",
+    "species_not_specified": "No especificadas"
+  },
+  "tree_detail_screen": {
+    "species": "Especie",
+    "species_not_specified": "No especificadas",
     "height": "Altura",
     "circumference": "Circunferencia",
     "address": "Dirección",
-    "titleLabel": "{title}: {value}",
-    "valueWithUnit": "{value} {unit}",
-    "meterUnit": "m",
-    "centimeterUnit": "cm"
+    "title_label": "{title}: {value}",
+    "value_with_unit": "{value} {unit}",
+    "meter_unit": "m",
+    "centimeter_unit": "cm"
   },
   "theme": {
-    "themeTitle": "Tema:",
-    "lightTheme": "Claro",
-    "darkTheme": "Oscuro",
-    "mirrorSystem": "Dispositivo"
+    "theme_title": "Tema:",
+    "light_theme": "Claro",
+    "dark_theme": "Oscuro",
+    "mirror_system": "Dispositivo"
   },
-  "bmi": {
+  "bmi_screen": {
     "weight": "peso",
     "meters": "metros",
     "inch": "pulgadas",
     "kilos": "kilos",
     "pounds": "libras",
-    "hintBmiTextField": "Por favor, introduzca su {unit} en {system}",
-    "bmiResult": "Su IMC es {value}",
-    "bmiErrorNull": "Por favor, introduzca toda la información",
-    "formatError": "Error de formato",
-    "metricUnitName": "Métrica",
-    "imperialUnitName": "Imperial"
+    "hint_bmi_text_field": "Por favor, introduzca su {unit} en {system}",
+    "bmi_result": "Su IMC es {value}",
+    "bmi_error_null": "Por favor, introduzca toda la información",
+    "format_error": "Error de formato",
+    "metric_unit_name": "Métrica",
+    "imperial_unit_name": "Imperial"
   },
-  "appSettings": {
-    "locationServicesDisabled": "Los servicios de localización están desactivados.",
-    "locationPermissionDenied": "Los permisos de localización están denegados.",
-    "locationPermissionDeniedPermanently": "Los permisos de localización están permanentemente denegados."
+  "setting_screen": {
+    "location_services_disabled": "Los servicios de localización están desactivados.",
+    "location_permission_denied": "Los permisos de localización están denegados.",
+    "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados."
   },
   "langage": {
-    "englishLangage": "Inglés",
-    "spanishLangage": "Español",
-    "frenchLangage": "Francés"
+    "english_langage": "Inglés",
+    "spanish_langage": "Español",
+    "french_langage": "Francés"
   },
-  "crashManager": {
-    "activatedLabel": "El gestor de accidentes está activado:"
+  "crash_manager": {
+    "activated_label": "El gestor de accidentes está activado:"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "fr": fr, "es": es};

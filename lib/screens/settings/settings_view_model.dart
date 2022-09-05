@@ -1,20 +1,19 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mobx/mobx.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
 import 'package:api/models/app/managers/crash.dart';
 
-import 'package:flutter/material.dart';
-
 import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
-import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/enums/remote_config_keys.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 part 'settings_view_model.g.dart';
 
@@ -74,13 +73,13 @@ abstract class SettingsViewModelBase with Store, ViewModel {
       [
         DropdownMenuItem(
             value: DeviceTheme.light,
-            child: Text(LocaleKeys.theme_lightTheme.tr())),
+            child: Text(LocaleKeys.theme_light_theme.localized())),
         DropdownMenuItem(
             value: DeviceTheme.dark,
-            child: Text(LocaleKeys.theme_darkTheme.tr())),
+            child: Text(LocaleKeys.theme_dark_theme.localized())),
         DropdownMenuItem(
             value: DeviceTheme.system,
-            child: Text(LocaleKeys.theme_mirrorSystem.tr()))
+            child: Text(LocaleKeys.theme_mirror_system.localized()))
       ];
 
   String getLabelChangeLanguage() =>

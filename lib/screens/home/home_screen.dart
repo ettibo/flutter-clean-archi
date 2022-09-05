@@ -1,7 +1,7 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/map/map_screen.dart';
@@ -11,8 +11,8 @@ import 'package:globo_fitness/screens/settings/settings_screen.dart';
 import 'package:globo_fitness/models/navigation_object.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
-
 import 'package:globo_fitness/extensions/state_navigaton.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,15 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateNavigationList(BuildContext context) {
     navigationList = [
       NavigationObject(
-          title: LocaleKeys.title_titleTreeListPage.tr(),
+          title: LocaleKeys.title_title_tree_list_screen.localized(),
           icon: CupertinoIcons.leaf_arrow_circlepath,
           screen: const TreeListScreen()),
       NavigationObject(
-          title: LocaleKeys.title_mapTitlePage.tr(),
+          title: LocaleKeys.title_map_title_screen.localized(),
           icon: Icons.map,
           screen: const MapScreen()),
       NavigationObject(
-          title: LocaleKeys.title_bmiTitlePage.tr(),
+          title: LocaleKeys.title_bmi_title_screen.localized(),
           icon: Icons.monitor_weight,
           screen: const BmiScreen()),
     ];
