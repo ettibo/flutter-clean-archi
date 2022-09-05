@@ -52,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text(LocaleKeys.theme.tr(),
+                    child: Text(LocaleKeys.theme_themeTitle.tr(),
                         style: const TextStyle(fontSize: 18)),
                   ),
                   DropdownButton<DeviceTheme>(
@@ -63,6 +63,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Text(context.localized.titleLabel(
+              //         viewModel.getLabelChangeLanguage(),
+              //         viewModel.getCurrentLocale()))
+              //   ],
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Test message"),
+                  Switch(
+                      value: viewModel.isCrashManagerEnabled,
+                      onChanged: viewModel.toggleCrashManager),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () => throw Exception(),
+                    child: const Text("Throw Test Exception"),
+                  ),
+                ],
+              )
             ],
           ),
         ),
