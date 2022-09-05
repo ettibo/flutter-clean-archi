@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 
-import 'package:globo_fitness/shared/material_app_bar.dart';
-import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/screens/settings/settings_view_model.dart';
+
+import 'package:globo_fitness/shared/material_app_bar.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -35,7 +36,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: materialAppBar(title: LocaleKeys.title_settingsTitlePage.tr()),
+      appBar: materialAppBar(
+          title: LocaleKeys.title_settings_title_screen.localized()),
       body: SafeArea(
         child: Observer(builder: observerBuilder),
       ),
@@ -52,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Text(LocaleKeys.theme_themeTitle.tr(),
+                    child: Text(LocaleKeys.theme_theme_title.localized(),
                         style: const TextStyle(fontSize: 18)),
                   ),
                   DropdownButton<DeviceTheme>(
@@ -66,8 +68,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(LocaleKeys.crashManager_activatedLabel.tr()),
+                  Text(LocaleKeys.crash_manager_activated_label.localized()),
                   Switch(
+                      activeColor: Theme.of(context).primaryColorDark,
                       value: viewModel.isCrashManagerEnabled,
                       onChanged: viewModel.toggleCrashManager),
                 ],
@@ -75,8 +78,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: () => throw Exception(),
+                  OutlinedButton(
+                    onPressed: viewModel.triggerException,
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0))),
+                    ),
                     child: const Text("Throw Test Exception"),
                   ),
                 ],

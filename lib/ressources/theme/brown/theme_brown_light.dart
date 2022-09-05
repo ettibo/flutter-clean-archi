@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color lightBrown = const Color(0xffC4A484);
+Color lightBrown = const Color(0xff654321);
 
 Map<int, Color> mapPrimarySwatchColor = const {
   50: Color.fromRGBO(196, 164, 132, .1),

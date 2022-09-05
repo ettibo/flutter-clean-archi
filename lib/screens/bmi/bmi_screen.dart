@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 
 class BmiScreen extends StatefulWidget {
   const BmiScreen({Key? key}) : super(key: key);
@@ -37,10 +37,12 @@ class _BmiScreenState extends State<BmiScreen> {
   List<Widget> getToggleButtons() => [
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.bmi_metricUnitName.tr(), style: textStyle)),
+            child: Text(LocaleKeys.bmi_screen_metric_unit_name.localized(),
+                style: textStyle)),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.bmi_imperialUnitName.tr(), style: textStyle))
+            child: Text(LocaleKeys.bmi_screen_imperial_unit_name.localized(),
+                style: textStyle))
       ];
 
   Widget getTextField(
@@ -91,9 +93,10 @@ class _BmiScreenState extends State<BmiScreen> {
               controller: viewModel.txtHeightController,
               onChanged: viewModel.setHeight,
               onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
-              hintText: LocaleKeys.bmi_hintBmiTextField.tr(
-                namedArgs: {
-                  'unit': LocaleKeys.bmi_height.tr().toLowerCase(),
+              hintText: LocaleKeys.bmi_screen_hint_bmi_text_field.localized(
+                args: {
+                  'unit':
+                      LocaleKeys.bmi_screen_height.localized().toLowerCase(),
                   'system': viewModel.getHeightUnitHint(context)
                 },
               ),
@@ -103,9 +106,10 @@ class _BmiScreenState extends State<BmiScreen> {
               controller: viewModel.txtWeightController,
               onChanged: viewModel.setWeight,
               focusNode: viewModel.weightFocusNode,
-              hintText: LocaleKeys.bmi_hintBmiTextField.tr(
-                namedArgs: {
-                  'unit': LocaleKeys.bmi_weight.tr().toLowerCase(),
+              hintText: LocaleKeys.bmi_screen_hint_bmi_text_field.localized(
+                args: {
+                  'unit':
+                      LocaleKeys.bmi_screen_weight.localized().toLowerCase(),
                   'system': viewModel.getWeightUnitHint(context),
                 },
               ),
