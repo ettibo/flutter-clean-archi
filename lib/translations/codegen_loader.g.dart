@@ -64,6 +64,9 @@ class CodegenLoader extends AssetLoader{
     "englishLangage": "English",
     "spanishLangage": "Spanish",
     "frenchLangage": "French"
+  },
+  "crashManager": {
+    "activatedLabel": "Crash manager is activated:"
   }
 };
 static const Map<String,dynamic> fr = {
@@ -115,6 +118,9 @@ static const Map<String,dynamic> fr = {
     "englishLangage": "Anglais",
     "spanishLangage": "Espagnol",
     "frenchLangage": "Français"
+  },
+  "crashManager": {
+    "activatedLabel": "Le Gestionnaire de crash est activé :"
   }
 };
 static const Map<String,dynamic> es = {
@@ -166,6 +172,9 @@ static const Map<String,dynamic> es = {
     "englishLangage": "Inglés",
     "spanishLangage": "Español",
     "frenchLangage": "Francés"
+  },
+  "crashManager": {
+    "activatedLabel": "El gestor de accidentes está activado:"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "fr": fr, "es": es};

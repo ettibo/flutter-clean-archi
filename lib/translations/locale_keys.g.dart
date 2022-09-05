@@ -45,5 +45,7 @@ abstract class  LocaleKeys {
   static const langage_spanishLangage = 'langage.spanishLangage';
   static const langage_frenchLangage = 'langage.frenchLangage';
   static const langage = 'langage';
+  static const crashManager_activatedLabel = 'crashManager.activatedLabel';
+  static const crashManager = 'crashManager';
 
 }

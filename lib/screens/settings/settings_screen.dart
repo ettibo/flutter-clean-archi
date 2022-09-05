@@ -63,18 +63,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Text(context.localized.titleLabel(
-              //         viewModel.getLabelChangeLanguage(),
-              //         viewModel.getCurrentLocale()))
-              //   ],
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Test message"),
+                  Text(LocaleKeys.crashManager_activatedLabel.tr()),
                   Switch(
                       value: viewModel.isCrashManagerEnabled,
                       onChanged: viewModel.toggleCrashManager),

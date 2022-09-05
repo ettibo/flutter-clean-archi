@@ -51,5 +51,9 @@
         "englishLangage": "Inglés",
         "spanishLangage": "Español",
         "frenchLangage": "Francés"
+    },
+
+    "crashManager" : {
+        "activatedLabel" : "El gestor de accidentes está activado:"
     }
 }
