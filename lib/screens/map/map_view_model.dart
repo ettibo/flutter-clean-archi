@@ -85,19 +85,21 @@ abstract class MapViewModelBase with Store, ViewModel {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error(LocaleKeys.locationServicesDisabled.tr());
+      return Future.error(LocaleKeys.appSettings_locationServicesDisabled.tr());
     }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error(LocaleKeys.locationPermissionDenied.tr());
+        return Future.error(
+            LocaleKeys.appSettings_locationPermissionDenied.tr());
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error(LocaleKeys.locationPermissionDeniedPermanently.tr());
+      return Future.error(
+          LocaleKeys.appSettings_locationPermissionDeniedPermanently.tr());
     }
     return await Geolocator.getCurrentPosition();
   }

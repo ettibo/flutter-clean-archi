@@ -93,29 +93,29 @@ abstract class BmiViewModelBase with Store, ViewModel {
   String getHeightUnitHint(BuildContext context) {
     switch (_measureSystem) {
       case MeasureSystem.metric:
-        return LocaleKeys.meters.tr();
+        return LocaleKeys.bmi_meters.tr();
       case MeasureSystem.imperial:
-        return LocaleKeys.inch.tr();
+        return LocaleKeys.bmi_inch.tr();
     }
   }
 
   String getWeightUnitHint(BuildContext context) {
     switch (_measureSystem) {
       case MeasureSystem.metric:
-        return LocaleKeys.kilos.tr();
+        return LocaleKeys.bmi_kilos.tr();
       case MeasureSystem.imperial:
-        return LocaleKeys.pounds.tr();
+        return LocaleKeys.bmi_pounds.tr();
     }
   }
 
   String getBmiString(BuildContext context) {
     switch (_errorBMI) {
       case ErrorBMI.format:
-        return LocaleKeys.formatError.tr();
+        return LocaleKeys.bmi_formatError.tr();
       case ErrorBMI.nullFields:
-        return LocaleKeys.bmiErrorNull.tr();
+        return LocaleKeys.bmi_bmiErrorNull.tr();
       case ErrorBMI.noError:
-        return LocaleKeys.bmiResult
+        return LocaleKeys.bmi_bmiResult
             .tr(namedArgs: {'value': _bmi.toStringAsFixed(2)});
     }
   }

@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mobx/mobx.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
@@ -11,7 +12,6 @@ import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/enums/remote_config_keys.dart';
 
 part 'settings_view_model.g.dart';
@@ -71,12 +71,14 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   List<DropdownMenuItem<DeviceTheme>> getDropdownItems(BuildContext context) =>
       [
         DropdownMenuItem(
-            value: DeviceTheme.light, child: Text(LocaleKeys.lightTheme.tr())),
+            value: DeviceTheme.light,
+            child: Text(LocaleKeys.theme_lightTheme.tr())),
         DropdownMenuItem(
-            value: DeviceTheme.dark, child: Text(LocaleKeys.darkTheme.tr())),
+            value: DeviceTheme.dark,
+            child: Text(LocaleKeys.theme_darkTheme.tr())),
         DropdownMenuItem(
             value: DeviceTheme.system,
-            child: Text(LocaleKeys.mirrorSystem.tr()))
+            child: Text(LocaleKeys.theme_mirrorSystem.tr()))
       ];
 
   List<DropdownMenuItem<String>> getLocaleDropdownItems(BuildContext context) =>

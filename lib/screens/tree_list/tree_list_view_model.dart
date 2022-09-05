@@ -50,11 +50,11 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   // UI Methods
   Text getTitle(BuildContext context, String? treeName) => Text(
-        treeName ?? LocaleKeys.treeWithoutName.tr(),
+        treeName ?? LocaleKeys.treeScreen_treeWithoutName.tr(),
       );
 
   Text getSubtitle(BuildContext context, String? subtitle, int index) => Text(
-        '${LocaleKeys.species.tr()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.speciesNotSpecified.tr()}',
+        '${LocaleKeys.treeScreen_species.tr()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.treeScreen_speciesNotSpecified.tr()}',
       );
 
   // Lazy Loading Methods

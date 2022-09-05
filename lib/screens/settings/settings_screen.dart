@@ -1,12 +1,12 @@
-import 'package:flutter_mobx/flutter_mobx.dart';
-
 import 'package:flutter/material.dart';
+
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/shared/material_app_bar.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/screens/settings/settings_view_model.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: materialAppBar(title: LocaleKeys.settingsTitlePage.tr()),
+      appBar: materialAppBar(title: LocaleKeys.title_settingsTitlePage.tr()),
       body: SafeArea(
         child: Observer(builder: observerBuilder),
       ),

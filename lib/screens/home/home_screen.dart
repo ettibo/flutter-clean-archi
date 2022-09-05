@@ -65,15 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateNavigationList(BuildContext context) {
     navigationList = [
       NavigationObject(
-          title: LocaleKeys.titleTreeListPage.tr(),
+          title: LocaleKeys.title_titleTreeListPage.tr(),
           icon: CupertinoIcons.leaf_arrow_circlepath,
           screen: const TreeListScreen()),
       NavigationObject(
-          title: LocaleKeys.mapTitlePage.tr(),
+          title: LocaleKeys.title_mapTitlePage.tr(),
           icon: Icons.map,
           screen: const MapScreen()),
       NavigationObject(
-          title: LocaleKeys.bmiTitlePage.tr(),
+          title: LocaleKeys.title_bmiTitlePage.tr(),
           icon: Icons.monitor_weight,
           screen: const BmiScreen()),
     ];

@@ -37,10 +37,10 @@ class _BmiScreenState extends State<BmiScreen> {
   List<Widget> getToggleButtons() => [
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.metricUnitName.tr(), style: textStyle)),
+            child: Text(LocaleKeys.bmi_metricUnitName.tr(), style: textStyle)),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.imperialUnitName.tr(), style: textStyle))
+            child: Text(LocaleKeys.bmi_imperialUnitName.tr(), style: textStyle))
       ];
 
   Widget getTextField(
@@ -91,9 +91,9 @@ class _BmiScreenState extends State<BmiScreen> {
               controller: viewModel.txtHeightController,
               onChanged: viewModel.setHeight,
               onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
-              hintText: LocaleKeys.hintBmiTextField.tr(
+              hintText: LocaleKeys.bmi_hintBmiTextField.tr(
                 namedArgs: {
-                  'unit': LocaleKeys.height.tr().toLowerCase(),
+                  'unit': LocaleKeys.bmi_height.tr().toLowerCase(),
                   'system': viewModel.getHeightUnitHint(context)
                 },
               ),
@@ -103,9 +103,9 @@ class _BmiScreenState extends State<BmiScreen> {
               controller: viewModel.txtWeightController,
               onChanged: viewModel.setWeight,
               focusNode: viewModel.weightFocusNode,
-              hintText: LocaleKeys.hintBmiTextField.tr(
+              hintText: LocaleKeys.bmi_hintBmiTextField.tr(
                 namedArgs: {
-                  'unit': LocaleKeys.weight.tr().toLowerCase(),
+                  'unit': LocaleKeys.bmi_weight.tr().toLowerCase(),
                   'system': viewModel.getWeightUnitHint(context),
                 },
               ),

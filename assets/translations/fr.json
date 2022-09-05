@@ -1,46 +1,56 @@
 {
-    "appTitle": "Clean Tree App",
-    "titleTreeListPage": "Arbres",
-    "titledetailTreePage": "Detail Arbre",
-    "mapTitlePage": "Carte",
-    "bmiTitlePage": "IMC",
-    "settingsTitlePage": "Paramètres",
+    "title": {
+        "appTitle": "Clean Tree App",
+        "titleTreeListPage": "Arbres",
+        "titledetailTreePage": "Detail Arbre",
+        "mapTitlePage": "Carte",
+        "bmiTitlePage": "IMC",
+        "settingsTitlePage": "Paramètres"
+    },
     
-    "treeWithoutName": "Arbre sans nom",
-    "species": "Espèce",
-    "speciesNotSpecified": "Non spécifiée",
-    "height": "Hauteur",
-    "circumference": "Circonférence",
-    "address": "Adresse",
-    "titleLabel": "{title} : {value}",
-    "valueWithUnit": "{value} {unit}",
-    "meterUnit": "m",
-    "centimeterUnit": "cm",
+    "treeScreen": {
+        "treeWithoutName": "Arbre sans nom",
+        "species": "Espèce",
+        "speciesNotSpecified": "Non spécifiée",
+        "height": "Hauteur",
+        "circumference": "Circonférence",
+        "address": "Adresse",
+        "titleLabel": "{title} : {value}",
+        "valueWithUnit": "{value} {unit}",
+        "meterUnit": "m",
+        "centimeterUnit": "cm"
+    },
     
-    "theme": "Thème :",
-    "lightTheme": "Clair",
-    "darkTheme": "Sombre",
-    "mirrorSystem": "Système",
+    "theme": {
+        "themeTitle": "Thème :",
+        "lightTheme": "Clair",
+        "darkTheme": "Sombre",
+        "mirrorSystem": "Système"
+    },
 
-    "weight": "Poids",
-    "meters": "mètres",
-    "inch": "pouces",
-    "kilos": "kilos",
-    "pounds": "livres",
-    "hintBmiTextField": "Veuillez insérer votre {unit} en {system}",
-    "bmiResult": "Votre IMC est {value}",
-    "bmiErrorNull": "Veuillez saisir toutes les informations",
-    "formatError": "Erreur de format",
-    "metricUnitName": "Métrique",
-    "imperialUnitName": "Impérial",
+    "bmi" : {
+        "weight": "Poids",
+        "meters": "mètres",
+        "inch": "pouces",
+        "kilos": "kilos",
+        "pounds": "livres",
+        "hintBmiTextField": "Veuillez insérer votre {unit} en {system}",
+        "bmiResult": "Votre IMC est {value}",
+        "bmiErrorNull": "Veuillez saisir toutes les informations",
+        "formatError": "Erreur de format",
+        "metricUnitName": "Métrique",
+        "imperialUnitName": "Impérial"
+    },
 
-    "locationServicesDisabled": "Les services de localisation sont désactivés.",
-    "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
-    "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente.",
+    "appSettings": {
+        "locationServicesDisabled": "Les services de localisation sont désactivés.",
+        "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
+        "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente."
+    },
 
-    "crashReportingEnabledLabel": "Le Gestionnaire de crash est activé :",
-
-    "englishLangage": "Anglais",
-    "spanishLangage": "Espagnol",
-    "frenchLangage": "Français"
+    "langage": {
+        "englishLangage": "Anglais",
+        "spanishLangage": "Espagnol",
+        "frenchLangage": "Français"
+    }
 }

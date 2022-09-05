@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:api/models/app/tree/tree.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 
 class TreeMarkPopup extends StatelessWidget {
@@ -24,8 +25,8 @@ class TreeMarkPopup extends StatelessWidget {
               children: <Widget>[
                 Text(tree.name.toString().toCapitalized()),
                 Text(
-                  LocaleKeys.titleLabel.tr(namedArgs: {
-                    'title': LocaleKeys.species.tr(),
+                  LocaleKeys.treeScreen_titleLabel.tr(namedArgs: {
+                    'title': LocaleKeys.treeScreen_species.tr(),
                     'value': tree.species.toString().toTitleCase()
                   }),
                 )

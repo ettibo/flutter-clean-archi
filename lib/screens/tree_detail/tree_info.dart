@@ -12,11 +12,11 @@ Widget rowTreeInfo(
     Padding(
       padding: const EdgeInsets.all(10),
       child: Text(
-        LocaleKeys.titleLabel.tr(
+        LocaleKeys.treeScreen_titleLabel.tr(
           namedArgs: {
             'title': title.toTitleCase(),
             'unit': unit != null
-                ? LocaleKeys.valueWithUnit
+                ? LocaleKeys.treeScreen_valueWithUnit
                     .tr(namedArgs: {'value': value, 'unit': unit})
                 : value.toTitleCase()
           },

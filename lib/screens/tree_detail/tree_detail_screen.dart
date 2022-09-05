@@ -17,7 +17,7 @@ class TreeDetailScreen extends StatefulWidget {
 
 class _TreeDetailScreenState extends State<TreeDetailScreen> {
   AppBar appBar(BuildContext context) => materialAppBar(
-      title: widget.tree.name ?? LocaleKeys.titledetailTreePage.tr());
+      title: widget.tree.name ?? LocaleKeys.title_titledetailTreePage.tr());
 
   @override
   Widget build(BuildContext context) {
@@ -31,23 +31,23 @@ class _TreeDetailScreenState extends State<TreeDetailScreen> {
             children: [
               rowTreeInfo(
                   context: context,
-                  title: LocaleKeys.species.tr(),
+                  title: LocaleKeys.treeScreen_species.tr(),
                   value: widget.tree.species ??
-                      LocaleKeys.speciesNotSpecified.tr()),
+                      LocaleKeys.treeScreen_speciesNotSpecified.tr()),
               rowTreeInfo(
                   context: context,
-                  title: LocaleKeys.address.tr(),
+                  title: LocaleKeys.treeScreen_address.tr(),
                   value: '${widget.tree.address2} ${widget.tree.address}'),
               rowTreeInfo(
                   context: context,
-                  title: LocaleKeys.height.tr(),
+                  title: LocaleKeys.treeScreen_height.tr(),
                   value: widget.tree.height.toString(),
-                  unit: LocaleKeys.meterUnit.tr()),
+                  unit: LocaleKeys.treeScreen_meterUnit.tr()),
               rowTreeInfo(
                   context: context,
-                  title: LocaleKeys.circumference.tr(),
+                  title: LocaleKeys.treeScreen_circumference.tr(),
                   value: widget.tree.circumference.toString(),
-                  unit: LocaleKeys.centimeterUnit.tr()),
+                  unit: LocaleKeys.treeScreen_centimeterUnit.tr()),
             ],
           ),
         ),
