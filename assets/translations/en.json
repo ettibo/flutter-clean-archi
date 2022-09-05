@@ -1,61 +1,67 @@
 {
     "title": {
-        "appTitle": "Clean Tree App",
-        "titleTreeListPage": "Trees",
-        "titledetailTreePage": "Tree Detail",
-        "mapTitlePage": "Map",
-        "bmiTitlePage": "BMI",
-        "settingsTitlePage": "Settings"
+        "app_title": "Clean Tree App",
+        "title_tree_list_screen": "Trees",
+        "title_detail_tree_screen": "Tree Detail",
+        "map_title_screen": "Map",
+        "bmi_title_screen": "BMI",
+        "settings_title_screen": "Settings"
     },
 
-    "treeScreen": {
-        "treeWithoutName": "Tree without name",
+
+    "tree_list_screen" : {
+        "tree_without_name": "Tree without name",
         "species": "Species",
-        "speciesNotSpecified": "Not specified",
+        "species_not_specified": "Not specified"
+    },
+
+    "tree_detail_screen": {
+        "species": "Species",
+        "species_not_specified": "Not specified",
         "height": "Height",
         "circumference": "Circumference",
         "address": "Address",
-        "titleLabel": "{title}: {value}",
-        "valueWithUnit": "{value} {unit}",
-        "meterUnit": "m",
-        "centimeterUnit": "cm"
+        "title_label": "{title}: {value}",
+        "value_with_unit": "{value} {unit}",
+        "meter_unit": "m",
+        "centimeter_unit": "cm"
     },
     
     "theme": {
-        "themeTitle": "Theme:",
-        "lightTheme": "Light",
-        "darkTheme": "Dark",
-        "mirrorSystem": "System"
+        "theme_title": "Theme:",
+        "light_theme": "Light",
+        "dark_theme": "Dark",
+        "mirror_system": "System"
     },
 
-    "bmi": {
+    "bmi_screen": {
         "weight": "Weight",
         "height": "Height",
         "meters": "meters",
         "inch": "inch",
         "kilos": "kilos",
         "pounds": "pounds",
-        "hintBmiTextField": "Please insert your {unit} in {system}",
-        "bmiResult": "Your BMI is {value}",
-        "bmiErrorNull": "Please enter all informations",
-        "formatError": "Format Error",
-        "metricUnitName": "Metric",
-        "imperialUnitName": "Imperial"
+        "hint_bmi_text_field": "Please insert your {unit} in {system}",
+        "bmi_result": "Your BMI is {value}",
+        "bmi_error_null": "Please enter all informations",
+        "format_error": "Format Error",
+        "metric_unit_name": "Metric",
+        "imperial_unit_name": "Imperial"
     },
     
-    "appSettings": {
-        "locationServicesDisabled": "Location services are disabled.",
-        "locationPermissionDenied": "Location permissions are denied",
-        "locationPermissionDeniedPermanently": "Location permissions are permanently denied."
+    "setting_screen": {
+        "location_services_disabled": "Location services are disabled.",
+        "location_permission_denied": "Location permissions are denied",
+        "location_permission_denied_permanently": "Location permissions are permanently denied."
     },
     
     "langage": {
-        "englishLangage": "English",
-        "spanishLangage": "Spanish",
-        "frenchLangage": "French"
+        "english_langage": "English",
+        "spanish_langage": "Spanish",
+        "french_langage": "French"
     },
 
-    "crashManager" : {
-        "activatedLabel" : "Crash manager is activated:"
+    "crash_manager" : {
+        "activated_label" : "Crash manager is activated:"
     }
 }

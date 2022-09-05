@@ -1,59 +1,64 @@
 {
     "title": {
-        "appTitle": "Clean Tree App",
-        "titleTreeListPage": "Árboles",
-        "titledetailTreePage": "Detalle del árbol",
-        "mapTitlePage": "Mapas",
-        "bmiTitlePage": "IMC",
-        "settingsTitlePage": "Ajustes"
+        "app_title": "Clean Tree App",
+        "title_tree_list_screen": "Árboles",
+        "title_detail_tree_screen": "Detalle del árbol",
+        "map_title_screen": "Mapas",
+        "bmi_title_screen": "IMC",
+        "settings_title_screen": "Ajustes"
+    },
+
+    "tree_list_screen" : {
+        "tree_without_name": "Árbol sin nombre",
+        "species": "Especie",
+        "species_not_specified": "No especificadas"
     },
     
-    "treeScreen": {
-        "treeWithoutName": "Árbol sin nombre",
+    "tree_detail_screen": {
         "species": "Especie",
-        "speciesNotSpecified": "No especificadas",
+        "species_not_specified": "No especificadas",
         "height": "Altura",
         "circumference": "Circunferencia",
         "address": "Dirección",
-        "titleLabel": "{title}: {value}",
-        "valueWithUnit": "{value} {unit}",
-        "meterUnit": "m",
-        "centimeterUnit": "cm"
+        "title_label": "{title}: {value}",
+        "value_with_unit": "{value} {unit}",
+        "meter_unit": "m",
+        "centimeter_unit": "cm"
     },
 
     "theme": {
-        "themeTitle": "Tema:",
-        "lightTheme": "Claro",
-        "darkTheme": "Oscuro",
-        "mirrorSystem": "Dispositivo"
+        "theme_title": "Tema:",
+        "light_theme": "Claro",
+        "dark_theme": "Oscuro",
+        "mirror_system": "Dispositivo"
     },
 
-    "bmi" : {
+    "bmi_screen" : {
         "weight": "peso",
         "meters": "metros",
         "inch": "pulgadas",
         "kilos": "kilos",
         "pounds": "libras",
-        "hintBmiTextField": "Por favor, introduzca su {unit} en {system}",
-        "bmiResult": "Su IMC es {value}",
-        "bmiErrorNull": "Por favor, introduzca toda la información",
-        "formatError": "Error de formato",
-        "metricUnitName": "Métrica",
-        "imperialUnitName": "Imperial"
+        "hint_bmi_text_field": "Por favor, introduzca su {unit} en {system}",
+        "bmi_result": "Su IMC es {value}",
+        "bmi_error_null": "Por favor, introduzca toda la información",
+        "format_error": "Error de formato",
+        "metric_unit_name": "Métrica",
+        "imperial_unit_name": "Imperial"
     },
 
-    "appSettings" : {
-        "locationServicesDisabled": "Los servicios de localización están desactivados.",
-        "locationPermissionDenied": "Los permisos de localización están denegados.",
-        "locationPermissionDeniedPermanently": "Los permisos de localización están permanentemente denegados."
+    "setting_screen" : {
+        "location_services_disabled": "Los servicios de localización están desactivados.",
+        "location_permission_denied": "Los permisos de localización están denegados.",
+        "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados."
     },
     "langage": {
-        "englishLangage": "Inglés",
-        "spanishLangage": "Español",
-        "frenchLangage": "Francés"
+        "english_langage": "Inglés",
+        "spanish_langage": "Español",
+        "french_langage": "Francés"
     },
 
-    "crashManager" : {
-        "activatedLabel" : "El gestor de accidentes está activado:"
+    "crash_manager" : {
+        "activated_label" : "El gestor de accidentes está activado:"
     }
 }

@@ -12,7 +12,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:positioned_tap_detector_2/positioned_tap_detector_2.dart'
     show TapPosition;
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:api/dependency_injection.dart';
 
@@ -22,6 +21,7 @@ import 'package:globo_fitness/screens/map/widgets/markers/tree_marker_popup.dart
 import 'package:globo_fitness/store/tree_store.dart';
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 part 'map_view_model.g.dart';
@@ -85,7 +85,8 @@ abstract class MapViewModelBase with Store, ViewModel {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error(LocaleKeys.appSettings_locationServicesDisabled.tr());
+      return Future.error(
+          LocaleKeys.setting_screen_location_services_disabled.localized());
     }
 
     permission = await Geolocator.checkPermission();
@@ -93,13 +94,14 @@ abstract class MapViewModelBase with Store, ViewModel {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
         return Future.error(
-            LocaleKeys.appSettings_locationPermissionDenied.tr());
+            LocaleKeys.setting_screen_location_permission_denied.localized());
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          LocaleKeys.appSettings_locationPermissionDeniedPermanently.tr());
+      return Future.error(LocaleKeys
+          .setting_screen_location_permission_denied_permanently
+          .localized());
     }
     return await Geolocator.getCurrentPosition();
   }

@@ -1,60 +1,65 @@
 {
     "title": {
-        "appTitle": "Clean Tree App",
-        "titleTreeListPage": "Arbres",
-        "titledetailTreePage": "Detail Arbre",
-        "mapTitlePage": "Carte",
-        "bmiTitlePage": "IMC",
-        "settingsTitlePage": "Paramètres"
+        "app_title": "Clean Tree App",
+        "title_tree_list_screen": "Arbres",
+        "title_detail_tree_screen": "Detail Arbre",
+        "map_title_screen": "Carte",
+        "bmi_title_screen": "IMC",
+        "settings_title_screen": "Paramètres"
+    },
+
+    "tree_list_screen" : {
+        "tree_without_name": "Arbre sans nom",
+        "species": "Espèce",
+        "species_not_specified": "Non spécifiée"
     },
     
-    "treeScreen": {
-        "treeWithoutName": "Arbre sans nom",
+    "tree_detail_screen": {
         "species": "Espèce",
-        "speciesNotSpecified": "Non spécifiée",
+        "species_not_specified": "Non spécifiée",
         "height": "Hauteur",
         "circumference": "Circonférence",
         "address": "Adresse",
-        "titleLabel": "{title} : {value}",
-        "valueWithUnit": "{value} {unit}",
-        "meterUnit": "m",
-        "centimeterUnit": "cm"
+        "title_label": "{title} : {value}",
+        "value_with_unit": "{value} {unit}",
+        "meter_unit": "m",
+        "centimeter_unit": "cm"
     },
     
     "theme": {
-        "themeTitle": "Thème :",
-        "lightTheme": "Clair",
-        "darkTheme": "Sombre",
-        "mirrorSystem": "Système"
+        "theme_title": "Thème :",
+        "light_theme": "Clair",
+        "dark_theme": "Sombre",
+        "mirror_system": "Système"
     },
 
-    "bmi" : {
-        "weight": "Poids",
+    "bmi_screen" : {
+        "weight": "poids",
         "meters": "mètres",
         "inch": "pouces",
         "kilos": "kilos",
         "pounds": "livres",
-        "hintBmiTextField": "Veuillez insérer votre {unit} en {system}",
-        "bmiResult": "Votre IMC est {value}",
-        "bmiErrorNull": "Veuillez saisir toutes les informations",
-        "formatError": "Erreur de format",
-        "metricUnitName": "Métrique",
-        "imperialUnitName": "Impérial"
+        "hint_bmi_text_field": "Veuillez insérer votre {unit} en {system}",
+        "bmi_result": "Votre IMC est {value}",
+        "bmi_error_null": "Veuillez saisir toutes les informations",
+        "format_error": "Erreur de format",
+        "metric_unit_name": "Métrique",
+        "imperial_unit_name": "Impérial"
     },
 
-    "appSettings": {
-        "locationServicesDisabled": "Les services de localisation sont désactivés.",
-        "locationPermissionDenied": "Les autorisations de localisation sont refusées.",
-        "locationPermissionDeniedPermanently": "Les autorisations de localisation sont refusées de façon permanente."
+    "setting_screen": {
+        "location_services_disabled": "Les services de localisation sont désactivés.",
+        "location_permission_denied": "Les autorisations de localisation sont refusées.",
+        "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente."
     },
 
     "langage": {
-        "englishLangage": "Anglais",
-        "spanishLangage": "Espagnol",
-        "frenchLangage": "Français"
+        "english_langage": "Anglais",
+        "spanish_langage": "Espagnol",
+        "french_langage": "Français"
     },
 
-    "crashManager" : {
-        "activatedLabel" : "Le Gestionnaire de crash est activé :"
+    "crash_manager" : {
+        "activated_label" : "Le Gestionnaire de crash est activé :"
     }
 }
