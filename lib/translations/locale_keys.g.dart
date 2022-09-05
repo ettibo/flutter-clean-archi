@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const title_appTitle = 'title.appTitle';
   static const title_titleTreeListPage = 'title.titleTreeListPage';
   static const title_titledetailTreePage = 'title.titledetailTreePage';
@@ -10,7 +10,8 @@ abstract class  LocaleKeys {
   static const title = 'title';
   static const treeScreen_treeWithoutName = 'treeScreen.treeWithoutName';
   static const treeScreen_species = 'treeScreen.species';
-  static const treeScreen_speciesNotSpecified = 'treeScreen.speciesNotSpecified';
+  static const treeScreen_speciesNotSpecified =
+      'treeScreen.speciesNotSpecified';
   static const treeScreen_height = 'treeScreen.height';
   static const treeScreen_circumference = 'treeScreen.circumference';
   static const treeScreen_address = 'treeScreen.address';
@@ -37,9 +38,12 @@ abstract class  LocaleKeys {
   static const bmi_metricUnitName = 'bmi.metricUnitName';
   static const bmi_imperialUnitName = 'bmi.imperialUnitName';
   static const bmi = 'bmi';
-  static const appSettings_locationServicesDisabled = 'appSettings.locationServicesDisabled';
-  static const appSettings_locationPermissionDenied = 'appSettings.locationPermissionDenied';
-  static const appSettings_locationPermissionDeniedPermanently = 'appSettings.locationPermissionDeniedPermanently';
+  static const appSettings_locationServicesDisabled =
+      'appSettings.locationServicesDisabled';
+  static const appSettings_locationPermissionDenied =
+      'appSettings.locationPermissionDenied';
+  static const appSettings_locationPermissionDeniedPermanently =
+      'appSettings.locationPermissionDeniedPermanently';
   static const appSettings = 'appSettings';
   static const langage_englishLangage = 'langage.englishLangage';
   static const langage_spanishLangage = 'langage.spanishLangage';
@@ -47,5 +51,4 @@ abstract class  LocaleKeys {
   static const langage = 'langage';
   static const crashManager_activatedLabel = 'crashManager.activatedLabel';
   static const crashManager = 'crashManager';
-
 }

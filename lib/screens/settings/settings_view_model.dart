@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:mobx/mobx.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -97,5 +98,12 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   void toggleCrashManager(bool _) {
     _crashManager.toogleCrashReporting();
     isCrashManagerEnabled = !isCrashManagerEnabled;
+  }
+
+  @action
+  void updateLangage(String langageCode, BuildContext context) async {
+    await context.setLocale(Locale(langageCode));
+    // ignore: use_build_context_synchronously
+    Phoenix.rebirth(context);
   }
 }

@@ -54,6 +54,8 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
 
   easy_localization: ^3.0.1
+
+  flutter_phoenix: ^1.1.0
   
   api:
     path: packages/api
