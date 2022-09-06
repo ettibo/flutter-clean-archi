@@ -6,201 +6,201 @@
 
 // ignore_for_file: camel_case_types
 
-import 'dart:typed_data';
+// import 'dart:typed_data';
 
-import 'package:flat_buffers/flat_buffers.dart' as fb;
-import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
-import 'package:objectbox/objectbox.dart';
-import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
+// import 'package:flat_buffers/flat_buffers.dart' as fb;
+// import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
+// import 'package:objectbox/objectbox.dart';
+// import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import '../../../models/local/tree/local_tree.dart';
+// import '../../../models/local/tree/local_tree.dart';
 
-export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
+// export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
-final _entities = <ModelEntity>[
-  ModelEntity(
-      id: const IdUid(1, 3267340173778158162),
-      name: 'LocalTree',
-      lastPropertyId: const IdUid(9, 3890551086037269909),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 2346273990638597472),
-            name: 'id',
-            type: 6,
-            flags: 129),
-        ModelProperty(
-            id: const IdUid(2, 1998244485973232919),
-            name: 'name',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 6682779612869283168),
-            name: 'address',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 4026610968874623760),
-            name: 'address2',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 3045730613812029836),
-            name: 'species',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 7967215148420684510),
-            name: 'height',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 1020801654486249197),
-            name: 'circumference',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 8427135528271070453),
-            name: 'lat',
-            type: 8,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 3890551086037269909),
-            name: 'lng',
-            type: 8,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[])
-];
+// final _entities = <ModelEntity>[
+//   ModelEntity(
+//       id: const IdUid(1, 3267340173778158162),
+//       name: 'LocalTree',
+//       lastPropertyId: const IdUid(9, 3890551086037269909),
+//       flags: 0,
+//       properties: <ModelProperty>[
+//         ModelProperty(
+//             id: const IdUid(1, 2346273990638597472),
+//             name: 'id',
+//             type: 6,
+//             flags: 129),
+//         ModelProperty(
+//             id: const IdUid(2, 1998244485973232919),
+//             name: 'name',
+//             type: 9,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(3, 6682779612869283168),
+//             name: 'address',
+//             type: 9,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(4, 4026610968874623760),
+//             name: 'address2',
+//             type: 9,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(5, 3045730613812029836),
+//             name: 'species',
+//             type: 9,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(6, 7967215148420684510),
+//             name: 'height',
+//             type: 6,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(7, 1020801654486249197),
+//             name: 'circumference',
+//             type: 6,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(8, 8427135528271070453),
+//             name: 'lat',
+//             type: 8,
+//             flags: 0),
+//         ModelProperty(
+//             id: const IdUid(9, 3890551086037269909),
+//             name: 'lng',
+//             type: 8,
+//             flags: 0)
+//       ],
+//       relations: <ModelRelation>[],
+//       backlinks: <ModelBacklink>[])
+// ];
 
-/// Open an ObjectBox store with the model declared in this file.
-Future<Store> openStore(
-        {String? directory,
-        int? maxDBSizeInKB,
-        int? fileMode,
-        int? maxReaders,
-        bool queriesCaseSensitiveDefault = true,
-        String? macosApplicationGroup}) async =>
-    Store(getObjectBoxModel(),
-        directory: directory ?? (await defaultStoreDirectory()).path,
-        maxDBSizeInKB: maxDBSizeInKB,
-        fileMode: fileMode,
-        maxReaders: maxReaders,
-        queriesCaseSensitiveDefault: queriesCaseSensitiveDefault,
-        macosApplicationGroup: macosApplicationGroup);
+// /// Open an ObjectBox store with the model declared in this file.
+// Future<Store> openStore(
+//         {String? directory,
+//         int? maxDBSizeInKB,
+//         int? fileMode,
+//         int? maxReaders,
+//         bool queriesCaseSensitiveDefault = true,
+//         String? macosApplicationGroup}) async =>
+//     Store(getObjectBoxModel(),
+//         directory: directory ?? (await defaultStoreDirectory()).path,
+//         maxDBSizeInKB: maxDBSizeInKB,
+//         fileMode: fileMode,
+//         maxReaders: maxReaders,
+//         queriesCaseSensitiveDefault: queriesCaseSensitiveDefault,
+//         macosApplicationGroup: macosApplicationGroup);
 
-/// ObjectBox model definition, pass it to [Store] - Store(getObjectBoxModel())
-ModelDefinition getObjectBoxModel() {
-  final model = ModelInfo(
-      entities: _entities,
-      lastEntityId: const IdUid(1, 3267340173778158162),
-      lastIndexId: const IdUid(0, 0),
-      lastRelationId: const IdUid(0, 0),
-      lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [],
-      retiredIndexUids: const [],
-      retiredPropertyUids: const [],
-      retiredRelationUids: const [],
-      modelVersion: 5,
-      modelVersionParserMinimum: 5,
-      version: 1);
+// /// ObjectBox model definition, pass it to [Store] - Store(getObjectBoxModel())
+// ModelDefinition getObjectBoxModel() {
+//   final model = ModelInfo(
+//       entities: _entities,
+//       lastEntityId: const IdUid(1, 3267340173778158162),
+//       lastIndexId: const IdUid(0, 0),
+//       lastRelationId: const IdUid(0, 0),
+//       lastSequenceId: const IdUid(0, 0),
+//       retiredEntityUids: const [],
+//       retiredIndexUids: const [],
+//       retiredPropertyUids: const [],
+//       retiredRelationUids: const [],
+//       modelVersion: 5,
+//       modelVersionParserMinimum: 5,
+//       version: 1);
 
-  final bindings = <Type, EntityDefinition>{
-    LocalTree: EntityDefinition<LocalTree>(
-        model: _entities[0],
-        toOneRelations: (LocalTree object) => [],
-        toManyRelations: (LocalTree object) => {},
-        getId: (LocalTree object) => object.id,
-        setId: (LocalTree object, int id) {
-          object.id = id;
-        },
-        objectToFB: (LocalTree object, fb.Builder fbb) {
-          final nameOffset =
-              object.name == null ? null : fbb.writeString(object.name!);
-          final addressOffset =
-              object.address == null ? null : fbb.writeString(object.address!);
-          final address2Offset = object.address2 == null
-              ? null
-              : fbb.writeString(object.address2!);
-          final speciesOffset =
-              object.species == null ? null : fbb.writeString(object.species!);
-          fbb.startTable(10);
-          fbb.addInt64(0, object.id ?? 0);
-          fbb.addOffset(1, nameOffset);
-          fbb.addOffset(2, addressOffset);
-          fbb.addOffset(3, address2Offset);
-          fbb.addOffset(4, speciesOffset);
-          fbb.addInt64(5, object.height);
-          fbb.addInt64(6, object.circumference);
-          fbb.addFloat64(7, object.lat);
-          fbb.addFloat64(8, object.lng);
-          fbb.finish(fbb.endTable());
-          return object.id ?? 0;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
+//   final bindings = <Type, EntityDefinition>{
+//     LocalTree: EntityDefinition<LocalTree>(
+//         model: _entities[0],
+//         toOneRelations: (LocalTree object) => [],
+//         toManyRelations: (LocalTree object) => {},
+//         getId: (LocalTree object) => object.id,
+//         setId: (LocalTree object, int id) {
+//           object.id = id;
+//         },
+//         objectToFB: (LocalTree object, fb.Builder fbb) {
+//           final nameOffset =
+//               object.name == null ? null : fbb.writeString(object.name!);
+//           final addressOffset =
+//               object.address == null ? null : fbb.writeString(object.address!);
+//           final address2Offset = object.address2 == null
+//               ? null
+//               : fbb.writeString(object.address2!);
+//           final speciesOffset =
+//               object.species == null ? null : fbb.writeString(object.species!);
+//           fbb.startTable(10);
+//           fbb.addInt64(0, object.id ?? 0);
+//           fbb.addOffset(1, nameOffset);
+//           fbb.addOffset(2, addressOffset);
+//           fbb.addOffset(3, address2Offset);
+//           fbb.addOffset(4, speciesOffset);
+//           fbb.addInt64(5, object.height);
+//           fbb.addInt64(6, object.circumference);
+//           fbb.addFloat64(7, object.lat);
+//           fbb.addFloat64(8, object.lng);
+//           fbb.finish(fbb.endTable());
+//           return object.id ?? 0;
+//         },
+//         objectFromFB: (Store store, ByteData fbData) {
+//           final buffer = fb.BufferContext(fbData);
+//           final rootOffset = buffer.derefObject(0);
 
-          final object = LocalTree()
-            ..id =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
-            ..name = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 6)
-            ..address = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 8)
-            ..address2 = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 10)
-            ..species = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 12)
-            ..height =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14)
-            ..circumference =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16)
-            ..lat = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 18)
-            ..lng = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 20);
+//           final object = LocalTree()
+//             ..id =
+//                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4)
+//             ..name = const fb.StringReader(asciiOptimization: true)
+//                 .vTableGetNullable(buffer, rootOffset, 6)
+//             ..address = const fb.StringReader(asciiOptimization: true)
+//                 .vTableGetNullable(buffer, rootOffset, 8)
+//             ..address2 = const fb.StringReader(asciiOptimization: true)
+//                 .vTableGetNullable(buffer, rootOffset, 10)
+//             ..species = const fb.StringReader(asciiOptimization: true)
+//                 .vTableGetNullable(buffer, rootOffset, 12)
+//             ..height =
+//                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14)
+//             ..circumference =
+//                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16)
+//             ..lat = const fb.Float64Reader()
+//                 .vTableGetNullable(buffer, rootOffset, 18)
+//             ..lng = const fb.Float64Reader()
+//                 .vTableGetNullable(buffer, rootOffset, 20);
 
-          return object;
-        })
-  };
+//           return object;
+//         })
+//   };
 
-  return ModelDefinition(model, bindings);
-}
+//   return ModelDefinition(model, bindings);
+// }
 
-/// [LocalTree] entity fields to define ObjectBox queries.
-class LocalTree_ {
-  /// see [LocalTree.id]
-  static final id = QueryIntegerProperty<LocalTree>(_entities[0].properties[0]);
+// /// [LocalTree] entity fields to define ObjectBox queries.
+// class LocalTree_ {
+//   /// see [LocalTree.id]
+//   static final id = QueryIntegerProperty<LocalTree>(_entities[0].properties[0]);
 
-  /// see [LocalTree.name]
-  static final name =
-      QueryStringProperty<LocalTree>(_entities[0].properties[1]);
+//   /// see [LocalTree.name]
+//   static final name =
+//       QueryStringProperty<LocalTree>(_entities[0].properties[1]);
 
-  /// see [LocalTree.address]
-  static final address =
-      QueryStringProperty<LocalTree>(_entities[0].properties[2]);
+//   /// see [LocalTree.address]
+//   static final address =
+//       QueryStringProperty<LocalTree>(_entities[0].properties[2]);
 
-  /// see [LocalTree.address2]
-  static final address2 =
-      QueryStringProperty<LocalTree>(_entities[0].properties[3]);
+//   /// see [LocalTree.address2]
+//   static final address2 =
+//       QueryStringProperty<LocalTree>(_entities[0].properties[3]);
 
-  /// see [LocalTree.species]
-  static final species =
-      QueryStringProperty<LocalTree>(_entities[0].properties[4]);
+//   /// see [LocalTree.species]
+//   static final species =
+//       QueryStringProperty<LocalTree>(_entities[0].properties[4]);
 
-  /// see [LocalTree.height]
-  static final height =
-      QueryIntegerProperty<LocalTree>(_entities[0].properties[5]);
+//   /// see [LocalTree.height]
+//   static final height =
+//       QueryIntegerProperty<LocalTree>(_entities[0].properties[5]);
 
-  /// see [LocalTree.circumference]
-  static final circumference =
-      QueryIntegerProperty<LocalTree>(_entities[0].properties[6]);
+//   /// see [LocalTree.circumference]
+//   static final circumference =
+//       QueryIntegerProperty<LocalTree>(_entities[0].properties[6]);
 
-  /// see [LocalTree.lat]
-  static final lat = QueryDoubleProperty<LocalTree>(_entities[0].properties[7]);
+//   /// see [LocalTree.lat]
+//   static final lat = QueryDoubleProperty<LocalTree>(_entities[0].properties[7]);
 
-  /// see [LocalTree.lng]
-  static final lng = QueryDoubleProperty<LocalTree>(_entities[0].properties[8]);
-}
+//   /// see [LocalTree.lng]
+//   static final lng = QueryDoubleProperty<LocalTree>(_entities[0].properties[8]);
+// }

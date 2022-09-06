@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -65,16 +66,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(LocaleKeys.crash_manager_activated_label.localized()),
-                  Switch(
+              if (kIsWeb)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(LocaleKeys.crash_manager_activated_label.localized()),
+                    Switch(
                       activeColor: Theme.of(context).primaryColorDark,
                       value: viewModel.isCrashManagerEnabled,
-                      onChanged: viewModel.toggleCrashManager),
-                ],
-              ),
+                      onChanged: (value) => print('test'),
+                    ),
+                  ],
+                ),
+              Text(viewModel.getLabelChangeLanguage().localized()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

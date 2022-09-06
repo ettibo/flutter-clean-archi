@@ -9,7 +9,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/remote_config.dart';
-import 'package:api/models/app/managers/crash.dart';
+// import 'package:api/models/app/managers/crash.dart';
 
 import 'package:globo_fitness/screens/settings/theme_helpers.dart';
 
@@ -28,8 +28,8 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   final RemoteConfigManager _remoteConfigManager =
       DependecyInjection.instance.get<RemoteConfigManager>();
 
-  final CrashManager _crashManager =
-      DependecyInjection.instance.get<CrashManager>();
+  // final CrashManager _crashManager =
+  //     DependecyInjection.instance.get<CrashManager>();
 
   @observable
   DeviceTheme currentTheme = DeviceTheme.system;
@@ -40,7 +40,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   @override
   void init() {
     setCurrentTheme();
-    _initIsCrashManagerEnabled();
+    // _initIsCrashManagerEnabled();
   }
 
   @override
@@ -92,14 +92,14 @@ abstract class SettingsViewModelBase with Store, ViewModel {
 
   String getCurrentLocale() => Platform.localeName;
 
-  @action
-  void _initIsCrashManagerEnabled() =>
-      isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
+  // @action
+  // void _initIsCrashManagerEnabled() =>
+  //     isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
 
-  void toggleCrashManager(bool _) {
-    _crashManager.toogleCrashReporting();
-    isCrashManagerEnabled = !isCrashManagerEnabled;
-  }
+  // void toggleCrashManager(bool _) {
+  //   _crashManager.toogleCrashReporting();
+  //   isCrashManagerEnabled = !isCrashManagerEnabled;
+  // }
 
   List<ElevatedButton> getLangageListButton(BuildContext context) => [
         getLangageButton(

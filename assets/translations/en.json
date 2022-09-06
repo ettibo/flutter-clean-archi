@@ -63,5 +63,7 @@
 
     "crash_manager" : {
         "activated_label" : "Crash manager is activated:"
-    }
+    },
+
+    "label_force_language_setting" : "langage is english"
 }
