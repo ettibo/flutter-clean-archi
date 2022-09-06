@@ -61,5 +61,7 @@
 
     "crash_manager" : {
         "activated_label" : "Le Gestionnaire de crash est activé :"
-    }
+    },
+
+    "label_force_language_setting" : "La langue est française"
 }

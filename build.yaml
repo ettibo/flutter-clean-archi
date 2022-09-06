@@ -1,0 +1,5 @@
+targets:
+  $default:
+    sources:
+      exclude:
+        - package/data/lib/models/local/tree/local_tree.dart

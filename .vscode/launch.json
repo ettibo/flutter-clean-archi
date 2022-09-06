@@ -5,23 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "globo_fitness",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "globo_fitness (profile mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "globo_fitness (release mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    },
-    {
       "name": "Brown globo_fitness ",
       "program": "lib/main_brown.dart",
       "args": ["--flavor", "Brown"],

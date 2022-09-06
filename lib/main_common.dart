@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
@@ -88,5 +89,7 @@ Future<void> _firebaseInitializer(FlavorName flavorName) async {
 
 void _activateManagers() {
   activateRemoteConfig();
-  activateCrashReportIfEnabled();
+  if (!kIsWeb) {
+    activateCrashReportIfEnabled();
+  }
 }
