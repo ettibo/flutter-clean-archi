@@ -66,17 +66,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              // if (!kIsWeb)
-              //   Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       Text(LocaleKeys.crash_manager_activated_label.localized()),
-              //       Switch(
-              //           activeColor: Theme.of(context).primaryColorDark,
-              //           value: viewModel.isCrashManagerEnabled,
-              //           onChanged: viewModel.toggleCrashManager),
-              //     ],
-              //   ),
+              if (!kIsWeb)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(LocaleKeys.crash_manager_activated_label.localized()),
+                    Switch(
+                        activeColor: Theme.of(context).primaryColorDark,
+                        value: viewModel.isCrashManagerEnabled,
+                        onChanged: viewModel.toggleCrashManager),
+                  ],
+                ),
               Text(viewModel.getLabelChangeLanguage().localized()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
