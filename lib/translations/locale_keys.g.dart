@@ -50,6 +50,7 @@ abstract class  LocaleKeys {
   static const langage = 'langage';
   static const crash_manager_activated_label = 'crash_manager.activated_label';
   static const crash_manager = 'crash_manager';
-  static const label_force_language_setting = 'label_force_language_setting';
+  static const remote_config_key_label_force_language_setting = 'remote_config.key_label_force_language_setting';
+  static const remote_config = 'remote_config';
 
 }

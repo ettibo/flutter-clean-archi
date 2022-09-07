@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:globo_fitness/extensions/string_replace_dot_remote_config.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -88,10 +89,14 @@ abstract class SettingsViewModelBase with Store, ViewModel {
             child: Text(LocaleKeys.theme_mirror_system.localized()))
       ];
 
-  String getLabelChangeLanguage() =>
-      _remoteConfigManager.getValue<String>(
-          key: RemoteConfigKeys.key_label_force_language_setting.name) ??
-      "";
+  String getLabelChangeLanguage() {
+    String remoteKey = _remoteConfigManager.getValue<String>(
+            key: RemoteConfigKeys
+                .remote_config_key_label_force_language_setting.name) ??
+        "";
+    remoteKey = remoteKey.replaceDotInRemoteConfig().localized();
+    return remoteKey;
+  }
 
   String getCurrentLocale() => Platform.localeName;
 
@@ -102,6 +107,23 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   void toggleCrashManager(bool _) {
     _crashManager.toogleCrashReporting();
     isCrashManagerEnabled = !isCrashManagerEnabled;
+  }
+
+  Row getCrashlyticsRow(BuildContext context) {
+    if (!kIsWeb) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(LocaleKeys.crash_manager_activated_label.localized()),
+          Switch(
+              activeColor: Theme.of(context).primaryColorDark,
+              value: isCrashManagerEnabled,
+              onChanged: toggleCrashManager),
+        ],
+      );
+    } else {
+      return Row();
+    }
   }
 
   List<ElevatedButton> getLangageListButton(BuildContext context) => [
