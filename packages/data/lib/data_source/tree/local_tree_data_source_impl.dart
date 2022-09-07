@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/data_source/tree/local_tree_data_source.dart';
 import 'package:api/models/app/tree/tree.dart';
@@ -5,7 +6,6 @@ import 'package:data/local_storage/local_storage.dart';
 import 'package:data/models/local/tree/local_tree.dart'
     if (dart.library.html) 'package:data/models/local/tree/web_local_tree.dart';
 import 'package:data/models/domain/tree/tree_domain.dart';
-import 'package:flutter/foundation.dart';
 
 class LocalTreeDataSourceImpl implements LocalTreeDataSource {
   final LocalStorage localStorage =
@@ -14,7 +14,7 @@ class LocalTreeDataSourceImpl implements LocalTreeDataSource {
   @override
   List<Tree> getTreeList() {
     List<Tree> trees = [];
-    if (kIsWeb) {
+    if (!kIsWeb) {
       List<LocalTree> list = localStorage.getItems();
       for (var item in list) {
         trees.add(item.toDomain());
