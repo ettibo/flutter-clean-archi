@@ -23,8 +23,16 @@ ThemeData greenDarkTheme = ThemeData(
   primarySwatch: greenDarkPrimarySwatch,
   primaryColor: darkGreen,
   backgroundColor: const Color(0xff333333),
-  primaryColorDark: darkGreen,
-  primaryColorLight: Colors.black,
+  primaryColorDark: Colors.black,
+  primaryColorLight: Colors.white,
   bottomAppBarColor: darkGreen,
   indicatorColor: darkGreen,
+  secondaryHeaderColor: Colors.white,
+  textTheme: textTheme,
+);
+
+TextTheme textTheme = const TextTheme(
+  titleMedium: TextStyle(
+    color: Colors.white,
+  ),
 );
