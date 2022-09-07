@@ -1,5 +1,5 @@
 abstract class RemoteConfigManager {
-  void initializeRemoteConfig();
+  Future<void> initializeRemoteConfig();
   void setDefaultParams();
   void launchLoadingStrategy();
   T? getValue<T>({required String key});

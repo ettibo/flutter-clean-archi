@@ -11,7 +11,7 @@ class RemoteConfigFirebase implements RemoteConfigManager {
   final FirebaseRemoteConfig _instance = FirebaseRemoteConfig.instance;
 
   @override
-  void initializeRemoteConfig() =>
+  Future<void> initializeRemoteConfig() =>
       _instance.setConfigSettings(RemoteConfigSettings(
         fetchTimeout: const Duration(minutes: 1),
         minimumFetchInterval: _getMinimumFetchInterval(),
