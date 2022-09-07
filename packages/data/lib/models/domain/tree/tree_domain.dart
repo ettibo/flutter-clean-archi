@@ -1,5 +1,7 @@
 import 'package:api/models/app/tree/tree.dart';
-// import 'package:data/models/local/tree/local_tree.dart';
+// import 'package:data/models/local/tree/local_tree.dart'
+//     if (dart.library.html) 'package:data/models/local/tree/web_local_tree.dart';
+import 'package:data/models/local/tree/web_local_tree.dart';
 import 'package:data/models/remote/tree/tree_list_response.dart';
 
 extension RecordDataToDomain on Fields {
@@ -28,15 +30,15 @@ extension TreeListResponseDataToDomain on TreeListResponse {
   }
 }
 
-// extension LocalTreeToDomain on LocalTree {
-//   Tree toDomain() => Tree(
-//       id: id,
-//       name: name,
-//       address: address,
-//       address2: address2,
-//       species: species,
-//       height: height,
-//       circumference: circumference,
-//       lat: lat,
-//       lng: lng);
-// }
+extension LocalTreeToDomain on LocalTree {
+  Tree toDomain() => Tree(
+      id: id,
+      name: name,
+      address: address,
+      address2: address2,
+      species: species,
+      height: height,
+      circumference: circumference,
+      lat: lat,
+      lng: lng);
+}
