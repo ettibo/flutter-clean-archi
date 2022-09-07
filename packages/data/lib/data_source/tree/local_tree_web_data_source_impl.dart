@@ -8,12 +8,8 @@ class LocalTreeWebDataSourceImpl implements LocalTreeDataSource {
   }
 
   @override
-  List<Tree> getTreeList() {
-    return [];
-  }
+  List<Tree> getTreeList() => [];
 
   @override
-  List<int> saveTreeList(List<Tree> list) {
-    return [];
-  }
+  List<int> saveTreeList(List<Tree> list) => [];
 }
