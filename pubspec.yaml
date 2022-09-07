@@ -32,6 +32,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  flutter_platform_widgets: ^2.0.0
+  universal_platform: ^1.0.0+1
+
   cupertino_icons: ^1.0.5
 
   mobx: ^2.0.7+5
@@ -58,7 +61,7 @@ dependencies:
   flutter_phoenix: ^1.1.0
 
   connectivity_plus: ^2.3.6+1
-  
+
   api:
     path: packages/api
   data:
