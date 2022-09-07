@@ -94,6 +94,8 @@ abstract class SettingsViewModelBase with Store, ViewModel {
             key: RemoteConfigKeys
                 .remote_config_key_label_force_language_setting.name) ??
         "";
+
+    // It's needed to use LoacalKeys from String
     remoteKey = remoteKey.replaceDotInRemoteConfig().localized();
     return remoteKey;
   }
