@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:globo_fitness/extensions/string_replace_dot_remote_config.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -14,10 +13,10 @@ import 'package:api/models/app/managers/remote_config.dart';
 import 'package:api/models/app/managers/crash.dart';
 
 import 'package:globo_fitness/screens/settings/theme_helpers.dart';
-
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/enums/remote_config_keys.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/extensions/string_replace_dot_remote_config.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 part 'settings_view_model.g.dart';
@@ -95,9 +94,8 @@ abstract class SettingsViewModelBase with Store, ViewModel {
                 .remote_config_key_label_force_language_setting.name) ??
         "";
 
-    // It's needed to use LoacalKeys from String
-    remoteKey = remoteKey.replaceDotInRemoteConfig().localized();
-    return remoteKey;
+    // It's needed to use LocalKeys from String
+    return remoteKey.replaceDotInRemoteConfig().localized();
   }
 
   String getCurrentLocale() => Platform.localeName;
@@ -111,7 +109,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     isCrashManagerEnabled = !isCrashManagerEnabled;
   }
 
-  Row getCrashlyticsRow(BuildContext context) {
+  Widget getCrashlyticsWidget(BuildContext context) {
     if (!kIsWeb) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -124,7 +122,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
         ],
       );
     } else {
-      return Row();
+      return const SizedBox.shrink();
     }
   }
 

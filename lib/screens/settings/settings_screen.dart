@@ -65,7 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              viewModel.getCrashlyticsRow(context),
+              viewModel.getCrashlyticsWidget(context),
               Text(viewModel.getLabelChangeLanguage()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
