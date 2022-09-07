@@ -19,12 +19,19 @@ MaterialColor brownLightPrimarySwatch =
     MaterialColor(lightBrown.value, mapPrimarySwatchColor);
 
 ThemeData brownLightTheme = ThemeData(
-  brightness: Brightness.light,
-  primarySwatch: brownLightPrimarySwatch,
-  primaryColor: lightBrown,
-  backgroundColor: Colors.white,
-  primaryColorDark: lightBrown,
-  primaryColorLight: Colors.black,
-  bottomAppBarColor: lightBrown,
-  indicatorColor: lightBrown,
+    brightness: Brightness.light,
+    primarySwatch: brownLightPrimarySwatch,
+    primaryColor: lightBrown,
+    backgroundColor: Colors.white,
+    primaryColorDark: Colors.black,
+    primaryColorLight: Colors.white,
+    bottomAppBarColor: lightBrown,
+    indicatorColor: lightBrown,
+    secondaryHeaderColor: Colors.black,
+    textTheme: textTheme);
+
+TextTheme textTheme = const TextTheme(
+  titleMedium: TextStyle(
+    color: Colors.black,
+  ),
 );

@@ -22,10 +22,18 @@ MaterialColor brownDarkPrimarySwatch =
 ThemeData brownDarkTheme = ThemeData(
   brightness: Brightness.dark,
   primarySwatch: brownDarkPrimarySwatch,
-  primaryColor: Colors.white,
+  primaryColor: darkBrown,
   backgroundColor: backgroundDarkMode,
-  primaryColorDark: darkBrown,
-  primaryColorLight: Colors.black,
+  primaryColorDark: Colors.black,
+  primaryColorLight: Colors.white,
   bottomAppBarColor: darkBrown,
   indicatorColor: darkBrown,
+  secondaryHeaderColor: Colors.white,
+  textTheme: textTheme,
+);
+
+TextTheme textTheme = const TextTheme(
+  titleMedium: TextStyle(
+    color: Colors.white,
+  ),
 );
