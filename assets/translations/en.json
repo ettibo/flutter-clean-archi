@@ -65,5 +65,7 @@
         "activated_label" : "Crash manager is activated:"
     },
 
-    "label_force_language_setting" : "langage is english"
+    "remote_config": {
+        "key_label_force_language_setting" : "Default value from remote config"
+    }
 }

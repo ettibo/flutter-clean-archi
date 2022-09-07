@@ -62,5 +62,7 @@
         "activated_label" : "El gestor de accidentes está activado:"
     },
 
-    "label_force_language_setting" : "langage is spanich"
+    "remote_config": {
+        "key_label_force_language_setting" : "Valor predeterminado de remote config"
+    }
 }
