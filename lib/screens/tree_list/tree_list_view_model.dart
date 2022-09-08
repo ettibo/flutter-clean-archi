@@ -1,12 +1,13 @@
+import 'dart:async';
+
+import 'package:api/data_source/tree/local_tree_data_source.dart';
+import 'package:api/models/app/managers/connection_status.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
-
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 import 'package:api/use_case/tree/tree_list.dart';
-
 import 'package:globo_fitness/store/tree_store.dart';
-
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
@@ -21,15 +22,23 @@ abstract class TreeListViewModelBase with Store, ViewModel {
       DependecyInjection.instance.get<TreeStoreBase>();
 
   final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
+  final ConnectionStatus connectionStatus =
+      DependecyInjection.instance.get<ConnectionStatus>();
+  LocalTreeDataSource localTreeDataSource =
+      DependecyInjection.instance.get<LocalTreeDataSource>();
 
   @observable
   bool isLoadingTrees = false;
+  bool hasInterNetConnection = false;
+  List<Tree> newTrees = [];
 
   @override
   void init() {
-    if (treeStore.isTreeListEmpty()) {
-      fetch();
-    }
+    connectionStatus.initialize();
+    //Listen for connection change
+    connectionStatus.connectionChange
+        .asBroadcastStream()
+        .listen(connectionChanged);
   }
 
   @override
@@ -37,9 +46,14 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
-    List<Tree> newTrees =
-        await _useCase.fetch(startRow: startRow, nbRows: nbRows);
-    treeStore.addTrees(newTrees);
+    if (hasInterNetConnection) {
+      debugPrint('have connection: $hasInterNetConnection');
+      newTrees = await _useCase.fetch(startRow: startRow, nbRows: nbRows);
+      treeStore.addTrees(newTrees);
+    } else {
+      debugPrint('No connection: $hasInterNetConnection');
+      newTrees = localTreeDataSource.getTreeList();
+    }
   }
 
   @action
@@ -75,5 +89,13 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     isLoadingTrees = true;
     fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
+  }
+
+  void connectionChanged(dynamic hasConnection) {
+    hasInterNetConnection = hasConnection;
+    debugPrint('connection: $hasInterNetConnection');
+    if (treeStore.isTreeListEmpty()) {
+      fetch();
+    }
   }
 }
