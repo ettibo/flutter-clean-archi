@@ -56,6 +56,8 @@ dependencies:
   easy_localization: ^3.0.1
 
   flutter_phoenix: ^1.1.0
+
+  connectivity_plus: ^2.3.6+1
   
   api:
     path: packages/api
