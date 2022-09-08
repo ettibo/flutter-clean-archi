@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/settings/settings_view_model.dart';
 
-import 'package:globo_fitness/shared/material_app_bar.dart';
+import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/shared/platform_text_wrapper.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -35,56 +37,66 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: materialAppBar(
-          title: LocaleKeys.title_settings_title_screen.localized()),
-      body: SafeArea(
-        child: Observer(builder: observerBuilder),
+    return PlatformScaffold(
+      appBar: platformAppBar(
+        context: context,
+        title: LocaleKeys.title_settings_title_screen.localized(),
       ),
+      body: Observer(builder: _observerBuilder),
     );
   }
 
-  Widget observerBuilder(BuildContext context) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(LocaleKeys.theme_theme_title.localized(),
-                        style: const TextStyle(fontSize: 18)),
-                  ),
-                  DropdownButton<DeviceTheme>(
-                    value: viewModel.currentTheme,
-                    items: viewModel.getDropdownItems(context),
-                    onChanged: (value) =>
-                        viewModel.handleThemeChange(value, context),
-                  ),
-                ],
-              ),
-              viewModel.getCrashlyticsWidget(context),
-              Text(viewModel.getLabelChangeLanguage()),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  OutlinedButton(
-                    onPressed: viewModel.triggerException,
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
-                    ),
-                    child: const Text("Throw Test Exception"),
-                  ),
-                ],
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: viewModel.getLangageListButton(context))
-            ],
+  Widget _observerBuilder(BuildContext context) => Center(
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _switchThemeSection(),
+                viewModel.getCrashlyticsWidget(context),
+                _switchLanguageSection(),
+              ],
+            ),
           ),
         ),
+      );
+
+  Widget _switchThemeSection() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(LocaleKeys.theme_theme_title.localized(),
+                style: const TextStyle(fontSize: 18)),
+          ),
+          DropdownButton<DeviceTheme>(
+            value: viewModel.currentTheme,
+            items: viewModel.getDropdownItems(context),
+            onChanged: (value) => viewModel.handleThemeChange(value, context),
+          ),
+        ],
+      );
+
+  Widget _switchLanguageSection() => Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                textPlatform(
+                    content: LocaleKeys
+                        .setting_screen_switch_language_description
+                        .localized())
+              ],
+            ),
+          ),
+          // Switch Languages Buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: viewModel.getLangageListButton(context),
+          )
+        ],
       );
 }

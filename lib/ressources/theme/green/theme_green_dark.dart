@@ -28,6 +28,7 @@ ThemeData greenDarkTheme = ThemeData(
   bottomAppBarColor: darkGreen,
   indicatorColor: darkGreen,
   secondaryHeaderColor: Colors.white,
+  dividerColor: Colors.grey,
   textTheme: textTheme,
 );
 

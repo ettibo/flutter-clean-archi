@@ -52,7 +52,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
   @action
   void process() {
     isSelected = _generateIsSelected();
-    initializeReactions();
+    _initializeReactions();
   }
 
   List<bool> _generateIsSelected() => [
@@ -60,12 +60,11 @@ abstract class BmiViewModelBase with Store, ViewModel {
         _measureSystem == MeasureSystem.imperial
       ];
 
-  void initializeReactions() {
-    variablesChangedReaction = reaction((_) => [_heightText, _weightText],
-        (_) => tryToComputeBMI(_heightText, _weightText));
-  }
+  void _initializeReactions() => variablesChangedReaction = reaction(
+      (_) => [_heightText, _weightText],
+      (_) => _tryToComputeBMI(_heightText, _weightText));
 
-  void resetTextFields() {
+  void _resetTextFields() {
     txtHeightController.clear();
     txtWeightController.clear();
     _errorBMI = ErrorBMI.nullFields;
@@ -82,7 +81,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
           index == 0 ? MeasureSystem.metric : MeasureSystem.imperial;
       isSelected = _generateIsSelected();
 
-      resetTextFields();
+      _resetTextFields();
     }
   }
 
@@ -121,13 +120,13 @@ abstract class BmiViewModelBase with Store, ViewModel {
     }
   }
 
-  void tryToComputeBMI(String? heightValue, String? weightValue) {
-    if (canCalculateBMI(heightValue, weightValue)) {
-      computeInfos(heightValue!, weightValue!);
+  void _tryToComputeBMI(String? heightValue, String? weightValue) {
+    if (_canCalculateBMI(heightValue, weightValue)) {
+      _computeInfos(heightValue!, weightValue!);
     }
   }
 
-  bool canCalculateBMI(String? heightValue, String? weightValue) {
+  bool _canCalculateBMI(String? heightValue, String? weightValue) {
     if (heightValue == null ||
         heightValue.isEmpty ||
         weightValue == null ||
@@ -144,7 +143,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
     return true;
   }
 
-  void computeInfos(String heightValue, String weightValue) {
+  void _computeInfos(String heightValue, String weightValue) {
     double height = double.tryParse(heightValue) ?? 0;
     double weight = double.tryParse(weightValue) ?? 0;
     double multiplier = _measureSystem == MeasureSystem.metric ? 1 : 703;

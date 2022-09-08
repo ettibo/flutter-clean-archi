@@ -28,6 +28,7 @@ ThemeData brownLightTheme = ThemeData(
     bottomAppBarColor: lightBrown,
     indicatorColor: lightBrown,
     secondaryHeaderColor: Colors.black,
+    dividerColor: Colors.grey,
     textTheme: textTheme);
 
 TextTheme textTheme = const TextTheme(

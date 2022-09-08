@@ -1,10 +1,9 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:mobx/mobx.dart';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
@@ -18,6 +17,7 @@ import 'package:globo_fitness/enums/remote_config_keys.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/extensions/string_replace_dot_remote_config.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:globo_fitness/shared/platform_text_wrapper.dart';
 
 part 'settings_view_model.g.dart';
 
@@ -35,11 +35,11 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   DeviceTheme currentTheme = DeviceTheme.system;
 
   @observable
-  bool isCrashManagerEnabled = false;
+  bool _isCrashManagerEnabled = false;
 
   @override
   void init() {
-    setCurrentTheme();
+    _setCurrentTheme();
     if (!kIsWeb) {
       _crashManager = DependecyInjection.instance.get<CrashManager>();
       _initIsCrashManagerEnabled();
@@ -50,7 +50,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
   void dispose() {}
 
   @action
-  void setCurrentTheme() {
+  void _setCurrentTheme() {
     AdaptiveTheme.getThemeMode().then((AdaptiveThemeMode? theme) {
       if (theme != null) {
         currentTheme = theme.toDeviceTheme();
@@ -71,7 +71,7 @@ abstract class SettingsViewModelBase with Store, ViewModel {
           AdaptiveTheme.of(context).setSystem();
           break;
       }
-      setCurrentTheme();
+      _setCurrentTheme();
     }
   }
 
@@ -98,27 +98,54 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     return remoteKey.replaceDotInRemoteConfig().localized();
   }
 
-  String getCurrentLocale() => Platform.localeName;
-
   @action
   void _initIsCrashManagerEnabled() =>
-      isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
+      _isCrashManagerEnabled = _crashManager.isCrashReportingEnabled();
 
-  void toggleCrashManager(bool _) {
+  void _toggleCrashManager(bool _) {
     _crashManager.toogleCrashReporting();
-    isCrashManagerEnabled = !isCrashManagerEnabled;
+    _isCrashManagerEnabled = !_isCrashManagerEnabled;
   }
 
   Widget getCrashlyticsWidget(BuildContext context) {
     if (!kIsWeb) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      return Column(
         children: [
-          Text(LocaleKeys.crash_manager_activated_label.localized()),
-          Switch(
-              activeColor: Theme.of(context).primaryColorDark,
-              value: isCrashManagerEnabled,
-              onChanged: toggleCrashManager),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              textPlatform(
+                  content: LocaleKeys.crash_manager_activated_label.localized(),
+                  style: Theme.of(context).textTheme.bodyMedium),
+              PlatformSwitch(
+                activeColor: Theme.of(context).primaryColor,
+                value: _isCrashManagerEnabled,
+                onChanged: _toggleCrashManager,
+              ),
+            ],
+          ),
+          // Throw Test Exception Button
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                        color: Theme.of(context).secondaryHeaderColor,
+                        width: 0.5),
+                  ),
+                  child: PlatformTextButton(
+                    onPressed: triggerException,
+                    child: Text(LocaleKeys.setting_screen_throw_test_exception
+                        .localized()),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       );
     } else {
@@ -126,25 +153,42 @@ abstract class SettingsViewModelBase with Store, ViewModel {
     }
   }
 
-  List<ElevatedButton> getLangageListButton(BuildContext context) => [
-        getLangageButton(
-            LocaleKeys.langage_english_langage.localized(), 'en', context),
-        getLangageButton(
-            LocaleKeys.langage_french_langage.localized(), 'fr', context),
-        getLangageButton(
-            LocaleKeys.langage_spanish_langage.localized(), 'es', context)
+  void triggerException() => throw Exception();
+
+  List<Widget> getLangageListButton(BuildContext context) => [
+        _getLangageButton(
+            language: LocaleKeys.langage_english_langage.localized(),
+            languageCode: 'en',
+            context: context),
+        _getLangageButton(
+            language: LocaleKeys.langage_french_langage.localized(),
+            languageCode: 'fr',
+            context: context),
+        _getLangageButton(
+            language: LocaleKeys.langage_spanish_langage.localized(),
+            languageCode: 'es',
+            context: context)
       ];
 
-  ElevatedButton getLangageButton(
-          String langage, String langageCode, BuildContext context) =>
-      ElevatedButton(
-        onPressed: () async {
-          await context.setLocale(Locale(langageCode));
+  Widget _getLangageButton(
+      {required String language,
+      required String languageCode,
+      required BuildContext context}) {
+    if (context.locale.languageCode == languageCode) {
+      return const SizedBox.shrink();
+    }
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: PlatformElevatedButton(
+        color: Theme.of(context).primaryColor,
+        padding: const EdgeInsets.all(10),
+        onPressed: () async => {
+          await context.setLocale(Locale(languageCode)),
           // ignore: use_build_context_synchronously
-          Phoenix.rebirth(context);
+          Phoenix.rebirth(context)
         },
-        child: Text(langage),
-      );
-
-  void triggerException() => throw Exception();
+        child: Text(language),
+      ),
+    );
+  }
 }
