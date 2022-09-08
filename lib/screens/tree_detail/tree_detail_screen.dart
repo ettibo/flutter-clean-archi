@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
 import 'package:api/models/app/tree/tree.dart';
 
 import 'package:globo_fitness/screens/tree_detail/tree_info.dart';
 
-import 'package:globo_fitness/shared/material_app_bar.dart';
+import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 
@@ -16,16 +19,17 @@ class TreeDetailScreen extends StatefulWidget {
 }
 
 class _TreeDetailScreenState extends State<TreeDetailScreen> {
-  AppBar appBar(BuildContext context) => materialAppBar(
+  PlatformAppBar appBar(BuildContext context) => platformAppBar(
+      context: context,
       title: widget.tree.name ??
           LocaleKeys.title_title_detail_tree_screen.localized());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PlatformScaffold(
       appBar: appBar(context),
-      body: SafeArea(
-        child: Padding(
+      body: Scaffold(
+        body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,9 +41,14 @@ class _TreeDetailScreenState extends State<TreeDetailScreen> {
                       LocaleKeys.tree_list_screen_species_not_specified
                           .localized()),
               rowTreeInfo(
-                  context: context,
-                  title: LocaleKeys.tree_detail_screen_address.localized(),
-                  value: '${widget.tree.address2} ${widget.tree.address}'),
+                context: context,
+                title: LocaleKeys.tree_detail_screen_address.localized(),
+                value: LocaleKeys.tree_detail_screen_value_with_unit.localized(
+                    args: {
+                      'value': widget.tree.address2.toString(),
+                      'unit': widget.tree.address.toString()
+                    }),
+              ),
               rowTreeInfo(
                   context: context,
                   title: LocaleKeys.bmi_screen_height.localized(),

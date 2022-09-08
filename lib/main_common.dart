@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
-
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:globo_fitness/firebase/green_firebase_options.dart'
@@ -17,10 +17,9 @@ import 'package:globo_fitness/managers/connection_check_status_manager.dart';
 import 'package:globo_fitness/managers/remote_config_manager.dart';
 import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
-import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 import 'package:globo_fitness/app_config.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -92,7 +91,9 @@ void _activateManagers() {
   ConnectionCheckStatusManager connectionCheckStatusManager =
       ConnectionCheckStatusManager();
   connectionCheckStatusManager.activateConnectionManager();
+
   activateRemoteConfig();
+
   if (!kIsWeb) {
     activateCrashReportIfEnabled();
   }

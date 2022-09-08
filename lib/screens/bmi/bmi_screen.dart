@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
+import 'package:globo_fitness/shared/platform_text_wrapper.dart';
+import 'package:globo_fitness/shared/platform_textfield.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
@@ -19,8 +23,8 @@ class _BmiScreenState extends State<BmiScreen> {
   final BmiViewModelBase viewModel =
       DependecyInjection.instance.get<BmiViewModelBase>();
 
-  final TextStyle textStyle = const TextStyle(fontSize: 18);
   final double horizontalPadding = 16;
+  final textStyle = const TextStyle(fontSize: 18);
 
   @override
   void initState() {
@@ -37,47 +41,26 @@ class _BmiScreenState extends State<BmiScreen> {
   List<Widget> getToggleButtons() => [
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.bmi_screen_metric_unit_name.localized(),
+            child: textPlatform(
+                content: LocaleKeys.bmi_screen_metric_unit_name.localized(),
                 style: textStyle)),
         Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text(LocaleKeys.bmi_screen_imperial_unit_name.localized(),
+            child: textPlatform(
+                content: LocaleKeys.bmi_screen_imperial_unit_name.localized(),
                 style: textStyle))
       ];
 
-  Widget getTextField(
-          {TextEditingController? controller,
-          Function(String)? onChanged,
-          void Function(String)? onSubmitted,
-          String? hintText,
-          FocusNode? focusNode,
-          TextInputType keyboardType =
-              const TextInputType.numberWithOptions(signed: true),
-          double paddingAll = 25}) =>
-      Padding(
-        padding: EdgeInsets.all(paddingAll),
-        child: TextField(
-          controller: controller,
-          onChanged: onChanged,
-          onSubmitted: onSubmitted,
-          focusNode: focusNode,
-          keyboardType: keyboardType,
-          decoration: InputDecoration(hintText: hintText),
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Observer(builder: observerBuilder),
-        ),
+    return PlatformScaffold(
+      body: Center(
+        child: Observer(builder: _observerBuilder),
       ),
     );
   }
 
-  Widget observerBuilder(BuildContext context) => SingleChildScrollView(
+  Widget _observerBuilder(BuildContext context) => SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -89,10 +72,11 @@ class _BmiScreenState extends State<BmiScreen> {
             ),
 
             // Height TextField
-            getTextField(
+            getPlatformTextField(
+              context: context,
               controller: viewModel.txtHeightController,
               onChanged: viewModel.setHeight,
-              onSubmitted: (_) => viewModel.weightFocusNode.requestFocus(),
+              onSubmitted: (_) => viewModel.weightFocusNode.requestFocus,
               hintText: LocaleKeys.bmi_screen_hint_bmi_text_field.localized(
                 args: {
                   'unit':
@@ -102,7 +86,8 @@ class _BmiScreenState extends State<BmiScreen> {
               ),
             ),
             // Weight TextField
-            getTextField(
+            getPlatformTextField(
+              context: context,
               controller: viewModel.txtWeightController,
               onChanged: viewModel.setWeight,
               focusNode: viewModel.weightFocusNode,
@@ -116,9 +101,9 @@ class _BmiScreenState extends State<BmiScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(10),
-              child: Text(
-                viewModel.getBmiString(context),
-                style: textStyle,
+              child: textPlatform(
+                content: viewModel.getBmiString(context),
+                style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
             )

@@ -62,7 +62,9 @@ class CodegenLoader extends AssetLoader{
   "setting_screen": {
     "location_services_disabled": "Location services are disabled.",
     "location_permission_denied": "Location permissions are denied",
-    "location_permission_denied_permanently": "Location permissions are permanently denied."
+    "location_permission_denied_permanently": "Location permissions are permanently denied.",
+    "switch_language_description": "Switch the language of the application",
+    "throw_test_exception": "Throw Test Exception"
   },
   "langage": {
     "english_langage": "English",
@@ -109,6 +111,7 @@ static const Map<String,dynamic> fr = {
   },
   "bmi_screen": {
     "weight": "poids",
+    "height": "Taille",
     "meters": "mètres",
     "inch": "pouces",
     "kilos": "kilos",
@@ -123,7 +126,9 @@ static const Map<String,dynamic> fr = {
   "setting_screen": {
     "location_services_disabled": "Les services de localisation sont désactivés.",
     "location_permission_denied": "Les autorisations de localisation sont refusées.",
-    "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente."
+    "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente.",
+    "switch_language_description": "Changer la langue de l'application",
+    "throw_test_exception": "Déclencher un test d'erreur"
   },
   "langage": {
     "english_langage": "Anglais",
@@ -170,6 +175,7 @@ static const Map<String,dynamic> es = {
   },
   "bmi_screen": {
     "weight": "peso",
+    "height": "Altura",
     "meters": "metros",
     "inch": "pulgadas",
     "kilos": "kilos",
@@ -184,7 +190,9 @@ static const Map<String,dynamic> es = {
   "setting_screen": {
     "location_services_disabled": "Los servicios de localización están desactivados.",
     "location_permission_denied": "Los permisos de localización están denegados.",
-    "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados."
+    "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados.",
+    "switch_language_description": "Switch the language of the application",
+    "throw_test_exception": "Lanzar una excepción de prueba"
   },
   "langage": {
     "english_langage": "Inglés",

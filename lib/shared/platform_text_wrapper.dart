@@ -5,13 +5,13 @@ import 'package:universal_platform/universal_platform.dart';
 
 Widget textPlatform(
         {required String content, TextStyle? style, TextAlign? textAlign}) =>
-    UniversalPlatform.isAndroid
-        ? Text(
+    UniversalPlatform.isIOS
+        ? PlatformText(
             content,
             style: style,
             textAlign: textAlign,
           )
-        : PlatformText(
+        : Text(
             content,
             style: style,
             textAlign: textAlign,

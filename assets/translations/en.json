@@ -52,7 +52,9 @@
     "setting_screen": {
         "location_services_disabled": "Location services are disabled.",
         "location_permission_denied": "Location permissions are denied",
-        "location_permission_denied_permanently": "Location permissions are permanently denied."
+        "location_permission_denied_permanently": "Location permissions are permanently denied.",
+        "switch_language_description": "Switch the language of the application",
+        "throw_test_exception" : "Throw Test Exception"
     },
     
     "langage": {

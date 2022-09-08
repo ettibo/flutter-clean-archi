@@ -25,20 +25,20 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
     });
   }
 
-  late final _$isCrashManagerEnabledAtom = Atom(
-      name: 'SettingsViewModelBase.isCrashManagerEnabled', context: context);
+  late final _$_isCrashManagerEnabledAtom = Atom(
+      name: 'SettingsViewModelBase._isCrashManagerEnabled', context: context);
 
   @override
-  bool get isCrashManagerEnabled {
-    _$isCrashManagerEnabledAtom.reportRead();
-    return super.isCrashManagerEnabled;
+  bool get _isCrashManagerEnabled {
+    _$_isCrashManagerEnabledAtom.reportRead();
+    return super._isCrashManagerEnabled;
   }
 
   @override
-  set isCrashManagerEnabled(bool value) {
-    _$isCrashManagerEnabledAtom.reportWrite(value, super.isCrashManagerEnabled,
-        () {
-      super.isCrashManagerEnabled = value;
+  set _isCrashManagerEnabled(bool value) {
+    _$_isCrashManagerEnabledAtom
+        .reportWrite(value, super._isCrashManagerEnabled, () {
+      super._isCrashManagerEnabled = value;
     });
   }
 
@@ -46,11 +46,22 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
       ActionController(name: 'SettingsViewModelBase', context: context);
 
   @override
-  void setCurrentTheme() {
+  void _setCurrentTheme() {
     final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
-        name: 'SettingsViewModelBase.setCurrentTheme');
+        name: 'SettingsViewModelBase._setCurrentTheme');
     try {
-      return super.setCurrentTheme();
+      return super._setCurrentTheme();
+    } finally {
+      _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void _initIsCrashManagerEnabled() {
+    final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
+        name: 'SettingsViewModelBase._initIsCrashManagerEnabled');
+    try {
+      return super._initIsCrashManagerEnabled();
     } finally {
       _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -59,8 +70,7 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
   @override
   String toString() {
     return '''
-currentTheme: ${currentTheme},
-isCrashManagerEnabled: ${isCrashManagerEnabled}
+currentTheme: ${currentTheme}
     ''';
   }
 }

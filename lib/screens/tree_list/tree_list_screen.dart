@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
@@ -7,9 +9,8 @@ import 'package:api/models/app/tree/tree.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 
-import 'package:globo_fitness/shared/circular_progress_indicator.dart';
+import 'package:globo_fitness/shared/platform_activity_indicator.dart';
 import 'package:globo_fitness/shared/separator.dart';
-
 import 'package:globo_fitness/extensions/state_navigaton.dart';
 
 class TreeListScreen extends StatefulWidget {
@@ -37,12 +38,12 @@ class _TreeListScreenState extends State<TreeListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Observer(builder: observerBuilder),
+    return PlatformScaffold(
+      body: Observer(builder: _observerBuilder),
     );
   }
 
-  Widget observerBuilder(BuildContext context) =>
+  Widget _observerBuilder(BuildContext context) =>
       viewModel.treeStore.isTreeListEmpty()
           ? getActivityIndicator(context: context)
           : Column(
@@ -53,7 +54,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
                     onNotification: viewModel.handleScroll,
                     child: RefreshIndicator(
                       onRefresh: viewModel.onListRefresh,
-                      child: separatedListView(),
+                      child: Scaffold(body: _separatedListView()),
                     ),
                   ),
                 ),
@@ -62,25 +63,25 @@ class _TreeListScreenState extends State<TreeListScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: getActivityIndicator(context: context),
                       )
-                    : Container()
+                    : const SizedBox.shrink()
               ],
             );
 
-  ListView separatedListView() => ListView.separated(
+  ListView _separatedListView() => ListView.separated(
         itemCount: viewModel.treeStore.countTreeList(),
-        itemBuilder: itemBuilder,
+        itemBuilder: _itemBuilder,
         separatorBuilder: (context, index) =>
             separatorBuilder(context: context, index: index),
         shrinkWrap: true,
       );
 
-  Widget itemBuilder(BuildContext context, int index) {
+  Widget _itemBuilder(BuildContext context, int index) {
     final Tree tree = viewModel.treeStore.trees[index];
     return ListTile(
       key: Key(tree.id.toString()),
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
-      trailing: const Icon(Icons.arrow_right_outlined),
+      trailing: Icon(PlatformIcons(context).rightChevron),
       onTap: () => navigateTo(TreeDetailScreen(tree: tree)),
     );
   }

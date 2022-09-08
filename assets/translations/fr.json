@@ -35,6 +35,7 @@
 
     "bmi_screen" : {
         "weight": "poids",
+        "height": "Taille",
         "meters": "mètres",
         "inch": "pouces",
         "kilos": "kilos",
@@ -50,7 +51,9 @@
     "setting_screen": {
         "location_services_disabled": "Les services de localisation sont désactivés.",
         "location_permission_denied": "Les autorisations de localisation sont refusées.",
-        "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente."
+        "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente.",
+        "switch_language_description": "Changer la langue de l'application",
+        "throw_test_exception" : "Déclencher un test d'erreur"
     },
 
     "langage": {

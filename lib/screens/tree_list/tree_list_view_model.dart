@@ -70,18 +70,18 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   // Lazy Loading Methods
   bool handleScroll(ScrollNotification notification) {
     if (notification.metrics.extentAfter < 300) {
-      checkIfCanFetchMoreTrees();
+      _checkIfCanFetchMoreTrees();
     }
     return true;
   }
 
-  void checkIfCanFetchMoreTrees() {
+  void _checkIfCanFetchMoreTrees() {
     if (!isLoadingTrees) {
-      fetchMoreTrees();
+      _fetchMoreTrees();
     }
   }
 
-  void fetchMoreTrees() {
+  void _fetchMoreTrees() {
     isLoadingTrees = true;
     fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
