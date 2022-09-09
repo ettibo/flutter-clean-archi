@@ -1,3 +1,5 @@
+import 'package:api/dependency_injection.dart';
+import 'package:api/models/app/managers/connection_status.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
@@ -87,9 +89,27 @@ Future<void> _firebaseInitializer(FlavorName flavorName) async {
   await Firebase.initializeApp(options: firebaseOption);
 }
 
+bool hasInterNetConnection = false;
+
 void _activateManagers() {
-  activateRemoteConfig();
+  final ConnectionStatus connectionStatus =
+      DependecyInjection.instance.get<ConnectionStatus>();
+
+  connectionStatus.initialize();
+  //Listen for connection change
+  connectionStatus.connectionChange
+      .asBroadcastStream()
+      .listen(connectionChanged);
+      debugPrint(connectionChanged.toString());
+
   if (!kIsWeb) {
     activateCrashReportIfEnabled();
   }
+}
+
+void connectionChanged(dynamic hasConnection) {
+  hasInterNetConnection = hasConnection;
+  if(hasInterNetConnection){
+        activateRemoteConfig();
+  } 
 }
