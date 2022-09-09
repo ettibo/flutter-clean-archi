@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:api/data_source/tree/local_tree_data_source.dart';
 import 'package:api/models/app/managers/connection_status.dart';
+import 'package:api/strategy/fetch_strategy.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 import 'package:api/dependency_injection.dart';
@@ -12,7 +11,6 @@ import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
-
 part 'tree_list_view_model.g.dart';
 
 class TreeListViewModel = TreeListViewModelBase with _$TreeListViewModel;
@@ -24,8 +22,6 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
   final ConnectionStatus connectionStatus =
       DependecyInjection.instance.get<ConnectionStatus>();
-  LocalTreeDataSource localTreeDataSource =
-      DependecyInjection.instance.get<LocalTreeDataSource>();
 
   @observable
   bool isLoadingTrees = false;
@@ -46,14 +42,12 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
-    if (hasInterNetConnection) {
-      debugPrint('have connection: $hasInterNetConnection');
-      newTrees = await _useCase.fetch(startRow: startRow, nbRows: nbRows);
-      treeStore.addTrees(newTrees);
-    } else {
-      debugPrint('No connection: $hasInterNetConnection');
-      newTrees = localTreeDataSource.getTreeList();
-    }
+    newTrees = await _useCase.fetch(
+        startRow: startRow,
+        nbRows: nbRows,
+        fetchStrategy:
+            hasInterNetConnection ? FetchStrategy.remote : FetchStrategy.local);
+    treeStore.addTrees(newTrees);
   }
 
   @action
@@ -93,9 +87,6 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   void connectionChanged(dynamic hasConnection) {
     hasInterNetConnection = hasConnection;
-    debugPrint('connection: $hasInterNetConnection');
-    if (treeStore.isTreeListEmpty()) {
-      fetch();
-    }
+    fetch();
   }
 }
