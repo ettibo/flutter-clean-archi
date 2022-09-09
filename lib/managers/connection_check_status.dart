@@ -32,9 +32,12 @@ class ConnectionCheckStatus implements ConnectionStatus {
   @override
   Stream get connectionChange => connectionChangeController.stream;
 
+  void dispose() {
+    connectionChangeController.close();
+  }
+
   @override
   Future<bool> hasInternetConnection() async {
-    bool previousConnection = hasConnection;
     var connectivityResult = await (Connectivity().checkConnectivity());
     // connected to wifi or mobile
     if (connectivityResult == ConnectivityResult.mobile ||
@@ -45,10 +48,7 @@ class ConnectionCheckStatus implements ConnectionStatus {
     else {
       hasConnection = false;
     }
-
-    if (previousConnection != hasConnection) {
-      connectionChangeController.add(hasConnection);
-    }
+    connectionChangeController.add(hasConnection);
     return hasConnection;
   }
 }
