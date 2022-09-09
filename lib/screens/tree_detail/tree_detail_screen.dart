@@ -51,7 +51,7 @@ class _TreeDetailScreenState extends State<TreeDetailScreen> {
               ),
               rowTreeInfo(
                   context: context,
-                  title: LocaleKeys.bmi_screen_height.localized(),
+                  title: LocaleKeys.tree_detail_screen_height.localized(),
                   value: widget.tree.height.toString(),
                   unit: LocaleKeys.tree_detail_screen_meter_unit.localized()),
               rowTreeInfo(

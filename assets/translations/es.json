@@ -35,7 +35,7 @@
 
     "bmi_screen" : {
         "weight": "peso",
-        "height": "Altura",
+        "height": "altura",
         "meters": "metros",
         "inch": "pulgadas",
         "kilos": "kilos",
