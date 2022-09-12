@@ -6,9 +6,10 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
+
 import 'package:globo_fitness/shared/platform_text_wrapper.dart';
 import 'package:globo_fitness/shared/platform_textfield.dart';
-
+import 'package:globo_fitness/shared/platform_toggle_buttons.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 
@@ -23,8 +24,10 @@ class _BmiScreenState extends State<BmiScreen> {
   final BmiViewModelBase viewModel =
       DependecyInjection.instance.get<BmiViewModelBase>();
 
-  final double horizontalPadding = 16;
-  final textStyle = const TextStyle(fontSize: 18);
+  final double _horizontalPadding = 16;
+  final double _verticalPadding = 8;
+  final _textStyle = const TextStyle(
+      fontSize: 18, decoration: TextDecoration.none, color: Colors.white);
 
   @override
   void initState() {
@@ -38,18 +41,18 @@ class _BmiScreenState extends State<BmiScreen> {
     super.dispose();
   }
 
-  List<Widget> getToggleButtons() => [
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: textPlatform(
-                content: LocaleKeys.bmi_screen_metric_unit_name.localized(),
-                style: textStyle)),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: textPlatform(
-                content: LocaleKeys.bmi_screen_imperial_unit_name.localized(),
-                style: textStyle))
-      ];
+  Widget _getToggleButton({required String title}) => Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: _horizontalPadding, vertical: _verticalPadding),
+        child: textPlatform(content: title, style: _textStyle),
+      );
+
+  Map<MeasureSystem, Widget> _getMapToggleButtons() => <MeasureSystem, Widget>{
+        MeasureSystem.metric: _getToggleButton(
+            title: LocaleKeys.bmi_screen_metric_unit_name.localized()),
+        MeasureSystem.imperial: _getToggleButton(
+            title: LocaleKeys.bmi_screen_imperial_unit_name.localized())
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +67,14 @@ class _BmiScreenState extends State<BmiScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ToggleButtons(
+            platformToggleButtons(
+              context: context,
+              items: _getMapToggleButtons(),
+              isSelectedMaterial: viewModel.isSelected,
+              currentSelectedItem: viewModel.measureSystem,
+              onPressedMaterial: viewModel.toggleMeasureMaterial,
+              onPressedCupertino: viewModel.toggleMeasureCupertino,
               borderRadius: BorderRadius.circular(10),
-              isSelected: viewModel.isSelected,
-              onPressed: viewModel.toggleMeasure,
-              children: getToggleButtons(),
             ),
 
             // Height TextField
