@@ -1,16 +1,20 @@
 import 'dart:async';
-import 'package:api/models/app/managers/connection_status.dart';
-import 'package:api/strategy/fetch_strategy.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
-import 'package:api/dependency_injection.dart';
+import 'package:mobx/mobx.dart';
+
+import 'package:api/models/app/managers/connection_status.dart';
 import 'package:api/models/app/tree/tree.dart';
+
+import 'package:api/strategy/fetch_strategy.dart';
+import 'package:api/dependency_injection.dart';
 import 'package:api/use_case/tree/tree_list.dart';
+
 import 'package:globo_fitness/store/tree_store.dart';
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+
 part 'tree_list_view_model.g.dart';
 
 class TreeListViewModel = TreeListViewModelBase with _$TreeListViewModel;
@@ -25,16 +29,12 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @observable
   bool isLoadingTrees = false;
-  bool hasInterNetConnection = false;
+  bool hasInternetConnection = false;
   List<Tree> newTrees = [];
 
   @override
   void init() {
-    connectionStatus.initialize();
-    //Listen for connection change
-    connectionStatus.connectionChange
-        .asBroadcastStream()
-        .listen(connectionChanged);
+    activateConnectionManager();
   }
 
   @override
@@ -46,7 +46,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
         startRow: startRow,
         nbRows: nbRows,
         fetchStrategy:
-            hasInterNetConnection ? FetchStrategy.remote : FetchStrategy.local);
+            hasInternetConnection ? FetchStrategy.remote : FetchStrategy.local);
     treeStore.addTrees(newTrees);
   }
 
@@ -86,7 +86,15 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   }
 
   void connectionChanged(dynamic hasConnection) {
-    hasInterNetConnection = hasConnection;
+    hasInternetConnection = hasConnection;
     fetch();
+  }
+
+  void activateConnectionManager() {
+    connectionStatus.initialize();
+    //Listen for connection change
+    connectionStatus.connectionChangeStream
+        .asBroadcastStream()
+        .listen(connectionChanged);
   }
 }
