@@ -4,8 +4,10 @@ import 'package:mobx/mobx.dart';
 
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+
 import 'package:globo_fitness/extensions/string_is_numeric.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/extensions/nullable_check.dart';
 
 part 'bmi_view_model.g.dart';
 
@@ -22,7 +24,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
   TextEditingController txtWeightController = TextEditingController();
 
   @observable
-  MeasureSystem _measureSystem = MeasureSystem.metric;
+  MeasureSystem measureSystem = MeasureSystem.metric;
   @observable
   ErrorBMI _errorBMI = ErrorBMI.nullFields;
 
@@ -56,8 +58,8 @@ abstract class BmiViewModelBase with Store, ViewModel {
   }
 
   List<bool> _generateIsSelected() => [
-        _measureSystem == MeasureSystem.metric,
-        _measureSystem == MeasureSystem.imperial
+        measureSystem == MeasureSystem.metric,
+        measureSystem == MeasureSystem.imperial
       ];
 
   void _initializeReactions() => variablesChangedReaction = reaction(
@@ -71,13 +73,13 @@ abstract class BmiViewModelBase with Store, ViewModel {
   }
 
   bool _shouldSwitchMeasureUnit(int index) =>
-      (_measureSystem == MeasureSystem.metric && index != 0) ||
-      (_measureSystem == MeasureSystem.imperial && index != 1);
+      (measureSystem == MeasureSystem.metric && index != 0) ||
+      (measureSystem == MeasureSystem.imperial && index != 1);
 
   @action
-  void toggleMeasure(index) {
+  void toggleMeasureMaterial(int index) {
     if (_shouldSwitchMeasureUnit(index)) {
-      _measureSystem =
+      measureSystem =
           index == 0 ? MeasureSystem.metric : MeasureSystem.imperial;
       isSelected = _generateIsSelected();
 
@@ -86,12 +88,27 @@ abstract class BmiViewModelBase with Store, ViewModel {
   }
 
   @action
+  void toggleMeasureCupertino(dynamic newMeasureSystem) {
+    MeasureSystem? castedNewMeasureSystem = newMeasureSystem as MeasureSystem;
+    castedNewMeasureSystem.let((that) {
+      if (castedNewMeasureSystem != measureSystem) {
+        measureSystem = measureSystem == MeasureSystem.imperial
+            ? MeasureSystem.metric
+            : MeasureSystem.imperial;
+
+        isSelected = _generateIsSelected();
+        _resetTextFields();
+      }
+    });
+  }
+
+  @action
   void setHeight(String value) => _heightText = value;
   @action
   void setWeight(String value) => _weightText = value;
 
   String getHeightUnitHint(BuildContext context) {
-    switch (_measureSystem) {
+    switch (measureSystem) {
       case MeasureSystem.metric:
         return LocaleKeys.bmi_screen_meters.localized();
       case MeasureSystem.imperial:
@@ -100,7 +117,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
   }
 
   String getWeightUnitHint(BuildContext context) {
-    switch (_measureSystem) {
+    switch (measureSystem) {
       case MeasureSystem.metric:
         return LocaleKeys.bmi_screen_kilos.localized();
       case MeasureSystem.imperial:
@@ -146,7 +163,7 @@ abstract class BmiViewModelBase with Store, ViewModel {
   void _computeInfos(String heightValue, String weightValue) {
     double height = double.tryParse(heightValue) ?? 0;
     double weight = double.tryParse(weightValue) ?? 0;
-    double multiplier = _measureSystem == MeasureSystem.metric ? 1 : 703;
+    double multiplier = measureSystem == MeasureSystem.metric ? 1 : 703;
     _bmi = weight * multiplier / (height * height);
   }
 }

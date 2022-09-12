@@ -41,19 +41,19 @@ mixin _$BmiViewModel on BmiViewModelBase, Store {
     });
   }
 
-  late final _$_measureSystemAtom =
-      Atom(name: 'BmiViewModelBase._measureSystem', context: context);
+  late final _$measureSystemAtom =
+      Atom(name: 'BmiViewModelBase.measureSystem', context: context);
 
   @override
-  MeasureSystem get _measureSystem {
-    _$_measureSystemAtom.reportRead();
-    return super._measureSystem;
+  MeasureSystem get measureSystem {
+    _$measureSystemAtom.reportRead();
+    return super.measureSystem;
   }
 
   @override
-  set _measureSystem(MeasureSystem value) {
-    _$_measureSystemAtom.reportWrite(value, super._measureSystem, () {
-      super._measureSystem = value;
+  set measureSystem(MeasureSystem value) {
+    _$measureSystemAtom.reportWrite(value, super.measureSystem, () {
+      super.measureSystem = value;
     });
   }
 
@@ -135,11 +135,22 @@ mixin _$BmiViewModel on BmiViewModelBase, Store {
   }
 
   @override
-  void toggleMeasure(dynamic index) {
+  void toggleMeasureMaterial(int index) {
     final _$actionInfo = _$BmiViewModelBaseActionController.startAction(
-        name: 'BmiViewModelBase.toggleMeasure');
+        name: 'BmiViewModelBase.toggleMeasureMaterial');
     try {
-      return super.toggleMeasure(index);
+      return super.toggleMeasureMaterial(index);
+    } finally {
+      _$BmiViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void toggleMeasureCupertino(dynamic newMeasureSystem) {
+    final _$actionInfo = _$BmiViewModelBaseActionController.startAction(
+        name: 'BmiViewModelBase.toggleMeasureCupertino');
+    try {
+      return super.toggleMeasureCupertino(newMeasureSystem);
     } finally {
       _$BmiViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -171,7 +182,8 @@ mixin _$BmiViewModel on BmiViewModelBase, Store {
   String toString() {
     return '''
 txtHeightController: ${txtHeightController},
-txtWeightController: ${txtWeightController}
+txtWeightController: ${txtWeightController},
+measureSystem: ${measureSystem}
     ''';
   }
 }

@@ -8,7 +8,7 @@ Widget textPlatform(
     UniversalPlatform.isIOS
         ? PlatformText(
             content,
-            style: style,
+            style: style ?? _defaultIosStyle,
             textAlign: textAlign,
           )
         : Text(
@@ -16,3 +16,6 @@ Widget textPlatform(
             style: style,
             textAlign: textAlign,
           );
+
+TextStyle _defaultIosStyle = const TextStyle(
+    color: Colors.white, decoration: TextDecoration.none, fontSize: 14);
