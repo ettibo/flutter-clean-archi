@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:api/models/app/managers/connection_status.dart';
+import 'package:api/models/app/managers/connection_status_manager.dart';
 import 'package:api/models/app/tree/tree.dart';
 
 import 'package:api/strategy/fetch_strategy.dart';
@@ -24,8 +24,8 @@ abstract class TreeListViewModelBase with Store, ViewModel {
       DependecyInjection.instance.get<TreeStoreBase>();
 
   final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
-  final ConnectionStatus connectionStatus =
-      DependecyInjection.instance.get<ConnectionStatus>();
+  final ConnectionStatusManager connectionStatusManager =
+      DependecyInjection.instance.get<ConnectionStatusManager>();
 
   @observable
   bool isLoadingTrees = false;
@@ -34,13 +34,13 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @override
   void init() {
-    activateConnectionManager();
+   activateConnectionManager();
   }
 
   @override
   void dispose() {}
 
-  @action
+ @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
     newTrees = await _useCase.fetch(
         startRow: startRow,
@@ -91,9 +91,9 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   }
 
   void activateConnectionManager() {
-    connectionStatus.initialize();
+    connectionStatusManager.activateConnectionManager();
     //Listen for connection change
-    connectionStatus.connectionChangeStream
+    connectionStatusManager.connectionChangeStream
         .asBroadcastStream()
         .listen(connectionChanged);
   }

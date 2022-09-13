@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'package:api/models/app/managers/connection_status.dart';
+import 'package:api/models/app/managers/connection_status_manager.dart';
 
-class ConnectionCheckStatusManager implements ConnectionStatus {
+class ConnectionCheckStatusManager implements ConnectionStatusManager {
   static final ConnectionCheckStatusManager _connectionStatusSingleton =
       ConnectionCheckStatusManager._internal();
   ConnectionCheckStatusManager._internal();
@@ -13,27 +13,28 @@ class ConnectionCheckStatusManager implements ConnectionStatus {
 
   bool _hasConnection = false;
 
-  StreamController connectionChangeController =
+  final StreamController _connectionChangeController =
       StreamController<bool>.broadcast();
 
   final Connectivity _connectivity = Connectivity();
 
   @override
-  void initialize() => _connectivity.onConnectivityChanged
+  void activateConnectionManager() => _connectivity.onConnectivityChanged
       .asBroadcastStream()
-      .listen(getConnectionChange);
+      .listen(_getConnectionChange);
 
-  void getConnectionChange(ConnectivityResult result) =>
+  void _getConnectionChange(ConnectivityResult result) =>
       hasInternetConnection();
 
   @override
-  Stream get connectionChangeStream => connectionChangeController.stream;
+  Stream get connectionChangeStream => _connectionChangeController.stream;
 
-  void dispose() => connectionChangeController.close();
+  void dispose() => _connectionChangeController.close();
 
   @override
   Future<bool> hasInternetConnection() async {
-    ConnectivityResult connectivityResult = await (Connectivity().checkConnectivity());
+    ConnectivityResult connectivityResult =
+        await (Connectivity().checkConnectivity());
     // connected to wifi or mobile
     if (connectivityResult == ConnectivityResult.mobile ||
         connectivityResult == ConnectivityResult.wifi) {
@@ -43,7 +44,7 @@ class ConnectionCheckStatusManager implements ConnectionStatus {
     else {
       _hasConnection = false;
     }
-    connectionChangeController.add(_hasConnection);
+    _connectionChangeController.add(_hasConnection);
     return _hasConnection;
   }
 }
