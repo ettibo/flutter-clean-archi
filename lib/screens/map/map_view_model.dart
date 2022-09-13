@@ -51,13 +51,14 @@ abstract class MapViewModelBase with Store, ViewModel {
   late TileLayerOptions tileLayerOptions;
 
   @observable
+  StreamController<double?> centerCurrentLocationStreamController =
+      StreamController<double?>();
+
+  @observable
   ObservableList<Marker> treesMarkers = ObservableList();
 
   @observable
-  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.never;
-
-  StreamController<double?> centerCurrentLocationStreamController =
-      StreamController<double?>();
+  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
 
   @override
   void init() {
@@ -73,8 +74,8 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   // Init Methods
   void _initMap() {
-    centerCurrentLocationStreamController = StreamController<double?>();
     mapController = MapController();
+    centerCurrentLocationStreamController = StreamController<double?>();
     _initTileLayerOptions();
   }
 
@@ -119,18 +120,14 @@ abstract class MapViewModelBase with Store, ViewModel {
         });
       });
     }
-    treesMarkers.addAll(newMarkers);
+    treesMarkers.addAll(newMarkers.sublist(treesMarkers.length));
   }
 
   void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
 
-  // Dispose Methods
-  void _disposeCenterLocStream() =>
-      centerCurrentLocationStreamController.close();
-
   void _disposeMap() {
-    _disposeCenterLocStream();
     mapController.dispose();
+    centerCurrentLocationStreamController.close();
   }
 
   void _clearMarkerList() => treesMarkers.clear();
@@ -142,6 +139,11 @@ abstract class MapViewModelBase with Store, ViewModel {
     centerCurrentLocationStreamController.add(mapController.zoom);
   }
 
+  Widget displayCenterOnUserButton({required Widget widget}) =>
+      centerOnLocationUpdate == CenterOnLocationUpdate.never
+          ? const SizedBox.shrink()
+          : widget;
+
   Widget displayUserLocationIfGranted() =>
       centerOnLocationUpdate == CenterOnLocationUpdate.never
           ? const SizedBox.shrink()
@@ -150,6 +152,7 @@ abstract class MapViewModelBase with Store, ViewModel {
                 centerOnLocationUpdate: centerOnLocationUpdate,
                 centerCurrentLocationStream:
                     centerCurrentLocationStreamController.stream,
+                turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
               ),
             );
 
