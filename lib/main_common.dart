@@ -1,9 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:api/dependency_injection.dart';
-import 'package:api/models/app/managers/connection_status_manager.dart';
-
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -16,6 +13,7 @@ import 'package:globo_fitness/firebase/brown_firebase_options.dart'
 
 import 'package:globo_fitness/screens/home/home_screen.dart';
 
+import 'package:globo_fitness/managers/connection_check_status_manager.dart';
 import 'package:globo_fitness/managers/remote_config_manager.dart';
 import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
@@ -91,15 +89,11 @@ Future<void> _firebaseInitializer(FlavorName flavorName) async {
 }
 
 void _activateManagers() {
-  activateConnectionManager();
+  ConnectionCheckStatusManager connectionCheckStatusManager =
+      ConnectionCheckStatusManager();
+  connectionCheckStatusManager.activateConnectionManager();
   activateRemoteConfig();
   if (!kIsWeb) {
     activateCrashReportIfEnabled();
   }
-}
-
-void activateConnectionManager() {
-  final ConnectionStatusManager connectionStatus =
-      DependecyInjection.instance.get<ConnectionStatusManager>();
-  connectionStatus.activateConnectionManager();
 }
