@@ -7,12 +7,9 @@ import 'package:universal_platform/universal_platform.dart';
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/map/map_screen.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
-import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
 import 'package:globo_fitness/models/navigation_object.dart';
 
-import 'package:globo_fitness/shared/platform_app_bar.dart';
-import 'package:globo_fitness/extensions/state_navigaton.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
@@ -24,9 +21,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<BottomNavigationBarItem> _items = [];
   int _currentIndex = 0;
-  List<NavigationObject> navigationList = [];
-  List<BottomNavigationBarItem> items = [];
+  List<NavigationObject> _navigationList = [];
 
   @override
   void didChangeDependencies() {
@@ -35,43 +32,33 @@ class _HomeScreenState extends State<HomeScreen> {
     _generateItems();
   }
 
-  PlatformIconButton settingsIconButton() => PlatformIconButton(
-        icon: Icon(PlatformIcons(context).settings),
-        onPressed: () => navigateTo(const SettingsScreen()),
-        cupertino: (_, __) => CupertinoIconButtonData(padding: EdgeInsets.zero),
-        material: ((context, platform) =>
-            MaterialIconButtonData(color: Theme.of(context).primaryColor)),
-      );
+  void _onTabChanged(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    void onTap(int index) {
-      setState(() {
-        _currentIndex = index;
-      });
-    }
-
     return PlatformScaffold(
-      appBar: platformAppBar(
-        context: context,
-        title: navigationList[_currentIndex].title,
-        trailingWidgets: [settingsIconButton()],
-      ),
-      body: navigationList[_currentIndex].screen,
+      iosContentBottomPadding: false,
+      iosContentPadding: false,
+      cupertinoTabChildBuilder: (context, currIndex) => CupertinoTabView(
+          builder: (context) => _navigationList[currIndex].screen),
+      body: _navigationList[_currentIndex].screen,
       bottomNavBar: PlatformNavBar(
         backgroundColor: Theme.of(context).backgroundColor,
         material: ((context, _) => MaterialNavBarData(
-              selectedItemColor: Theme.of(context).primaryColor,
-            )),
-        items: items,
-        itemChanged: onTap,
+            selectedItemColor: Theme.of(context).primaryColor)),
+        items: _items,
+        itemChanged: _onTabChanged,
         currentIndex: _currentIndex,
       ),
     );
   }
 
   void _generateNavigationList(BuildContext context) {
-    navigationList = [
+    _navigationList = [
       NavigationObject(
           title: LocaleKeys.title_title_tree_list_screen.localized(),
           icon: UniversalPlatform.isIOS ? CupertinoIcons.tree : Icons.park,
@@ -90,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _generateItems() {
-    if (items.isEmpty) {
-      for (var item in navigationList) {
-        items.add(
+    if (_items.isEmpty) {
+      for (var item in _navigationList) {
+        _items.add(
             BottomNavigationBarItem(icon: Icon(item.icon), label: item.title));
       }
     }

@@ -7,9 +7,12 @@ import 'package:api/dependency_injection.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_view_model.dart';
 
+import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/shared/platform_text_wrapper.dart';
 import 'package:globo_fitness/shared/platform_textfield.dart';
 import 'package:globo_fitness/shared/platform_toggle_buttons.dart';
+import 'package:globo_fitness/shared/settings_icon_app_bar.dart';
+
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 
@@ -57,8 +60,15 @@ class _BmiScreenState extends State<BmiScreen> {
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
-      body: Center(
-        child: Observer(builder: _observerBuilder),
+      appBar: platformAppBar(
+        context: context,
+        title: LocaleKeys.title_bmi_title_screen.localized(),
+        trailingWidgets: [settingsIconButton(context: context)],
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Observer(builder: _observerBuilder),
+        ),
       ),
     );
   }
