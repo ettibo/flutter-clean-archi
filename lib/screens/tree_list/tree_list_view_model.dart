@@ -29,25 +29,25 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @observable
   bool isLoadingTrees = false;
-  bool hasInternetConnection = false;
-  List<Tree> newTrees = [];
+  List<Tree> _newTrees = [];
 
   @override
   void init() {
-   activateConnectionManager();
+    fetch();
   }
 
   @override
   void dispose() {}
 
- @action
+  @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
-    newTrees = await _useCase.fetch(
+    _newTrees = await _useCase.fetch(
         startRow: startRow,
         nbRows: nbRows,
-        fetchStrategy:
-            hasInternetConnection ? FetchStrategy.remote : FetchStrategy.local);
-    treeStore.addTrees(newTrees);
+        fetchStrategy: await connectionStatusManager.hasInternetConnection()
+            ? FetchStrategy.remote
+            : FetchStrategy.local);
+    treeStore.addTrees(_newTrees);
   }
 
   @action
@@ -83,18 +83,5 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     isLoadingTrees = true;
     fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
-  }
-
-  void connectionChanged(dynamic hasConnection) {
-    hasInternetConnection = hasConnection;
-    fetch();
-  }
-
-  void activateConnectionManager() {
-    connectionStatusManager.activateConnectionManager();
-    //Listen for connection change
-    connectionStatusManager.connectionChangeStream
-        .asBroadcastStream()
-        .listen(connectionChanged);
   }
 }
