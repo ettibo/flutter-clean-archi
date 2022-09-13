@@ -47,7 +47,7 @@ class CodegenLoader extends AssetLoader{
   },
   "bmi_screen": {
     "weight": "Weight",
-    "height": "Height",
+    "height": "height",
     "meters": "meters",
     "inch": "inch",
     "kilos": "kilos",
@@ -111,7 +111,7 @@ static const Map<String,dynamic> fr = {
   },
   "bmi_screen": {
     "weight": "poids",
-    "height": "Taille",
+    "height": "taille",
     "meters": "mètres",
     "inch": "pouces",
     "kilos": "kilos",
@@ -175,7 +175,7 @@ static const Map<String,dynamic> es = {
   },
   "bmi_screen": {
     "weight": "peso",
-    "height": "Altura",
+    "height": "altura",
     "meters": "metros",
     "inch": "pulgadas",
     "kilos": "kilos",
@@ -191,7 +191,7 @@ static const Map<String,dynamic> es = {
     "location_services_disabled": "Los servicios de localización están desactivados.",
     "location_permission_denied": "Los permisos de localización están denegados.",
     "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados.",
-    "switch_language_description": "Switch the language of the application",
+    "switch_language_description": "Cambiar el idioma de la aplicación",
     "throw_test_exception": "Lanzar una excepción de prueba"
   },
   "langage": {
