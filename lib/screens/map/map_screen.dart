@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
 
@@ -20,10 +21,10 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final MapViewModelBase viewModel =
       DependecyInjection.instance.get<MapViewModelBase>();
-
   @override
   void initState() {
     super.initState();
+
     viewModel.init();
     viewModel
         .determinePosition(context)
@@ -38,66 +39,63 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
+    return SafeArea(
       child: Center(
-        child: Observer(
-          builder: (context) => FlutterMap(
-            mapController: viewModel.mapController,
-            options: MapOptions(
-              center: viewModel.parisCoord,
-              zoom: viewModel.defaultZoom,
-              maxZoom: viewModel.maxZoom,
-              onTap: viewModel.onTapMap,
-              plugins: [
-                MarkerClusterPlugin(),
-              ],
-            ),
-            nonRotatedChildren: [
-              viewModel.centerOnLocationUpdate == CenterOnLocationUpdate.never
-                  ? const SizedBox.shrink()
-                  : _centerOnUserButton()
-            ],
-            children: <Widget>[
-              TileLayerWidget(
-                options: viewModel.tileLayerOptions,
-              ),
-
-              // Center on User Button
-              viewModel.displayUserLocationIfGranted(),
-
-              // Zoom Buttons
-              FlutterMapZoomButtons(
-                alignment: Alignment.bottomLeft,
-                onPressedZoomIn: viewModel.onPressedZoomIn,
-                onPressedZoomOut: viewModel.onPressedZoomOut,
-              ),
-
-              //Cluster & Popup Options
-              MarkerClusterLayerWidget(
-                options: MarkerClusterLayerOptions(
-                  maxClusterRadius: viewModel.maxClusterRadius,
-                  size: viewModel.clusterSize,
-                  fitBoundsOptions: viewModel.fitBoundsOptions,
-                  markers: viewModel.treesMarkers,
-                  polygonOptions: viewModel.polygonOptions,
-                  builder: _clusterBuilder,
-                  popupOptions: PopupOptions(
-                    popupController: viewModel.popupLayerController,
-                    popupBuilder: viewModel.mapPopupBuilder,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: Observer(builder: _observerBuilder),
       ),
-    ));
+    );
   }
+
+  Widget _observerBuilder(BuildContext context) => FlutterMap(
+        mapController: viewModel.mapController,
+        options: MapOptions(
+          center: viewModel.parisCoord,
+          zoom: viewModel.defaultZoom,
+          maxZoom: viewModel.maxZoom,
+          onTap: viewModel.onTapMap,
+          plugins: [
+            MarkerClusterPlugin(),
+          ],
+        ),
+        nonRotatedChildren: [
+          viewModel.displayCenterOnUserButton(widget: _centerOnUserButton()),
+          // Zoom Buttons
+          FlutterMapZoomButtons(
+            alignment: Alignment.bottomLeft,
+            onPressedZoomIn: viewModel.onPressedZoomIn,
+            onPressedZoomOut: viewModel.onPressedZoomOut,
+          ),
+        ],
+        children: <Widget>[
+          TileLayerWidget(
+            options: viewModel.tileLayerOptions,
+          ),
+
+          // Center on User Button
+          viewModel.displayUserLocationIfGranted(),
+
+          //Cluster & Popup Options
+          MarkerClusterLayerWidget(
+            options: MarkerClusterLayerOptions(
+              maxClusterRadius: viewModel.maxClusterRadius,
+              size: viewModel.clusterSize,
+              fitBoundsOptions: viewModel.fitBoundsOptions,
+              markers: viewModel.treesMarkers,
+              polygonOptions: viewModel.polygonOptions,
+              builder: _clusterBuilder,
+              popupOptions: PopupOptions(
+                popupController: viewModel.popupLayerController,
+                popupBuilder: viewModel.mapPopupBuilder,
+              ),
+            ),
+          ),
+        ],
+      );
 
   Widget _clusterBuilder(BuildContext context, List<Marker> markers) =>
       FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColorDark,
+        heroTag: UniqueKey(),
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: null,
         child: Text(markers.length.toString()),
       );
@@ -107,10 +105,10 @@ class _MapScreenState extends State<MapScreen> {
         bottom: 20,
         child: FloatingActionButton(
           onPressed: viewModel.centerOnUser,
-          backgroundColor: Theme.of(context).primaryColorDark,
-          child: const Icon(
-            Icons.my_location,
-            color: Colors.black,
+          backgroundColor: Theme.of(context).primaryColor,
+          child: Icon(
+            PlatformIcons(context).location,
+            color: Theme.of(context).primaryColorDark,
           ),
         ),
       );
