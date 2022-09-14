@@ -14,14 +14,14 @@ Widget rowTreeInfo(
     Padding(
       padding: const EdgeInsets.all(10),
       child: textPlatform(
-        content: LocaleKeys.tree_detail_screen_title_label.localized(
-          args: {
-            'title': title.toTitleCase(),
-            'value': unit != null
-                ? LocaleKeys.tree_detail_screen_value_with_unit
-                    .localized(args: {'value': value, 'unit': unit})
-                : value.toTitleCase()
-          },
-        ),
-      ),
+          content: LocaleKeys.tree_detail_screen_title_label.localized(
+            args: {
+              'title': title.toTitleCase(),
+              'value': unit != null
+                  ? LocaleKeys.tree_detail_screen_value_with_unit
+                      .localized(args: {'value': value, 'unit': unit})
+                  : value.toTitleCase()
+            },
+          ),
+          context: context),
     );
