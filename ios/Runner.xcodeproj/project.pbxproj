@@ -8,12 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		27BB0E29ECA2DE30FE3E2EC7 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166A8CFF675B63D1BB0451D0 /* Pods_Runner.framework */; };
+		1E7AC8C7A960A0DA5EC32BE6 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		A96E586EBF28F75AE6727EB2 /* Pods_Runner_Brown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFED8537B470F3DE8EBBF78A /* Pods_Runner_Brown.framework */; };
+		D36146B028D1B3FB00EA0977 /* Debug-Green.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9740EEB21CF90195004384FC /* Debug-Green.xcconfig */; };
+		D36146B128D1B3FE00EA0977 /* Release-Green.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */; };
+		D36146BA28D1B75900EA0977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
+		D36146BB28D1B75900EA0977 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		D36146C028D1B75900EA0977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		D36146C128D1B75900EA0977 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		D36146C228D1B75900EA0977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+		D36146C328D1B75900EA0977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+		D36146D228D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */; };
+		D36146D728D1C12900EA0977 /* Release-Runner-Brown.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */; };
+		F9968EF7EEB630BFD3673AB4 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
+		FDB06302EE74863111A2C603 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,20 +40,36 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D36146C628D1B75900EA0977 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0DEDF22FE07FF36A1A5BD74E /* Pods-Runner.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-brown.xcconfig"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
-		166A8CFF675B63D1BB0451D0 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32F3A437CFEBDA1ED41EA76B /* Pods-Runner.profile-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-brown.xcconfig"; sourceTree = "<group>"; };
+		16AA1AFF6FF79116ED6C4B85 /* Pods-Runner-Brown.release-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.release-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.release-runner-brown.xcconfig"; sourceTree = "<group>"; };
+		1D180C16481C0A0A695F895C /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		297B640BD748C7B24FEC9376 /* Pods-Runner_Green.profile-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.profile-green.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.profile-green.xcconfig"; sourceTree = "<group>"; };
+		2BC8DA0834F7E9F8E0E87708 /* Pods-Runner.profile-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-brown.xcconfig"; sourceTree = "<group>"; };
+		33D0B910FF3485595B6C7166 /* Pods-Runner-Brown.profile-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.profile-green.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.profile-green.xcconfig"; sourceTree = "<group>"; };
 		3807A2186C0CE03486009E4B /* Pods-Runner.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-green.xcconfig"; sourceTree = "<group>"; };
+		3A4974FC6154E43B0FABD93F /* Pods-Runner.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-brown.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Release-Brown.xcconfig"; path = "Flutter/Release-Brown.xcconfig"; sourceTree = "<group>"; };
-		85D4EE2E25186FFF0E6DBC78 /* Pods-Runner.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-brown.xcconfig"; sourceTree = "<group>"; };
+		7F30F38CEC0FA07DFFE67FBC /* Pods-Runner-Brown.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.debug-green.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.debug-green.xcconfig"; sourceTree = "<group>"; };
+		867BE23D230A741284B6A6B4 /* Pods-Runner.debug-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-runner-brown.xcconfig"; sourceTree = "<group>"; };
+		8A44B7830193F597EA3E6BED /* Pods-Runner-Brown.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.release-green.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.release-green.xcconfig"; sourceTree = "<group>"; };
+		901E0999217746F3EBD3FEA8 /* Pods-Runner.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-brown.xcconfig"; sourceTree = "<group>"; };
+		92D17A8B3AC5248BA86B311C /* Pods-Runner_Green.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.debug-green.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.debug-green.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug-Green.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Debug-Green.xcconfig"; path = "Flutter/Debug-Green.xcconfig"; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,10 +77,22 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFED8537B470F3DE8EBBF78A /* Pods_Runner_Brown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner_Brown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0EAAD17D9ED02565443520F /* Pods-Runner.release-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-runner-brown.xcconfig"; sourceTree = "<group>"; };
 		C131EAEF888607FB82246FCB /* Pods-Runner.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-green.xcconfig"; sourceTree = "<group>"; };
-		D3A582F328BD52A90047D6B1 /* Debug-Brown.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Debug-Brown.xcconfig"; path = "Flutter/Debug-Brown.xcconfig"; sourceTree = "<group>"; };
+		D36146AB28D1B35D00EA0977 /* Runner copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Runner copy-Info.plist"; path = "/Users/d.pocheron/Documents/OnePointDev/Flutter/flutter-clean-archi/ios/Runner copy-Info.plist"; sourceTree = "<absolute>"; };
+		D36146CF28D1B75900EA0977 /* Runner-Brown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Runner-Brown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36146D028D1B75900EA0977 /* Runner copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Runner copy2-Info.plist"; path = "/Users/d.pocheron/Documents/OnePointDev/Flutter/flutter-clean-archi/ios/Runner copy2-Info.plist"; sourceTree = "<absolute>"; };
+		D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Debug-Runner-Brown.xcconfig"; path = "Flutter/Debug-Runner-Brown.xcconfig"; sourceTree = "<group>"; };
+		D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Release-Runner-Brown.xcconfig"; path = "Flutter/Release-Runner-Brown.xcconfig"; sourceTree = "<group>"; };
 		D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Release-Green.xcconfig"; path = "Flutter/Release-Green.xcconfig"; sourceTree = "<group>"; };
 		DE4307C9685E502D69C6F27F /* Pods-Runner.profile-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-green.xcconfig"; sourceTree = "<group>"; };
+		E7AD057544E5678E4C61D13D /* Pods-Runner_Green.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.release-green.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.release-green.xcconfig"; sourceTree = "<group>"; };
+		ED9E3CB21925BFDA32B7C8D2 /* Pods-Runner_Green.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.debug-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.debug-brown.xcconfig"; sourceTree = "<group>"; };
+		F469FC7C3B975BF2F4EF3107 /* Pods-Runner_Green.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.release-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.release-brown.xcconfig"; sourceTree = "<group>"; };
+		F6CE1E216A39EBBCF872BEDC /* Pods-Runner_Green.profile-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.profile-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.profile-brown.xcconfig"; sourceTree = "<group>"; };
+		F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9D4C45D7194A86B7E17F1F /* Pods-Runner-Brown.debug-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.debug-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.debug-runner-brown.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +100,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27BB0E29ECA2DE30FE3E2EC7 /* Pods_Runner.framework in Frameworks */,
+				F9968EF7EEB630BFD3673AB4 /* Pods_Runner.framework in Frameworks */,
+				1E7AC8C7A960A0DA5EC32BE6 /* Pods_Runner.framework in Frameworks */,
+				FDB06302EE74863111A2C603 /* Pods_Runner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36146BC28D1B75900EA0977 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96E586EBF28F75AE6727EB2 /* Pods_Runner_Brown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +120,26 @@
 		5941E696F22DFA8D7678FA95 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				85D4EE2E25186FFF0E6DBC78 /* Pods-Runner.debug-brown.xcconfig */,
 				3807A2186C0CE03486009E4B /* Pods-Runner.debug-green.xcconfig */,
-				0DEDF22FE07FF36A1A5BD74E /* Pods-Runner.release-brown.xcconfig */,
 				C131EAEF888607FB82246FCB /* Pods-Runner.release-green.xcconfig */,
-				32F3A437CFEBDA1ED41EA76B /* Pods-Runner.profile-brown.xcconfig */,
 				DE4307C9685E502D69C6F27F /* Pods-Runner.profile-green.xcconfig */,
+				ED9E3CB21925BFDA32B7C8D2 /* Pods-Runner_Green.debug-brown.xcconfig */,
+				92D17A8B3AC5248BA86B311C /* Pods-Runner_Green.debug-green.xcconfig */,
+				F469FC7C3B975BF2F4EF3107 /* Pods-Runner_Green.release-brown.xcconfig */,
+				E7AD057544E5678E4C61D13D /* Pods-Runner_Green.release-green.xcconfig */,
+				F6CE1E216A39EBBCF872BEDC /* Pods-Runner_Green.profile-brown.xcconfig */,
+				297B640BD748C7B24FEC9376 /* Pods-Runner_Green.profile-green.xcconfig */,
+				901E0999217746F3EBD3FEA8 /* Pods-Runner.debug-brown.xcconfig */,
+				3A4974FC6154E43B0FABD93F /* Pods-Runner.release-brown.xcconfig */,
+				2BC8DA0834F7E9F8E0E87708 /* Pods-Runner.profile-brown.xcconfig */,
+				1D180C16481C0A0A695F895C /* Pods-Runner.release.xcconfig */,
+				867BE23D230A741284B6A6B4 /* Pods-Runner.debug-runner-brown.xcconfig */,
+				C0EAAD17D9ED02565443520F /* Pods-Runner.release-runner-brown.xcconfig */,
+				7F30F38CEC0FA07DFFE67FBC /* Pods-Runner-Brown.debug-green.xcconfig */,
+				FD9D4C45D7194A86B7E17F1F /* Pods-Runner-Brown.debug-runner-brown.xcconfig */,
+				8A44B7830193F597EA3E6BED /* Pods-Runner-Brown.release-green.xcconfig */,
+				16AA1AFF6FF79116ED6C4B85 /* Pods-Runner-Brown.release-runner-brown.xcconfig */,
+				33D0B910FF3485595B6C7166 /* Pods-Runner-Brown.profile-green.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -84,9 +149,9 @@
 			children = (
 				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
 				9740EEB21CF90195004384FC /* Debug-Green.xcconfig */,
-				D3A582F328BD52A90047D6B1 /* Debug-Brown.xcconfig */,
-				7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */,
+				D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */,
 				D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */,
+				D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */,
 				9740EEB31CF90195004384FC /* Generated.xcconfig */,
 			);
 			name = Flutter;
@@ -100,6 +165,8 @@
 				97C146EF1CF9000F007C117D /* Products */,
 				5941E696F22DFA8D7678FA95 /* Pods */,
 				9F6DC6312EE9DE1584832A38 /* Frameworks */,
+				D36146AB28D1B35D00EA0977 /* Runner copy-Info.plist */,
+				D36146D028D1B75900EA0977 /* Runner copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
+				D36146CF28D1B75900EA0977 /* Runner-Brown.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +197,8 @@
 		9F6DC6312EE9DE1584832A38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				166A8CFF675B63D1BB0451D0 /* Pods_Runner.framework */,
+				F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */,
+				BFED8537B470F3DE8EBBF78A /* Pods_Runner_Brown.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,6 +227,29 @@
 			name = Runner;
 			productName = Runner;
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D36146B628D1B75900EA0977 /* Runner-Brown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D36146CA28D1B75900EA0977 /* Build configuration list for PBXNativeTarget "Runner-Brown" */;
+			buildPhases = (
+				B65EBB8A2BFCC49F220BE5D1 /* [CP] Check Pods Manifest.lock */,
+				D36146B828D1B75900EA0977 /* Run Script */,
+				D36146B928D1B75900EA0977 /* Sources */,
+				D36146BC28D1B75900EA0977 /* Frameworks */,
+				D36146BF28D1B75900EA0977 /* Resources */,
+				D36146C628D1B75900EA0977 /* Embed Frameworks */,
+				D36146C728D1B75900EA0977 /* Thin Binary */,
+				D36146C928D1B75900EA0977 /* Copy GoogleServices-Info.plist in app package */,
+				D5D6D5C9D29E721C16E3A76C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Runner-Brown";
+			productName = Runner;
+			productReference = D36146CF28D1B75900EA0977 /* Runner-Brown.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -189,6 +281,7 @@
 			projectRoot = "";
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
+				D36146B628D1B75900EA0977 /* Runner-Brown */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +295,21 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				D36146B128D1B3FE00EA0977 /* Release-Green.xcconfig in Resources */,
+				D36146B028D1B3FB00EA0977 /* Debug-Green.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36146BF28D1B75900EA0977 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36146C028D1B75900EA0977 /* LaunchScreen.storyboard in Resources */,
+				D36146D728D1C12900EA0977 /* Release-Runner-Brown.xcconfig in Resources */,
+				D36146D228D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig in Resources */,
+				D36146C128D1B75900EA0977 /* AppFrameworkInfo.plist in Resources */,
+				D36146C228D1B75900EA0977 /* Assets.xcassets in Resources */,
+				D36146C328D1B75900EA0977 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +379,28 @@
 			shellPath = /bin/sh;
 			shellScript = "# setopt KSH_ARRAYS BASH_REMATCH\n\nflavor=\"default\"\n\n# Regex to extract the scheme name from the Build Configuration\n# We have named our Build Configurations as Debug-dev, Debug-prod etc.\n# Here, brown and green are the scheme names. This kind of naming is required by Flutter for flavors to work.\n# We are using the $CONFIGURATION variable available in the XCode build environment to extract \n# the environment (or flavor)\n# For eg.\n# If CONFIGURATION=\"Debug-prod\", then environment will get set to \"prod\".\nif [[ $CONFIGURATION =~ -([^-]*)$ ]]; then\nflavor=${BASH_REMATCH[1]}\nfi\n\necho $flavor\n\n# Name and path of the resource we're copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\nGOOGLESERVICE_INFO_FILE=${PROJECT_DIR}/config/${flavor}/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_FILE}\"\nif [ ! -f $GOOGLESERVICE_INFO_FILE ]\nthen\necho \"No GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\nexit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\n# This is the default location where Firebase init code expects to find GoogleServices-Info.plist file\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\ncp \"${GOOGLESERVICE_INFO_FILE}\" \"${PLIST_DESTINATION}\"\n\n\n#unsetopt KSH_ARRAYS\n";
 		};
+		B65EBB8A2BFCC49F220BE5D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runner-Brown-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B959F2DD5AC9830F33809A3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +423,69 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D36146B828D1B75900EA0977 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
+		};
+		D36146C728D1B75900EA0977 /* Thin Binary */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Thin Binary";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+		};
+		D36146C928D1B75900EA0977 /* Copy GoogleServices-Info.plist in app package */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy GoogleServices-Info.plist in app package";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# setopt KSH_ARRAYS BASH_REMATCH\n\nflavor=\"default\"\n\n# Regex to extract the scheme name from the Build Configuration\n# We have named our Build Configurations as Debug-dev, Debug-prod etc.\n# Here, brown and green are the scheme names. This kind of naming is required by Flutter for flavors to work.\n# We are using the $CONFIGURATION variable available in the XCode build environment to extract \n# the environment (or flavor)\n# For eg.\n# If CONFIGURATION=\"Debug-prod\", then environment will get set to \"prod\".\nif [[ $CONFIGURATION =~ -([^-]*)$ ]]; then\nflavor=${BASH_REMATCH[1]}\nfi\n\necho $flavor\n\n# Name and path of the resource we're copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\nGOOGLESERVICE_INFO_FILE=${PROJECT_DIR}/config/${flavor}/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_FILE}\"\nif [ ! -f $GOOGLESERVICE_INFO_FILE ]\nthen\necho \"No GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\nexit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\n# This is the default location where Firebase init code expects to find GoogleServices-Info.plist file\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\ncp \"${GOOGLESERVICE_INFO_FILE}\" \"${PLIST_DESTINATION}\"\n\n\n#unsetopt KSH_ARRAYS\n";
+		};
+		D5D6D5C9D29E721C16E3A76C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -302,6 +495,15 @@
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36146B928D1B75900EA0977 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36146BA28D1B75900EA0977 /* AppDelegate.swift in Sources */,
+				D36146BB28D1B75900EA0977 /* GeneratedPluginRegistrant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,87 +610,6 @@
 			};
 			name = "Debug-Green";
 		};
-		D347B9B528AFB06600589473 /* Debug-Brown */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A582F328BD52A90047D6B1 /* Debug-Brown.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Brown";
-		};
-		D347B9B628AFB06600589473 /* Debug-Brown */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A582F328BD52A90047D6B1 /* Debug-Brown.xcconfig */;
-			buildSettings = {
-				APP_DISPLAY_NAME = BrownDebug;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = T2C24KCSV2;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Runner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = "Debug-Brown";
-		};
 		D347B9B728AFB07800589473 /* Release-Green */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */;
@@ -566,83 +687,6 @@
 			};
 			name = "Release-Green";
 		};
-		D347B9B928AFB07F00589473 /* Release-Brown */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release-Brown";
-		};
-		D347B9BA28AFB07F00589473 /* Release-Brown */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */;
-			buildSettings = {
-				APP_DISPLAY_NAME = BrownRelease;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = T2C24KCSV2;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Runner/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = "Release-Brown";
-		};
 		D347B9BB28AFB08600589473 /* Profile-Green */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */;
@@ -718,9 +762,184 @@
 			};
 			name = "Profile-Green";
 		};
-		D347B9BD28AFB08C00589473 /* Profile-Brown */ = {
+		D36146CB28D1B75900EA0977 /* Debug-Green */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */;
+			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug-Green.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = BrownDebug;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Runner copy2-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Debug-Green";
+		};
+		D36146CD28D1B75900EA0977 /* Release-Green */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = BrownRelease;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Runner copy2-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Release-Green";
+		};
+		D36146CE28D1B75900EA0977 /* Profile-Green */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A582F428BD52E50047D6B1 /* Release-Green.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = BrownProfile;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Runner copy2-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Profile-Green";
+		};
+		D36146D328D1B82600EA0977 /* Debug-Runner-Brown */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug-Runner-Brown";
+		};
+		D36146D428D1B82600EA0977 /* Debug-Runner-Brown */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = GreenDebug;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-green";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = Runner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Debug-Runner-Brown";
+		};
+		D36146D528D1B82600EA0977 /* Debug-Runner-Brown */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36146D128D1B7B500EA0977 /* Debug-Runner-Brown.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = BrownDebug;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Runner copy2-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Debug-Runner-Brown";
+		};
+		D36146D828D1C13C00EA0977 /* Release-Runner-Brown */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -765,22 +984,47 @@
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Profile-Brown";
+			name = "Release-Runner-Brown";
 		};
-		D347B9BE28AFB08C00589473 /* Profile-Brown */ = {
+		D36146D928D1C13C00EA0977 /* Release-Runner-Brown */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release-Brown.xcconfig */;
+			baseConfigurationReference = D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = BrownProfile;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				APP_DISPLAY_NAME = GreenRelease;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-green";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = "Release-Runner-Brown";
+		};
+		D36146DA28D1C13C00EA0977 /* Release-Runner-Brown */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36146D628D1C12900EA0977 /* Release-Runner-Brown.xcconfig */;
+			buildSettings = {
+				APP_DISPLAY_NAME = BrownRelease;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-brown";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = T2C24KCSV2;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Runner copy2-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,7 +1035,7 @@
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = "Profile-Brown";
+			name = "Release-Runner-Brown";
 		};
 /* End XCBuildConfiguration section */
 
@@ -799,28 +1043,38 @@
 		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D347B9B528AFB06600589473 /* Debug-Brown */,
 				D347B9B328AFB04E00589473 /* Debug-Green */,
-				D347B9B928AFB07F00589473 /* Release-Brown */,
+				D36146D328D1B82600EA0977 /* Debug-Runner-Brown */,
 				D347B9B728AFB07800589473 /* Release-Green */,
-				D347B9BD28AFB08C00589473 /* Profile-Brown */,
+				D36146D828D1C13C00EA0977 /* Release-Runner-Brown */,
 				D347B9BB28AFB08600589473 /* Profile-Green */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug-Brown";
+			defaultConfigurationName = "Debug-Green";
 		};
 		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D347B9B628AFB06600589473 /* Debug-Brown */,
 				D347B9B428AFB04E00589473 /* Debug-Green */,
-				D347B9BA28AFB07F00589473 /* Release-Brown */,
+				D36146D428D1B82600EA0977 /* Debug-Runner-Brown */,
 				D347B9B828AFB07800589473 /* Release-Green */,
-				D347B9BE28AFB08C00589473 /* Profile-Brown */,
+				D36146D928D1C13C00EA0977 /* Release-Runner-Brown */,
 				D347B9BC28AFB08600589473 /* Profile-Green */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug-Brown";
+			defaultConfigurationName = "Debug-Green";
+		};
+		D36146CA28D1B75900EA0977 /* Build configuration list for PBXNativeTarget "Runner-Brown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36146CB28D1B75900EA0977 /* Debug-Green */,
+				D36146D528D1B82600EA0977 /* Debug-Runner-Brown */,
+				D36146CD28D1B75900EA0977 /* Release-Green */,
+				D36146DA28D1C13C00EA0977 /* Release-Runner-Brown */,
+				D36146CE28D1B75900EA0977 /* Profile-Green */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug-Green";
 		};
 /* End XCConfigurationList section */
 	};

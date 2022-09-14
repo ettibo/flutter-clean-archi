@@ -14,16 +14,16 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-               BuildableName = "Runner.app"
-               BlueprintName = "Runner"
+               BlueprintIdentifier = "D36146B628D1B75900EA0977"
+               BuildableName = "Runner-Brown.app"
+               BlueprintName = "Runner-Brown"
                ReferencedContainer = "container:Runner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug-brown"
+      buildConfiguration = "Debug-Runner-Brown"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug-brown"
+      buildConfiguration = "Debug-Runner-Brown"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -44,15 +44,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-            BuildableName = "Runner.app"
-            BlueprintName = "Runner"
+            BlueprintIdentifier = "D36146B628D1B75900EA0977"
+            BuildableName = "Runner-Brown.app"
+            BlueprintName = "Runner-Brown"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release-brown"
+      buildConfiguration = "Release-Runner-Brown"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -61,18 +61,18 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-            BuildableName = "Runner.app"
-            BlueprintName = "Runner"
+            BlueprintIdentifier = "D36146B628D1B75900EA0977"
+            BuildableName = "Runner-Brown.app"
+            BlueprintName = "Runner-Brown"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug-brown">
+      buildConfiguration = "Debug-Runner-Brown">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release-brown"
+      buildConfiguration = "Release-Runner-Brown"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
