@@ -7,7 +7,7 @@
     {
       "name": "Brown globo_fitness ",
       "program": "lib/main_brown.dart",
-      "args": ["--flavor", "Brown"],
+      "args": ["--flavor", "Runner-Brown"],
       "request": "launch",
       "type": "dart"
     },
