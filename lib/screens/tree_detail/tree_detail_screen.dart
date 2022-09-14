@@ -4,7 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:api/models/app/tree/tree.dart';
 
-import 'package:globo_fitness/screens/tree_detail/tree_info.dart';
+import 'package:globo_fitness/screens/tree_detail/row_tree_info.dart';
 
 import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
