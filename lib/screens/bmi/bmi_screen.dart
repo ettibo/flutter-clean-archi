@@ -47,7 +47,8 @@ class _BmiScreenState extends State<BmiScreen> {
   Widget _getToggleButton({required String title}) => Padding(
         padding: EdgeInsets.symmetric(
             horizontal: _horizontalPadding, vertical: _verticalPadding),
-        child: textPlatform(content: title, style: _textStyle),
+        child:
+            textPlatform(content: title, style: _textStyle, context: context),
       );
 
   Map<MeasureSystem, Widget> _getMapToggleButtons() => <MeasureSystem, Widget>{
@@ -118,10 +119,10 @@ class _BmiScreenState extends State<BmiScreen> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: textPlatform(
-                content: viewModel.getBmiString(context),
-                style: Theme.of(context).textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
+                  context: context,
+                  content: viewModel.getBmiString(context),
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center),
             )
           ],
         ),

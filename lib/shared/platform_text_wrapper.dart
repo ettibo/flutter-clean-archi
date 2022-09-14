@@ -4,11 +4,14 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 Widget textPlatform(
-        {required String content, TextStyle? style, TextAlign? textAlign}) =>
+        {required String content,
+        required BuildContext context,
+        TextStyle? style,
+        TextAlign? textAlign}) =>
     UniversalPlatform.isIOS
         ? PlatformText(
             content,
-            style: style ?? _defaultIosStyle,
+            style: style ?? _defaultTextIosStyle(context: context),
             textAlign: textAlign,
           )
         : Text(
@@ -17,5 +20,8 @@ Widget textPlatform(
             textAlign: textAlign,
           );
 
-TextStyle _defaultIosStyle = const TextStyle(
-    color: Colors.white, decoration: TextDecoration.none, fontSize: 14);
+TextStyle _defaultTextIosStyle({required BuildContext context}) => TextStyle(
+    color: Theme.of(context).secondaryHeaderColor,
+    decoration: TextDecoration.none,
+    fontSize: 16,
+    fontWeight: FontWeight.normal);
