@@ -26,9 +26,6 @@ class ConnectionCheckStatusManager implements ConnectionStatusManager {
   void _getConnectionChange(ConnectivityResult result) =>
       hasInternetConnection();
 
-  @override
-  Stream get connectionChangeStream => _connectionChangeController.stream;
-
   void dispose() => _connectionChangeController.close();
 
   @override
