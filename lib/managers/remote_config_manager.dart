@@ -3,13 +3,14 @@ import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/managers/connection_status_manager.dart';
 import 'package:api/models/app/managers/remote_config.dart';
 
+final ConnectionStatusManager _connectionStatusManager =
+    DependecyInjection.instance.get<ConnectionStatusManager>();
+
 final RemoteConfigManager _remoteConfigManager =
     DependecyInjection.instance.get<RemoteConfigManager>();
 
 Future<void> activateRemoteConfig() async {
-  final ConnectionStatusManager connectionStatusManager =
-      DependecyInjection.instance.get<ConnectionStatusManager>();
-  if (await connectionStatusManager.hasInternetConnection()) {
+  if (await _connectionStatusManager.hasInternetConnection()) {
     await _remoteConfigManager.initializeRemoteConfig();
     _remoteConfigManager.setDefaultParams();
     _remoteConfigManager.launchLoadingStrategy();
