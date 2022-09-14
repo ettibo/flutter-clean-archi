@@ -8,8 +8,8 @@ import 'package:api/dependency_injection.dart';
 import 'package:globo_fitness/screens/settings/settings_view_model.dart';
 
 import 'package:globo_fitness/shared/platform_app_bar.dart';
-import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/shared/platform_text_wrapper.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -88,7 +88,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 textPlatform(
                     content: LocaleKeys
                         .setting_screen_switch_language_description
-                        .localized())
+                        .localized(),
+                    context: context),
               ],
             ),
           ),

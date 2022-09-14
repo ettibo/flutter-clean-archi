@@ -12,6 +12,7 @@ import 'package:api/models/app/managers/remote_config.dart';
 import 'package:api/models/app/managers/crash.dart';
 
 import 'package:globo_fitness/screens/settings/theme_helpers.dart';
+
 import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/enums/remote_config_keys.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
@@ -116,7 +117,8 @@ abstract class SettingsViewModelBase with Store, ViewModel {
             children: [
               textPlatform(
                   content: LocaleKeys.crash_manager_activated_label.localized(),
-                  style: Theme.of(context).textTheme.bodyMedium),
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  context: context),
               PlatformSwitch(
                 activeColor: Theme.of(context).primaryColor,
                 value: _isCrashManagerEnabled,
