@@ -10,6 +10,8 @@ import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 
 import 'package:globo_fitness/shared/platform_activity_indicator.dart';
+import 'package:globo_fitness/shared/platform_list_tile.dart';
+import 'package:globo_fitness/shared/platform_separated_listview.dart';
 import 'package:globo_fitness/shared/separator.dart';
 import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/shared/settings_icon_app_bar.dart';
@@ -68,7 +70,7 @@ class _TreeListScreenState extends State<TreeListScreen> {
                     onNotification: viewModel.handleScroll,
                     child: RefreshIndicator(
                       onRefresh: viewModel.onListRefresh,
-                      child: Scaffold(body: _separatedListView()),
+                      child: _separatedListView(),
                     ),
                   ),
                 ),
@@ -81,21 +83,20 @@ class _TreeListScreenState extends State<TreeListScreen> {
               ],
             );
 
-  ListView _separatedListView() => ListView.separated(
-        itemCount: viewModel.treeStore.countTreeList(),
+  ListView _separatedListView() => platformSeparatedListView(
         itemBuilder: _itemBuilder,
+        itemCount: viewModel.treeStore.countTreeList(),
         separatorBuilder: (context, index) =>
             separatorBuilder(context: context, index: index),
-        shrinkWrap: true,
       );
 
   Widget _itemBuilder(BuildContext context, int index) {
     final Tree tree = viewModel.treeStore.trees[index];
-    return ListTile(
+    return platformListTile(
       key: Key(tree.id.toString()),
+      trailing: Icon(PlatformIcons(context).rightChevron),
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
-      trailing: Icon(PlatformIcons(context).rightChevron),
       onTap: () => navigateTo(screen: TreeDetailScreen(tree: tree)),
     );
   }

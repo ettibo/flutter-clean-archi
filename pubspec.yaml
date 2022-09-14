@@ -36,6 +36,7 @@ dependencies:
   universal_platform: ^1.0.0+1
 
   cupertino_icons: ^1.0.5
+  cupertino_list_tile: ^0.2.1
 
   mobx: ^2.0.7+5
   flutter_mobx: ^2.0.6+1
