@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color backgroundDarkMode = const Color(0xff333333);
-Color darkBrown = const Color(0xffC4A484);
+import 'package:globo_fitness/ressources/colors.dart';
 
 Map<int, Color> mapPrimarySwatchColor = const {
   50: Color.fromRGBO(40, 26, 13, .1),
@@ -17,17 +16,17 @@ Map<int, Color> mapPrimarySwatchColor = const {
 };
 
 MaterialColor brownDarkPrimarySwatch =
-    MaterialColor(darkBrown.value, mapPrimarySwatchColor);
+    MaterialColor(ThemeColors.darkBrown.value, mapPrimarySwatchColor);
 
 ThemeData brownDarkTheme = ThemeData(
   brightness: Brightness.dark,
   primarySwatch: brownDarkPrimarySwatch,
-  primaryColor: darkBrown,
-  backgroundColor: backgroundDarkMode,
+  primaryColor: ThemeColors.darkBrown,
+  backgroundColor: ThemeColors.backgroundDarkMode,
   primaryColorDark: Colors.black,
   primaryColorLight: Colors.white,
-  bottomAppBarColor: darkBrown,
-  indicatorColor: darkBrown,
+  bottomAppBarColor: ThemeColors.darkBrown,
+  indicatorColor: ThemeColors.darkBrown,
   secondaryHeaderColor: Colors.white,
   dividerColor: Colors.grey,
   textTheme: textTheme,
