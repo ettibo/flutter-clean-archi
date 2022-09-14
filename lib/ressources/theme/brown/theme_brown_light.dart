@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:globo_fitness/ressources/colors.dart';
+import 'package:globo_fitness/ressources/theme/theme_colors.dart';
 
 Map<int, Color> mapPrimarySwatchColor = const {
   50: Color.fromRGBO(196, 164, 132, .1),
