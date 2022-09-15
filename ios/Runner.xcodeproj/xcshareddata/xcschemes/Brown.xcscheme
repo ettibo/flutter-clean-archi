@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D36146B628D1B75900EA0977"
-               BuildableName = "Runner-Brown.app"
-               BlueprintName = "Runner-Brown"
+               BuildableName = "Brown.app"
+               BlueprintName = "Brown"
                ReferencedContainer = "container:Runner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D36146B628D1B75900EA0977"
-            BuildableName = "Runner-Brown.app"
-            BlueprintName = "Runner-Brown"
+            BuildableName = "Brown.app"
+            BlueprintName = "Brown"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D36146B628D1B75900EA0977"
-            BuildableName = "Runner-Brown.app"
-            BlueprintName = "Runner-Brown"
+            BuildableName = "Brown.app"
+            BlueprintName = "Brown"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
