@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04704D3447C604A8A4462C21 /* Pods_Green.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0EC43F7D6A0885FDC8842 /* Pods_Green.framework */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		1E7AC8C7A960A0DA5EC32BE6 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		77B96DC6C276F54ED41B3E97 /* Pods_Brown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43A5126005A2BDAB095BB9E /* Pods_Brown.framework */; };
@@ -25,8 +25,6 @@
 		D36146C328D1B75900EA0977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		D36146D228D1B7B500EA0977 /* Debug-Brown.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D36146D128D1B7B500EA0977 /* Debug-Brown.xcconfig */; };
 		D36146D728D1C12900EA0977 /* Release-Brown.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D36146D628D1C12900EA0977 /* Release-Brown.xcconfig */; };
-		F9968EF7EEB630BFD3673AB4 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
-		FDB06302EE74863111A2C603 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,7 +62,10 @@
 		3A4974FC6154E43B0FABD93F /* Pods-Runner.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-brown.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		551F0061CDFB0A269A5D5A8C /* Pods-Brown.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brown.debug-brown.xcconfig"; path = "Target Support Files/Pods-Brown/Pods-Brown.debug-brown.xcconfig"; sourceTree = "<group>"; };
+		56C0EC43F7D6A0885FDC8842 /* Pods_Green.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Green.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6221155ADF0CC1926ED0D2FF /* Pods-Green.profile-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Green.profile-green.xcconfig"; path = "Target Support Files/Pods-Green/Pods-Green.profile-green.xcconfig"; sourceTree = "<group>"; };
 		67EDA2AB6BC78E0D2DD6EC6A /* Pods-Brown.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brown.debug-green.xcconfig"; path = "Target Support Files/Pods-Brown/Pods-Brown.debug-green.xcconfig"; sourceTree = "<group>"; };
+		6F4A0DB500E4AE2002BF7739 /* Pods-Green.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Green.release-brown.xcconfig"; path = "Target Support Files/Pods-Green/Pods-Green.release-brown.xcconfig"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F30F38CEC0FA07DFFE67FBC /* Pods-Runner-Brown.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.debug-green.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.debug-green.xcconfig"; sourceTree = "<group>"; };
@@ -75,11 +76,12 @@
 		92D17A8B3AC5248BA86B311C /* Pods-Runner_Green.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.debug-green.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.debug-green.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug-Green.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Debug-Green.xcconfig"; path = "Flutter/Debug-Green.xcconfig"; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C146EE1CF9000F007C117D /* Green.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Green.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0B82CC343A251AFD2FCC498 /* Pods-Green.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Green.debug-brown.xcconfig"; path = "Target Support Files/Pods-Green/Pods-Green.debug-brown.xcconfig"; sourceTree = "<group>"; };
 		C0EAAD17D9ED02565443520F /* Pods-Runner.release-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-runner-brown.xcconfig"; sourceTree = "<group>"; };
 		C131EAEF888607FB82246FCB /* Pods-Runner.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-green.xcconfig"; sourceTree = "<group>"; };
 		CEDC119294AB675D26F5C637 /* Pods-Brown.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brown.release-green.xcconfig"; path = "Target Support Files/Pods-Brown/Pods-Brown.release-green.xcconfig"; sourceTree = "<group>"; };
@@ -92,11 +94,12 @@
 		D43A5126005A2BDAB095BB9E /* Pods_Brown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4307C9685E502D69C6F27F /* Pods-Runner.profile-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-green.xcconfig"; sourceTree = "<group>"; };
 		E7AD057544E5678E4C61D13D /* Pods-Runner_Green.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.release-green.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.release-green.xcconfig"; sourceTree = "<group>"; };
+		E905F3E739DC5DAF5581FAE1 /* Pods-Green.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Green.release-green.xcconfig"; path = "Target Support Files/Pods-Green/Pods-Green.release-green.xcconfig"; sourceTree = "<group>"; };
+		E9BAB7365B9D75435BB80F4A /* Pods-Green.debug-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Green.debug-green.xcconfig"; path = "Target Support Files/Pods-Green/Pods-Green.debug-green.xcconfig"; sourceTree = "<group>"; };
 		ED9E3CB21925BFDA32B7C8D2 /* Pods-Runner_Green.debug-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.debug-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.debug-brown.xcconfig"; sourceTree = "<group>"; };
 		F469FC7C3B975BF2F4EF3107 /* Pods-Runner_Green.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.release-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.release-brown.xcconfig"; sourceTree = "<group>"; };
 		F4A7C69AFC427F030857CC23 /* Pods-Brown.release-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brown.release-brown.xcconfig"; path = "Target Support Files/Pods-Brown/Pods-Brown.release-brown.xcconfig"; sourceTree = "<group>"; };
 		F6CE1E216A39EBBCF872BEDC /* Pods-Runner_Green.profile-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner_Green.profile-brown.xcconfig"; path = "Target Support Files/Pods-Runner_Green/Pods-Runner_Green.profile-brown.xcconfig"; sourceTree = "<group>"; };
-		F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9D4C45D7194A86B7E17F1F /* Pods-Runner-Brown.debug-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner-Brown.debug-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner-Brown/Pods-Runner-Brown.debug-runner-brown.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9968EF7EEB630BFD3673AB4 /* Pods_Runner.framework in Frameworks */,
-				1E7AC8C7A960A0DA5EC32BE6 /* Pods_Runner.framework in Frameworks */,
-				FDB06302EE74863111A2C603 /* Pods_Runner.framework in Frameworks */,
+				04704D3447C604A8A4462C21 /* Pods_Green.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +151,11 @@
 				CEDC119294AB675D26F5C637 /* Pods-Brown.release-green.xcconfig */,
 				F4A7C69AFC427F030857CC23 /* Pods-Brown.release-brown.xcconfig */,
 				8A67948DB60DAE46E853142C /* Pods-Brown.profile-green.xcconfig */,
+				E9BAB7365B9D75435BB80F4A /* Pods-Green.debug-green.xcconfig */,
+				A0B82CC343A251AFD2FCC498 /* Pods-Green.debug-brown.xcconfig */,
+				E905F3E739DC5DAF5581FAE1 /* Pods-Green.release-green.xcconfig */,
+				6F4A0DB500E4AE2002BF7739 /* Pods-Green.release-brown.xcconfig */,
+				6221155ADF0CC1926ED0D2FF /* Pods-Green.profile-green.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -183,7 +189,7 @@
 		97C146EF1CF9000F007C117D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97C146EE1CF9000F007C117D /* Runner.app */,
+				97C146EE1CF9000F007C117D /* Green.app */,
 				D36146CF28D1B75900EA0977 /* Brown.app */,
 			);
 			name = Products;
@@ -207,8 +213,8 @@
 		9F6DC6312EE9DE1584832A38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8AAC0DDAE1D12F797EC1A7F /* Pods_Runner.framework */,
 				D43A5126005A2BDAB095BB9E /* Pods_Brown.framework */,
+				56C0EC43F7D6A0885FDC8842 /* Pods_Green.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		97C146ED1CF9000F007C117D /* Runner */ = {
+		97C146ED1CF9000F007C117D /* Green */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
+			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Green" */;
 			buildPhases = (
 				B959F2DD5AC9830F33809A3C /* [CP] Check Pods Manifest.lock */,
 				9740EEB61CF901F6004384FC /* Run Script */,
@@ -234,9 +240,9 @@
 			);
 			dependencies = (
 			);
-			name = Runner;
+			name = Green;
 			productName = Runner;
-			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
+			productReference = 97C146EE1CF9000F007C117D /* Green.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D36146B628D1B75900EA0977 /* Brown */ = {
@@ -290,7 +296,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97C146ED1CF9000F007C117D /* Runner */,
+				97C146ED1CF9000F007C117D /* Green */,
 				D36146B628D1B75900EA0977 /* Brown */,
 			);
 		};
@@ -346,15 +352,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Green/Pods-Green-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Green/Pods-Green-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Green/Pods-Green-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
@@ -426,7 +432,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Green-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -613,9 +619,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug-Green";
@@ -691,8 +701,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release-Green";
@@ -766,8 +780,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Profile-Green";
@@ -789,9 +807,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug-Green";
@@ -813,8 +835,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release-Green";
@@ -836,8 +862,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Profile-Green";
@@ -916,9 +946,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug-Brown";
@@ -940,9 +974,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug-Brown";
@@ -1018,8 +1056,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.green;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release-Brown";
@@ -1041,8 +1083,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.globoFitness.brown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Release-Brown";
@@ -1062,7 +1108,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug-Green";
 		};
-		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
+		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Green" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D347B9B428AFB04E00589473 /* Debug-Green */,

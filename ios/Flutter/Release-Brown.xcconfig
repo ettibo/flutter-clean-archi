@@ -1,2 +1,4 @@
 #include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Pods/Target Support Files/Pods-Brown/Pods-Brown.release-brown.xcconfig"
+#include "Pods/Target Support Files/Pods-Green/Pods-Green.release-brown.xcconfig"
 #include "Generated.xcconfig"
