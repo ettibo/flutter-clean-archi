@@ -73,6 +73,28 @@ mixin _$MapViewModel on MapViewModelBase, Store {
       ActionController(name: 'MapViewModelBase', context: context);
 
   @override
+  void generateMarkers() {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase.generateMarkers');
+    try {
+      return super.generateMarkers();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void _clearMarkerList() {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase._clearMarkerList');
+    try {
+      return super._clearMarkerList();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void centerOnUser() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
         name: 'MapViewModelBase.centerOnUser');
