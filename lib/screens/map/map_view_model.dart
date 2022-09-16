@@ -63,7 +63,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   @override
   void init() {
     _initMap();
-    _generateMarkers();
+    generateMarkers();
   }
 
   @override
@@ -110,7 +110,8 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
-  void _generateMarkers() {
+  @action
+  void generateMarkers() {
     List<Marker> newMarkers = [];
 
     for (var tree in _treeStore.trees) {
@@ -120,7 +121,9 @@ abstract class MapViewModelBase with Store, ViewModel {
         });
       });
     }
-    treesMarkers.addAll(newMarkers.sublist(treesMarkers.length));
+
+    _clearMarkerList();
+    treesMarkers.addAll(newMarkers);
   }
 
   void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
@@ -130,7 +133,10 @@ abstract class MapViewModelBase with Store, ViewModel {
     centerCurrentLocationStreamController.close();
   }
 
-  void _clearMarkerList() => treesMarkers.clear();
+  @action
+  void _clearMarkerList() {
+    treesMarkers.clear();
+  }
 
   // Methods
   @action
