@@ -54,7 +54,11 @@
         "location_permission_denied": "Location permissions are denied",
         "location_permission_denied_permanently": "Location permissions are permanently denied.",
         "switch_language_description": "Switch the language of the application",
-        "throw_test_exception" : "Throw Test Exception"
+        "throw_test_exception" : "Throw Test Exception",
+        "update_language_alert_title": "Language update",
+        "update_language_alert_content": "Are you sure you want to update the language?",
+        "update_language_alert_cancel_button": "Cancel",
+        "update_language_alert_update_button": "Update"
     },
     
     "langage": {

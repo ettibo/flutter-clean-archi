@@ -64,7 +64,11 @@ class CodegenLoader extends AssetLoader{
     "location_permission_denied": "Location permissions are denied",
     "location_permission_denied_permanently": "Location permissions are permanently denied.",
     "switch_language_description": "Switch the language of the application",
-    "throw_test_exception": "Throw Test Exception"
+    "throw_test_exception": "Throw Test Exception",
+    "update_language_alert_title": "Language update",
+    "update_language_alert_content": "Are you sure you want to update the language?",
+    "update_language_alert_cancel_button": "Cancel",
+    "update_language_alert_update_button": "Update"
   },
   "langage": {
     "english_langage": "English",
@@ -128,7 +132,11 @@ static const Map<String,dynamic> fr = {
     "location_permission_denied": "Les autorisations de localisation sont refusées.",
     "location_permission_denied_permanently": "Les autorisations de localisation sont refusées de façon permanente.",
     "switch_language_description": "Changer la langue de l'application",
-    "throw_test_exception": "Déclencher un test d'erreur"
+    "throw_test_exception": "Déclencher un test d'erreur",
+    "update_language_alert_title": "Mise à jour de la langue",
+    "update_language_alert_content": "Êtes-vous sur de vouloir mettre à jour la langue?",
+    "update_language_alert_cancel_button": "Annuler",
+    "update_language_alert_update_button": "Mettre à jour"
   },
   "langage": {
     "english_langage": "Anglais",
@@ -192,7 +200,11 @@ static const Map<String,dynamic> es = {
     "location_permission_denied": "Los permisos de localización están denegados.",
     "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados.",
     "switch_language_description": "Cambiar el idioma de la aplicación",
-    "throw_test_exception": "Lanzar una excepción de prueba"
+    "throw_test_exception": "Lanzar una excepción de prueba",
+    "update_language_alert_title": "Actualización de idioma",
+    "update_language_alert_content": "¿Está seguro de que desea actualizar el idioma?",
+    "update_language_alert_cancel_button": "Anular",
+    "update_language_alert_update_button": "Poner al día"
   },
   "langage": {
     "english_langage": "Inglés",

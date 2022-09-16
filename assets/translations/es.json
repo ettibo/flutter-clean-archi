@@ -53,7 +53,11 @@
         "location_permission_denied": "Los permisos de localización están denegados.",
         "location_permission_denied_permanently": "Los permisos de localización están permanentemente denegados.",
         "switch_language_description": "Cambiar el idioma de la aplicación",
-        "throw_test_exception" : "Lanzar una excepción de prueba"
+        "throw_test_exception" : "Lanzar una excepción de prueba",
+        "update_language_alert_title": "Actualización de idioma",
+        "update_language_alert_content": "¿Está seguro de que desea actualizar el idioma?",
+        "update_language_alert_cancel_button": "Anular",
+        "update_language_alert_update_button": "Poner al día"
     },
     "langage": {
         "english_langage": "Inglés",
