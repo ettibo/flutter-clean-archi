@@ -185,12 +185,42 @@ abstract class SettingsViewModelBase with Store, ViewModel {
         color: Theme.of(context).primaryColor,
         padding: const EdgeInsets.all(10),
         onPressed: () async => {
-          await context.setLocale(Locale(languageCode)),
-          // ignore: use_build_context_synchronously
-          Phoenix.rebirth(context)
+          _displayUpdateLanguageAlert(
+              languageCode: languageCode, context: context)
         },
         child: Text(language),
       ),
     );
   }
+
+  void _displayUpdateLanguageAlert(
+          {required String languageCode, required BuildContext context}) =>
+      showPlatformDialog(
+        context: context,
+        builder: (_) => PlatformAlertDialog(
+          title: Text(LocaleKeys.setting_screen_update_language_alert_title
+              .localized()),
+          content: Text(LocaleKeys.setting_screen_update_language_alert_content
+              .localized()),
+          actions: <Widget>[
+            PlatformDialogAction(
+              child: PlatformText(LocaleKeys
+                  .setting_screen_update_language_alert_cancel_button
+                  .localized()),
+              onPressed: () =>
+                  Navigator.of(context, rootNavigator: true).pop('dialog'),
+            ),
+            PlatformDialogAction(
+              child: PlatformText(LocaleKeys
+                  .setting_screen_update_language_alert_update_button
+                  .localized()),
+              onPressed: () async {
+                await context.setLocale(Locale(languageCode));
+                // ignore: use_build_context_synchronously
+                Phoenix.rebirth(context);
+              },
+            ),
+          ],
+        ),
+      );
 }
