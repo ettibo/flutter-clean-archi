@@ -50,14 +50,11 @@ abstract class MapViewModelBase with Store, ViewModel {
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
-  @observable
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
-  @observable
   ObservableList<Marker> treesMarkers = ObservableList();
 
-  @observable
   CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
 
   @override
@@ -79,7 +76,6 @@ abstract class MapViewModelBase with Store, ViewModel {
     _initTileLayerOptions();
   }
 
-  @action
   Future<Position> determinePosition(BuildContext context) async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -110,7 +106,6 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
-  @action
   void generateMarkers() {
     List<Marker> newMarkers = [];
 
@@ -133,13 +128,9 @@ abstract class MapViewModelBase with Store, ViewModel {
     centerCurrentLocationStreamController.close();
   }
 
-  @action
-  void _clearMarkerList() {
-    treesMarkers.clear();
-  }
+  void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
-  @action
   void centerOnUser() {
     centerOnLocationUpdate = CenterOnLocationUpdate.once;
     centerCurrentLocationStreamController.add(mapController.zoom);

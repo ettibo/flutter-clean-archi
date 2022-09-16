@@ -51,60 +51,61 @@ class _MapScreenState extends State<MapScreen> {
   void _onVisibilityGained() => setState(() => viewModel.generateMarkers());
 
   Widget _observerBuilder(BuildContext context) => FocusDetector(
-      onVisibilityGained: _onVisibilityGained,
-      child: Column(
-        children: [
-          Expanded(
-            child: FlutterMap(
-              mapController: viewModel.mapController,
-              options: MapOptions(
-                center: viewModel.parisCoord,
-                zoom: viewModel.defaultZoom,
-                maxZoom: viewModel.maxZoom,
-                onTap: viewModel.onTapMap,
-                plugins: [
-                  MarkerClusterPlugin(),
+        onVisibilityGained: _onVisibilityGained,
+        child: Column(
+          children: [
+            Expanded(
+              child: FlutterMap(
+                mapController: viewModel.mapController,
+                options: MapOptions(
+                  center: viewModel.parisCoord,
+                  zoom: viewModel.defaultZoom,
+                  maxZoom: viewModel.maxZoom,
+                  onTap: viewModel.onTapMap,
+                  plugins: [
+                    MarkerClusterPlugin(),
+                  ],
+                ),
+                nonRotatedChildren: [
+                  viewModel.displayCenterOnUserButton(
+                      widget: _centerOnUserButton()),
+                  // Zoom Buttons
+                  FlutterMapZoomButtons(
+                    alignment: Alignment.bottomLeft,
+                    onPressedZoomIn: viewModel.onPressedZoomIn,
+                    onPressedZoomOut: viewModel.onPressedZoomOut,
+                  ),
                 ],
-              ),
-              nonRotatedChildren: [
-                viewModel.displayCenterOnUserButton(
-                    widget: _centerOnUserButton()),
-                // Zoom Buttons
-                FlutterMapZoomButtons(
-                  alignment: Alignment.bottomLeft,
-                  onPressedZoomIn: viewModel.onPressedZoomIn,
-                  onPressedZoomOut: viewModel.onPressedZoomOut,
-                ),
-              ],
-              children: <Widget>[
-                TileLayerWidget(
-                  options: viewModel.tileLayerOptions,
-                ),
+                children: <Widget>[
+                  TileLayerWidget(
+                    options: viewModel.tileLayerOptions,
+                  ),
 
-                // Center on User Button
-                viewModel.displayUserLocationIfGranted(),
+                  // Center on User Button
+                  viewModel.displayUserLocationIfGranted(),
 
-                //Cluster & Popup Options
-                MarkerClusterLayerWidget(
-                  key: UniqueKey(),
-                  options: MarkerClusterLayerOptions(
-                    maxClusterRadius: viewModel.maxClusterRadius,
-                    size: viewModel.clusterSize,
-                    fitBoundsOptions: viewModel.fitBoundsOptions,
-                    markers: viewModel.treesMarkers,
-                    polygonOptions: viewModel.polygonOptions,
-                    builder: _clusterBuilder,
-                    popupOptions: PopupOptions(
-                      popupController: viewModel.popupLayerController,
-                      popupBuilder: viewModel.mapPopupBuilder,
+                  //Cluster & Popup Options
+                  MarkerClusterLayerWidget(
+                    key: UniqueKey(),
+                    options: MarkerClusterLayerOptions(
+                      maxClusterRadius: viewModel.maxClusterRadius,
+                      size: viewModel.clusterSize,
+                      fitBoundsOptions: viewModel.fitBoundsOptions,
+                      markers: viewModel.treesMarkers,
+                      polygonOptions: viewModel.polygonOptions,
+                      builder: _clusterBuilder,
+                      popupOptions: PopupOptions(
+                        popupController: viewModel.popupLayerController,
+                        popupBuilder: viewModel.mapPopupBuilder,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ));
+          ],
+        ),
+      );
 
   Widget _clusterBuilder(BuildContext context, List<Marker> markers) =>
       FloatingActionButton(
