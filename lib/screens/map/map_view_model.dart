@@ -53,7 +53,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
-  ObservableList<Marker> treesMarkers = ObservableList();
+  List<Marker> treesMarkers = [];
 
   CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
 

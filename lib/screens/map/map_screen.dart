@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:focus_detector/focus_detector.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:flutter_map/flutter_map.dart';
@@ -43,14 +42,14 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
-        child: Observer(builder: _observerBuilder),
+        child: _builder(context),
       ),
     );
   }
 
   void _onVisibilityGained() => setState(() => viewModel.generateMarkers());
 
-  Widget _observerBuilder(BuildContext context) => FocusDetector(
+  Widget _builder(BuildContext context) => FocusDetector(
         onVisibilityGained: _onVisibilityGained,
         child: Column(
           children: [
