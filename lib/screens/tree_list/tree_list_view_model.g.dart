@@ -34,12 +34,18 @@ mixin _$TreeListViewModel on TreeListViewModelBase, Store {
         .run(() => super.fetch(startRow: startRow, nbRows: nbRows));
   }
 
-  late final _$onListRefreshAsyncAction =
-      AsyncAction('TreeListViewModelBase.onListRefresh', context: context);
+  late final _$TreeListViewModelBaseActionController =
+      ActionController(name: 'TreeListViewModelBase', context: context);
 
   @override
-  Future<void> onListRefresh() {
-    return _$onListRefreshAsyncAction.run(() => super.onListRefresh());
+  void _fetchMoreTrees() {
+    final _$actionInfo = _$TreeListViewModelBaseActionController.startAction(
+        name: 'TreeListViewModelBase._fetchMoreTrees');
+    try {
+      return super._fetchMoreTrees();
+    } finally {
+      _$TreeListViewModelBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
