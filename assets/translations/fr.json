@@ -11,7 +11,8 @@
     "tree_list_screen" : {
         "tree_without_name": "Arbre sans nom",
         "species": "Espèce",
-        "species_not_specified": "Non spécifiée"
+        "species_not_specified": "Non spécifiée",
+        "list_is_empty": "La liste est vide.\n\nActualiser la liste ou connectez-vous à internet pour voir les différents arbres de la ville de Paris"
     },
     
     "tree_detail_screen": {

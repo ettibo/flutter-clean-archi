@@ -26,7 +26,8 @@ class CodegenLoader extends AssetLoader{
   "tree_list_screen": {
     "tree_without_name": "Tree without name",
     "species": "Species",
-    "species_not_specified": "Not specified"
+    "species_not_specified": "Not specified",
+    "list_is_empty": "The list is empty.\n\nUpdate the list or connect to the internet to see the different trees of the city of Paris"
   },
   "tree_detail_screen": {
     "species": "Species",
@@ -98,7 +99,8 @@ static const Map<String,dynamic> fr = {
   "tree_list_screen": {
     "tree_without_name": "Arbre sans nom",
     "species": "Espèce",
-    "species_not_specified": "Non spécifiée"
+    "species_not_specified": "Non spécifiée",
+    "list_is_empty": "La liste est vide.\n\nActualiser la liste ou connectez-vous à internet pour voir les différents arbres de la ville de Paris"
   },
   "tree_detail_screen": {
     "species": "Espèce",
@@ -170,7 +172,8 @@ static const Map<String,dynamic> es = {
   "tree_list_screen": {
     "tree_without_name": "Árbol sin nombre",
     "species": "Especie",
-    "species_not_specified": "No especificadas"
+    "species_not_specified": "No especificadas",
+    "list_is_empty": "La lista está vacía.\n\nActualice la lista o conéctese a Internet para ver los diferentes árboles de la ciudad de París"
   },
   "tree_detail_screen": {
     "species": "Especie",

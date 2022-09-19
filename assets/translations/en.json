@@ -12,7 +12,8 @@
     "tree_list_screen" : {
         "tree_without_name": "Tree without name",
         "species": "Species",
-        "species_not_specified": "Not specified"
+        "species_not_specified": "Not specified",
+        "list_is_empty": "The list is empty.\n\nUpdate the list or connect to the internet to see the different trees of the city of Paris"
     },
 
     "tree_detail_screen": {

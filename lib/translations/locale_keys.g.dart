@@ -11,6 +11,7 @@ abstract class  LocaleKeys {
   static const tree_list_screen_tree_without_name = 'tree_list_screen.tree_without_name';
   static const tree_list_screen_species = 'tree_list_screen.species';
   static const tree_list_screen_species_not_specified = 'tree_list_screen.species_not_specified';
+  static const tree_list_screen_list_is_empty = 'tree_list_screen.list_is_empty';
   static const tree_list_screen = 'tree_list_screen';
   static const tree_detail_screen_species = 'tree_detail_screen.species';
   static const tree_detail_screen_species_not_specified = 'tree_detail_screen.species_not_specified';
