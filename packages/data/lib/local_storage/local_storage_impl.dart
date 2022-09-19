@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:data/models/local/object_box/objectbox.g.dart';
 import 'package:data/models/local/base_local/base_local_object.dart';
-import 'package:flutter/material.dart';
+import 'package:objectbox/internal.dart';
 
 import 'local_storage.dart';
 
@@ -54,9 +56,21 @@ class LocalStorageImpl implements LocalStorage {
   }
 
   @override
-  List<T> getItems<T>() {
+  List<T> getItems<T, U>(
+      {int startRow = 0,
+      int nbRows = 20,
+      QueryProperty<T, U>? orderProperty,
+      int orderFlags = 0}) {
     final box = store.box<T>();
-    return box.getAll();
+
+    Query<T> query = orderProperty != null
+        ? (box.query()..order(orderProperty, flags: orderFlags)).build()
+        : box.query().build();
+
+    query.offset = startRow;
+    query.limit = nbRows;
+
+    return query.find();
   }
 
   @override
