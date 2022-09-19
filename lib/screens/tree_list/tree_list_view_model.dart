@@ -8,6 +8,7 @@ import 'package:globo_fitness/managers/connectionManager/connection_manager.dart
 import 'package:api/strategy/fetch_strategy.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/use_case/tree/tree_list.dart';
+import 'package:api/use_case/tree/delete_local_trees.dart';
 
 import 'package:globo_fitness/store/tree_store.dart';
 import 'package:globo_fitness/template/view_model/view_model.dart';
@@ -24,12 +25,18 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   final TreeStoreBase treeStore =
       DependecyInjection.instance.get<TreeStoreBase>();
 
-  final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
-  final ConnectionManager connectionStatusManager =
+  final ConnectionManager _connectionManager =
       DependecyInjection.instance.get<ConnectionManager>();
+
+  final GetTreeList _getTreeListUseCase =
+      DependecyInjection.instance.get<GetTreeList>();
+
+  final DeleteLocalTrees _deleteLocalTreesUseCase =
+      DependecyInjection.instance.get<DeleteLocalTrees>();
 
   @observable
   bool isLoadingTrees = false;
+
   List<Tree> _newTrees = [];
 
   @override
@@ -44,18 +51,23 @@ abstract class TreeListViewModelBase with Store, ViewModel {
 
   @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
-    _newTrees = await _useCase.fetch(
+    isLoadingTrees = true;
+    _newTrees = await _getTreeListUseCase.fetch(
         startRow: startRow,
         nbRows: nbRows,
-        fetchStrategy: await connectionStatusManager.hasInternetConnection()
+        fetchStrategy: await _connectionManager.hasInternetConnection()
             ? FetchStrategy.remote
             : FetchStrategy.local);
+    isLoadingTrees = false;
     treeStore.addTrees(_newTrees);
   }
 
-  @action
   Future<void> onListRefresh() async {
     treeStore.clearTreeList();
+    await _deleteLocalTreesUseCase.deleteTrees(
+        fetchStrategy: await _connectionManager.hasInternetConnection()
+            ? FetchStrategy.remote
+            : FetchStrategy.local);
     fetch();
   }
 
@@ -97,9 +109,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     }
   }
 
-  void _fetchMoreTrees() {
-    isLoadingTrees = true;
-    fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
-        .then((_) => isLoadingTrees = false);
-  }
+  @action
+  void _fetchMoreTrees() =>
+      fetch(startRow: treeStore.countTreeList(), nbRows: 20);
 }
