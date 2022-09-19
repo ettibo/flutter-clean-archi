@@ -71,5 +71,10 @@
 
     "remote_config": {
         "key_label_force_language_setting" : "Valor predeterminado de remote config"
+    },
+
+    "toast_message": {
+        "succes_connexion_message": "Estás conectado a Internet",
+        "error_connexion_message": "No está conectado a Internet"
     }
 }
