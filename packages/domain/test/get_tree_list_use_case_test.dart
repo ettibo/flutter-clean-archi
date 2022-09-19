@@ -14,7 +14,7 @@ class MockRemoteTreeDataSource implements RemoteTreeDataSource {
 
 class MockLocalTreeDataSource implements LocalTreeDataSource {
   @override
-  List<Tree> getTreeList() => [Tree.mock];
+  List<Tree> getTreeList({int startRow = 0, int nbRows = 20}) => [Tree.mock];
 
   @override
   int clear() => 0;

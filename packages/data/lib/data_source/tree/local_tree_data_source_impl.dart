@@ -1,21 +1,29 @@
 import 'package:flutter/foundation.dart';
+
 import 'package:api/dependency_injection.dart';
 import 'package:api/data_source/tree/local_tree_data_source.dart';
 import 'package:api/models/app/tree/tree.dart';
+
+import 'package:data/models/local/object_box/objectbox.g.dart';
 import 'package:data/local_storage/local_storage.dart';
+import 'package:data/models/domain/tree/tree_domain.dart';
 import 'package:data/models/local/tree/local_tree.dart'
     if (dart.library.html) 'package:data/models/local/tree/web_local_tree.dart';
-import 'package:data/models/domain/tree/tree_domain.dart';
 
 class LocalTreeDataSourceImpl implements LocalTreeDataSource {
   final LocalStorage localStorage =
       DependecyInjection.instance.get<LocalStorage>();
 
   @override
-  List<Tree> getTreeList() {
+  List<Tree> getTreeList({int startRow = 0, int nbRows = 20}) {
     List<Tree> trees = [];
     if (!kIsWeb) {
-      List<LocalTree> list = localStorage.getItems();
+      List<LocalTree> list = localStorage.getItems(
+        startRow: startRow,
+        nbRows: nbRows,
+        orderProperty: LocalTree_.insertedAt,
+      );
+
       for (var item in list) {
         trees.add(item.toDomain());
       }
@@ -47,6 +55,7 @@ class LocalTreeDataSourceImpl implements LocalTreeDataSource {
     localTree.species = tree.species;
     localTree.height = tree.height;
     localTree.circumference = tree.circumference;
+    localTree.insertedAt = DateTime.now().millisecondsSinceEpoch;
     return localTree;
   }
 }
