@@ -1,7 +1,8 @@
 import 'package:api/dependency_injection.dart';
 
-import 'package:api/models/app/managers/connection_status_manager.dart';
 import 'package:api/models/app/managers/remote_config.dart';
+
+import 'package:globo_fitness/managers/connection_status_manager.dart';
 
 final ConnectionStatusManager _connectionStatusManager =
     DependecyInjection.instance.get<ConnectionStatusManager>();
