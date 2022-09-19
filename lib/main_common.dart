@@ -14,16 +14,17 @@ import 'package:globo_fitness/firebase/brown_firebase_options.dart'
 
 import 'package:globo_fitness/screens/home/home_screen.dart';
 
-import 'package:globo_fitness/managers/connection_status_manager.dart';
+import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
 import 'package:globo_fitness/managers/remote_config_manager.dart';
 import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
+
+import 'package:globo_fitness/app_config.dart';
+import 'package:globo_fitness/shared/global_key.dart';
 import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 import 'package:globo_fitness/app_config.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,7 +71,7 @@ class GlobeApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          navigatorKey: navigatorKey,
+          navigatorKey: GlobalContextKey.instance.globalKey,
           home: const HomeScreen(),
         );
       });
@@ -93,8 +94,8 @@ Future<void> _firebaseInitializer(FlavorName flavorName) async {
 }
 
 void _activateManagers() {
-  ConnectionStatusManager connectionStatusManager =
-  DependecyInjection.instance.get<ConnectionStatusManager>();
+  ConnectionStatusManagerImpl connectionStatusManager =
+  DependecyInjection.instance.get<ConnectionStatusManagerImpl>();
   connectionStatusManager.activateConnectionManager();
   activateRemoteConfig();
 

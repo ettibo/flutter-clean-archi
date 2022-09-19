@@ -2,11 +2,10 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'package:globo_fitness/managers/connection_status_manager.dart';
+import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
 import 'package:globo_fitness/shared/toast_utils.dart';
 
-
-class ConnectionCheckStatusManager implements ConnectionStatusManager {
+class ConnectionCheckStatusManager implements ConnectionStatusManagerImpl {
   static final ConnectionCheckStatusManager _connectionStatusSingleton =
       ConnectionCheckStatusManager._internal();
   ConnectionCheckStatusManager._internal();
@@ -43,14 +42,7 @@ class ConnectionCheckStatusManager implements ConnectionStatusManager {
       _hasConnection = false;
     }
     _connectionChangeController.add(_hasConnection);
-    setCheckInternetConnectionMsg(_hasConnection);
+    showAlertCheckInternetConnection(_hasConnection);
     return _hasConnection;
-  }
-
-  @override
-  void setCheckInternetConnectionMsg(bool hasConnection) async {
-    hasConnection
-        ? showSuccess("success")
-        : showError("Vous n'êtes pas connecté");
   }
 }
