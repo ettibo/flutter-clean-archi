@@ -25,7 +25,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-
     viewModel.init();
     viewModel
         .determinePosition(context)
