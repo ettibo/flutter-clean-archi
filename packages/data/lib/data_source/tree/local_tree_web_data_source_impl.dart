@@ -3,13 +3,11 @@ import 'package:api/models/app/tree/tree.dart';
 
 class LocalTreeWebDataSourceImpl implements LocalTreeDataSource {
   @override
-  int clear() {
-    return 0;
-  }
-
-  @override
-  List<Tree> getTreeList() => [];
+  List<Tree> getTreeList({int startRow = 0, int nbRows = 20}) => [];
 
   @override
   List<int> saveTreeList(List<Tree> list) => [];
+
+  @override
+  int clear() => 0;
 }
