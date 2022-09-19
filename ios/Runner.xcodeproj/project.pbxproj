@@ -85,7 +85,7 @@
 		C0EAAD17D9ED02565443520F /* Pods-Runner.release-runner-brown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-runner-brown.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-runner-brown.xcconfig"; sourceTree = "<group>"; };
 		C131EAEF888607FB82246FCB /* Pods-Runner.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-green.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-green.xcconfig"; sourceTree = "<group>"; };
 		CEDC119294AB675D26F5C637 /* Pods-Brown.release-green.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brown.release-green.xcconfig"; path = "Target Support Files/Pods-Brown/Pods-Brown.release-green.xcconfig"; sourceTree = "<group>"; };
-		D36146AB28D1B35D00EA0977 /* Runner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Runner-Info.plist"; path = "/Users/d.pocheron/Documents/OnePointDev/Flutter/flutter-clean-archi/ios/Runner-Info.plist"; sourceTree = "<absolute>"; };
+		D36146AB28D1B35D00EA0977 /* Green-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Green-Info.plist"; path = "/Users/d.pocheron/Documents/OnePointDev/Flutter/flutter-clean-archi/ios/Green-Info.plist"; sourceTree = "<absolute>"; };
 		D36146CF28D1B75900EA0977 /* Brown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36146D028D1B75900EA0977 /* Brown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Brown-Info.plist"; path = "/Users/d.pocheron/Documents/OnePointDev/Flutter/flutter-clean-archi/ios/Brown-Info.plist"; sourceTree = "<absolute>"; };
 		D36146D128D1B7B500EA0977 /* Debug-Brown.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Debug-Brown.xcconfig"; path = "Flutter/Debug-Brown.xcconfig"; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				97C146EF1CF9000F007C117D /* Products */,
 				5941E696F22DFA8D7678FA95 /* Pods */,
 				9F6DC6312EE9DE1584832A38 /* Frameworks */,
-				D36146AB28D1B35D00EA0977 /* Runner-Info.plist */,
+				D36146AB28D1B35D00EA0977 /* Green-Info.plist */,
 				D36146D028D1B75900EA0977 /* Brown-Info.plist */,
 			);
 			sourceTree = "<group>";
@@ -612,7 +612,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Runner-Info.plist";
+				INFOPLIST_FILE = "Green-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,7 +694,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Runner-Info.plist";
+				INFOPLIST_FILE = "Green-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,7 +773,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Runner-Info.plist";
+				INFOPLIST_FILE = "Green-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -939,7 +939,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Runner-Info.plist";
+				INFOPLIST_FILE = "Green-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1049,7 +1049,7 @@
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = T2C24KCSV2;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Runner-Info.plist";
+				INFOPLIST_FILE = "Green-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
