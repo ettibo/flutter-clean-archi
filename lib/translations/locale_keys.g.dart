@@ -43,6 +43,12 @@ abstract class  LocaleKeys {
   static const setting_screen_location_services_disabled = 'setting_screen.location_services_disabled';
   static const setting_screen_location_permission_denied = 'setting_screen.location_permission_denied';
   static const setting_screen_location_permission_denied_permanently = 'setting_screen.location_permission_denied_permanently';
+  static const setting_screen_switch_language_description = 'setting_screen.switch_language_description';
+  static const setting_screen_throw_test_exception = 'setting_screen.throw_test_exception';
+  static const setting_screen_update_language_alert_title = 'setting_screen.update_language_alert_title';
+  static const setting_screen_update_language_alert_content = 'setting_screen.update_language_alert_content';
+  static const setting_screen_update_language_alert_cancel_button = 'setting_screen.update_language_alert_cancel_button';
+  static const setting_screen_update_language_alert_update_button = 'setting_screen.update_language_alert_update_button';
   static const setting_screen = 'setting_screen';
   static const langage_english_langage = 'langage.english_langage';
   static const langage_spanish_langage = 'langage.spanish_langage';

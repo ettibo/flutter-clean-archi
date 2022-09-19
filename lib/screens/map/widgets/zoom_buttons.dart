@@ -51,7 +51,7 @@ class FlutterMapZoomButtons extends StatelessWidget {
           heroTag: isZoomIn ? 'zoomInButton' : 'zoomOutButton',
           mini: isMini,
           backgroundColor: (isZoomIn ? zoomInColor : zoomOutColor) ??
-              Theme.of(context).primaryColorDark,
+              Theme.of(context).primaryColor,
           onPressed: isZoomIn ? onPressedZoomIn : onPressedZoomOut,
           child: Icon(isZoomIn ? zoomInIcon : zoomOutIcon,
               color: (isZoomIn ? zoomInColorIcon : zoomOutColorIcon) ??

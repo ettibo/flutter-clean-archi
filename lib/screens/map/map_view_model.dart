@@ -50,19 +50,16 @@ abstract class MapViewModelBase with Store, ViewModel {
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
-  @observable
-  ObservableList<Marker> treesMarkers = ObservableList();
-
-  @observable
-  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.never;
-
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
+
+  List<Marker> treesMarkers = [];
+
+  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
 
   @override
   void init() {
     _initMap();
-    _generateMarkers();
   }
 
   @override
@@ -73,12 +70,11 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   // Init Methods
   void _initMap() {
-    centerCurrentLocationStreamController = StreamController<double?>();
     mapController = MapController();
+    centerCurrentLocationStreamController = StreamController<double?>();
     _initTileLayerOptions();
   }
 
-  @action
   Future<Position> determinePosition(BuildContext context) async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -109,7 +105,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
-  void _generateMarkers() {
+  void generateMarkers() {
     List<Marker> newMarkers = [];
 
     for (var tree in _treeStore.trees) {
@@ -119,28 +115,30 @@ abstract class MapViewModelBase with Store, ViewModel {
         });
       });
     }
+
+    _clearMarkerList();
     treesMarkers.addAll(newMarkers);
   }
 
   void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
 
-  // Dispose Methods
-  void _disposeCenterLocStream() =>
-      centerCurrentLocationStreamController.close();
-
   void _disposeMap() {
-    _disposeCenterLocStream();
     mapController.dispose();
+    centerCurrentLocationStreamController.close();
   }
 
   void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
-  @action
   void centerOnUser() {
     centerOnLocationUpdate = CenterOnLocationUpdate.once;
     centerCurrentLocationStreamController.add(mapController.zoom);
   }
+
+  Widget displayCenterOnUserButton({required Widget widget}) =>
+      centerOnLocationUpdate == CenterOnLocationUpdate.never
+          ? const SizedBox.shrink()
+          : widget;
 
   Widget displayUserLocationIfGranted() =>
       centerOnLocationUpdate == CenterOnLocationUpdate.never
@@ -150,6 +148,7 @@ abstract class MapViewModelBase with Store, ViewModel {
                 centerOnLocationUpdate: centerOnLocationUpdate,
                 centerCurrentLocationStream:
                     centerCurrentLocationStreamController.stream,
+                turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
               ),
             );
 

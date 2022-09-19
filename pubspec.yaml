@@ -31,8 +31,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  easy_localization: ^3.0.1
+
+  flutter_platform_widgets: ^2.0.0
+  universal_platform: ^1.0.0+1
 
   cupertino_icons: ^1.0.5
+  cupertino_list_tile: ^0.2.1
 
   mobx: ^2.0.7+5
   flutter_mobx: ^2.0.6+1
@@ -47,18 +52,12 @@ dependencies:
 
   firebase_core: ^1.21.1
 
-  # This package is used to generate App_Icons
-  # It can be deleted with associated files:
-  # - flutter_launcher_icons-green.yaml
-  # - flutter_launcher_icons-brow.yaml
-  flutter_launcher_icons: ^0.10.0
-
-  easy_localization: ^3.0.1
-
   flutter_phoenix: ^1.1.0
 
   connectivity_plus: ^2.3.6+1
-  
+
+  focus_detector: ^2.0.1
+
   api:
     path: packages/api
   data:
@@ -84,7 +83,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  generate: true
+  #generate: true
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/map/map_screen.dart';
 import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
-import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
 import 'package:globo_fitness/models/navigation_object.dart';
 
-import 'package:globo_fitness/shared/material_app_bar.dart';
-import 'package:globo_fitness/extensions/state_navigaton.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
@@ -23,9 +21,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<BottomNavigationBarItem> _items = [];
   int _currentIndex = 0;
-  List<NavigationObject> navigationList = [];
-  List<BottomNavigationBarItem> items = [];
+  List<NavigationObject> _navigationList = [];
 
   @override
   void didChangeDependencies() {
@@ -34,55 +32,56 @@ class _HomeScreenState extends State<HomeScreen> {
     _generateItems();
   }
 
-  IconButton settingsIcon() => IconButton(
-      onPressed: () => navigateTo(const SettingsScreen()),
-      icon: const Icon(Icons.settings));
+  void _onTabChanged(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    void onTap(int index) {
-      setState(() {
-        _currentIndex = index;
-      });
-    }
-
-    ThemeData theme = AdaptiveTheme.of(context).theme;
-
-    return Scaffold(
-      appBar: materialAppBar(
-          title: navigationList[_currentIndex].title,
-          trailingWidgets: [settingsIcon()]),
-      body: navigationList[_currentIndex].screen,
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: theme.bottomAppBarColor,
-        items: items,
-        onTap: onTap,
+    return PlatformScaffold(
+      iosContentBottomPadding: false,
+      iosContentPadding: false,
+      cupertinoTabChildBuilder: (context, currIndex) => CupertinoTabView(
+          builder: (context) => _navigationList[currIndex].screen),
+      body: _navigationList[_currentIndex].screen,
+      bottomNavBar: PlatformNavBar(
+        backgroundColor: Theme.of(context).backgroundColor,
+        material: ((context, _) => MaterialNavBarData(
+            selectedItemColor: Theme.of(context).primaryColor)),
+        items: _items,
+        itemChanged: _onTabChanged,
         currentIndex: _currentIndex,
       ),
     );
   }
 
   void _generateNavigationList(BuildContext context) {
-    navigationList = [
+    _navigationList = [
       NavigationObject(
           title: LocaleKeys.title_title_tree_list_screen.localized(),
-          icon: CupertinoIcons.leaf_arrow_circlepath,
+          icon: UniversalPlatform.isIOS ? CupertinoIcons.tree : Icons.park,
           screen: const TreeListScreen()),
       NavigationObject(
           title: LocaleKeys.title_map_title_screen.localized(),
-          icon: Icons.map,
+          icon: UniversalPlatform.isIOS ? CupertinoIcons.map : Icons.map,
           screen: const MapScreen()),
       NavigationObject(
           title: LocaleKeys.title_bmi_title_screen.localized(),
-          icon: Icons.monitor_weight,
+          icon: UniversalPlatform.isIOS
+              ? CupertinoIcons.heart
+              : Icons.monitor_weight,
           screen: const BmiScreen()),
     ];
   }
 
   void _generateItems() {
-    for (var item in navigationList) {
-      items.add(
-          BottomNavigationBarItem(icon: Icon(item.icon), label: item.title));
+    if (_items.isEmpty) {
+      for (var item in _navigationList) {
+        _items.add(
+            BottomNavigationBarItem(icon: Icon(item.icon), label: item.title));
+      }
     }
   }
 }

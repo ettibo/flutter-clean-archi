@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 Padding separatorBuilder(
         {required BuildContext context,
         required int index,
-        double insetAll = 10.0,
-        Color color = Colors.blueGrey,
-        double indent = 10}) =>
+        double? insetAll,
+        Color? color,
+        double? indent}) =>
     Padding(
-      padding: EdgeInsets.all(insetAll),
+      padding: EdgeInsets.all(insetAll ?? 10),
       child: Divider(
-        color: color,
-        indent: indent,
+        color: color ?? Theme.of(context).dividerColor,
+        indent: indent ?? 10,
       ),
     );

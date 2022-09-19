@@ -14,6 +14,7 @@ import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/string_casing.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:globo_fitness/shared/platform_text_wrapper.dart';
 
 part 'tree_list_view_model.g.dart';
 
@@ -59,29 +60,44 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   }
 
   // UI Methods
-  Text getTitle(BuildContext context, String? treeName) => Text(
-        treeName ?? LocaleKeys.tree_list_screen_tree_without_name.localized(),
+  Widget getTitle(BuildContext context, String? treeName) => textPlatform(
+        content: treeName ??
+            LocaleKeys.tree_list_screen_tree_without_name.localized(),
+        context: context,
+        style: TextStyle(
+            color: Theme.of(context).secondaryHeaderColor,
+            decoration: TextDecoration.none,
+            fontSize: 16,
+            fontWeight: FontWeight.bold),
       );
 
-  Text getSubtitle(BuildContext context, String? subtitle, int index) => Text(
-        '${LocaleKeys.tree_list_screen_species.localized()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.tree_list_screen_species_not_specified.localized()}',
+  Widget getSubtitle(BuildContext context, String? subtitle, int index) =>
+      textPlatform(
+        content:
+            '${LocaleKeys.tree_list_screen_species.localized()} : ${subtitle != null ? subtitle.toTitleCase() : LocaleKeys.tree_list_screen_species_not_specified.localized()}',
+        context: context,
+        style: TextStyle(
+            color: Theme.of(context).secondaryHeaderColor,
+            decoration: TextDecoration.none,
+            fontSize: 14,
+            fontWeight: FontWeight.normal),
       );
 
   // Lazy Loading Methods
   bool handleScroll(ScrollNotification notification) {
     if (notification.metrics.extentAfter < 300) {
-      checkIfCanFetchMoreTrees();
+      _checkIfCanFetchMoreTrees();
     }
     return true;
   }
 
-  void checkIfCanFetchMoreTrees() {
+  void _checkIfCanFetchMoreTrees() {
     if (!isLoadingTrees) {
-      fetchMoreTrees();
+      _fetchMoreTrees();
     }
   }
 
-  void fetchMoreTrees() {
+  void _fetchMoreTrees() {
     isLoadingTrees = true;
     fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
         .then((_) => isLoadingTrees = false);
