@@ -68,6 +68,17 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
   }
 
   @override
+  void _initIsCrashManagerEnabled() {
+    final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
+        name: 'SettingsViewModelBase._initIsCrashManagerEnabled');
+    try {
+      return super._initIsCrashManagerEnabled();
+    } finally {
+      _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentTheme: ${currentTheme}
