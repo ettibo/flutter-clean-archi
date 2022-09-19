@@ -60,7 +60,6 @@ abstract class MapViewModelBase with Store, ViewModel {
   @override
   void init() {
     _initMap();
-    generateMarkers();
   }
 
   @override
