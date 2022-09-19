@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:api/models/app/managers/connection_status_manager.dart';
 import 'package:api/models/app/tree/tree.dart';
+import 'package:globo_fitness/managers/connection_status_manager.dart';
 
 import 'package:api/strategy/fetch_strategy.dart';
 import 'package:api/dependency_injection.dart';

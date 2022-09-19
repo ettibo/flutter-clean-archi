@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'package:api/models/app/managers/connection_status_manager.dart';
+import 'package:globo_fitness/managers/connection_status_manager.dart';
+import 'package:globo_fitness/shared/toast_utils.dart';
+
 
 class ConnectionCheckStatusManager implements ConnectionStatusManager {
   static final ConnectionCheckStatusManager _connectionStatusSingleton =
@@ -28,11 +30,10 @@ class ConnectionCheckStatusManager implements ConnectionStatusManager {
 
   void dispose() => _connectionChangeController.close();
 
-  @override
+@override
   Future<bool> hasInternetConnection() async {
     ConnectivityResult connectivityResult =
         await (Connectivity().checkConnectivity());
-    // connected to wifi or mobile
     if (connectivityResult == ConnectivityResult.mobile ||
         connectivityResult == ConnectivityResult.wifi) {
       _hasConnection = true;
@@ -42,6 +43,14 @@ class ConnectionCheckStatusManager implements ConnectionStatusManager {
       _hasConnection = false;
     }
     _connectionChangeController.add(_hasConnection);
+    setCheckInternetConnectionMsg(_hasConnection);
     return _hasConnection;
+  }
+
+  @override
+  void setCheckInternetConnectionMsg(bool hasConnection) async {
+    hasConnection
+        ? showSuccess("success")
+        : showError("Vous n'êtes pas connecté");
   }
 }
