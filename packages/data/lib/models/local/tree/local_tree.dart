@@ -13,7 +13,11 @@ class LocalTree implements BaseLocalObject {
   int? circumference;
   double? lat;
   double? lng;
+  late int insertedAt;
 
   @override
   int getId() => id ?? 0;
+
+  @override
+  int getInsertedAt() => insertedAt;
 }

@@ -5,6 +5,7 @@
 // See also https://docs.objectbox.io/getting-started#generate-objectbox-code
 
 // ignore_for_file: camel_case_types
+// coverage:ignore-file
 
 import 'dart:typed_data';
 
@@ -13,8 +14,7 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import '../../../models/local/tree/local_tree.dart'
-    if (dart.library.html) '../../../models/local/tree/web_local_tree.dart';
+import '../../../models/local/tree/local_tree.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -22,7 +22,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 3267340173778158162),
       name: 'LocalTree',
-      lastPropertyId: const IdUid(9, 3890551086037269909),
+      lastPropertyId: const IdUid(10, 268224280840342777),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -69,6 +69,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(9, 3890551086037269909),
             name: 'lng',
             type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 268224280840342777),
+            name: 'insertedAt',
+            type: 6,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -126,7 +131,7 @@ ModelDefinition getObjectBoxModel() {
               : fbb.writeString(object.address2!);
           final speciesOffset =
               object.species == null ? null : fbb.writeString(object.species!);
-          fbb.startTable(10);
+          fbb.startTable(11);
           fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, addressOffset);
@@ -136,6 +141,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addInt64(6, object.circumference);
           fbb.addFloat64(7, object.lat);
           fbb.addFloat64(8, object.lng);
+          fbb.addInt64(9, object.insertedAt);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -161,7 +167,9 @@ ModelDefinition getObjectBoxModel() {
             ..lat = const fb.Float64Reader()
                 .vTableGetNullable(buffer, rootOffset, 18)
             ..lng = const fb.Float64Reader()
-                .vTableGetNullable(buffer, rootOffset, 20);
+                .vTableGetNullable(buffer, rootOffset, 20)
+            ..insertedAt =
+                const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0);
 
           return object;
         })
@@ -204,4 +212,8 @@ class LocalTree_ {
 
   /// see [LocalTree.lng]
   static final lng = QueryDoubleProperty<LocalTree>(_entities[0].properties[8]);
+
+  /// see [LocalTree.insertedAt]
+  static final insertedAt =
+      QueryIntegerProperty<LocalTree>(_entities[0].properties[9]);
 }
