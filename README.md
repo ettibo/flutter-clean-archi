@@ -32,7 +32,6 @@ This project is simple Flutter application made to demonstrate how to use the Cl
 - [Connectivity_plus: Allows Flutter apps to discover network connectivity and configure themselves accordingly](https://pub.dev/packages/connectivity_plus)
 - [Universal_platform: Perform platform detection on all platforms, including Web, without errors](https://pub.dev/packages/universal_platform)
 - [Flutter_platform_widgets: Simplifying the use of both Material and Cupertino widgets with a single widget ](https://pub.dev/packages/flutter_platform_widgets)
-- [Flutter_launcher_icons: Simplifies the task of updating your Flutter app's launcher icon](https://pub.dev/packages/flutter_launcher_icons)
 - [Cupertino_icons: Default icons asset for Cupertino widgets based on Apple styled icons](https://pub.dev/packages/cupertino_icons)
 - [Cupertino_list_tile: Cupertino version of the stock Material ListTile in Flutter](https://pub.dev/packages/cupertino_list_tile)
 - [Flutter_phoenix: Easily restart your application from scratch, losing any previous state](https://pub.dev/packages/flutter_phoenix)
