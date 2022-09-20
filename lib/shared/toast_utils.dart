@@ -2,31 +2,28 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:globo_fitness/extensions/string_localized.dart';
 
 import 'package:globo_fitness/ressources/theme/theme_colors.dart';
 import 'package:globo_fitness/shared/global_key.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
-void showPopupNewConnectionStatus(bool isSuccess) {
-  bool shouldDismiss = true;
-  if (isSuccess) {
-    Timer.run(() => _showAlert(
-        LocaleKeys.toast_message_success_connexion_message.localized(),
-        ThemeColors.skyBlue,
-        CupertinoIcons.check_mark_circled_solid,
-        ThemeColors.skyBlueOpacity,
-        shouldDismiss));
-  } else {
-    Timer.run(() => _showAlert(
-        LocaleKeys.toast_message_error_connexion_message.localized(),
-        ThemeColors.lightRed,
-        Icons.error_outline,
-        Colors.red,
-        shouldDismiss));
-  }
-}
+void showPopupNewConnectionStatus(bool isSuccess,
+        {bool shouldDismiss = true}) =>
+    isSuccess
+        ? (Timer.run(() => _showAlert(
+            LocaleKeys.toast_message_success_connexion_message.localized(),
+            ThemeColors.skyBlue,
+            CupertinoIcons.check_mark_circled_solid,
+            ThemeColors.skyBlueOpacity,
+            shouldDismiss)))
+        : (Timer.run(() => _showAlert(
+            LocaleKeys.toast_message_error_connexion_message.localized(),
+            ThemeColors.lightRed,
+            Icons.error_outline,
+            Colors.red,
+            shouldDismiss)));
 
 void _showAlert(String message, Color color, IconData icon, Color iconColor,
     bool shouldDismiss) {
