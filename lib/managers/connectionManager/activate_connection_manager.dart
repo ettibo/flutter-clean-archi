@@ -2,9 +2,9 @@ import 'package:globo_fitness/managers/connectionManager/connection_manager.dart
 
 import 'package:api/dependency_injection.dart';
 
-ConnectionStatusManager _connectionStatusManager =
-    DependecyInjection.instance.get<ConnectionStatusManager>();
+ConnectionManager _connectionManager =
+    DependecyInjection.instance.get<ConnectionManager>();
 
 void activateConnectionManager() {
-  _connectionStatusManager.activateConnectionManager();
+  _connectionManager.activateConnectionManager();
 }

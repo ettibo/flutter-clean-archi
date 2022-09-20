@@ -25,8 +25,8 @@ abstract class TreeListViewModelBase with Store, ViewModel {
       DependecyInjection.instance.get<TreeStoreBase>();
 
   final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
-  final ConnectionStatusManager connectionStatusManager =
-      DependecyInjection.instance.get<ConnectionStatusManager>();
+  final ConnectionManager connectionStatusManager =
+      DependecyInjection.instance.get<ConnectionManager>();
 
   @observable
   bool isLoadingTrees = false;

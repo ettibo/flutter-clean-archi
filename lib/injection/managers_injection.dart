@@ -13,7 +13,7 @@ import 'package:api/models/app/managers/crash.dart';
 
 Future<void> registerManagers() async {
   DependecyInjection.instance
-      .inject<ConnectionStatusManager>(ConnectionCheckStatusManagerImpl());
+      .inject<ConnectionManager>(ConnectionManagerImpl());
 
   DependecyInjection.instance
       .inject<RemoteConfigManager>(RemoteConfigFirebase());
