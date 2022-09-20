@@ -6,12 +6,12 @@ import 'package:globo_fitness/managers/connectionManager/connection_manager.dart
 
 import 'package:globo_fitness/shared/toast_utils.dart';
 
-class ConnectionCheckStatusManagerImpl implements ConnectionStatusManager {
-  static final ConnectionCheckStatusManagerImpl _connectionStatusSingleton =
-      ConnectionCheckStatusManagerImpl._internal();
-  ConnectionCheckStatusManagerImpl._internal();
+class ConnectionManagerImpl implements ConnectionManager {
+  static final ConnectionManagerImpl _connectionManagerSingleton =
+      ConnectionManagerImpl._internal();
+  ConnectionManagerImpl._internal();
 
-  factory ConnectionCheckStatusManagerImpl() => _connectionStatusSingleton;
+  factory ConnectionManagerImpl() => _connectionManagerSingleton;
 
   bool _hasConnection = false;
 
