@@ -25,9 +25,8 @@ class ConnectionManagerImpl implements ConnectionManager {
       .asBroadcastStream()
       .listen(_getConnectionChange);
 
-  void _getConnectionChange(ConnectivityResult result) {
-    hasInternetConnection();
-  }
+  void _getConnectionChange(ConnectivityResult result) =>
+      hasInternetConnection();
 
   void dispose() => _connectionChangeController.close();
 
@@ -44,7 +43,7 @@ class ConnectionManagerImpl implements ConnectionManager {
       _hasConnection = false;
     }
     _connectionChangeController.add(_hasConnection);
-    showAlertCheckInternetConnection(_hasConnection);
+    showPopupNewConnectionStatus(_hasConnection);
     return _hasConnection;
   }
 }

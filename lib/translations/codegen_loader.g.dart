@@ -82,7 +82,7 @@ class CodegenLoader extends AssetLoader{
     "key_label_force_language_setting": "Default value from remote config"
   },
   "toast_message": {
-    "succes_connexion_message": "You are connected to the internet",
+    "success_connexion_message": "You are connected to the internet",
     "error_connexion_message": "You are not connected to the internet"
   }
 };
@@ -154,7 +154,7 @@ static const Map<String,dynamic> fr = {
     "key_label_force_language_setting": "Valeure par défaut de remote config"
   },
   "toast_message": {
-    "succes_connexion_message": "Vous êtes connécté à internet",
+    "success_connexion_message": "Vous êtes connécté à internet",
     "error_connexion_message": "Vous n'êtes pas connécté à internet"
   }
 };
@@ -226,7 +226,7 @@ static const Map<String,dynamic> es = {
     "key_label_force_language_setting": "Valor predeterminado de remote config"
   },
   "toast_message": {
-    "succes_connexion_message": "Estás conectado a Internet",
+    "success_connexion_message": "Estás conectado a Internet",
     "error_connexion_message": "No está conectado a Internet"
   }
 };
