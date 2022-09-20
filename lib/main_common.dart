@@ -1,4 +1,3 @@
-import 'package:api/dependency_injection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ import 'package:globo_fitness/firebase/brown_firebase_options.dart'
 
 import 'package:globo_fitness/screens/home/home_screen.dart';
 
-import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
+import 'package:globo_fitness/managers/connectionManager/activate_connection_manager.dart';
 import 'package:globo_fitness/managers/remote_config_manager.dart';
 import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
@@ -94,9 +93,7 @@ Future<void> _firebaseInitializer(FlavorName flavorName) async {
 }
 
 void _activateManagers() {
-  ConnectionStatusManagerImpl connectionStatusManager =
-  DependecyInjection.instance.get<ConnectionStatusManagerImpl>();
-  connectionStatusManager.activateConnectionManager();
+  activateConnectionManager();
   activateRemoteConfig();
 
   if (!kIsWeb) {

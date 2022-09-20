@@ -2,10 +2,11 @@ import 'package:api/dependency_injection.dart';
 
 import 'package:api/models/app/managers/remote_config.dart';
 
-import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
+import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
-final ConnectionStatusManagerImpl _connectionStatusManager =
-    DependecyInjection.instance.get<ConnectionStatusManagerImpl>();
+
+final ConnectionStatusManager _connectionStatusManager =
+    DependecyInjection.instance.get<ConnectionStatusManager>();
 
 final RemoteConfigManager _remoteConfigManager =
     DependecyInjection.instance.get<RemoteConfigManager>();
