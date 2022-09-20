@@ -75,7 +75,7 @@
     },
 
     "toast_message": {
-        "succes_connexion_message": "Vous êtes connécté à internet",
+        "success_connexion_message": "Vous êtes connécté à internet",
         "error_connexion_message": "Vous n'êtes pas connécté à internet"
     }
 }

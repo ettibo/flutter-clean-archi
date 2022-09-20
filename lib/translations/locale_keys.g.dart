@@ -58,7 +58,7 @@ abstract class  LocaleKeys {
   static const crash_manager = 'crash_manager';
   static const remote_config_key_label_force_language_setting = 'remote_config.key_label_force_language_setting';
   static const remote_config = 'remote_config';
-  static const toast_message_succes_connexion_message = 'toast_message.succes_connexion_message';
+  static const toast_message_success_connexion_message = 'toast_message.success_connexion_message';
   static const toast_message_error_connexion_message = 'toast_message.error_connexion_message';
   static const toast_message = 'toast_message';
 
