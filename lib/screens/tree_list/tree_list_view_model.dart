@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:api/models/app/tree/tree.dart';
-import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
+import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
 import 'package:api/strategy/fetch_strategy.dart';
 import 'package:api/dependency_injection.dart';
@@ -25,8 +25,8 @@ abstract class TreeListViewModelBase with Store, ViewModel {
       DependecyInjection.instance.get<TreeStoreBase>();
 
   final GetTreeList _useCase = DependecyInjection.instance.get<GetTreeList>();
-  final ConnectionStatusManagerImpl connectionStatusManager =
-      DependecyInjection.instance.get<ConnectionStatusManagerImpl>();
+  final ConnectionStatusManager connectionStatusManager =
+      DependecyInjection.instance.get<ConnectionStatusManager>();
 
   @observable
   bool isLoadingTrees = false;

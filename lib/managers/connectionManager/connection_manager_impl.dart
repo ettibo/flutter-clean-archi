@@ -2,15 +2,16 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'package:globo_fitness/managers/connection_status_manager_impl.dart';
+import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
+
 import 'package:globo_fitness/shared/toast_utils.dart';
 
-class ConnectionCheckStatusManager implements ConnectionStatusManagerImpl {
-  static final ConnectionCheckStatusManager _connectionStatusSingleton =
-      ConnectionCheckStatusManager._internal();
-  ConnectionCheckStatusManager._internal();
+class ConnectionCheckStatusManagerImpl implements ConnectionStatusManager {
+  static final ConnectionCheckStatusManagerImpl _connectionStatusSingleton =
+      ConnectionCheckStatusManagerImpl._internal();
+  ConnectionCheckStatusManagerImpl._internal();
 
-  factory ConnectionCheckStatusManager() => _connectionStatusSingleton;
+  factory ConnectionCheckStatusManagerImpl() => _connectionStatusSingleton;
 
   bool _hasConnection = false;
 
@@ -24,12 +25,13 @@ class ConnectionCheckStatusManager implements ConnectionStatusManagerImpl {
       .asBroadcastStream()
       .listen(_getConnectionChange);
 
-  void _getConnectionChange(ConnectivityResult result) =>
-      hasInternetConnection();
+  void _getConnectionChange(ConnectivityResult result) {
+    hasInternetConnection();
+  }
 
   void dispose() => _connectionChangeController.close();
 
-@override
+  @override
   Future<bool> hasInternetConnection() async {
     ConnectivityResult connectivityResult =
         await (Connectivity().checkConnectivity());
