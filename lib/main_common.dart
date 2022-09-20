@@ -22,9 +22,6 @@ import 'package:globo_fitness/app_config.dart';
 import 'package:globo_fitness/shared/global_key.dart';
 import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
-import 'package:globo_fitness/app_config.dart';
-import 'package:easy_localization/easy_localization.dart';
-
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
   await _firebaseInitializer(appConfig.flavorName);
