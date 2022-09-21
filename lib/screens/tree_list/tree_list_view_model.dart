@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
 import 'package:mobx/mobx.dart';
 
 import 'package:api/models/app/tree/tree.dart';
@@ -16,6 +17,7 @@ import 'package:globo_fitness/extensions/string_casing.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/shared/platform_text_wrapper.dart';
+import 'package:globo_fitness/shared/platform_activity_indicator.dart';
 
 part 'tree_list_view_model.g.dart';
 
@@ -52,13 +54,14 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   @action
   Future<void> fetch({int startRow = 0, nbRows = 20}) async {
     isLoadingTrees = true;
-    _newTrees = await _getTreeListUseCase.fetch(
-        startRow: startRow,
-        nbRows: nbRows,
-        fetchStrategy: await _connectionManager.hasInternetConnection()
-            ? FetchStrategy.remote
-            : FetchStrategy.local);
-    isLoadingTrees = false;
+    _newTrees = await _getTreeListUseCase
+        .fetch(
+            startRow: startRow,
+            nbRows: nbRows,
+            fetchStrategy: await _connectionManager.hasInternetConnection()
+                ? FetchStrategy.remote
+                : FetchStrategy.local)
+        .whenComplete(() => isLoadingTrees = false);
     treeStore.addTrees(_newTrees);
   }
 
@@ -72,6 +75,28 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   }
 
   // UI Methods
+  Widget getListWidget({
+    required BuildContext context,
+    required Widget listWiget,
+    required Widget lazyLoadingIndicator,
+    required Widget listEmptyWidget,
+    required ListView separatedListView,
+  }) {
+    if (treeStore.isTreeListEmpty()) {
+      return isLoadingTrees
+          ? getActivityIndicator(context: context)
+          : listEmptyWidget;
+    } else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          listWiget,
+          isLoadingTrees ? lazyLoadingIndicator : const SizedBox.shrink(),
+        ],
+      );
+    }
+  }
+
   Widget getTitle(BuildContext context, String? treeName) => textPlatform(
         content: treeName ??
             LocaleKeys.tree_list_screen_tree_without_name.localized(),
