@@ -59,54 +59,44 @@ class _TreeListScreenState extends State<TreeListScreen> {
     );
   }
 
-  Widget _observerBuilder(BuildContext context) {
-    if (viewModel.treeStore.isTreeListEmpty()) {
-      if (viewModel.isLoadingTrees) {
-        return getActivityIndicator(context: context);
-      } else {
-        return _listEmptyView();
-      }
-    } else {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: NotificationListener<ScrollNotification>(
-              onNotification: viewModel.handleScroll,
-              child: RefreshIndicator(
-                onRefresh: viewModel.onListRefresh,
-                child: _separatedListView(),
-              ),
-            ),
-          ),
-          viewModel.isLoadingTrees
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: getActivityIndicator(context: context),
-                )
-              : Container()
-        ],
+  Widget _observerBuilder(BuildContext context) => viewModel.getListWidget(
+        context: context,
+        listWiget: _listWiget(),
+        lazyLoadingIndicator: _lazyLoadingIndicator(),
+        listEmptyWidget: _listEmptyWidget(),
+        separatedListView: _separatedListView(),
       );
-    }
-  }
 
-  Widget _listEmptyView() => Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                LocaleKeys.tree_list_screen_list_is_empty.localized(),
-                textAlign: TextAlign.center,
-              ),
-              PlatformIconButton(
-                color: Theme.of(context).secondaryHeaderColor,
-                onPressed: viewModel.onListRefresh,
-                icon: Icon(PlatformIcons(context).refresh),
-              )
-            ],
+  Widget _listWiget() => Expanded(
+        child: NotificationListener<ScrollNotification>(
+          onNotification: viewModel.handleScroll,
+          child: RefreshIndicator(
+            onRefresh: viewModel.onListRefresh,
+            child: _separatedListView(),
           ),
+        ),
+      );
+
+  Widget _lazyLoadingIndicator() => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: getActivityIndicator(context: context),
+      );
+
+  Widget _listEmptyWidget() => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              LocaleKeys.tree_list_screen_list_is_empty.localized(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            PlatformIconButton(
+              onPressed: viewModel.onListRefresh,
+              icon: Icon(PlatformIcons(context).refresh),
+            )
+          ],
         ),
       );
 
