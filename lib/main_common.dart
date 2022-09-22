@@ -12,7 +12,7 @@ import 'package:globo_fitness/firebase/green_firebase_options.dart'
 import 'package:globo_fitness/firebase/brown_firebase_options.dart'
     as brown_firebase_options;
 
-import 'package:globo_fitness/screens/home/home_screen.dart';
+import 'package:globo_fitness/navigation/app_router.dart';
 
 import 'package:globo_fitness/managers/connectionManager/activate_connection_manager.dart';
 import 'package:globo_fitness/managers/remote_config_manager.dart';
@@ -47,9 +47,13 @@ Future<Widget> initializeApp(AppConfig appConfig) async {
 class GlobeApp extends StatelessWidget {
   final AdaptiveThemeMode? savedThemeMode;
   final AppConfig appConfig;
+  final AppRouter appRouter = AppRouter();
 
-  const GlobeApp({Key? key, this.savedThemeMode, required this.appConfig})
-      : super(key: key);
+  GlobeApp({
+    Key? key,
+    this.savedThemeMode,
+    required this.appConfig,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => _adaptiveTheme(context);
@@ -60,16 +64,17 @@ class GlobeApp extends StatelessWidget {
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
       builder: (ThemeData lightTheme, ThemeData darkTheme) {
         return OverlaySupport.global(
-         child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: appConfig.appTitle,
-          theme: lightTheme,
-          darkTheme: darkTheme,
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          home: const HomeScreen(),
-        ),
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerDelegate: appRouter.delegate(),
+            routeInformationParser: appRouter.defaultRouteParser(),
+            title: appConfig.appTitle,
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+          ),
         );
       });
 }
