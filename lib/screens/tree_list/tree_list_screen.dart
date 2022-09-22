@@ -8,6 +8,9 @@ import 'package:api/models/app/tree/tree.dart';
 
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
 
+import 'package:globo_fitness/navigation/app_router.dart';
+
+import 'package:globo_fitness/shared/navigation_helper.dart';
 import 'package:globo_fitness/shared/platform_activity_indicator.dart';
 import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/shared/platform_list_tile.dart';
@@ -16,7 +19,6 @@ import 'package:globo_fitness/shared/separator.dart';
 
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
-import 'package:globo_fitness/navigation/app_router.dart';
 
 class TreeListScreen extends StatefulWidget {
   const TreeListScreen({Key? key}) : super(key: key);
@@ -107,7 +109,10 @@ class _TreeListScreenState extends State<TreeListScreen> {
       trailing: Icon(PlatformIcons(context).rightChevron),
       title: viewModel.getTitle(context, tree.name),
       subtitle: viewModel.getSubtitle(context, tree.species, index),
-      onTap: () => navigateTo(screen: TreeDetailScreen(tree: tree)),
+      onTap: () => pushTo(
+        routeInfo: TreeDetailRoute(tree: tree),
+        context: context,
+      ),
     );
   }
 }

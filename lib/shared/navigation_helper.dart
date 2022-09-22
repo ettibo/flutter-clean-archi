@@ -1,13 +1,28 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:universal_platform/universal_platform.dart';
+import 'package:auto_route/auto_route.dart';
 
-void navigateTo({required Widget screen, required BuildContext context}) =>
-    Navigator.of(context).push(
-      UniversalPlatform.isIOS
-          ? CupertinoPageRoute(builder: (context) => screen)
-          : MaterialPageRoute(
-              builder: (context) => screen,
-            ),
-    );
+void pushTo(
+        {required PageRouteInfo routeInfo,
+        required BuildContext context,
+        StackRouter? router}) =>
+    router != null ? router.push(routeInfo) : context.router.push(routeInfo);
+
+void navigateTo(
+        {required PageRouteInfo routeInfo,
+        required BuildContext context,
+        StackRouter? router}) =>
+    router != null
+        ? router.navigate(routeInfo)
+        : context.router.navigate(routeInfo);
+
+void replace(
+        {required PageRouteInfo routeInfo,
+        required BuildContext context,
+        StackRouter? router}) =>
+    router != null
+        ? router.replace(routeInfo)
+        : context.router.replace(routeInfo);
+
+void pop({required BuildContext context, StackRouter? router}) =>
+    router != null ? router.pop() : context.router.pop();
