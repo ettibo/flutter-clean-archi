@@ -16,8 +16,7 @@ class TreeDetailScreen extends StatelessWidget {
 
   PlatformAppBar appBar(BuildContext context) => platformAppBar(
         context: context,
-        title:
-            tree.name ?? LocaleKeys.title_title_detail_tree_screen.localized(),
+        title: tree.name ?? LocaleKeys.title_detail_tree_screen.localized(),
       );
 
   @override

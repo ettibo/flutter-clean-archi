@@ -16,12 +16,12 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> en = {
   "title": {
-    "app_title": "Clean Tree App",
-    "title_tree_list_screen": "Trees",
-    "title_detail_tree_screen": "Tree Detail",
-    "map_title_screen": "Map",
-    "bmi_title_screen": "BMI",
-    "settings_title_screen": "Settings"
+    "app": "Clean Tree App",
+    "tree_list_screen": "Trees",
+    "detail_tree_screen": "Tree Detail",
+    "map_screen": "Map",
+    "bmi_screen": "BMI",
+    "settings_screen": "Settings"
   },
   "tree_list_screen": {
     "tree_without_name": "Tree without name",
@@ -89,12 +89,12 @@ class CodegenLoader extends AssetLoader{
 };
 static const Map<String,dynamic> fr = {
   "title": {
-    "app_title": "Clean Tree App",
-    "title_tree_list_screen": "Arbres",
-    "title_detail_tree_screen": "Detail Arbre",
-    "map_title_screen": "Carte",
-    "bmi_title_screen": "IMC",
-    "settings_title_screen": "Paramètres"
+    "app": "Clean Tree App",
+    "tree_list_screen": "Arbres",
+    "detail_tree_screen": "Detail Arbre",
+    "map_screen": "Carte",
+    "bmi_screen": "IMC",
+    "settings_screen": "Paramètres"
   },
   "tree_list_screen": {
     "tree_without_name": "Arbre sans nom",
@@ -162,12 +162,12 @@ static const Map<String,dynamic> fr = {
 };
 static const Map<String,dynamic> es = {
   "title": {
-    "app_title": "Clean Tree App",
-    "title_tree_list_screen": "Árboles",
-    "title_detail_tree_screen": "Detalle del árbol",
-    "map_title_screen": "Mapas",
-    "bmi_title_screen": "IMC",
-    "settings_title_screen": "Ajustes"
+    "app": "Clean Tree App",
+    "tree_list_screen": "Árboles",
+    "detail_tree_screen": "Detalle del árbol",
+    "map_screen": "Mapas",
+    "bmi_screen": "IMC",
+    "settings_screen": "Ajustes"
   },
   "tree_list_screen": {
     "tree_without_name": "Árbol sin nombre",

@@ -59,15 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateNavigationList(BuildContext context) {
     _navigationList = [
       NavigationObject(
-          title: LocaleKeys.title_title_tree_list_screen.localized(),
+          title: LocaleKeys.title_tree_list_screen.localized(),
           icon: UniversalPlatform.isIOS ? CupertinoIcons.tree : Icons.park,
           screen: const TreeListScreen()),
       NavigationObject(
-          title: LocaleKeys.title_map_title_screen.localized(),
+          title: LocaleKeys.title_map_screen.localized(),
           icon: UniversalPlatform.isIOS ? CupertinoIcons.map : Icons.map,
           screen: const MapScreen()),
       NavigationObject(
-          title: LocaleKeys.title_bmi_title_screen.localized(),
+          title: LocaleKeys.title_bmi_screen.localized(),
           icon: UniversalPlatform.isIOS
               ? CupertinoIcons.heart
               : Icons.monitor_weight,

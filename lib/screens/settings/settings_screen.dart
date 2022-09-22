@@ -40,24 +40,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return PlatformScaffold(
       appBar: platformAppBar(
         context: context,
-        title: LocaleKeys.title_settings_title_screen.localized(),
+        title: LocaleKeys.title_settings_screen.localized(),
       ),
-      body: Observer(builder: _observerBuilder),
+      body: Center(child: Observer(builder: _observerBuilder)),
     );
   }
 
-  Widget _observerBuilder(BuildContext context) => Center(
-        child: Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _switchThemeSection(),
-                viewModel.getCrashlyticsWidget(context),
-                _switchLanguageSection(),
-              ],
-            ),
+  Widget _observerBuilder(BuildContext context) => Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _switchThemeSection(),
+              viewModel.getCrashlyticsWidget(context),
+              _switchLanguageSection(),
+            ],
           ),
         ),
       );
