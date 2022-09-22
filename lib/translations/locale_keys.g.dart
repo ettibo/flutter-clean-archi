@@ -1,12 +1,12 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class  LocaleKeys {
-  static const title_app_title = 'title.app_title';
-  static const title_title_tree_list_screen = 'title.title_tree_list_screen';
-  static const title_title_detail_tree_screen = 'title.title_detail_tree_screen';
-  static const title_map_title_screen = 'title.map_title_screen';
-  static const title_bmi_title_screen = 'title.bmi_title_screen';
-  static const title_settings_title_screen = 'title.settings_title_screen';
+  static const title_app = 'title.app';
+  static const title_tree_list_screen = 'title.tree_list_screen';
+  static const title_detail_tree_screen = 'title.detail_tree_screen';
+  static const title_map_screen = 'title.map_screen';
+  static const title_bmi_screen = 'title.bmi_screen';
+  static const title_settings_screen = 'title.settings_screen';
   static const title = 'title';
   static const tree_list_screen_tree_without_name = 'tree_list_screen.tree_without_name';
   static const tree_list_screen_species = 'tree_list_screen.species';

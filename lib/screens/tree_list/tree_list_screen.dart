@@ -7,18 +7,16 @@ import 'package:api/dependency_injection.dart';
 import 'package:api/models/app/tree/tree.dart';
 
 import 'package:globo_fitness/screens/tree_list/tree_list_view_model.dart';
-import 'package:globo_fitness/screens/tree_detail/tree_detail_screen.dart';
 
 import 'package:globo_fitness/shared/platform_activity_indicator.dart';
+import 'package:globo_fitness/shared/platform_app_bar.dart';
 import 'package:globo_fitness/shared/platform_list_tile.dart';
 import 'package:globo_fitness/shared/platform_separated_listview.dart';
 import 'package:globo_fitness/shared/separator.dart';
-import 'package:globo_fitness/shared/platform_app_bar.dart';
-import 'package:globo_fitness/shared/settings_icon_app_bar.dart';
 
-import 'package:globo_fitness/extensions/state_navigaton.dart';
-import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:globo_fitness/extensions/string_localized.dart';
+import 'package:globo_fitness/navigation/app_router.dart';
 
 class TreeListScreen extends StatefulWidget {
   const TreeListScreen({Key? key}) : super(key: key);
@@ -48,14 +46,9 @@ class _TreeListScreenState extends State<TreeListScreen> {
     return PlatformScaffold(
       appBar: platformAppBar(
         context: context,
-        title: LocaleKeys.title_title_tree_list_screen.localized(),
-        trailingWidgets: [settingsIconButton(context: context)],
+        title: LocaleKeys.title_tree_list_screen.localized(),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Observer(builder: _observerBuilder),
-        ),
-      ),
+      body: Observer(builder: _observerBuilder),
     );
   }
 

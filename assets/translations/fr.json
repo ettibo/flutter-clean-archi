@@ -1,11 +1,11 @@
 {
     "title": {
-        "app_title": "Clean Tree App",
-        "title_tree_list_screen": "Arbres",
-        "title_detail_tree_screen": "Detail Arbre",
-        "map_title_screen": "Carte",
-        "bmi_title_screen": "IMC",
-        "settings_title_screen": "Paramètres"
+        "app": "Clean Tree App",
+        "tree_list_screen": "Arbres",
+        "detail_tree_screen": "Detail Arbre",
+        "map_screen": "Carte",
+        "bmi_screen": "IMC",
+        "settings_screen": "Paramètres"
     },
 
     "tree_list_screen" : {
