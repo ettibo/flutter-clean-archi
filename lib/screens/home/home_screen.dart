@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:universal_platform/universal_platform.dart';
 
+import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
 import 'package:globo_fitness/screens/bmi/bmi_screen.dart';
 import 'package:globo_fitness/screens/map/map_screen.dart';
-import 'package:globo_fitness/screens/tree_list/tree_list_screen.dart';
+import 'package:globo_fitness/screens/settings/settings_screen.dart';
 
+import 'package:globo_fitness/navigation/app_router.dart';
 import 'package:globo_fitness/models/navigation_object.dart';
 
 import 'package:globo_fitness/extensions/string_localized.dart';
@@ -22,8 +25,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<BottomNavigationBarItem> _items = [];
-  int _currentIndex = 0;
   List<NavigationObject> _navigationList = [];
+
+  final List<PageRouteInfo<dynamic>> _routers = const [
+    TreeRouter(),
+    MapRouter(),
+    BMIRouter(),
+    SettingsRouter()
+  ];
 
   @override
   void didChangeDependencies() {
@@ -32,28 +41,18 @@ class _HomeScreenState extends State<HomeScreen> {
     _generateItems();
   }
 
-  void _onTabChanged(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return PlatformScaffold(
-      iosContentBottomPadding: false,
-      iosContentPadding: false,
-      cupertinoTabChildBuilder: (context, currIndex) => CupertinoTabView(
-          builder: (context) => _navigationList[currIndex].screen),
-      body: _navigationList[_currentIndex].screen,
-      bottomNavBar: PlatformNavBar(
-        backgroundColor: Theme.of(context).backgroundColor,
-        material: ((context, _) => MaterialNavBarData(
-            selectedItemColor: Theme.of(context).primaryColor)),
-        items: _items,
-        itemChanged: _onTabChanged,
-        currentIndex: _currentIndex,
-      ),
+    return AutoTabsScaffold(
+      routes: _routers,
+      bottomNavigationBuilder: ((context, tabsRouter) => PlatformNavBar(
+            backgroundColor: Theme.of(context).backgroundColor,
+            material: ((context, _) => MaterialNavBarData(
+                selectedItemColor: Theme.of(context).primaryColor)),
+            items: _items,
+            itemChanged: tabsRouter.setActiveIndex,
+            currentIndex: tabsRouter.activeIndex,
+          )),
     );
   }
 
@@ -73,6 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ? CupertinoIcons.heart
               : Icons.monitor_weight,
           screen: const BmiScreen()),
+      NavigationObject(
+          title: LocaleKeys.title_settings_screen.localized(),
+          icon: PlatformIcons(context).settings,
+          screen: const SettingsScreen()),
     ];
   }
 
