@@ -23,27 +23,18 @@ class ConnectionManagerImpl implements ConnectionManager {
   @override
   void activateConnectionManager() => _connectivity.onConnectivityChanged
       .asBroadcastStream()
-      .listen(_getConnectionChange);
+      .listen(_onDataChangeHandler);
 
-  void _getConnectionChange(ConnectivityResult result) =>
-      hasInternetConnection();
+  void _onDataChangeHandler(ConnectivityResult connectivityResult) {
+    _hasConnection = (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi);
+
+    _connectionChangeController.add(_hasConnection);
+    showPopupNewConnectionStatus(_hasConnection);
+  }
 
   void dispose() => _connectionChangeController.close();
 
   @override
-  Future<bool> hasInternetConnection() async {
-    ConnectivityResult connectivityResult =
-        await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
-      _hasConnection = true;
-    }
-    // no connection
-    else {
-      _hasConnection = false;
-    }
-    _connectionChangeController.add(_hasConnection);
-    showPopupNewConnectionStatus(_hasConnection);
-    return _hasConnection;
-  }
+  bool hasInternetConnection() => _hasConnection;
 }
