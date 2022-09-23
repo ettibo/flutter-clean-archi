@@ -58,6 +58,8 @@ dependencies:
 
   focus_detector: ^2.0.1
 
+  overlay_support: ^2.0.1
+
   api:
     path: packages/api
   data:
