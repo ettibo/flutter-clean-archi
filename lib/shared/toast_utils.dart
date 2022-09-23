@@ -36,7 +36,7 @@ void _showAlert(String message, Color color, IconData icon, Color iconColor,
       pageBuilder: (BuildContext buildContext, Animation animation,
           Animation secondaryAnimation) {
         if (shouldDismiss) {
-          Future.delayed(const Duration(seconds: 4), () {
+          Future.delayed(const Duration(seconds: 2), () {
             Navigator.of(buildContext, rootNavigator: true).pop('true');
           });
         }
