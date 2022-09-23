@@ -58,7 +58,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
         .fetch(
             startRow: startRow,
             nbRows: nbRows,
-            fetchStrategy: await _connectionManager.hasInternetConnection()
+            fetchStrategy: _connectionManager.hasInternetConnection()
                 ? FetchStrategy.remote
                 : FetchStrategy.local)
         .whenComplete(() => isLoadingTrees = false);
@@ -68,7 +68,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
   Future<void> onListRefresh() async {
     treeStore.clearTreeList();
     await _deleteLocalTreesUseCase.deleteTrees(
-        fetchStrategy: await _connectionManager.hasInternetConnection()
+        fetchStrategy: _connectionManager.hasInternetConnection()
             ? FetchStrategy.remote
             : FetchStrategy.local);
     fetch();
