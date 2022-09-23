@@ -4,8 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
-import 'package:globo_fitness/shared/toast_utils.dart';
-
+import 'package:globo_fitness/shared/overlay_notification.dart';
 class ConnectionManagerImpl implements ConnectionManager {
   static final ConnectionManagerImpl _connectionManagerSingleton =
       ConnectionManagerImpl._internal();

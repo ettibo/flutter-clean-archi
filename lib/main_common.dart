@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:globo_fitness/firebase/green_firebase_options.dart'
@@ -19,7 +20,6 @@ import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
 
 import 'package:globo_fitness/app_config.dart';
-import 'package:globo_fitness/shared/global_key.dart';
 import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
@@ -59,7 +59,8 @@ class GlobeApp extends StatelessWidget {
       dark: appConfig.darkTheme,
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
       builder: (ThemeData lightTheme, ThemeData darkTheme) {
-        return MaterialApp(
+        return OverlaySupport.global(
+         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: appConfig.appTitle,
           theme: lightTheme,
@@ -67,8 +68,8 @@ class GlobeApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          navigatorKey: GlobalContextKey.instance.globalKey,
           home: const HomeScreen(),
+        ),
         );
       });
 }
