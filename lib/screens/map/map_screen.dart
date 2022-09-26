@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:focus_detector/focus_detector.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
 
@@ -27,8 +27,9 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
-    viewModel.determinePosition(context);
-    // .then(viewModel.centerOnUserAfterGettingLocation);
+    viewModel
+        .determinePosition(context)
+        .then(viewModel.centerOnUserAfterGettingLocation);
   }
 
   @override
@@ -67,8 +68,7 @@ class _MapScreenState extends State<MapScreen> {
                   ],
                 ),
                 nonRotatedChildren: [
-                  // viewModel.displayCenterOnUserButton(
-                  //     widget: _centerOnUserButton()),
+                  viewModel.displayCenterOnUserButton(context: context),
                   // Zoom Buttons
                   FlutterMapZoomButtons(
                     alignment: Alignment.bottomLeft,
@@ -83,6 +83,16 @@ class _MapScreenState extends State<MapScreen> {
 
                   // Center on User Button
                   // viewModel.displayUserLocationIfGranted(),
+
+                  LocationMarkerLayerWidget(
+                    plugin: LocationMarkerPlugin(
+                      centerAnimationCurve: Curves.easeOut,
+                      centerOnLocationUpdate: viewModel.centerOnLocationUpdate,
+                      centerCurrentLocationStream: viewModel
+                          .centerCurrentLocationStreamController.stream,
+                      turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
+                    ),
+                  ),
 
                   //Cluster & Popup Options
                   MarkerClusterLayerWidget(

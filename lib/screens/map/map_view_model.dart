@@ -2,11 +2,12 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_map/flutter_map.dart';
-// import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -57,7 +58,8 @@ abstract class MapViewModelBase with Store, ViewModel {
   @observable
   PopupController popupLayerController = PopupController();
 
-  // CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
+  @observable
+  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.never;
 
   @override
   void init() {
@@ -107,7 +109,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
-  void generateMarkers() {
+  void _generateMarkers() {
     List<TreeMarker> newMarkers = [];
 
     for (var tree in _treeStore.trees) {
@@ -119,17 +121,16 @@ abstract class MapViewModelBase with Store, ViewModel {
     }
 
     _clearMarkerList();
-    // treesMarkers.addAll(newMarkers);
     treesMarkers = newMarkers;
   }
 
   @action
   void updateMarkers() {
-    generateMarkers();
+    _generateMarkers();
     popupLayerController = PopupController();
   }
 
-  // void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
+  void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
 
   void _disposeMap() {
     mapController.dispose();
@@ -140,27 +141,33 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
-  // void centerOnUser() {
-  //   centerOnLocationUpdate = CenterOnLocationUpdate.once;
-  //   centerCurrentLocationStreamController.add(mapController.zoom);
-  // }
+  @action
+  void centerOnUser() {
+    centerOnLocationUpdate = CenterOnLocationUpdate.once;
+    centerCurrentLocationStreamController.add(mapController.zoom);
+  }
 
-  // Widget displayCenterOnUserButton({required Widget widget}) =>
-  //     centerOnLocationUpdate == CenterOnLocationUpdate.never
-  //         ? const SizedBox.shrink()
-  //         : widget;
+  Widget displayCenterOnUserButton({required BuildContext context}) =>
+      centerOnLocationUpdate == CenterOnLocationUpdate.never
+          ? const SizedBox.shrink()
+          : Positioned(
+              right: 20,
+              bottom: 20,
+              child: FloatingActionButton(
+                onPressed: centerOnUser,
+                backgroundColor: Theme.of(context).primaryColor,
+                child: Icon(
+                  PlatformIcons(context).location,
+                  color: Theme.of(context).primaryColorDark,
+                ),
+              ),
+            );
 
+  // @action
   // Widget displayUserLocationIfGranted() =>
   //     centerOnLocationUpdate == CenterOnLocationUpdate.never
   //         ? const SizedBox.shrink()
-  //         : LocationMarkerLayerWidget(
-  //             plugin: LocationMarkerPlugin(
-  //               centerOnLocationUpdate: centerOnLocationUpdate,
-  //               centerCurrentLocationStream:
-  //                   centerCurrentLocationStreamController.stream,
-  //               turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-  //             ),
-  //           );
+  //         :
 
   void onPressedZoomOut() {
     if (mapController.zoom != minZoom) {
