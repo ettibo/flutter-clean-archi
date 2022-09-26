@@ -9,8 +9,8 @@ import 'package:globo_fitness/ressources/theme/theme_colors.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
 
-void showPopupNewConnectionStatus(bool isSuccess,
-        {bool shouldDismiss = true}) =>
+void showPopupNewConnectionStatus(
+        {required bool isSuccess, bool shouldDismiss = true}) =>
     isSuccess
         ? (Timer.run(() => _showOverlay(
             LocaleKeys.toast_message_success_connexion_message.localized(),
@@ -27,7 +27,7 @@ void showPopupNewConnectionStatus(bool isSuccess,
 
 void _showOverlay(String message, Color color, IconData icon, Color iconColor,
     bool shouldDismiss) {
-   showOverlayNotification((context) {
+  showOverlayNotification((context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 4),
       color: color,
@@ -35,10 +35,10 @@ void _showOverlay(String message, Color color, IconData icon, Color iconColor,
         child: ListTile(
           leading: SizedBox.fromSize(
               size: const Size(40, 40),
-              child:  ClipOval(
+              child: ClipOval(
                   child: Icon(
-                    icon,
-                  color: iconColor,
+                icon,
+                color: iconColor,
               ))),
           title: Text(message),
         ),

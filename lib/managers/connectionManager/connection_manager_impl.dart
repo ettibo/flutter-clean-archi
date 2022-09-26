@@ -5,6 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
 import 'package:globo_fitness/shared/overlay_notification.dart';
+
 class ConnectionManagerImpl implements ConnectionManager {
   static final ConnectionManagerImpl _connectionManagerSingleton =
       ConnectionManagerImpl._internal();
@@ -29,7 +30,7 @@ class ConnectionManagerImpl implements ConnectionManager {
         connectivityResult == ConnectivityResult.wifi);
 
     _connectionChangeController.add(_hasConnection);
-    showPopupNewConnectionStatus(_hasConnection);
+    showPopupNewConnectionStatus(isSuccess: _hasConnection);
   }
 
   void dispose() => _connectionChangeController.close();
