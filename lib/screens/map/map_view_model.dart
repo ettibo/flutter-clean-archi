@@ -2,9 +2,9 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:mobx/mobx.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
@@ -46,8 +46,14 @@ abstract class MapViewModelBase with Store, ViewModel {
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   final List<String> tileLayerOptionsSubdomains = ['a', 'b', 'c'];
 
+  final CenterOnLocationUpdate centerOnLocationUpdate =
+      CenterOnLocationUpdate.once;
+
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
+
+  @observable
+  bool locationAllowed = false;
 
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
@@ -57,9 +63,6 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   @observable
   PopupController popupLayerController = PopupController();
-
-  @observable
-  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.never;
 
   @override
   void init() {
@@ -125,12 +128,16 @@ abstract class MapViewModelBase with Store, ViewModel {
   }
 
   @action
-  void updateMarkers() {
+  void _updateMarkers() {
     _generateMarkers();
     popupLayerController = PopupController();
   }
 
-  void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
+  @action
+  void centerOnUserIfLocationGranted(Position _) {
+    locationAllowed = true;
+    centerOnUser();
+  }
 
   void _disposeMap() {
     mapController.dispose();
@@ -141,16 +148,27 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
+  void onVisibilityGained() => _updateMarkers();
+
   @action
-  void centerOnUser() {
-    centerOnLocationUpdate = CenterOnLocationUpdate.once;
-    centerCurrentLocationStreamController.add(mapController.zoom);
-  }
+  void centerOnUser() =>
+      centerCurrentLocationStreamController.add(mapController.zoom);
+
+  Widget displayUserLocationIfGranted() => locationAllowed
+      ? LocationMarkerLayerWidget(
+          plugin: LocationMarkerPlugin(
+            centerAnimationCurve: Curves.easeOut,
+            centerOnLocationUpdate: centerOnLocationUpdate,
+            centerCurrentLocationStream:
+                centerCurrentLocationStreamController.stream,
+            turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
+          ),
+        )
+      : const SizedBox.shrink();
 
   Widget displayCenterOnUserButton({required BuildContext context}) =>
-      centerOnLocationUpdate == CenterOnLocationUpdate.never
-          ? const SizedBox.shrink()
-          : Positioned(
+      locationAllowed
+          ? Positioned(
               right: 20,
               bottom: 20,
               child: FloatingActionButton(
@@ -161,13 +179,8 @@ abstract class MapViewModelBase with Store, ViewModel {
                   color: Theme.of(context).primaryColorDark,
                 ),
               ),
-            );
-
-  // @action
-  // Widget displayUserLocationIfGranted() =>
-  //     centerOnLocationUpdate == CenterOnLocationUpdate.never
-  //         ? const SizedBox.shrink()
-  //         :
+            )
+          : const SizedBox.shrink();
 
   void onPressedZoomOut() {
     if (mapController.zoom != minZoom) {

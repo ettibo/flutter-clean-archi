@@ -25,7 +25,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<BottomNavigationBarItem> _items = [];
-  List<NavigationObject> _navigationList = [];
 
   final List<PageRouteInfo<dynamic>> _routers = const [
     TreeRouter(),
@@ -33,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
     BMIRouter(),
     SettingsRouter()
   ];
+
+  List<NavigationObject> _navigationList = [];
 
   @override
   void didChangeDependencies() {
