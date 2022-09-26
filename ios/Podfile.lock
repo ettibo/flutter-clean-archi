@@ -2,38 +2,38 @@ PODS:
   - connectivity_plus (0.0.1):
     - Flutter
     - ReachabilitySwift
-  - Firebase/Analytics (9.5.0):
+  - Firebase/Analytics (9.6.0):
     - Firebase/Core
-  - Firebase/Core (9.5.0):
+  - Firebase/Core (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 9.5.0)
-  - Firebase/CoreOnly (9.5.0):
-    - FirebaseCore (= 9.5.0)
-  - Firebase/Crashlytics (9.5.0):
+    - FirebaseAnalytics (~> 9.6.0)
+  - Firebase/CoreOnly (9.6.0):
+    - FirebaseCore (= 9.6.0)
+  - Firebase/Crashlytics (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 9.5.0)
-  - Firebase/RemoteConfig (9.5.0):
+    - FirebaseCrashlytics (~> 9.6.0)
+  - Firebase/RemoteConfig (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 9.5.0)
-  - firebase_analytics (9.3.6):
-    - Firebase/Analytics (= 9.5.0)
+    - FirebaseRemoteConfig (~> 9.6.0)
+  - firebase_analytics (9.3.7):
+    - Firebase/Analytics (= 9.6.0)
     - firebase_core
     - Flutter
-  - firebase_core (1.23.0):
-    - Firebase/CoreOnly (= 9.5.0)
+  - firebase_core (1.24.0):
+    - Firebase/CoreOnly (= 9.6.0)
     - Flutter
-  - firebase_crashlytics (2.8.11):
-    - Firebase/Crashlytics (= 9.5.0)
+  - firebase_crashlytics (2.8.12):
+    - Firebase/Crashlytics (= 9.6.0)
     - firebase_core
     - Flutter
-  - firebase_remote_config (2.0.18):
-    - Firebase/RemoteConfig (= 9.5.0)
+  - firebase_remote_config (2.0.19):
+    - Firebase/RemoteConfig (= 9.6.0)
     - firebase_core
     - Flutter
   - FirebaseABTesting (9.6.0):
     - FirebaseCore (~> 9.0)
-  - FirebaseAnalytics (9.5.0):
-    - FirebaseAnalytics/AdIdSupport (= 9.5.0)
+  - FirebaseAnalytics (9.6.0):
+    - FirebaseAnalytics/AdIdSupport (= 9.6.0)
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -41,16 +41,16 @@ PODS:
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (9.5.0):
+  - FirebaseAnalytics/AdIdSupport (9.6.0):
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
-    - GoogleAppMeasurement (= 9.5.0)
+    - GoogleAppMeasurement (= 9.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseCore (9.5.0):
+  - FirebaseCore (9.6.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -62,7 +62,7 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseCoreInternal (9.6.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
-  - FirebaseCrashlytics (9.5.0):
+  - FirebaseCrashlytics (9.6.0):
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
     - GoogleDataTransport (< 10.0.0, >= 9.1.4)
@@ -74,7 +74,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (~> 2.1)
-  - FirebaseRemoteConfig (9.5.0):
+  - FirebaseRemoteConfig (9.6.0):
     - FirebaseABTesting (~> 9.0)
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
@@ -87,21 +87,21 @@ PODS:
     - Flutter
   - geolocator_apple (1.2.0):
     - Flutter
-  - GoogleAppMeasurement (9.5.0):
-    - GoogleAppMeasurement/AdIdSupport (= 9.5.0)
+  - GoogleAppMeasurement (9.6.0):
+    - GoogleAppMeasurement/AdIdSupport (= 9.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (9.5.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.5.0)
+  - GoogleAppMeasurement/AdIdSupport (9.6.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (9.5.0):
+  - GoogleAppMeasurement/WithoutAdIdSupport (9.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
@@ -207,24 +207,24 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   connectivity_plus: 413a8857dd5d9f1c399a39130850d02fe0feaf7e
-  Firebase: 800f16f07af493d98d017446a315c27af0552f41
-  firebase_analytics: 2ba886ecb9ded97cfe24f1765e1aa22075894709
-  firebase_core: c266297725f66cacd7eac30745cd1a629d3b048b
-  firebase_crashlytics: 3fb36e86a25c6615f00c8eb32837d973c17e8288
-  firebase_remote_config: dad679f3e5662d2dddb5d87ace8d2da52849cab5
+  Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
+  firebase_analytics: 80b63bd6ff50095e908feba5070aa8dd75ccdfbc
+  firebase_core: 7c28ecc1e5dd74e03829ac3e9ff5ba3314e737a9
+  firebase_crashlytics: 87cd7e0d55dede8d8ad7a81f999b0e4873c49eed
+  firebase_remote_config: 8f69d4c2cdda7e5582f31ce0d8dd64a297871517
   FirebaseABTesting: 61826730ce9eee8781ba99a2b3420e9bce148dc9
-  FirebaseAnalytics: 1b60984a408320dda637306f3f733699ef8473d7
-  FirebaseCore: 25c0400b670fd1e2f2104349cd3b5dcce8d9418f
+  FirebaseAnalytics: 89ad762c6c3852a685794174757e2c60a36b6a82
+  FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
   FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
-  FirebaseCrashlytics: d20fa38bb8c88cb0f1c9211286bc23ab58c1b464
+  FirebaseCrashlytics: 3210572ddb77801e5a0bd9d7bc890769f2066a0c
   FirebaseInstallations: 0a115432c4e223c5ab20b0dbbe4cbefa793a0e8e
-  FirebaseRemoteConfig: 97ccd1b58f26d756f86d071330f00856e51022a2
+  FirebaseRemoteConfig: ee09d77a7d7c7e31da6a0d1cf956cd611c85609c
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_compass: cbbd285cea1584c7ac9c4e0c3e1f17cbea55e855
   flutter_statusbarcolor_ns: 68a360889d88d7915ae524e422aeab62e4063804
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
-  GoogleAppMeasurement: 6ee231473fbd75c11221dfce489894334024eead
+  GoogleAppMeasurement: 6de2b1a69e4326eb82ee05d138f6a5cb7311bcb1
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431

@@ -26,9 +26,8 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
-    viewModel
-        .determinePosition(context)
-        .then(viewModel.centerOnUserIfLocationGranted);
+    viewModel.determinePosition(context);
+    // .then(viewModel.centerOnUserAfterGettingLocation);
   }
 
   @override
@@ -79,7 +78,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
 
                   // Center on User Button
-                  viewModel.displayUserLocationIfGranted(),
+                  // viewModel.displayUserLocationIfGranted(),
 
                   //Cluster & Popup Options
                   MarkerClusterLayerWidget(
