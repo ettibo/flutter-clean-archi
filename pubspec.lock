@@ -419,6 +419,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_compass:
+    dependency: transitive
+    description:
+      name: flutter_compass
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -437,23 +444,28 @@ packages:
       name: flutter_map
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "2.2.0"
+  flutter_map_location_marker:
+    dependency: "direct main"
+    description:
+      name: flutter_map_location_marker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.4"
   flutter_map_marker_cluster:
     dependency: "direct main"
     description:
-      path: "."
-      ref: markers_update_on_change_state
-      resolved-ref: "7ab6a220f4eb7df1fc84b732c14f708164078aed"
-      url: "https://github.com/PaulMinguet/flutter_map_marker_cluster"
-    source: git
-    version: "0.5.0"
+      name: flutter_map_marker_cluster
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.4"
   flutter_map_marker_popup:
     dependency: transitive
     description:
       name: flutter_map_marker_popup
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "3.2.0"
   flutter_mobx:
     dependency: "direct main"
     description:
@@ -688,6 +700,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.7+3"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   nm:
     dependency: transitive
     description:
@@ -835,6 +854,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.3"
   pub_semver:
     dependency: transitive
     description:

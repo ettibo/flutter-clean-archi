@@ -42,6 +42,23 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
+  late final _$centerOnLocationUpdateAtom =
+      Atom(name: 'MapViewModelBase.centerOnLocationUpdate', context: context);
+
+  @override
+  CenterOnLocationUpdate get centerOnLocationUpdate {
+    _$centerOnLocationUpdateAtom.reportRead();
+    return super.centerOnLocationUpdate;
+  }
+
+  @override
+  set centerOnLocationUpdate(CenterOnLocationUpdate value) {
+    _$centerOnLocationUpdateAtom
+        .reportWrite(value, super.centerOnLocationUpdate, () {
+      super.centerOnLocationUpdate = value;
+    });
+  }
+
   late final _$MapViewModelBaseActionController =
       ActionController(name: 'MapViewModelBase', context: context);
 
@@ -68,6 +85,17 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   }
 
   @override
+  void centerOnUser() {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase.centerOnUser');
+    try {
+      return super.centerOnUser();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   Widget mapPopupBuilder(BuildContext _, Marker marker) {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
         name: 'MapViewModelBase.mapPopupBuilder');
@@ -82,7 +110,8 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   String toString() {
     return '''
 treesMarkers: ${treesMarkers},
-popupLayerController: ${popupLayerController}
+popupLayerController: ${popupLayerController},
+centerOnLocationUpdate: ${centerOnLocationUpdate}
     ''';
   }
 }

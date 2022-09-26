@@ -46,15 +46,15 @@ dependencies:
 
   adaptive_theme: ^3.1.1
 
-  # flutter_map: ^2.2.0
-  # flutter_map_marker_cluster: ^0.5.4
-  flutter_map: ^1.1.1
-  flutter_map_marker_cluster:
-    git:
-      url: https://github.com/PaulMinguet/flutter_map_marker_cluster
-      ref: markers_update_on_change_state # commit hash
+  flutter_map: ^2.2.0
+  flutter_map_marker_cluster: ^0.5.4
+  # flutter_map: ^1.1.1
+  # flutter_map_marker_cluster:
+  #   git:
+  #     url: https://github.com/PaulMinguet/flutter_map_marker_cluster
+  #     ref: markers_update_on_change_state # commit hash
 
-  # flutter_map_location_marker: ^4.1.4
+  flutter_map_location_marker: ^4.1.4
 
   latlong2: ^0.8.1
   geolocator: ^9.0.1
