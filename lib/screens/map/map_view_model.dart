@@ -55,6 +55,9 @@ abstract class MapViewModelBase with Store, ViewModel {
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
+  @observable
+  bool locationAllowed = false;
+
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
@@ -133,7 +136,10 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   // Dispose Methods
   @action
-  void _clearMarkerList() => treesMarkers.clear();
+  void centerOnUserIfLocationGranted(Position _) {
+    locationAllowed = true;
+    centerOnUser();
+  }
 
   void _disposeMap() {
     mapController.dispose();
@@ -162,10 +168,20 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   // Methods
   @action
-  void centerOnUserIfLocationGranted(Position _) {
-    locationAllowed = true;
-    centerOnUser();
-  }
+  void centerOnUser() =>
+      centerCurrentLocationStreamController.add(mapController.zoom);
+
+  Widget displayUserLocationIfGranted() => locationAllowed
+      ? LocationMarkerLayerWidget(
+          plugin: LocationMarkerPlugin(
+            centerAnimationCurve: Curves.easeOut,
+            centerOnLocationUpdate: centerOnLocationUpdate,
+            centerCurrentLocationStream:
+                centerCurrentLocationStreamController.stream,
+            turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
+          ),
+        )
+      : const SizedBox.shrink();
 
   @action
   void centerOnUser() =>

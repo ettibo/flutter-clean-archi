@@ -78,7 +78,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
 
                   // Center on User Button
-                  // viewModel.displayUserLocationIfGranted(),
+                  viewModel.displayUserLocationIfGranted(),
 
                   //Cluster & Popup Options
                   MarkerClusterLayerWidget(
