@@ -25,6 +25,22 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
+  late final _$locationAllowedAtom =
+      Atom(name: 'MapViewModelBase.locationAllowed', context: context);
+
+  @override
+  bool get locationAllowed {
+    _$locationAllowedAtom.reportRead();
+    return super.locationAllowed;
+  }
+
+  @override
+  set locationAllowed(bool value) {
+    _$locationAllowedAtom.reportWrite(value, super.locationAllowed, () {
+      super.locationAllowed = value;
+    });
+  }
+
   late final _$treesMarkersAtom =
       Atom(name: 'MapViewModelBase.treesMarkers', context: context);
 
@@ -62,11 +78,11 @@ mixin _$MapViewModel on MapViewModelBase, Store {
       ActionController(name: 'MapViewModelBase', context: context);
 
   @override
-  void _clearMarkerList() {
+  void centerOnUserIfLocationGranted(Position _) {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase._clearMarkerList');
+        name: 'MapViewModelBase.centerOnUserIfLocationGranted');
     try {
-      return super._clearMarkerList();
+      return super.centerOnUserIfLocationGranted(_);
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -84,11 +100,11 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   }
 
   @override
-  void centerOnUserIfLocationGranted(Position _) {
+  void centerOnUser() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase.centerOnUserIfLocationGranted');
+        name: 'MapViewModelBase.centerOnUser');
     try {
-      return super.centerOnUserIfLocationGranted(_);
+      return super.centerOnUser();
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -119,6 +135,7 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   @override
   String toString() {
     return '''
+locationAllowed: ${locationAllowed},
 locationAllowed: ${locationAllowed},
 treesMarkers: ${treesMarkers},
 popupLayerController: ${popupLayerController}
