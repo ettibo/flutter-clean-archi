@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+// import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -45,17 +45,19 @@ abstract class MapViewModelBase with Store, ViewModel {
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   final List<String> tileLayerOptionsSubdomains = ['a', 'b', 'c'];
 
-  final PopupController popupLayerController = PopupController();
-
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
+  @observable
   List<Marker> treesMarkers = [];
 
-  CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
+  @observable
+  PopupController popupLayerController = PopupController();
+
+  // CenterOnLocationUpdate centerOnLocationUpdate = CenterOnLocationUpdate.once;
 
   @override
   void init() {
@@ -106,7 +108,7 @@ abstract class MapViewModelBase with Store, ViewModel {
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
   void generateMarkers() {
-    List<Marker> newMarkers = [];
+    List<TreeMarker> newMarkers = [];
 
     for (var tree in _treeStore.trees) {
       tree.lat.let((that) {
@@ -117,40 +119,48 @@ abstract class MapViewModelBase with Store, ViewModel {
     }
 
     _clearMarkerList();
-    treesMarkers.addAll(newMarkers);
+    // treesMarkers.addAll(newMarkers);
+    treesMarkers = newMarkers;
   }
 
-  void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
+  @action
+  void updateMarkers() {
+    generateMarkers();
+    popupLayerController = PopupController();
+  }
+
+  // void centerOnUserAfterGettingLocation(Position position) => centerOnUser();
 
   void _disposeMap() {
     mapController.dispose();
     centerCurrentLocationStreamController.close();
   }
 
+  @action
   void _clearMarkerList() => treesMarkers.clear();
 
   // Methods
-  void centerOnUser() {
-    centerOnLocationUpdate = CenterOnLocationUpdate.once;
-    centerCurrentLocationStreamController.add(mapController.zoom);
-  }
+  // void centerOnUser() {
+  //   centerOnLocationUpdate = CenterOnLocationUpdate.once;
+  //   centerCurrentLocationStreamController.add(mapController.zoom);
+  // }
 
-  Widget displayCenterOnUserButton({required Widget widget}) =>
-      centerOnLocationUpdate == CenterOnLocationUpdate.never
-          ? const SizedBox.shrink()
-          : widget;
+  // Widget displayCenterOnUserButton({required Widget widget}) =>
+  //     centerOnLocationUpdate == CenterOnLocationUpdate.never
+  //         ? const SizedBox.shrink()
+  //         : widget;
 
-  Widget displayUserLocationIfGranted() =>
-      centerOnLocationUpdate == CenterOnLocationUpdate.never
-          ? const SizedBox.shrink()
-          : LocationMarkerLayerWidget(
-              plugin: LocationMarkerPlugin(
-                centerOnLocationUpdate: centerOnLocationUpdate,
-                centerCurrentLocationStream:
-                    centerCurrentLocationStreamController.stream,
-                turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-              ),
-            );
+  // Widget displayUserLocationIfGranted() =>
+  //     centerOnLocationUpdate == CenterOnLocationUpdate.never
+  //         ? const SizedBox.shrink()
+  //         : LocationMarkerLayerWidget(
+  //             plugin: LocationMarkerPlugin(
+  //               centerOnLocationUpdate: centerOnLocationUpdate,
+  //               centerCurrentLocationStream:
+  //                   centerCurrentLocationStreamController.stream,
+  //               turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
+  //             ),
+  //           );
 
   void onPressedZoomOut() {
     if (mapController.zoom != minZoom) {
@@ -167,6 +177,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   void onTapMap(TapPosition tapPosition, LatLng latLng) =>
       popupLayerController.hideAllPopups();
 
+  @action
   Widget mapPopupBuilder(BuildContext _, Marker marker) =>
       (marker is TreeMarker)
           ? TreeMarkPopup(tree: marker.tree)
