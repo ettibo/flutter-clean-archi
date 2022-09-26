@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:focus_detector/focus_detector.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -26,9 +27,8 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
-    viewModel
-        .determinePosition(context)
-        .then(viewModel.centerOnUserAfterGettingLocation);
+    viewModel.determinePosition(context);
+    // .then(viewModel.centerOnUserAfterGettingLocation);
   }
 
   @override
@@ -41,15 +41,17 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
-        child: _builder(context),
+        child: Observer(builder: _observerBuilder),
       ),
     );
   }
 
-  void _onVisibilityGained() => setState(() => viewModel.generateMarkers());
+  // void _onVisibilityGained() => setState(() => viewModel.generateMarkers());
 
-  Widget _builder(BuildContext context) => FocusDetector(
-        onVisibilityGained: _onVisibilityGained,
+  Widget _observerBuilder(BuildContext context) => FocusDetector(
+        // onVisibilityGained: _onVisibilityGained,
+        onVisibilityGained: () => viewModel.updateMarkers(),
+
         child: Column(
           children: [
             Expanded(
@@ -65,8 +67,8 @@ class _MapScreenState extends State<MapScreen> {
                   ],
                 ),
                 nonRotatedChildren: [
-                  viewModel.displayCenterOnUserButton(
-                      widget: _centerOnUserButton()),
+                  // viewModel.displayCenterOnUserButton(
+                  //     widget: _centerOnUserButton()),
                   // Zoom Buttons
                   FlutterMapZoomButtons(
                     alignment: Alignment.bottomLeft,
@@ -80,7 +82,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
 
                   // Center on User Button
-                  viewModel.displayUserLocationIfGranted(),
+                  // viewModel.displayUserLocationIfGranted(),
 
                   //Cluster & Popup Options
                   MarkerClusterLayerWidget(
@@ -113,16 +115,16 @@ class _MapScreenState extends State<MapScreen> {
         child: Text(markers.length.toString()),
       );
 
-  Widget _centerOnUserButton() => Positioned(
-        right: 20,
-        bottom: 20,
-        child: FloatingActionButton(
-          onPressed: viewModel.centerOnUser,
-          backgroundColor: Theme.of(context).primaryColor,
-          child: Icon(
-            PlatformIcons(context).location,
-            color: Theme.of(context).primaryColorDark,
-          ),
-        ),
-      );
+  // Widget _centerOnUserButton() => Positioned(
+  //       right: 20,
+  //       bottom: 20,
+  //       child: FloatingActionButton(
+  //         onPressed: viewModel.centerOnUser,
+  //         backgroundColor: Theme.of(context).primaryColor,
+  //         child: Icon(
+  //           PlatformIcons(context).location,
+  //           color: Theme.of(context).primaryColorDark,
+  //         ),
+  //       ),
+  //     );
 }
