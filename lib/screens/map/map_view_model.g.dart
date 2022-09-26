@@ -9,6 +9,22 @@ part of 'map_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$MapViewModel on MapViewModelBase, Store {
+  late final _$locationAllowedAtom =
+      Atom(name: 'MapViewModelBase.locationAllowed', context: context);
+
+  @override
+  bool get locationAllowed {
+    _$locationAllowedAtom.reportRead();
+    return super.locationAllowed;
+  }
+
+  @override
+  set locationAllowed(bool value) {
+    _$locationAllowedAtom.reportWrite(value, super.locationAllowed, () {
+      super.locationAllowed = value;
+    });
+  }
+
   late final _$treesMarkersAtom =
       Atom(name: 'MapViewModelBase.treesMarkers', context: context);
 
@@ -42,32 +58,26 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
-  late final _$centerOnLocationUpdateAtom =
-      Atom(name: 'MapViewModelBase.centerOnLocationUpdate', context: context);
-
-  @override
-  CenterOnLocationUpdate get centerOnLocationUpdate {
-    _$centerOnLocationUpdateAtom.reportRead();
-    return super.centerOnLocationUpdate;
-  }
-
-  @override
-  set centerOnLocationUpdate(CenterOnLocationUpdate value) {
-    _$centerOnLocationUpdateAtom
-        .reportWrite(value, super.centerOnLocationUpdate, () {
-      super.centerOnLocationUpdate = value;
-    });
-  }
-
   late final _$MapViewModelBaseActionController =
       ActionController(name: 'MapViewModelBase', context: context);
 
   @override
-  void updateMarkers() {
+  void _updateMarkers() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase.updateMarkers');
+        name: 'MapViewModelBase._updateMarkers');
     try {
-      return super.updateMarkers();
+      return super._updateMarkers();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void centerOnUserIfLocationGranted(Position _) {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase.centerOnUserIfLocationGranted');
+    try {
+      return super.centerOnUserIfLocationGranted(_);
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -109,9 +119,9 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   @override
   String toString() {
     return '''
+locationAllowed: ${locationAllowed},
 treesMarkers: ${treesMarkers},
-popupLayerController: ${popupLayerController},
-centerOnLocationUpdate: ${centerOnLocationUpdate}
+popupLayerController: ${popupLayerController}
     ''';
   }
 }

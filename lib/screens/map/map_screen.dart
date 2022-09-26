@@ -5,7 +5,6 @@ import 'package:focus_detector/focus_detector.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 
 import 'package:api/dependency_injection.dart';
 
@@ -29,7 +28,7 @@ class _MapScreenState extends State<MapScreen> {
     viewModel.init();
     viewModel
         .determinePosition(context)
-        .then(viewModel.centerOnUserAfterGettingLocation);
+        .then(viewModel.centerOnUserIfLocationGranted);
   }
 
   @override
@@ -47,12 +46,8 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  // void _onVisibilityGained() => setState(() => viewModel.generateMarkers());
-
   Widget _observerBuilder(BuildContext context) => FocusDetector(
-        // onVisibilityGained: _onVisibilityGained,
-        onVisibilityGained: () => viewModel.updateMarkers(),
-
+        onVisibilityGained: viewModel.onVisibilityGained,
         child: Column(
           children: [
             Expanded(
@@ -82,17 +77,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
 
                   // Center on User Button
-                  // viewModel.displayUserLocationIfGranted(),
-
-                  LocationMarkerLayerWidget(
-                    plugin: LocationMarkerPlugin(
-                      centerAnimationCurve: Curves.easeOut,
-                      centerOnLocationUpdate: viewModel.centerOnLocationUpdate,
-                      centerCurrentLocationStream: viewModel
-                          .centerCurrentLocationStreamController.stream,
-                      turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-                    ),
-                  ),
+                  viewModel.displayUserLocationIfGranted(),
 
                   //Cluster & Popup Options
                   MarkerClusterLayerWidget(
@@ -124,17 +109,4 @@ class _MapScreenState extends State<MapScreen> {
         onPressed: null,
         child: Text(markers.length.toString()),
       );
-
-  // Widget _centerOnUserButton() => Positioned(
-  //       right: 20,
-  //       bottom: 20,
-  //       child: FloatingActionButton(
-  //         onPressed: viewModel.centerOnUser,
-  //         backgroundColor: Theme.of(context).primaryColor,
-  //         child: Icon(
-  //           PlatformIcons(context).location,
-  //           color: Theme.of(context).primaryColorDark,
-  //         ),
-  //       ),
-  //     );
 }
