@@ -59,9 +59,6 @@ class _MapScreenState extends State<MapScreen> {
                   zoom: viewModel.defaultZoom,
                   maxZoom: viewModel.maxZoom,
                   onTap: viewModel.onTapMap,
-                  plugins: [
-                    MarkerClusterPlugin(),
-                  ],
                 ),
                 nonRotatedChildren: [
                   viewModel.displayCenterOnUserButton(context: context),
@@ -73,9 +70,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                 ],
                 children: <Widget>[
-                  TileLayerWidget(
-                    options: viewModel.tileLayerOptions,
-                  ),
+                  viewModel.tileLayer,
 
                   // Center on User Button
                   viewModel.displayUserLocationIfGranted(),
@@ -91,6 +86,7 @@ class _MapScreenState extends State<MapScreen> {
                       showPolygon: false,
                       builder: _clusterBuilder,
                       popupOptions: PopupOptions(
+                        popupState: viewModel.popupState,
                         popupController: viewModel.popupLayerController,
                         popupBuilder: viewModel.mapPopupBuilder,
                       ),

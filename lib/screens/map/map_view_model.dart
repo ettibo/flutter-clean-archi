@@ -53,13 +53,14 @@ abstract class MapViewModelBase with Store, ViewModel {
       CenterOnLocationUpdate.once;
 
   late MapController mapController;
-  late TileLayerOptions tileLayerOptions;
+  late TileLayer tileLayer;
+  late PopupState popupState;
 
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
   @observable
-  bool locationAllowed = false;
+  bool _locationAllowed = false;
 
   @observable
   ObservableList<Marker> treesMarkers = ObservableList();
@@ -82,6 +83,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   void _initMap() {
     mapController = MapController();
     centerCurrentLocationStreamController = StreamController<double?>();
+    popupState = PopupState();
     _initTileLayerOptions();
   }
 
@@ -112,7 +114,7 @@ abstract class MapViewModelBase with Store, ViewModel {
     return await Geolocator.getCurrentPosition();
   }
 
-  void _initTileLayerOptions() => tileLayerOptions = TileLayerOptions(
+  void _initTileLayerOptions() => tileLayer = TileLayer(
       urlTemplate: openStreetMapUrl, subdomains: tileLayerOptionsSubdomains);
 
   void _generateMarkers() {
@@ -141,6 +143,7 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   void _disposeMap() {
     mapController.dispose();
+    popupState.dispose();
     centerCurrentLocationStreamController.close();
   }
 
@@ -166,39 +169,26 @@ abstract class MapViewModelBase with Store, ViewModel {
 
   // Methods
   @action
-  void centerOnUser() =>
-      centerCurrentLocationStreamController.add(mapController.zoom);
-
-  Widget displayUserLocationIfGranted() => locationAllowed
-      ? LocationMarkerLayerWidget(
-          plugin: LocationMarkerPlugin(
-            centerAnimationCurve: Curves.easeOut,
-            centerOnLocationUpdate: centerOnLocationUpdate,
-            centerCurrentLocationStream:
-                centerCurrentLocationStreamController.stream,
-            turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-          ),
-        )
-      : const SizedBox.shrink();
+  void centerOnUserIfLocationGranted(Position _) {
+    _locationAllowed = true;
+    centerOnUser();
+  }
 
   @action
   void centerOnUser() =>
       centerCurrentLocationStreamController.add(mapController.zoom);
 
-  Widget displayUserLocationIfGranted() => locationAllowed
-      ? LocationMarkerLayerWidget(
-          plugin: LocationMarkerPlugin(
-            centerAnimationCurve: Curves.easeOut,
-            centerOnLocationUpdate: centerOnLocationUpdate,
-            centerCurrentLocationStream:
-                centerCurrentLocationStreamController.stream,
-            turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-          ),
+  Widget displayUserLocationIfGranted() => _locationAllowed
+      ? CurrentLocationLayer(
+          centerOnLocationUpdate: centerOnLocationUpdate,
+          centerCurrentLocationStream:
+              centerCurrentLocationStreamController.stream,
+          turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
         )
       : const SizedBox.shrink();
 
   Widget displayCenterOnUserButton({required BuildContext context}) =>
-      locationAllowed
+      _locationAllowed
           ? Positioned(
               right: 20,
               bottom: 20,
