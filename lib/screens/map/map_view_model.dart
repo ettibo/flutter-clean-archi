@@ -55,9 +55,6 @@ abstract class MapViewModelBase with Store, ViewModel {
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
-  @observable
-  bool locationAllowed = false;
-
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
@@ -130,8 +127,7 @@ abstract class MapViewModelBase with Store, ViewModel {
     }
 
     _clearMarkerList();
-    // treesMarkers.addAll(newMarkers);
-    treesMarkers = newMarkers;
+    treesMarkers.addAll(newMarkers);
   }
 
   // Dispose Methods
@@ -140,6 +136,8 @@ abstract class MapViewModelBase with Store, ViewModel {
     locationAllowed = true;
     centerOnUser();
   }
+
+  void _clearMarkerList() => treesMarkers.clear();
 
   void _disposeMap() {
     mapController.dispose();
