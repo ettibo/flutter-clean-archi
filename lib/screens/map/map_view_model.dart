@@ -1,10 +1,12 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:mobx/mobx.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
@@ -24,6 +26,7 @@ import 'package:globo_fitness/template/view_model/view_model.dart';
 import 'package:globo_fitness/extensions/nullable_check.dart';
 import 'package:globo_fitness/extensions/string_localized.dart';
 import 'package:globo_fitness/translations/locale_keys.g.dart';
+import 'package:globo_fitness/shared/is_dark_mode.dart';
 
 part 'map_view_model.g.dart';
 
@@ -127,28 +130,41 @@ abstract class MapViewModelBase with Store, ViewModel {
     treesMarkers = newMarkers;
   }
 
+  // Dispose Methods
   @action
-  void _updateMarkers() {
-    _generateMarkers();
-    popupLayerController = PopupController();
-  }
-
-  @action
-  void centerOnUserIfLocationGranted(Position _) {
-    locationAllowed = true;
-    centerOnUser();
-  }
+  void _clearMarkerList() => treesMarkers.clear();
 
   void _disposeMap() {
     mapController.dispose();
     centerCurrentLocationStreamController.close();
   }
 
+  // Focus Methods
   @action
-  void _clearMarkerList() => treesMarkers.clear();
+  void _updateMarkers() {
+    _generateMarkers();
+    popupLayerController = PopupController();
+  }
+
+  void onVisibilityGained(BuildContext context) {
+    if (isDarkMode(context: context)) {
+      FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+    }
+    _updateMarkers();
+  }
+
+  void onVisibilityLost(BuildContext context) {
+    if (isDarkMode(context: context)) {
+      FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
+    }
+  }
 
   // Methods
-  void onVisibilityGained() => _updateMarkers();
+  @action
+  void centerOnUserIfLocationGranted(Position _) {
+    locationAllowed = true;
+    centerOnUser();
+  }
 
   @action
   void centerOnUser() =>
@@ -207,7 +223,4 @@ abstract class MapViewModelBase with Store, ViewModel {
   FitBoundsOptions fitBoundsOptions = const FitBoundsOptions(
     padding: EdgeInsets.all(50),
   );
-
-  PolygonOptions polygonOptions =
-      const PolygonOptions(borderColor: Colors.black, borderStrokeWidth: 3);
 }

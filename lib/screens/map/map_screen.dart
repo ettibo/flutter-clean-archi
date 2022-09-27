@@ -40,6 +40,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Center(
         child: Observer(builder: _observerBuilder),
       ),
@@ -47,7 +48,8 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Widget _observerBuilder(BuildContext context) => FocusDetector(
-        onVisibilityGained: viewModel.onVisibilityGained,
+        onVisibilityGained: () => viewModel.onVisibilityGained(context),
+        onVisibilityLost: () => viewModel.onVisibilityLost(context),
         child: Column(
           children: [
             Expanded(
@@ -87,7 +89,6 @@ class _MapScreenState extends State<MapScreen> {
                       size: viewModel.clusterSize,
                       fitBoundsOptions: viewModel.fitBoundsOptions,
                       markers: viewModel.treesMarkers,
-                      polygonOptions: viewModel.polygonOptions,
                       builder: _clusterBuilder,
                       popupOptions: PopupOptions(
                         popupController: viewModel.popupLayerController,

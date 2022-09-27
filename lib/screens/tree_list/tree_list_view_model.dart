@@ -1,15 +1,17 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:mobx/mobx.dart';
 
 import 'package:api/models/app/tree/tree.dart';
-import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
 import 'package:api/strategy/fetch_strategy.dart';
 import 'package:api/dependency_injection.dart';
 import 'package:api/use_case/tree/tree_list.dart';
 import 'package:api/use_case/tree/delete_local_trees.dart';
+
+import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
 import 'package:globo_fitness/store/tree_store.dart';
 import 'package:globo_fitness/template/view_model/view_model.dart';
@@ -134,7 +136,9 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     }
   }
 
-  @action
-  void _fetchMoreTrees() =>
-      fetch(startRow: treeStore.countTreeList(), nbRows: 20);
+  void _fetchMoreTrees() {
+    isLoadingTrees = true;
+    fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
+        .then((_) => isLoadingTrees = false);
+  }
 }
