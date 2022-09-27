@@ -62,6 +62,17 @@ mixin _$MapViewModel on MapViewModelBase, Store {
       ActionController(name: 'MapViewModelBase', context: context);
 
   @override
+  void _clearMarkerList() {
+    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
+        name: 'MapViewModelBase._clearMarkerList');
+    try {
+      return super._clearMarkerList();
+    } finally {
+      _$MapViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void _updateMarkers() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
         name: 'MapViewModelBase._updateMarkers');
@@ -78,17 +89,6 @@ mixin _$MapViewModel on MapViewModelBase, Store {
         name: 'MapViewModelBase.centerOnUserIfLocationGranted');
     try {
       return super.centerOnUserIfLocationGranted(_);
-    } finally {
-      _$MapViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void _clearMarkerList() {
-    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase._clearMarkerList');
-    try {
-      return super._clearMarkerList();
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }
