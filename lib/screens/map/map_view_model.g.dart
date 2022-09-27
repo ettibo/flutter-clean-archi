@@ -25,22 +25,6 @@ mixin _$MapViewModel on MapViewModelBase, Store {
     });
   }
 
-  late final _$locationAllowedAtom =
-      Atom(name: 'MapViewModelBase.locationAllowed', context: context);
-
-  @override
-  bool get locationAllowed {
-    _$locationAllowedAtom.reportRead();
-    return super.locationAllowed;
-  }
-
-  @override
-  set locationAllowed(bool value) {
-    _$locationAllowedAtom.reportWrite(value, super.locationAllowed, () {
-      super.locationAllowed = value;
-    });
-  }
-
   late final _$treesMarkersAtom =
       Atom(name: 'MapViewModelBase.treesMarkers', context: context);
 
@@ -135,7 +119,6 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   @override
   String toString() {
     return '''
-locationAllowed: ${locationAllowed},
 locationAllowed: ${locationAllowed},
 treesMarkers: ${treesMarkers},
 popupLayerController: ${popupLayerController}
