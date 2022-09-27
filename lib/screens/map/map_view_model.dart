@@ -55,14 +55,14 @@ abstract class MapViewModelBase with Store, ViewModel {
   late MapController mapController;
   late TileLayerOptions tileLayerOptions;
 
-  @observable
-  bool locationAllowed = false;
-
   StreamController<double?> centerCurrentLocationStreamController =
       StreamController<double?>();
 
   @observable
-  List<Marker> treesMarkers = [];
+  bool locationAllowed = false;
+
+  @observable
+  ObservableList<Marker> treesMarkers = ObservableList();
 
   @observable
   PopupController popupLayerController = PopupController();
@@ -127,7 +127,7 @@ abstract class MapViewModelBase with Store, ViewModel {
     }
 
     _clearMarkerList();
-    treesMarkers = newMarkers;
+    treesMarkers.addAll(newMarkers);
   }
 
   // Dispose Methods
