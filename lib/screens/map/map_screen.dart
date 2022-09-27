@@ -89,6 +89,7 @@ class _MapScreenState extends State<MapScreen> {
                       size: viewModel.clusterSize,
                       fitBoundsOptions: viewModel.fitBoundsOptions,
                       markers: viewModel.treesMarkers,
+                      showPolygon: false,
                       builder: _clusterBuilder,
                       popupOptions: PopupOptions(
                         popupController: viewModel.popupLayerController,
