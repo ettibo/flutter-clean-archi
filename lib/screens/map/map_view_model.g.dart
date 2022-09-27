@@ -29,13 +29,13 @@ mixin _$MapViewModel on MapViewModelBase, Store {
       Atom(name: 'MapViewModelBase.treesMarkers', context: context);
 
   @override
-  List<Marker> get treesMarkers {
+  ObservableList<Marker> get treesMarkers {
     _$treesMarkersAtom.reportRead();
     return super.treesMarkers;
   }
 
   @override
-  set treesMarkers(List<Marker> value) {
+  set treesMarkers(ObservableList<Marker> value) {
     _$treesMarkersAtom.reportWrite(value, super.treesMarkers, () {
       super.treesMarkers = value;
     });
