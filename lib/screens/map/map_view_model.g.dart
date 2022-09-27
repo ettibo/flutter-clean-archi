@@ -9,19 +9,19 @@ part of 'map_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$MapViewModel on MapViewModelBase, Store {
-  late final _$locationAllowedAtom =
-      Atom(name: 'MapViewModelBase.locationAllowed', context: context);
+  late final _$_locationAllowedAtom =
+      Atom(name: 'MapViewModelBase._locationAllowed', context: context);
 
   @override
-  bool get locationAllowed {
-    _$locationAllowedAtom.reportRead();
-    return super.locationAllowed;
+  bool get _locationAllowed {
+    _$_locationAllowedAtom.reportRead();
+    return super._locationAllowed;
   }
 
   @override
-  set locationAllowed(bool value) {
-    _$locationAllowedAtom.reportWrite(value, super.locationAllowed, () {
-      super.locationAllowed = value;
+  set _locationAllowed(bool value) {
+    _$_locationAllowedAtom.reportWrite(value, super._locationAllowed, () {
+      super._locationAllowed = value;
     });
   }
 
@@ -84,11 +84,11 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   }
 
   @override
-  void centerOnUser() {
+  void centerOnUserIfLocationGranted(Position _) {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase.centerOnUser');
+        name: 'MapViewModelBase.centerOnUserIfLocationGranted');
     try {
-      return super.centerOnUser();
+      return super.centerOnUserIfLocationGranted(_);
     } finally {
       _$MapViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -119,7 +119,6 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   @override
   String toString() {
     return '''
-locationAllowed: ${locationAllowed},
 treesMarkers: ${treesMarkers},
 popupLayerController: ${popupLayerController}
     ''';
