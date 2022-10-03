@@ -136,9 +136,7 @@ abstract class TreeListViewModelBase with Store, ViewModel {
     }
   }
 
-  void _fetchMoreTrees() {
-    isLoadingTrees = true;
-    fetch(startRow: treeStore.countTreeList() + 1, nbRows: 20)
-        .then((_) => isLoadingTrees = false);
-  }
+  @action
+  void _fetchMoreTrees() =>
+      fetch(startRow: treeStore.countTreeList(), nbRows: 20);
 }
