@@ -26,8 +26,9 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     viewModel.init();
-    viewModel.determinePosition(context);
-    // .then(viewModel.centerOnUserAfterGettingLocation);
+    viewModel
+        .determinePosition(context)
+        .then(viewModel.centerOnUserIfLocationGranted);
   }
 
   @override

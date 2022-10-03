@@ -84,17 +84,6 @@ mixin _$MapViewModel on MapViewModelBase, Store {
   }
 
   @override
-  void centerOnUserIfLocationGranted(Position _) {
-    final _$actionInfo = _$MapViewModelBaseActionController.startAction(
-        name: 'MapViewModelBase.centerOnUserIfLocationGranted');
-    try {
-      return super.centerOnUserIfLocationGranted(_);
-    } finally {
-      _$MapViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void centerOnUser() {
     final _$actionInfo = _$MapViewModelBaseActionController.startAction(
         name: 'MapViewModelBase.centerOnUser');

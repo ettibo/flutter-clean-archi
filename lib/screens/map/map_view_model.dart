@@ -9,7 +9,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 import 'package:flutter_map/flutter_map.dart';
-// import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -135,7 +135,7 @@ abstract class MapViewModelBase with Store, ViewModel {
   // Dispose Methods
   @action
   void centerOnUserIfLocationGranted(Position _) {
-    locationAllowed = true;
+    _locationAllowed = true;
     centerOnUser();
   }
 
@@ -168,12 +168,6 @@ abstract class MapViewModelBase with Store, ViewModel {
   }
 
   // Methods
-  @action
-  void centerOnUserIfLocationGranted(Position _) {
-    _locationAllowed = true;
-    centerOnUser();
-  }
-
   @action
   void centerOnUser() =>
       centerCurrentLocationStreamController.add(mapController.zoom);
