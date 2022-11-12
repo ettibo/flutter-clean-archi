@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
@@ -6,17 +5,9 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:overlay_support/overlay_support.dart';
 
-import 'package:firebase_core/firebase_core.dart';
-import 'package:globo_fitness/firebase/green_firebase_options.dart'
-    as green_firebase_options;
-import 'package:globo_fitness/firebase/brown_firebase_options.dart'
-    as brown_firebase_options;
-
 import 'package:globo_fitness/navigation/app_router.dart';
 
 import 'package:globo_fitness/managers/connectionManager/activate_connection_manager.dart';
-import 'package:globo_fitness/managers/remote_config_manager.dart';
-import 'package:globo_fitness/managers/crash_manager.dart';
 import 'package:globo_fitness/injection/app_injection.dart';
 
 import 'package:globo_fitness/app_config.dart';
@@ -24,7 +15,6 @@ import 'package:globo_fitness/translations/codegen_loader.g.dart';
 
 Future<Widget> initializeApp(AppConfig appConfig) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await _firebaseInitializer(appConfig.flavorName);
   await setupInjectionDependencies();
   await EasyLocalization.ensureInitialized();
   _activateManagers();
@@ -79,27 +69,6 @@ class GlobeApp extends StatelessWidget {
       });
 }
 
-Future<void> _firebaseInitializer(FlavorName flavorName) async {
-  FirebaseOptions? firebaseOption;
-
-  switch (flavorName) {
-    case FlavorName.brown:
-      firebaseOption =
-          brown_firebase_options.DefaultFirebaseOptions.currentPlatform;
-      break;
-    case FlavorName.green:
-      firebaseOption =
-          green_firebase_options.DefaultFirebaseOptions.currentPlatform;
-      break;
-  }
-  await Firebase.initializeApp(options: firebaseOption);
-}
-
 void _activateManagers() {
   activateConnectionManager();
-  activateRemoteConfig();
-
-  if (!kIsWeb) {
-    activateCrashReportIfEnabled();
-  }
 }

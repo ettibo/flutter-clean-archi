@@ -53,7 +53,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _switchThemeSection(),
-              viewModel.getCrashlyticsWidget(context),
               _switchLanguageSection(),
             ],
           ),

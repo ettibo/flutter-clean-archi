@@ -12,6 +12,3 @@ key.properties
 **/*.keystore
 **/*.jks
 
-# Firebase
-/app/src/green/google-services.json
-/app/src/brown/google-services.json
