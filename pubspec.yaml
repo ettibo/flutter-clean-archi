@@ -53,8 +53,6 @@ dependencies:
   latlong2: ^0.8.1
   geolocator: ^9.0.1
 
-  firebase_core: ^1.21.1
-
   flutter_phoenix: ^1.1.0
 
   connectivity_plus: ^2.3.6+1
@@ -98,7 +96,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/default_values/remote_config_default_values.json
     - assets/translations/
   #   - images/a_dot_ham.jpeg
 

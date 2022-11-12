@@ -6,7 +6,6 @@ import 'ressources/theme/brown/theme_brown_light.dart';
 import 'ressources/theme/brown/theme_brown_dark.dart';
 
 void main() async {
-  
   final appConfig = AppConfig(
       appTitle: 'Les Arbres Marrons',
       lightTheme: brownLightTheme,

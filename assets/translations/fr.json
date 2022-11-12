@@ -67,14 +67,6 @@
         "french_langage": "Français"
     },
 
-    "crash_manager" : {
-        "activated_label" : "Le Gestionnaire de crash est activé :"
-    },
-
-    "remote_config": {
-        "key_label_force_language_setting" : "Valeure par défaut de remote config"
-    },
-
     "toast_message": {
         "success_connexion_message": "Vous êtes connécté à internet",
         "error_connexion_message": "Vous n'êtes pas connécté à internet"

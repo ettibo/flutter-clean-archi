@@ -25,23 +25,6 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
     });
   }
 
-  late final _$_isCrashManagerEnabledAtom = Atom(
-      name: 'SettingsViewModelBase._isCrashManagerEnabled', context: context);
-
-  @override
-  bool get _isCrashManagerEnabled {
-    _$_isCrashManagerEnabledAtom.reportRead();
-    return super._isCrashManagerEnabled;
-  }
-
-  @override
-  set _isCrashManagerEnabled(bool value) {
-    _$_isCrashManagerEnabledAtom
-        .reportWrite(value, super._isCrashManagerEnabled, () {
-      super._isCrashManagerEnabled = value;
-    });
-  }
-
   late final _$SettingsViewModelBaseActionController =
       ActionController(name: 'SettingsViewModelBase', context: context);
 
@@ -51,17 +34,6 @@ mixin _$SettingsViewModel on SettingsViewModelBase, Store {
         name: 'SettingsViewModelBase._setCurrentTheme');
     try {
       return super._setCurrentTheme();
-    } finally {
-      _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void _initIsCrashManagerEnabled() {
-    final _$actionInfo = _$SettingsViewModelBaseActionController.startAction(
-        name: 'SettingsViewModelBase._initIsCrashManagerEnabled');
-    try {
-      return super._initIsCrashManagerEnabled();
     } finally {
       _$SettingsViewModelBaseActionController.endAction(_$actionInfo);
     }

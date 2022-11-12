@@ -76,12 +76,6 @@ class CodegenLoader extends AssetLoader{
     "spanish_langage": "Spanish",
     "french_langage": "French"
   },
-  "crash_manager": {
-    "activated_label": "Crash manager is activated:"
-  },
-  "remote_config": {
-    "key_label_force_language_setting": "Default value from remote config"
-  },
   "toast_message": {
     "success_connexion_message": "You are connected to the internet",
     "error_connexion_message": "You are not connected to the internet"
@@ -148,12 +142,6 @@ static const Map<String,dynamic> fr = {
     "english_langage": "Anglais",
     "spanish_langage": "Espagnol",
     "french_langage": "Français"
-  },
-  "crash_manager": {
-    "activated_label": "Le Gestionnaire de crash est activé :"
-  },
-  "remote_config": {
-    "key_label_force_language_setting": "Valeure par défaut de remote config"
   },
   "toast_message": {
     "success_connexion_message": "Vous êtes connécté à internet",
