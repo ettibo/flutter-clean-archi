@@ -1,5 +1,5 @@
 import 'package:data/local_storage/local_storage.dart';
-import 'package:objectbox/internal.dart';
+//import 'package:objectbox/internal.dart';
 
 class LocalStorageImpl implements LocalStorage {
   LocalStorageImpl._create();
@@ -20,10 +20,7 @@ class LocalStorageImpl implements LocalStorage {
 
   @override
   List<T> getItems<T, U>(
-          {int startRow = 0,
-          int nbRows = 20,
-          QueryProperty<T, U>? orderProperty,
-          int orderFlags = 0}) =>
+          {int startRow = 0, int nbRows = 20, int orderFlags = 0}) =>
       [];
 
   @override

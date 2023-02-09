@@ -8,4 +8,5 @@ class LocalTree {
   int? circumference;
   double? lat;
   double? lng;
+  int? insertedAt;
 }

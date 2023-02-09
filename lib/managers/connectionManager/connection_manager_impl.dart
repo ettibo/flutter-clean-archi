@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:globo_fitness/managers/connectionManager/connection_manager.dart';
 
@@ -36,5 +37,5 @@ class ConnectionManagerImpl implements ConnectionManager {
   void dispose() => _connectionChangeController.close();
 
   @override
-  bool hasInternetConnection() => _hasConnection;
+  bool hasInternetConnection() => kIsWeb ? true : _hasConnection;
 }

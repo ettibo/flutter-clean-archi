@@ -4,7 +4,7 @@ import 'package:api/dependency_injection.dart';
 import 'package:api/data_source/tree/local_tree_data_source.dart';
 import 'package:api/models/app/tree/tree.dart';
 
-import 'package:data/models/local/object_box/objectbox.g.dart';
+//import 'package:data/models/local/object_box/objectbox.g.dart';
 import 'package:data/local_storage/local_storage.dart';
 import 'package:data/models/domain/tree/tree_domain.dart';
 import 'package:data/models/local/tree/local_tree.dart'
@@ -21,7 +21,6 @@ class LocalTreeDataSourceImpl implements LocalTreeDataSource {
       List<LocalTree> list = localStorage.getItems(
         startRow: startRow,
         nbRows: nbRows,
-        orderProperty: LocalTree_.insertedAt,
       );
 
       for (var item in list) {
